@@ -53,3 +53,24 @@
     font-family: 'TTHovesThin'; /* Custom font name */
     src: url('./fonts/TT-Hoves-Font/TT\ Hoves\ Pro\ Trial\ Thin.ttf') format('truetype'); /* Path to your font file */
 }
+
+/* Scroll Bar */
+.custom-scrollbar::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: #f0f0f0;
+    border-radius: 10px;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background-color: #888;
+    border-radius: 10px;
+    border: 2px solid #f0f0f0; /* Adds space between thumb and track */
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background-color: #555;
+  }
+  

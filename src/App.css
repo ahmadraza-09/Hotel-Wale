@@ -1,0 +1,55 @@
+/* Trip Sas */
+@font-face {
+    font-family: 'TripSansBold'; /* Custom font name */
+    src: url('./fonts/Trip-Sans-Font/trip-sans-bold.otf') format('truetype'); /* Path to your font file */
+}
+@font-face {
+    font-family: 'TripSansMedium'; /* Custom font name */
+    src: url('./fonts/Trip-Sans-Font/trip-sans-medium.otf') format('truetype'); /* Path to your font file */
+}
+@font-face {
+    font-family: 'TripSansMonoRegular'; /* Custom font name */
+    src: url('./fonts/Trip-Sans-Font/trip-sans-mono-regular.otf') format('truetype'); /* Path to your font file */
+}
+@font-face {
+    font-family: 'TripSansUltra'; /* Custom font name */
+    src: url('./fonts/Trip-Sans-Font/trip-sans-ultra.otf') format('truetype'); /* Path to your font file */
+}
+@font-face {
+    font-family: 'TripSansVariable'; /* Custom font name */
+    src: url('./fonts/Trip-Sans-Font/trip-sans-variable.ttf') format('truetype'); /* Path to your font file */
+}
+@font-face {
+    font-family: 'TripSans'; /* Custom font name */
+    src: url('./fonts/Trip-Sans-Font/trip-sans.otf') format('truetype'); /* Path to your font file */
+}
+
+/* TT Hoves */
+@font-face {
+    font-family: 'TTHovesRegular'; /* Custom font name */
+    src: url('./fonts/TT-Hoves-Font/TT\ Hoves\ Pro\ Trial\ Regular.ttf') format('truetype'); /* Path to your font file */
+}
+@font-face {
+    font-family: 'TTHovesBold'; /* Custom font name */
+    src: url('./fonts/TT-Hoves-Font/TT\ Hoves\ Pro\ Trial\ Bold.ttf') format('truetype'); /* Path to your font file */
+}
+@font-face {
+    font-family: 'TTHovesBlack'; /* Custom font name */
+    src: url('./fonts/TT-Hoves-Font/TT\ Hoves\ Pro\ Trial\ Black.ttf') format('truetype'); /* Path to your font file */
+}
+@font-face {
+    font-family: 'TTHovesExtraBold'; /* Custom font name */
+    src: url('./fonts/TT-Hoves-Font/TT\ Hoves\ Pro\ Trial\ ExtraBold.ttf') format('truetype'); /* Path to your font file */
+}
+@font-face {
+    font-family: 'TTHovesLight'; /* Custom font name */
+    src: url('./fonts/TT-Hoves-Font/TT\ Hoves\ Pro\ Trial\ Light.ttf') format('truetype'); /* Path to your font file */
+}
+@font-face {
+    font-family: 'TTHovesMedium'; /* Custom font name */
+    src: url('./fonts/TT-Hoves-Font/TT\ Hoves\ Pro\ Trial\ Medium.ttf') format('truetype'); /* Path to your font file */
+}
+@font-face {
+    font-family: 'TTHovesThin'; /* Custom font name */
+    src: url('./fonts/TT-Hoves-Font/TT\ Hoves\ Pro\ Trial\ Thin.ttf') format('truetype'); /* Path to your font file */
+}

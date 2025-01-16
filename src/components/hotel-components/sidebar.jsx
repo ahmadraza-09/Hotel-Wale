@@ -26,7 +26,7 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
 
       {/* Sidebar */}
       <div
-        className={`fixed top-15 left-0 h-full w-64 bg-white text-black transform rounded-sm ${showScrollbar ? 'overflow-y-scroll' : 'overflow-hidden'
+        className={`fixed top-15 left-0 h-full w-64 bg-white text-black transform font-TTHovesRegular rounded-sm ${showScrollbar ? 'overflow-y-scroll' : 'overflow-hidden'
           } pb-52 ${isOpen ? 'translate-x-0' : '-translate-x-full'
           } transition-transform duration-300 ease-in-out z-20 shadow-md custom-scrollbar`}
         onMouseEnter={() => setShowScrollbar(true)}

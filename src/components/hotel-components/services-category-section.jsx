@@ -16,7 +16,7 @@ const ServicesCategorySection = () => {
 
     // Function to scroll horizontally
     function scrollHorizontally(direction) {
-        const container = document.querySelector(".overflow-x-auto");
+        const container = document.querySelector(".category-container");
         const scrollAmount = direction === "prev" ? -300 : 300; // Adjust scroll amount
         container.scrollBy({ left: scrollAmount, behavior: "smooth" });
     }
@@ -29,12 +29,12 @@ const ServicesCategorySection = () => {
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
         >
-            <h2 className="text-center sm:text-start text-2xl font-semibold mb-6 font-TTHovesRegular ml-10">Discover your new favourite stay</h2>
-            <div className="overflow-x-auto flex gap-4 py-4 hide-scrollbar max-w-6xl m-auto">
+            <h2 className="text-center sm:text-start text-xl sm:text-2xl mb-6 font-TTHovesMedium sm:ml-10">Discover your new favourite stay</h2>
+            <div className="overflow-x-auto category-container flex gap-4 py-4 hide-scrollbar max-w-6xl m-auto">
                 {categories.map((category, index) => (
                     <div
                         key={index}
-                        className="flex-shrink-0 w-[230px] h-[300px] rounded-2xl overflow-hidden relative cursor-pointer"
+                        className="flex-shrink-0 w-[180px] h-[250px] sm:w-[230px] sm:h-[300px] rounded-2xl overflow-hidden relative cursor-pointer"
                     >
                         <img
                             src={category.img || defaultImage}

@@ -26,6 +26,12 @@ export default {
         TTHovesThin: ['TTHovesThin', 'sans-serif'], // Define your font family
 
       },
+      colors: {
+        myColor: '#D64014', // Add your custom color here
+      },
+      boxShadow: {
+        custom: "rgba(25, 32, 36, 0.16) 0px 3px 6px 0px, rgba(25, 32, 36, 0.04) 0px -1px 4px 0px",
+      },
     },
   },
   plugins: [],

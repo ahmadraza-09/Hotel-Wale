@@ -16,7 +16,7 @@ const Hero = () => {
                 {/* Tabs */}
                 <div className="flex justify-around sm:justify-start sm:gap-10 mb-6 py-5">
                     {/* Flights */}
-                    <div className="flex flex-col gap-2 justify-center items-center">
+                    {/* <div className="flex flex-col gap-2 justify-center items-center">
                         <button className="w-[52px] h-[52px] py-2 px-4 bg-white shadow-custom text-gray-800 rounded-md hover:bg-myColor hover:text-white focus:bg-myColor focus:text-white active:bg-myColor active:text-white">
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
@@ -31,7 +31,7 @@ const Hero = () => {
                             </svg>
                         </button>
                         <span className="font-TTHovesRegular text-sm text-center">Flights</span>
-                    </div>
+                    </div> */}
 
                     {/* Hotels */}
                     <div className="flex flex-col gap-2 justify-center items-center">
@@ -86,6 +86,8 @@ const Hero = () => {
                         </button>
                         <span className="font-TTHovesRegular text-sm text-center">Car Rental</span>
                     </div>
+
+                
 
                 </div>
 

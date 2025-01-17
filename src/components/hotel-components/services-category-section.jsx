@@ -4,14 +4,14 @@ const ServicesCategorySection = () => {
     const [isHovered, setIsHovered] = useState(false);
 
     const categories = [
-        { title: "All inclusive", img: null }, // No image provided
-        { title: "Spa", img: null },
-        { title: "Cabin", img: null },
-        { title: "Apart hotel", img: null },
-        { title: "Pet friendly", img: null },
-        { title: "Pet friendly", img: null },
-        { title: "Pet friendly", img: null },
-        { title: "Pet friendly", img: null },
+        { title: "Hotel", img: 'https://seaprincess.com/cdn/uploads/Deluxe-Room-12.jpg' }, // No image provided
+        { title: "Resort", img: 'https://media.cntraveler.com/photos/53da60a46dec627b149e66f4/master/pass/hilton-moorea-lagoon-resort-spa-moorea-french-poly--110160-1.jpg' },
+        { title: "Family Freindly", img: 'https://media.istockphoto.com/id/1442607457/photo/happy-family-on-a-video-call-with-grandmother.jpg?s=612x612&w=0&k=20&c=ACJ6BGFwzE_7Hy_MrbeIe5k_L9JO3c37uunZphswT-Q=' },
+        { title: "Villa", img: 'https://www.zeysey.com/storage/image/blog/01J2V8NZ8KFK88H0WER7D0KTWS.jpg' },
+        { title: "Houseboat", img: 'https://lakequeenhouseboats.com/wp-content/uploads/2024/11/6-Bed-Room-Ultra-Luxury-Houseboat-scaled-1.webp' },
+        { title: "Apartment", img: 'https://images.ctfassets.net/pg6xj64qk0kh/14eEN8wOI3muLPnrCb3SkF/09a58cab0d0775d34870e6921eba875b/Camden-Durham-Apartments-Durham-NC-Pool-with-Grilling-Stations.jpg' },
+        { title: "Pet friendly", img: 'https://imageio.forbes.com/specials-images/imageserve/6736704b67bd939a491927f1/dog-and-owner-at-a-hotel-room-with-a-doggy-bed--water-bowl-and-treats/960x0.jpg?height=473&width=711&fit=bounds' },
+        { title: "Pool", img: 'https://www.parcjeandrapeau.com/medias/images/divers/complexe-aquatique/bain-libre-baignade-en-famille-piscine-recreative-complexe-aquatique-parc-jean-drapeau-montreal.jpg' },
     ];
 
     // Function to scroll horizontally
@@ -53,7 +53,7 @@ const ServicesCategorySection = () => {
             {isHovered && (
                 <>
                     <button
-                        className="absolute left-8 top-64 transform -translate-y-1/2 bg-white p-2 rounded-full shadow-lg cursor-pointer"
+                        className="absolute left-8 top-64 transform -translate-y-1/2 bg-white p-2 rounded-full shadow-lg cursor-pointer hidden sm:inline-flex"
                         onClick={() => scrollHorizontally("prev")}
                     >
                         <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 text-gray-800" viewBox="0 0 20 20" fill="currentColor">
@@ -61,7 +61,7 @@ const ServicesCategorySection = () => {
                         </svg>
                     </button>
                     <button
-                        className="absolute right-8 top-64 transform -translate-y-1/2 bg-white p-2 rounded-full shadow-lg cursor-pointer"
+                        className="absolute right-8 top-64 transform -translate-y-1/2 bg-white p-2 rounded-full shadow-lg cursor-pointer hidden sm:inline-flex"
                         onClick={() => scrollHorizontally("next")}
                     >
                         <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 text-gray-800" viewBox="0 0 20 20" fill="currentColor">

@@ -1,22 +1,21 @@
 import React, { useState } from 'react';
 
-const PopularDestinationSection = () => {
+const EcoRetreatPopularDestination = () => {
     const [isHovered, setIsHovered] = useState(false);
 
     const categories = [
-        { title: "Corbett", state: "Uttrakhand, India", img: 'https://cf.bstatic.com/xdata/images/hotel/max1024x768/464017962.jpg?k=5e22249570708eb8628a2ff6cd60348373da2f4f8f24f25b45a432387a9e6490&o=&hp=1' }, // No image provided
-        { title: "Nainital", state: "Uttrakhand, India", img: 'https://s3.india.com/wp-content/uploads/2024/06/10-Fascinating-Facts-About-Nainital.jpg' },
-        { title: "Manali", state: "Himachal Pradesh, India", img: 'https://www.clubmahindra.com/blog/media/section_images/blog-topic-6530ecb63a76c89.jpg' },
-        { title: "Shimla", state: "Himachal Pradesh, India", img: 'https://s7ap1.scene7.com/is/image/incredibleindia/cityscape-of-shimla-himachal-pradesh-city-1-hero?qlt=82&ts=1726730693575' },
-        { title: "New Delhi", state: "Delhi, India", img: null },
-        { title: "Bhubaneshwar", state: "Odisha, India", img: 'https://bhubaneswartourism.in/images/v2/places-to-visit-in-bhubaneswar/places-to-visit-in-bhubaneswar-odisha-india.jpg' },
-        { title: "Puri", state: "Odisha, India", img: 'https://resize.indiatvnews.com/en/resize/newbucket/1200_-/2021/08/purijagannath-pti-1628089644.jpg' },
-        { title: "Cuttack", state: "Odisha, India", img: 'https://s7ap1.scene7.com/is/image/incredibleindia/2-barabati-stadium-cuttack-odisha-city-hero?qlt=82&ts=1726663590322' },
+        { title: "Eco Retreat Konark", state: "Odisha, India", img: 'https://ecoretreatodisha.in/static/media/konark6.1f3ae39aa5e6de64d68b.jpg' }, // No image provided
+        { title: "Eco Retreat Satkosia", state: "Odisha, India", img: 'https://ecoretreatodisha.in/static/media/satkosia9.fc63600c297f538841fd.jpg' },
+        { title: "Eco Retreat Putsil", state: "Odisha, India", img: 'https://ecoretreatodisha.in/static/media/putsil1.fd3edc14980b77fcdd51.jpg' },
+        { title: "Eco Retreat Sonapur", state: "Odisha, India", img: 'https://ecoretreatodisha.in/static/media/sonapur5.71c5b51d20120affd70a.jpg' },
+        { title: "Eco Retreat Daringbadi", state: "Odisha, India", img: 'https://ecoretreatodisha.in/static/media/daringbadi2.d007045721e085128ac3.jpg' },
+        { title: "Eco Retreat Hirakud", state: "Odisha, India", img: 'https://ecoretreatodisha.in/static/media/hirakud1.9839b07b9cdab1d4d39e.jpg' },
+        { title: "Eco Retreat Bhitarkanika", state: "Odisha, India", img: 'https://ecoretreatodisha.in/static/media/bhitarkanika2.3f71c0db3a3a6f11e158.jpg' },
     ];
 
     // Function to scroll horizontally
     function scrollHorizontally(direction) {
-        const container = document.querySelector(".destination-container");
+        const container = document.querySelector(".eco-retreat-container");
         const scrollAmount = direction === "prev" ? -300 : 300; // Adjust scroll amount
         container.scrollBy({ left: scrollAmount, behavior: "smooth" });
     }
@@ -29,8 +28,8 @@ const PopularDestinationSection = () => {
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
         >
-            <h2 className="text-center sm:text-start text-xl sm:text-2xl mb-6 font-TTHovesMedium sm:ml-10">Explore stays in popular destinations</h2>
-            <div className="overflow-x-auto destination-container flex gap-4 py-4 hide-scrollbar max-w-6xl m-auto scroll-smooth">
+            <h2 className="text-center sm:text-start text-xl sm:text-2xl mb-6 font-TTHovesMedium sm:ml-10">Explore Eco Retreat Odisha in popular destinations</h2>
+            <div className="overflow-x-auto eco-retreat-container flex gap-4 py-4 hide-scrollbar max-w-6xl m-auto scroll-smooth">
                 {categories.map((category, index) => (
                     <div
                         key={index}
@@ -77,4 +76,4 @@ const PopularDestinationSection = () => {
 
 };
 
-export default PopularDestinationSection;
+export default EcoRetreatPopularDestination;

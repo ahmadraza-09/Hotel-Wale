@@ -1,0 +1,82 @@
+{
+    "cities": [
+      {
+        "city": "Delhi",
+        "hotels": [
+          {
+            "name": "The Oberoi, New Delhi",
+            "address": "Dr. Zakir Hussain Marg, Diplomatic Enclave, New Delhi, 110003",
+            "star_rating": 5,
+            "amenities": ["Spa", "Restaurant", "Bar", "Swimming Pool", "Gym"],
+            "imageUrl": "https://149345965.v2.pressablecdn.com/wp-content/uploads/img-hotels-IADGV_006-Dusk-Exterior-home.jpg" 
+          },
+          {
+            "name": "The Leela Palace New Delhi",
+            "address": "Diplomatic Enclave, Chanakyapuri, New Delhi, 110021",
+            "star_rating": 5,
+            "amenities": ["Spa", "Restaurant", "Bar", "Swimming Pool", "Business Center"],
+            "imageUrl": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/17/2b/c9/a6/the-leela-palace-new-delhi.jpg?w=700&h=-1&s=1"
+          },
+          {
+            "name": "The Taj Mahal Hotel, New Delhi",
+            "address": "Man Singh Road, New Delhi, 110011",
+            "star_rating": 5,
+            "amenities": ["Spa", "Restaurant", "Bar", "Swimming Pool", "Concierge"],
+            "imageUrl": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/18/d4/68/56/exterior-view.jpg?w=700&h=-1&s=1"
+          }
+        ]
+      },
+      {
+        "city": "Mumbai",
+        "hotels": [
+          {
+            "name": "The Taj Mahal Palace, Mumbai",
+            "address": "Apollo Bunder, Colaba, Mumbai, Maharashtra 400001",
+            "star_rating": 5,
+            "amenities": ["Spa", "Restaurant", "Bar", "Swimming Pool", "Sea View"],
+            "imageUrl": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/19/2c/1a/8a/the-oberoi-new-delhi.jpg?w=700&h=-1&s=1" 
+          },
+          {
+            "name": "The Oberoi, Mumbai",
+            "address": "Nariman Point, Mumbai, Maharashtra 400021",
+            "star_rating": 5,
+            "amenities": ["Spa", "Restaurant", "Bar", "Swimming Pool", "Gym"],
+            "imageUrl": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/17/2b/c9/a6/the-leela-palace-new-delhi.jpg?w=700&h=-1&s=1" 
+          },
+          {
+            "name": "The Trident, Mumbai",
+            "address": "BKC, Bandra Kurla Complex, Mumbai, Maharashtra 400051",
+            "star_rating": 5,
+            "amenities": ["Spa", "Restaurant", "Bar", "Swimming Pool", "Business Center"],
+            "imageUrl": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/18/d4/68/56/exterior-view.jpg?w=700&h=-1&s=1" 
+          }
+        ]
+      },
+      {
+        "city": "Jaipur",
+        "hotels": [
+          {
+            "name": "The Oberoi Rajvilas, Jaipur",
+            "address": "Goner Road, Jaipur, Rajasthan 302027",
+            "star_rating": 5,
+            "amenities": ["Spa", "Restaurant", "Bar", "Swimming Pool", "Elephant Rides"],
+            "imageUrl": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/19/2c/1a/8a/the-oberoi-new-delhi.jpg?w=700&h=-1&s=1" 
+          },
+          {
+            "name": "Rambagh Palace, Jaipur",
+            "address": "Bageshwar Circle, Bikaner Road, Jaipur, Rajasthan 302005",
+            "star_rating": 5,
+            "amenities": ["Spa", "Restaurant", "Bar", "Swimming Pool", "Royal Heritage"],
+            "imageUrl": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/17/2b/c9/a6/the-leela-palace-new-delhi.jpg?w=700&h=-1&s=1" 
+          },
+          {
+            "name": "Jai Mahal Palace, Jaipur",
+            "address": "Jaipur, Rajasthan 302006",
+            "star_rating": 5,
+            "amenities": ["Spa", "Restaurant", "Bar", "Swimming Pool", "Garden"],
+            "imageUrl": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/18/d4/68/56/exterior-view.jpg?w=700&h=-1&s=1" 
+          }
+        ]
+      }
+    ]
+  }

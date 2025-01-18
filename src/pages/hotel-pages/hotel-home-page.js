@@ -1,20 +1,22 @@
 import React from "react";
 import Navbar from "../../components/navbar";
 import Footer from "../../components/footer";
-import BusHero from "../../components/bus-components/bus-hero";
+import HotelHero from "../../components/hotel-components/hotel-hero";
 import ServicesCategorySection from "../../components/services-category-section";
+import HotelPopularDestinationSection from "../../components/hotel-components/hotel-popular-destination-section";
 
 
-const BusHomePage = () => {
+const HotelHomePage = () => {
 
     return (
         <>
             {<Navbar/>}
-            {<BusHero/>}
+            {<HotelHero/>}
             {<ServicesCategorySection/>}
+            {<HotelPopularDestinationSection/>}
             {<Footer/>}
         </>
     );
 };
 
-export default BusHomePage;
+export default HotelHomePage;

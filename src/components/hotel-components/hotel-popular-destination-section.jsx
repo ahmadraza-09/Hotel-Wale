@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
+import { useNavigate } from "react-router-dom";
 
-const PopularDestinationSection = () => {
+const HotelPopularDestinationSection = () => {
+
+    const navigate = useNavigate();
+
     const [isHovered, setIsHovered] = useState(false);
 
     const categories = [
@@ -35,6 +39,9 @@ const PopularDestinationSection = () => {
                     <div
                         key={index}
                         className="flex-shrink-0 w-[250px] h-[230px] rounded-2xl overflow-hidden relative cursor-pointer border-[1px]"
+                        onClick={() => {
+                            navigate("/hotels-in-nainital");
+                          }}
                     >
                         <div className='w-full h-34 overflow-hidden'>
                             <img
@@ -77,4 +84,4 @@ const PopularDestinationSection = () => {
 
 };
 
-export default PopularDestinationSection;
+export default HotelPopularDestinationSection;

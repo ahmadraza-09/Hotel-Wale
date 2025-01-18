@@ -1,16 +1,21 @@
 import React from "react";
-import Hotel from '../../assets/icons/hotel-icon.png';
-import Bus from '../../assets/icons/bus-icon.svg';
-import Car from '../../assets/icons/car-icon.svg';
-import Flight from '../../assets/icons/flight-icon.svg';
+import { useNavigate, useLocation } from "react-router-dom";
 
-const Hero = () => {
+const HomeHero = () => {
+
+    const navigate = useNavigate();
+    const location = useLocation(); // Get the current route
+    const currentRoute = location.pathname; // Extract the pathname (e.g., '/hotel')
+
+    // Helper function to determine if a tab is active
+    const isActive = (route) => currentRoute.includes(route);
+
     return (
         <div className="sm:p-6 font-TTHovesMedium p-0">
             <div className="max-w-9xl w-full mx-auto bg-gray-100 rounded-2xl px-5 py-5">
                 {/* Header */}
                 <h1 className="text-4xl font-bold text-gray-800 text-start mb-6 hidden sm:inline-flex font-TTHovesBold">
-                    Your Hotel, Your Choice – Explore Now !
+                    Your Holiday, Your Choice – Enjoy Now !
                 </h1>
 
                 {/* Tabs */}
@@ -35,7 +40,10 @@ const Hero = () => {
 
                     {/* Hotels */}
                     <div className="flex flex-col gap-2 justify-center items-center">
-                        <button className="w-[52px] h-[52px] py-2 px-4 bg-white shadow-custom text-gray-800 rounded-md hover:bg-myColor hover:text-white focus:bg-myColor focus:text-white active:bg-myColor active:text-white">
+                        <button className={`w-[52px] h-[52px] py-2 px-4 rounded-md shadow-custom ${isActive("/hotel") ? "bg-myColor text-white" : "bg-white text-gray-800"
+                            } hover:bg-myColor hover:text-white`} onClick={() => {
+                                navigate("/hotel");
+                            }}>
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 viewBox="0 0 200 200"
@@ -53,7 +61,10 @@ const Hero = () => {
 
                     {/* Bus */}
                     <div className="flex flex-col gap-2 justify-center items-center">
-                        <button className="w-[52px] h-[52px] flex justify-center items-center bg-white shadow-custom text-gray-800 rounded-md hover:bg-myColor hover:text-white focus:bg-myColor focus:text-white active:bg-myColor active:text-white">
+                        <button className={`w-[52px] h-[52px] py-2 px-4 rounded-md shadow-custom ${isActive("/bus") ? "bg-myColor text-white" : "bg-white text-gray-800"
+                            } hover:bg-myColor hover:text-white`} onClick={() => {
+                                navigate("/bus");
+                            }}>
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 viewBox="0 0 24 24"
@@ -72,7 +83,10 @@ const Hero = () => {
 
                     {/* Car Rental */}
                     <div className="flex flex-col gap-2 justify-center items-center">
-                        <button className="w-[52px] h-[52px] flex justify-center items-center bg-white shadow-custom duration-75 text-gray-800 rounded-md cursor-pointer hover:bg-myColor hover:text-white focus:bg-myColor focus:text-white active:bg-myColor active:text-white">
+                        <button className={`w-[52px] h-[52px] py-2 px-4 rounded-md shadow-custom ${isActive("/car") ? "bg-myColor text-white" : "bg-white text-gray-800"
+                            } hover:bg-myColor hover:text-white`} onClick={() => {
+                                navigate("/car");
+                            }}>
                             <svg
                                 viewBox="0 0 200 200"
                                 width="24"
@@ -87,7 +101,7 @@ const Hero = () => {
                         <span className="font-TTHovesRegular text-sm text-center">Car Rental</span>
                     </div>
 
-                
+
 
                 </div>
 
@@ -159,4 +173,4 @@ const Hero = () => {
     );
 };
 
-export default Hero;
+export default HomeHero;

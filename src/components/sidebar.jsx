@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
-import Hotel from '../../assets/icons/hotel-icon.png';
-import Bus from '../../assets/icons/bus-icon.svg';
-import Car from '../../assets/icons/car-icon.svg';
-import Flight from '../../assets/icons/flight-icon.svg';
-import Explore from '../../assets/icons/website-icon.svg';
-import Time from '../../assets/icons/timer-icon.svg';
-import SuiteCase from '../../assets/icons/suitecase-icon.svg';
-import Heart from '../../assets/icons/heart-icon.svg';
-import Feedback from '../../assets/icons/feedback-icon.svg';
-import Flag from '../../assets/icons/india.svg';
-import Support from '../../assets/icons/support-icon.svg';
+import Hotel from '../assets/icons/hotel-icon.png';
+import Bus from '../assets/icons/bus-icon.svg';
+import Car from '../assets/icons/car-icon.svg';
+import Flight from '../assets/icons/flight-icon.svg';
+import Explore from '../assets/icons/website-icon.svg';
+import Time from '../assets/icons/timer-icon.svg';
+import SuiteCase from '../assets/icons/suitecase-icon.svg';
+import Heart from '../assets/icons/heart-icon.svg';
+import Feedback from '../assets/icons/feedback-icon.svg';
+import Flag from '../assets/icons/india.svg';
+import Support from '../assets/icons/support-icon.svg';
 
 const Sidebar = ({ isOpen, toggleSidebar }) => {
   const [showScrollbar, setShowScrollbar] = useState(false);
@@ -19,7 +19,7 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
       {/* Overlay for focus */}
       {isOpen && (
         <div
-          className="fixed top-16 inset-0 bg-black opacity-50 z-10"
+          className="fixed top-16 inset-0 bg-black opacity-50 z-20"
           onClick={toggleSidebar} // Close sidebar when clicking overlay
         />
       )}

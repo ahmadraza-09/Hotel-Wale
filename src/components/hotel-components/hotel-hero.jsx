@@ -1,5 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
+
+
+const destinationsList = [
+    "New Delhi, India",
+    "Gwalior, India",
+    "Mumbai, India",
+    "Paris, France",
+    "New York, USA",
+];
 
 const HotelHero = () => {
 
@@ -9,6 +18,48 @@ const HotelHero = () => {
 
     // Helper function to determine if a tab is active
     const isActive = (route) => currentRoute.includes(route);
+
+    const [destination, setDestination] = useState("");
+    const [filteredSuggestions, setFilteredSuggestions] = useState([]);
+    const [showDropdown, setShowDropdown] = useState(false);
+    const [checkInDate, setCheckInDate] = useState("");
+    const [checkOutDate, setCheckOutDate] = useState("");
+    const [guestDropdownOpen, setGuestDropdownOpen] = useState(false);
+    const [guests, setGuests] = useState({ rooms: 1, adults: 1, children: 0 });
+
+    const handleDestinationChange = (e) => {
+        const value = e.target.value;
+        setDestination(value);
+        if (value) {
+            setFilteredSuggestions(
+                destinationsList.filter((dest) =>
+                    dest.toLowerCase().includes(value.toLowerCase())
+                )
+            );
+            setShowDropdown(true);
+        } else {
+            setShowDropdown(false);
+        }
+    };
+
+    const selectDestination = (destination) => {
+        setDestination(destination);
+        setShowDropdown(false);
+    };
+
+    const toggleGuestDropdown = () => {
+        setGuestDropdownOpen((prev) => !prev);
+    };
+
+    const updateGuestCount = (type, action) => {
+        setGuests((prev) => {
+            const newCount =
+                action === "increment" ? prev[type] + 1 : Math.max(0, prev[type] - 1);
+            return { ...prev, [type]: newCount };
+        });
+    };
+
+
 
     return (
         <div className="sm:p-6 font-TTHovesMedium p-0">
@@ -106,49 +157,138 @@ const HotelHero = () => {
                 </div>
 
                 {/* Search Form */}
-                <div className="bg-white p-4 sm:p-6 rounded-lg shadow-custom">
-                    <form className="flex flex-col md:flex-row gap-4">
+                <div className="bg-white p-4 sm:p-6 rounded-lg shadow-md">
+                    <form className="flex flex-col md:flex-row items-center gap-4">
                         {/* Destination Input */}
-                        <div className="flex-grow">
-                            <label className="block text-gray-600 font-medium mb-2">Destination</label>
+                        <div className="flex-grow relative w-full">
                             <input
                                 type="text"
-                                placeholder="Nainital, Uttarakhand, India"
-                                className="w-full border border-gray-300 rounded-md p-3 focus:ring-2 focus:ring-orange-500"
+                                value={destination}
+                                onChange={handleDestinationChange}
+                                placeholder="Search for a destination"
+                                className="w-full border border-gray-300 rounded-md p-3 focus:outline-2 focus:border-none focus:outline-orange-500"
                             />
+                            {/* Destination Dropdown */}
+                            {showDropdown && filteredSuggestions.length > 0 && (
+                                <ul className="absolute z-10 bg-white border border-gray-300 rounded-md mt-1 w-full">
+                                    {filteredSuggestions.map((dest, index) => (
+                                        <li
+                                            key={index}
+                                            className="p-2 hover:bg-gray-200 cursor-pointer"
+                                            onClick={() => selectDestination(dest)}
+                                        >
+                                            {dest}
+                                        </li>
+                                    ))}
+                                </ul>
+                            )}
                         </div>
 
                         {/* Date Range Input */}
-                        <div>
-                            <label className="block text-gray-600 font-medium mb-2">
-                                Check-in / Check-out
-                            </label>
+                        <div className="w-full flex items-center sm:gap-2">
                             <input
-                                type="text"
-                                placeholder="Mon 10/2 - Mon 17/2"
-                                className="w-full border border-gray-300 rounded-md p-3 focus:ring-2 focus:ring-orange-500"
+                                type="date"
+                                value={checkInDate}
+                                onChange={(e) => setCheckInDate(e.target.value)}
+                                className="w-[50%] border border-gray-300 rounded-md p-3 focus:ring-2 focus:border-none focus:outline-orange-500"
+                            />
+                            <span>-</span>
+                            <input
+                                type="date"
+                                value={checkOutDate}
+                                onChange={(e) => setCheckOutDate(e.target.value)}
+                                className="w-[50%] border border-gray-300 rounded-md p-3 focus:ring-2 focus:ring-orange-500 focus:border-none focus:outline-orange-500"
                             />
                         </div>
 
-                        {/* Guests Input */}
-                        <div>
-                            <label className="block text-gray-600 font-medium mb-2">Guests</label>
-                            <input
-                                type="text"
-                                placeholder="1 room, 2 guests"
-                                className="w-full border border-gray-300 rounded-md p-3 focus:ring-2 focus:ring-orange-500"
-                            />
+                        {/* Guests Dropdown */}
+                        <div className="relative w-full lg:max-w-36">
+                            <button
+                                type="button"
+                                onClick={toggleGuestDropdown}
+                                className="lg:w-36 w-full border border-gray-300 rounded-md p-3 bg-white focus:ring-2 focus:ring-orange-500 flex justify-between items-center"
+                            >
+                                {`${guests.rooms} room${guests.rooms > 1 ? "s" : ""}, ${guests.adults
+                                    } guest${guests.adults + guests.children > 1 ? "s" : ""}`}
+                            </button>
+                            {guestDropdownOpen && (
+                                <div className="absolute -top-40 lg:top-12 bg-white border border-gray-300 rounded-md shadow-lg z-10 p-4 w-56">
+                                    {/* Rooms */}
+                                    <div className="flex justify-between items-center mb-2">
+                                        <span>Rooms</span>
+                                        <div className="flex items-center gap-2">
+                                            <button
+                                                type="button"
+                                                onClick={() => updateGuestCount("rooms", "decrement")}
+                                                className="px-2 py-1 bg-gray-200 rounded"
+                                            >
+                                                -
+                                            </button>
+                                            <span>{guests.rooms}</span>
+                                            <button
+                                                type="button"
+                                                onClick={() => updateGuestCount("rooms", "increment")}
+                                                className="px-2 py-1 bg-gray-200 rounded"
+                                            >
+                                                +
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                    {/* Adults */}
+                                    <div className="flex justify-between items-center mb-2">
+                                        <span>Adults</span>
+                                        <div className="flex items-center gap-2">
+                                            <button
+                                                type="button"
+                                                onClick={() => updateGuestCount("adults", "decrement")}
+                                                className="px-2 py-1 bg-gray-200 rounded"
+                                            >
+                                                -
+                                            </button>
+                                            <span>{guests.adults}</span>
+                                            <button
+                                                type="button"
+                                                onClick={() => updateGuestCount("adults", "increment")}
+                                                className="px-2 py-1 bg-gray-200 rounded"
+                                            >
+                                                +
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                    {/* Children */}
+                                    <div className="flex justify-between items-center">
+                                        <span>Children</span>
+                                        <div className="flex items-center gap-2">
+                                            <button
+                                                type="button"
+                                                onClick={() => updateGuestCount("children", "decrement")}
+                                                className="px-2 py-1 bg-gray-200 rounded"
+                                            >
+                                                -
+                                            </button>
+                                            <span>{guests.children}</span>
+                                            <button
+                                                type="button"
+                                                onClick={() => updateGuestCount("children", "increment")}
+                                                className="px-2 py-1 bg-gray-200 rounded"
+                                            >
+                                                +
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            )}
                         </div>
 
                         {/* Search Button */}
-                        <div className="w-full md:w-auto self-end">
-                            <button
-                                type="submit"
-                                className="w-full bg-myColor W-[100%] text-white py-3 px-6 rounded-md hover:bg-orange-600 "
-                            >
-                                Search
-                            </button>
-                        </div>
+                        <button
+                            type="submit"
+                            className="w-full lg:w-fit bg-orange-500 text-white py-3 px-6 rounded-md hover:bg-orange-600"
+                        >
+                            Search
+                        </button>
                     </form>
                 </div>
 

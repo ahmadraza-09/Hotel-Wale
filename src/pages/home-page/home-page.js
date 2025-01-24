@@ -1,10 +1,10 @@
 import React from "react";
 import Navbar from "../../components/navbar";
 import Footer from "../../components/footer";
-import Hero from "../../components/home-components/home-hero";
 import ServicesCategorySection from "../../components/services-category-section";
 import HotelPopularDestinationSection from "../../components/hotel-components/hotel-popular-destination-section";
 import EcoRetreatPopularDestination from "../../components/eco-retreat-odisha/eco-retreat-popular-destination";
+import HotelHero from "../../components/hotel-components/hotel-hero";
 
 
 const HomePage = () => {
@@ -12,7 +12,7 @@ const HomePage = () => {
     return (
         <>
             {<Navbar/>}
-            {<Hero/>}
+            {<HotelHero/>}
             {<ServicesCategorySection/>}
             {<HotelPopularDestinationSection/>}
             {<EcoRetreatPopularDestination/>}

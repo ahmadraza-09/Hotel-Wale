@@ -1,17 +1,16 @@
 import React, { useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
+import hotelsData from "../../data/hotels-data";
 
 
 const destinationsList = [
-    "New Delhi, India",
-    "Gwalior, India",
-    "Mumbai, India",
-    "Paris, France",
-    "New York, USA",
+    "Delhi",
+    "Gwalior",
+    "Mumbai",
+    "Paris",
 ];
 
 const HotelHero = () => {
-
     const navigate = useNavigate();
     const location = useLocation(); // Get the current route
     const currentRoute = location.pathname; // Extract the pathname (e.g., '/hotel')
@@ -59,7 +58,14 @@ const HotelHero = () => {
         });
     };
 
-
+    // Handle form submission (Search)
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        if (destination) {
+            // Navigate to the hotels-in-destination page with the selected destination
+            navigate(`/hotel/hotels-in-${destination.replace(/\s+/g, '-').toLowerCase()}`);
+        }
+    };
 
     return (
         <div className="sm:p-6 font-TTHovesMedium p-0">
@@ -69,8 +75,8 @@ const HotelHero = () => {
                     Your Hotel, Your Choice – Explore Now !
                 </h1>
 
-                {/* Tabs */}
-                <div className="flex justify-around sm:justify-start sm:gap-10 mb-6 py-5">
+                 {/* Tabs */}
+                 <div className="flex justify-around sm:justify-start sm:gap-10 mb-6 py-5">
                     {/* Flights */}
                     {/* <div className="flex flex-col gap-2 justify-center items-center">
                         <button className="w-[52px] h-[52px] py-2 px-4 bg-white shadow-custom text-gray-800 rounded-md hover:bg-myColor hover:text-white focus:bg-myColor focus:text-white active:bg-myColor active:text-white">
@@ -91,7 +97,7 @@ const HotelHero = () => {
 
                     {/* Hotels */}
                     <div className="flex flex-col gap-2 justify-center items-center">
-                        <button className={`w-[52px] h-[52px] py-2 px-4 rounded-md shadow-custom ${isActive("/hotel") ? "bg-myColor text-white" : "bg-white text-gray-800"
+                        <button className={`w-[52px] h-[52px] py-2 px-4 rounded-md shadow-custom ${isActive("/") || isActive("/hotel")  ? "bg-myColor text-white" : "bg-white text-gray-800"
                             } hover:bg-myColor hover:text-white`} onClick={() => {
                                 navigate("/hotel");
                             }}>
@@ -158,7 +164,7 @@ const HotelHero = () => {
 
                 {/* Search Form */}
                 <div className="bg-white p-4 sm:p-6 rounded-lg shadow-md">
-                    <form className="flex flex-col md:flex-row items-center gap-4">
+                    <form className="flex flex-col md:flex-row items-center gap-4" onSubmit={handleSubmit}>
                         {/* Destination Input */}
                         <div className="flex-grow relative w-full">
                             <input
@@ -258,7 +264,7 @@ const HotelHero = () => {
                                     </div>
 
                                     {/* Children */}
-                                    <div className="flex justify-between items-center">
+                                    <div className="flex justify-between items-center mb-2">
                                         <span>Children</span>
                                         <div className="flex items-center gap-2">
                                             <button
@@ -285,31 +291,13 @@ const HotelHero = () => {
                         {/* Search Button */}
                         <button
                             type="submit"
-                            className="w-full lg:w-fit bg-orange-500 text-white py-3 px-6 rounded-md hover:bg-orange-600"
-                        >
+                            className="bg-myColor text-white rounded-md py-3 px-6 mt-4 sm:mt-0 w-full sm:w-auto">
                             Search
                         </button>
                     </form>
                 </div>
-
-                {/* Recent Searches */}
-                <div className="mt-8">
-                    <h2 className="text-lg font-medium text-gray-800 mb-4">
-                        Your recent searches
-                    </h2>
-                    {/* Placeholder for recent searches */}
-                    <div className="flex items-center gap-4">
-                        <div className="p-4 border border-gray-300 rounded-md">
-                            <p className="text-gray-600">Recent Search 1</p>
-                        </div>
-                        <div className="p-4 border border-gray-300 rounded-md">
-                            <p className="text-gray-600">Recent Search 2</p>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
-
     );
 };
 

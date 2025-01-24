@@ -2,13 +2,12 @@ import React, { useState } from 'react';
 import { useNavigate } from "react-router-dom";
 
 const HotelPopularDestinationSection = () => {
-
     const navigate = useNavigate();
 
     const [isHovered, setIsHovered] = useState(false);
 
     const categories = [
-        { title: "Corbett", state: "Uttrakhand, India", img: 'https://cf.bstatic.com/xdata/images/hotel/max1024x768/464017962.jpg?k=5e22249570708eb8628a2ff6cd60348373da2f4f8f24f25b45a432387a9e6490&o=&hp=1' }, // No image provided
+        { title: "Corbett", state: "Uttrakhand, India", img: 'https://cf.bstatic.com/xdata/images/hotel/max1024x768/464017962.jpg?k=5e22249570708eb8628a2ff6cd60348373da2f4f8f24f25b45a432387a9e6490&o=&hp=1' },
         { title: "Nainital", state: "Uttrakhand, India", img: 'https://s3.india.com/wp-content/uploads/2024/06/10-Fascinating-Facts-About-Nainital.jpg' },
         { title: "Manali", state: "Himachal Pradesh, India", img: 'https://www.clubmahindra.com/blog/media/section_images/blog-topic-6530ecb63a76c89.jpg' },
         { title: "Shimla", state: "Himachal Pradesh, India", img: 'https://s7ap1.scene7.com/is/image/incredibleindia/cityscape-of-shimla-himachal-pradesh-city-1-hero?qlt=82&ts=1726730693575' },
@@ -40,8 +39,9 @@ const HotelPopularDestinationSection = () => {
                         key={index}
                         className="flex-shrink-0 w-[250px] h-[230px] rounded-2xl overflow-hidden relative cursor-pointer border-[1px]"
                         onClick={() => {
-                            navigate("/hotels-in-nainital");
-                          }}
+                            // Navigate to the hotels page for the specific city with the desired format
+                            navigate(`/hotel/hotels-in-${category.title.toLowerCase().replace(/\s+/g, '-')}`);
+                        }}
                     >
                         <div className='w-full h-34 overflow-hidden'>
                             <img
@@ -80,8 +80,6 @@ const HotelPopularDestinationSection = () => {
             )}
         </div>
     );
-
-
 };
 
 export default HotelPopularDestinationSection;

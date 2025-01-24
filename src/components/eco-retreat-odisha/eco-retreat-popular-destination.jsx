@@ -1,16 +1,18 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate for navigation
 
 const EcoRetreatPopularDestination = () => {
     const [isHovered, setIsHovered] = useState(false);
+    const navigate = useNavigate(); // Initialize the useNavigate hook
 
     const categories = [
-        { title: "Eco Retreat Konark", state: "Odisha, India", img: 'https://ecoretreatodisha.in/static/media/konark6.1f3ae39aa5e6de64d68b.jpg' }, // No image provided
-        { title: "Eco Retreat Satkosia", state: "Odisha, India", img: 'https://ecoretreatodisha.in/static/media/satkosia9.fc63600c297f538841fd.jpg' },
-        { title: "Eco Retreat Putsil", state: "Odisha, India", img: 'https://ecoretreatodisha.in/static/media/putsil1.fd3edc14980b77fcdd51.jpg' },
-        { title: "Eco Retreat Sonapur", state: "Odisha, India", img: 'https://ecoretreatodisha.in/static/media/sonapur5.71c5b51d20120affd70a.jpg' },
-        { title: "Eco Retreat Daringbadi", state: "Odisha, India", img: 'https://ecoretreatodisha.in/static/media/daringbadi2.d007045721e085128ac3.jpg' },
-        { title: "Eco Retreat Hirakud", state: "Odisha, India", img: 'https://ecoretreatodisha.in/static/media/hirakud1.9839b07b9cdab1d4d39e.jpg' },
-        { title: "Eco Retreat Bhitarkanika", state: "Odisha, India", img: 'https://ecoretreatodisha.in/static/media/bhitarkanika2.3f71c0db3a3a6f11e158.jpg' },
+        { title: "Eco Retreat Konark", state: "Odisha, India", img: 'https://ecoretreatodisha.in/static/media/konark6.1f3ae39aa5e6de64d68b.jpg', path: "/eco-retreat/konark" },
+        { title: "Eco Retreat Satkosia", state: "Odisha, India", img: 'https://ecoretreatodisha.in/static/media/satkosia9.fc63600c297f538841fd.jpg', path: "/eco-retreat/satkosia" },
+        { title: "Eco Retreat Putsil", state: "Odisha, India", img: 'https://ecoretreatodisha.in/static/media/putsil1.fd3edc14980b77fcdd51.jpg', path: "/eco-retreat/putsil" },
+        { title: "Eco Retreat Sonapur", state: "Odisha, India", img: 'https://ecoretreatodisha.in/static/media/sonapur5.71c5b51d20120affd70a.jpg', path: "/eco-retreat/sonapur" },
+        { title: "Eco Retreat Daringbadi", state: "Odisha, India", img: 'https://ecoretreatodisha.in/static/media/daringbadi2.d007045721e085128ac3.jpg', path: "/eco-retreat/daringbadi" },
+        { title: "Eco Retreat Hirakud", state: "Odisha, India", img: 'https://ecoretreatodisha.in/static/media/hirakud1.9839b07b9cdab1d4d39e.jpg', path: "/eco-retreat/hirakud" },
+        { title: "Eco Retreat Bhitarkanika", state: "Odisha, India", img: 'https://ecoretreatodisha.in/static/media/bhitarkanika2.3f71c0db3a3a6f11e158.jpg', path: "/eco-retreat/bhitarkanika" },
     ];
 
     // Function to scroll horizontally
@@ -33,6 +35,7 @@ const EcoRetreatPopularDestination = () => {
                 {categories.map((category, index) => (
                     <div
                         key={index}
+                        onClick={() => navigate(category.path)} // Navigate to the specific path on click
                         className="flex-shrink-0 w-[250px] h-[230px] rounded-2xl overflow-hidden relative cursor-pointer border-[1px]"
                     >
                         <div className='w-full h-34 overflow-hidden'>
@@ -72,8 +75,6 @@ const EcoRetreatPopularDestination = () => {
             )}
         </div>
     );
-
-
 };
 
 export default EcoRetreatPopularDestination;

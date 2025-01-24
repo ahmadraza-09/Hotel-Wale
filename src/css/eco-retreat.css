@@ -1,0 +1,495 @@
+
+.eco-retreat-room-card1 img {
+  object-position: left;
+}
+
+.eco-retreat-room-card2 img {
+  object-position: left;
+}
+
+.eco-retreat-room-card3 img {
+  object-position: left;
+}
+
+.eco-retreat-room-card4 img {
+  object-position: center;
+}
+
+.eco-retreat-explore-cottage-container-left {
+  display: flex;
+  align-items: start;
+  justify-content: center;
+  width: 50%;
+}
+
+.eco-retreat-explore-cottage-container-left img {
+  width: 350px;
+  border-radius: 20px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.eco-retreat-explore-cottage-container-right {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  background-color: #ee8c26;
+  color: #fff;
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.eco-retreat-explore-cottage-container-right-box {
+  max-width: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.eco-retreat-explore-cottage-container-right-box-left img {
+  width: 100px;
+}
+
+.eco-retreat-activities {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0px;
+  padding: 20px;
+}
+
+.eco-retreat-activities h4 {
+  font-size: 16px;
+  color: #ee8c26;
+}
+
+.eco-retreat-activities h2 {
+  text-align: center;
+  font-size: 40px;
+}
+
+.eco-retreat-activities-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.eco-retreat-activities-box {
+  width: 380px;
+  height: 380px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 10px;
+  gap: 10px;
+  border-radius: 10px;
+  justify-content: center;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  transition: all 0.3s ease-in-out;
+}
+
+.eco-retreat-activities-box:hover {
+  transform: scale(1.05);
+}
+
+.eco-retreat-activities-box h3 {
+    font-size: 25px;
+}
+
+.eco-retreat-activities-box p {
+    font-size: 14px;
+}
+
+.eco-retreat-how-to-reach {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.eco-retreat-how-to-reach h4 {
+  color: #ee8c26;
+  text-transform: uppercase;
+}
+
+.eco-retreat-how-to-reach h2 {
+  font-size: 40px;
+}
+
+.eco-retreat-how-to-reach h2 span {
+  text-transform: capitalize;
+}
+
+.eco-retreat-how-to-reach-container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.eco-retreat-how-to-reach-container-left {
+  width: 50%;
+  display: none;
+}
+
+.eco-retreat-how-to-reach-container-left img {
+  width: 100%;
+}
+
+.eco-retreat-how-to-reach-container-right {
+  width: 100%;
+}
+
+.travel-info {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.travel-section {
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.travel-section h3 {
+  background-color: #ee8c26;
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+  border-radius: 8px 8px 0 0;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+thead th {
+  background-color: #ee8c26;
+  color: white;
+  padding: 10px;
+}
+
+tbody td {
+  padding: 10px;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+}
+
+tbody tr:last-child td {
+  border-bottom: none;
+}
+
+table th,
+table td {
+  border: 1px solid #ddd;
+}
+
+tbody tr:hover {
+  background-color: #f4f4f4;
+}
+
+.eco-retreat-attractions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.eco-retreat-attractions h4 {
+  color: #ee8c26;
+  text-transform: uppercase;
+}
+
+.eco-retreat-attractions h2 {
+  font-size: 40px;
+  text-align: center;
+}
+
+.eco-retreat-attractions h2 span {
+  text-transform: capitalize;
+}
+
+.eco-retreat-attractions-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.eco-retreat-attractions-box {
+    width: 380px;
+    height: 480px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    position: relative;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+}
+
+.eco-retreat-attractions-box:hover {
+    transform: scale(1.05);
+  
+}
+
+.eco-retreat-attractions-box img {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.eco-retreat-attractions-box-content {
+  height: fit-content;
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: fit-content;
+  padding: 10px;
+  color: #fff;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0));
+  width: 100%;
+  box-sizing: border-box;
+  gap: 10px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.eco-retreat-attractions-box-content h3 {
+  width: fit-content;
+  padding: 5px 10px;
+  border-radius: 5px;
+  background-color: #ee8c26;
+  font-size: 18px;
+  text-transform: uppercase;
+}
+
+
+/* Responsive */
+/* @media (max-width: 768px) {
+  .eco-retreat-hero-overlay h1 {
+    font-size: 30px;
+  }
+
+  .eco-retreat-hero {
+    height: 50vh;
+  }
+
+  .eco-retreat-welcome h1 {
+    font-size: 30px;
+  }
+
+  .eco-retreat-rooms {
+    padding: 40px 10px;
+  }
+
+  .eco-retreat-room-card {
+    width: 220px;
+    height: 340px;
+  }
+
+  .eco-retreat-room-card-content h3 {
+    font-size: 14px;
+  }
+  
+  .eco-retreat-explore-cottage h2 {
+    font-size: 30px;
+  }
+
+  .eco-retreat-explore-cottage-container-left {
+    display: none;
+  }
+
+  .eco-retreat-explore-cottage-container-right {
+    width: 100%;
+  }
+  
+  .eco-retreat-activities h2 {
+    font-size: 30px;
+  }
+
+  .eco-retreat-activities-box {
+    width: 250px;
+    height: 420px;
+  }
+
+  .eco-retreat-activities-box img {
+    width: 80px;
+    height: 80px;
+  }
+
+  .eco-retreat-how-to-reach h2 {
+    font-size: 30px;
+  }
+
+  .eco-retreat-attractions h2 {
+    font-size: 30px;
+  }
+
+  .eco-retreat-attractions-box {
+    width: 250px;
+    height: 350px;
+  }
+
+  .eco-retreat-attractions-box-content h3 {
+    font-size: 14px;
+  }
+
+}
+
+@media (max-width: 480px) {
+  .eco-retreat-hero-overlay h1 {
+    font-size: 25px;
+  }
+
+  .eco-retreat-hero-overlay h4 {
+    font-size: 12px;
+  }
+
+  .eco-retreat-hero {
+    height: 30vh;
+  }
+
+  .eco-retreat-welcome h1 {
+    font-size: 25px;
+  }
+
+  .eco-retreat-welcome p {
+    font-size: 12px;
+  }
+
+  .eco-retreat-rooms {
+    padding: 20px 10px;
+  }
+
+  .eco-retreat-room-card {
+    max-width: 320px;
+    width: 100%;
+    height: 340px;
+  }
+
+  .eco-retreat-room-card-content h3 {
+    font-size: 12px;
+  }
+  
+  .eco-retreat-explore-cottage h2 {
+    font-size: 25px;
+  }
+
+  .eco-retreat-explore-cottage-container-left {
+    display: none;
+  }
+
+  .eco-retreat-explore-cottage-container-right {
+    width: 100%;
+  }
+
+  .eco-retreat-explore-cottage-container-right img {
+    width: 80px;
+  }
+
+  .eco-retreat-explore-cottage-container-right p {
+    font-size: 12px;
+  }
+
+  .eco-retreat-explore-cottage-container-right-box {
+    flex-direction: column;
+    text-align: center;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    border: 2px solid #fff;
+    padding: 10px;
+    border-radius: 10px;
+  }
+  
+  .eco-retreat-activities h2 {
+    font-size: 25px;
+  }
+
+  .eco-retreat-activities h4 {
+    font-size: 12px;
+  }
+
+  .eco-retreat-activities-box {
+    max-width: 320px;
+    width: 100%;
+    height: fit-content;
+  }
+
+  .eco-retreat-activities-box p {
+    font-size: 12px;
+  }
+
+  .eco-retreat-activities-box h3 {
+    font-size: 16px;
+  }
+
+  .eco-retreat-activities-box img {
+    width: 80px;
+    height: 80px;
+  }
+
+  .eco-retreat-how-to-reach {
+    padding: 10px;
+  }
+
+  .travel-section {
+    padding: 10px;
+    overflow: scroll;
+  }
+
+  .travel-section h3 {
+    font-size: 16px;
+  }
+
+  thead th {
+    font-size: 14px;
+  }
+
+  tbody td {
+    font-size: 12px;
+  }
+
+  .eco-retreat-how-to-reach h2 {
+    font-size: 25px;
+  }
+
+  .eco-retreat-how-to-reach h4 {
+    font-size: 12px;
+  }
+
+  .eco-retreat-attractions h2 {
+    font-size: 25px;
+  }
+
+  .eco-retreat-attractions h4 {
+    font-size: 12px;
+  }
+
+  .eco-retreat-attractions-box {
+    width: 320px;
+    height: 350px;
+  }
+
+  .eco-retreat-attractions-box-content h3 {
+    font-size: 12px;
+  }
+
+} */

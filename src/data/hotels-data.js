@@ -47,6 +47,95 @@ const hotelsData = {
           images: [Image1, Image2, Image3],
           address: "Ahmedabad Grand Hotel, Gujarat, India",
           phone: "+91 9876543210",
+          roomsCatagory: [
+            {
+              name: "Deluxe Room",
+              price: 2500,
+              oldPrice: 3299,
+              images: [Image1, Image2, Image3],
+              roomSize: "(250 sq.ft (23 sq.mt) | Double Bed)",
+              amenities: [
+                {
+                  iconName: "Book with ₹ 0 Payment​",
+                  iconImage: Wifi,
+                },
+                {
+                  iconName: "No meals included",
+                  iconImage: Coffee,
+                },
+                {
+                  iconName: "Early Check-In upto 2 hours (subject to availability)",
+                  iconImage: FrontDesk,
+                },
+                {
+                  iconName: "Late Check-Out upto 2 hours (subject to availability)",
+                  iconImage: Pool,
+                },
+                {
+                  iconName: "Free Cancellation till 24 hrs before check in",
+                  iconImage: Pool,
+                },
+              ],
+            },
+            {
+              name: "Super Deluxe Room",
+              price: 3500,
+              oldPrice: 4299,
+              images: [Image1, Image2, Image3],
+              roomSize: "(250 sq.ft (23 sq.mt) | Double Bed)",
+              amenities: [
+                {
+                  iconName: "Book with ₹ 0 Payment​",
+                  iconImage: Wifi,
+                },
+                {
+                  iconName: "No meals included",
+                  iconImage: Coffee,
+                },
+                {
+                  iconName: "Early Check-In upto 2 hours (subject to availability)",
+                  iconImage: FrontDesk,
+                },
+                {
+                  iconName: "Late Check-Out upto 2 hours (subject to availability)",
+                  iconImage: Pool,
+                },
+                {
+                  iconName: "Free Cancellation till 24 hrs before check in",
+                  iconImage: Pool,
+                },
+              ],
+            },
+            {
+              name: "Family Suite Room",
+              price: 4500,
+              oldPrice: 5299,
+              images: [Image1, Image2, Image3],
+              roomSize: "(250 sq.ft (23 sq.mt) | Double Bed)",
+              amenities: [
+                {
+                  iconName: "Book with ₹ 0 Payment​",
+                  iconImage: Wifi,
+                },
+                {
+                  iconName: "No meals included",
+                  iconImage: Coffee,
+                },
+                {
+                  iconName: "Early Check-In upto 2 hours (subject to availability)",
+                  iconImage: FrontDesk,
+                },
+                {
+                  iconName: "Late Check-Out upto 2 hours (subject to availability)",
+                  iconImage: Pool,
+                },
+                {
+                  iconName: "Free Cancellation till 24 hrs before check in",
+                  iconImage: Pool,
+                },
+              ],
+            },
+          ],
           policies: {
             checkIn: "1:00 PM",
             checkOut: "11:00 AM",
@@ -88,12 +177,102 @@ const hotelsData = {
               iconName: "Pool Access",
               iconImage: Pool,
             },
+            
           ],
           image: "https://example.com/bangalore-palace-inn.jpg",
           description: "A luxurious stay with stunning views of Bangalore city.",
           images: [Image1, Image2, Image3],
           address: "Bangalore Palace Inn, Karnataka, India",
           phone: "+91 8765432109",
+          roomsCatagory: [
+            {
+              name: "Deluxe Room",
+              price: 2500,
+              oldPrice: 3299,
+              images: [Image1, Image2, Image3],
+              roomSize: "(250 sq.ft (23 sq.mt) | Double Bed)",
+              amenities: [
+                {
+                  iconName: "Book with ₹ 0 Payment​",
+                  iconImage: Wifi,
+                },
+                {
+                  iconName: "No meals included",
+                  iconImage: Coffee,
+                },
+                {
+                  iconName: "Early Check-In upto 2 hours (subject to availability)",
+                  iconImage: FrontDesk,
+                },
+                {
+                  iconName: "Late Check-Out upto 2 hours (subject to availability)",
+                  iconImage: Pool,
+                },
+                {
+                  iconName: "Free Cancellation till 24 hrs before check in",
+                  iconImage: Pool,
+                },
+              ],
+            },
+            {
+              name: "Super Deluxe Room",
+              price: 3500,
+              oldPrice: 4299,
+              images: [Image1, Image2, Image3],
+              roomSize: "(250 sq.ft (23 sq.mt) | Double Bed)",
+              amenities: [
+                {
+                  iconName: "Book with ₹ 0 Payment​",
+                  iconImage: Wifi,
+                },
+                {
+                  iconName: "No meals included",
+                  iconImage: Coffee,
+                },
+                {
+                  iconName: "Early Check-In upto 2 hours (subject to availability)",
+                  iconImage: FrontDesk,
+                },
+                {
+                  iconName: "Late Check-Out upto 2 hours (subject to availability)",
+                  iconImage: Pool,
+                },
+                {
+                  iconName: "Free Cancellation till 24 hrs before check in",
+                  iconImage: Pool,
+                },
+              ],
+            },
+            {
+              name: "Family Suite Room",
+              price: 4500,
+              oldPrice: 5299,
+              images: [Image1, Image2, Image3],
+              roomSize: "(250 sq.ft (23 sq.mt) | Double Bed)",
+              amenities: [
+                {
+                  iconName: "Book with ₹ 0 Payment​",
+                  iconImage: Wifi,
+                },
+                {
+                  iconName: "No meals included",
+                  iconImage: Coffee,
+                },
+                {
+                  iconName: "Early Check-In upto 2 hours (subject to availability)",
+                  iconImage: FrontDesk,
+                },
+                {
+                  iconName: "Late Check-Out upto 2 hours (subject to availability)",
+                  iconImage: Pool,
+                },
+                {
+                  iconName: "Free Cancellation till 24 hrs before check in",
+                  iconImage: Pool,
+                },
+              ],
+            },
+          ],
           policies: {
             checkIn: "2:00 PM",
             checkOut: "12:00 PM",
@@ -136,6 +315,7 @@ const hotelsData = {
       hotels: [
         {
           name: "Hotel Aroma Nainital",
+          description: "Located near Boat House and near popular tourist attractions, Hotel Aroma Nainital is a luxurious property that features cozy rooms full of amenities.",
           stars: 4,
           rating: 4.3,
           reviews: "15+ ratings",
@@ -160,10 +340,98 @@ const hotelsData = {
             },
           ],
           image: "https://example.com/ahmedabad-grand-hotel.jpg",
-          description: "Located near Boat House and near popular tourist attractions, Hotel Aroma Nainital is a luxurious property that features cozy rooms full of amenities.",
           images: [HotelAromaImage1, HotelAromaImage2, HotelAromaImage3],
           address: "Ahmedabad Grand Hotel, Gujarat, India",
           phone: "+91 9876543210",
+          roomsCatagory: [
+            {
+              name: "Deluxe Room",
+              price: 2500,
+              oldPrice: 3299,
+              images: [HotelAromaImage1, HotelAromaImage2, HotelAromaImage3],
+              roomSize: "(250 sq.ft (23 sq.mt) | Double Bed)",
+              amenities: [
+                {
+                  iconName: "Book with ₹ 0 Payment​",
+                  iconImage: Wifi,
+                },
+                {
+                  iconName: "No meals included",
+                  iconImage: Coffee,
+                },
+                {
+                  iconName: "Early Check-In upto 2 hours (subject to availability)",
+                  iconImage: FrontDesk,
+                },
+                {
+                  iconName: "Late Check-Out upto 2 hours (subject to availability)",
+                  iconImage: Pool,
+                },
+                {
+                  iconName: "Free Cancellation till 24 hrs before check in",
+                  iconImage: Pool,
+                },
+              ],
+            },
+            {
+              name: "Super Deluxe Room",
+              price: 3500,
+              oldPrice: 4299,
+              images: [HotelAromaImage1, HotelAromaImage2, HotelAromaImage3],
+              roomSize: "(250 sq.ft (23 sq.mt) | Double Bed)",
+              amenities: [
+                {
+                  iconName: "Book with ₹ 0 Payment​",
+                  iconImage: Wifi,
+                },
+                {
+                  iconName: "No meals included",
+                  iconImage: Coffee,
+                },
+                {
+                  iconName: "Early Check-In upto 2 hours (subject to availability)",
+                  iconImage: FrontDesk,
+                },
+                {
+                  iconName: "Late Check-Out upto 2 hours (subject to availability)",
+                  iconImage: Pool,
+                },
+                {
+                  iconName: "Free Cancellation till 24 hrs before check in",
+                  iconImage: Pool,
+                },
+              ],
+            },
+            {
+              name: "Family Suite Room",
+              price: 4500,
+              oldPrice: 5299,
+              images: [HotelAromaImage1, HotelAromaImage2, HotelAromaImage3],
+              roomSize: "(250 sq.ft (23 sq.mt) | Double Bed)",
+              amenities: [
+                {
+                  iconName: "Book with ₹ 0 Payment​",
+                  iconImage: Wifi,
+                },
+                {
+                  iconName: "No meals included",
+                  iconImage: Coffee,
+                },
+                {
+                  iconName: "Early Check-In upto 2 hours (subject to availability)",
+                  iconImage: FrontDesk,
+                },
+                {
+                  iconName: "Late Check-Out upto 2 hours (subject to availability)",
+                  iconImage: Pool,
+                },
+                {
+                  iconName: "Free Cancellation till 24 hrs before check in",
+                  iconImage: Pool,
+                },
+              ],
+            },
+          ],
           policies: {
             checkIn: "1:00 PM",
             checkOut: "11:00 AM",

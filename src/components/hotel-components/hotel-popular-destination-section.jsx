@@ -63,17 +63,38 @@ const HotelPopularDestinationSection = () => {
                     <button
                         className="absolute left-8 top-56 transform -translate-y-1/2 bg-white p-2 rounded-full shadow-lg cursor-pointer hidden sm:inline-flex"
                         onClick={() => scrollHorizontally("prev")}
+                        aria-label="Show previous card"
                     >
-                        <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 text-gray-800" viewBox="0 0 20 20" fill="currentColor">
-                            <path fillRule="evenodd" d="M12.707 4.293a1 1 0 00-1.414 0L7.293 8.293a1 1 0 000 1.414l4 4a1 1 0 001.414-1.414L9.414 9l3.293-3.293a1 1 0 000-1.414z" clipRule="evenodd" />
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            className="w-6 h-6 text-gray-800"
+                            viewBox="0 0 20 20"
+                            fill="currentColor"
+                        >
+                            <path
+                                fillRule="evenodd"
+                                d="M12.707 4.293a1 1 0 00-1.414 0L7.293 8.293a1 1 0 000 1.414l4 4a1 1 0 001.414-1.414L9.414 9l3.293-3.293a1 1 0 000-1.414z"
+                                clipRule="evenodd"
+                            />
                         </svg>
                     </button>
+
                     <button
                         className="absolute right-8 top-56 transform -translate-y-1/2 bg-white p-2 rounded-full shadow-lg cursor-pointer hidden sm:inline-flex"
                         onClick={() => scrollHorizontally("next")}
+                        aria-label="Show next card"
                     >
-                        <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 text-gray-800" viewBox="0 0 20 20" fill="currentColor">
-                            <path fillRule="evenodd" d="M7.293 4.293a1 1 0 011.414 0L11.707 9l-3.293 3.293a1 1 0 11-1.414-1.414L9.414 9 7.293 6.707a1 1 0 010-1.414z" clipRule="evenodd" />
+                        <svg
+                            className="w-6 h-6 text-gray-800"
+                            viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg"
+                            aria-hidden="true"
+                        >
+                            <path
+                                fillRule="evenodd"
+                                d="M13.44 12 9.3 7.82a1.08 1.08 0 0 1 0-1.52 1.05 1.05 0 0 1 1.5 0l4.88 4.93c.41.42.41 1.1 0 1.52l-4.88 4.93a1.05 1.05 0 0 1-1.5 0 1.1 1.1 0 0 1 0-1.53L13.44 12z"
+                                clipRule="evenodd"
+                            />
                         </svg>
                     </button>
                 </>

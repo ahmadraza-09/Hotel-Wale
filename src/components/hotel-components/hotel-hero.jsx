@@ -2,13 +2,8 @@ import React, { useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import hotelsData from "../../data/hotels-data";
 
-
-const destinationsList = [
-    "Delhi",
-    "Gwalior",
-    "Mumbai",
-    "Paris",
-];
+// Extract city names from hotelsData
+const destinationsList = hotelsData.cities.map(city => city.city);
 
 const HotelHero = () => {
     const navigate = useNavigate();
@@ -75,29 +70,11 @@ const HotelHero = () => {
                     Your Hotel, Your Choice – Explore Now !
                 </h1>
 
-                 {/* Tabs */}
-                 <div className="flex justify-around sm:justify-start sm:gap-10 mb-6 py-5">
-                    {/* Flights */}
-                    {/* <div className="flex flex-col gap-2 justify-center items-center">
-                        <button className="w-[52px] h-[52px] py-2 px-4 bg-white shadow-custom text-gray-800 rounded-md hover:bg-myColor hover:text-white focus:bg-myColor focus:text-white active:bg-myColor active:text-white">
-                            <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 200 200"
-                                width="24"
-                                height="24"
-                                fill="currentColor"
-                                className="duration-75"
-                                role="img"
-                            >
-                                <path d="M178.081 41.973c-2.681 2.663-16.065 17.416-28.956 30.221c0 107.916 3.558 99.815-14.555 117.807l-14.358-60.402l-14.67-14.572c-38.873 38.606-33.015 8.711-33.015 45.669c.037 8.071-3.373 13.38-8.263 18.237L50.66 148.39l-30.751-13.513c10.094-10.017 15.609-8.207 39.488-8.207c8.127-16.666 18.173-23.81 26.033-31.62L70.79 80.509L10 66.269c17.153-17.039 6.638-13.895 118.396-13.895c12.96-12.873 26.882-27.703 29.574-30.377c7.745-7.692 28.017-14.357 31.205-11.191c3.187 3.166-3.349 23.474-11.094 31.167zm-13.674 42.469l-8.099 8.027v23.58c17.508-17.55 21.963-17.767 8.099-31.607zm-48.125-47.923c-13.678-13.652-12.642-10.828-32.152 8.57h23.625l8.527-8.57z"></path>
-                            </svg>
-                        </button>
-                        <span className="font-TTHovesRegular text-sm text-center">Flights</span>
-                    </div> */}
-
+                {/* Tabs */}
+                <div className="flex justify-around sm:justify-start sm:gap-10 mb-6 py-5">
                     {/* Hotels */}
                     <div className="flex flex-col gap-2 justify-center items-center">
-                        <button className={`w-[52px] h-[52px] py-2 px-4 rounded-md shadow-custom ${isActive("/") || isActive("/hotel")  ? "bg-myColor text-white" : "bg-white text-gray-800"
+                        <button className={`w-[52px] h-[52px] py-2 px-4 rounded-md shadow-custom ${isActive("/") || isActive("/hotel") ? "bg-myColor text-white" : "bg-white text-gray-800"
                             } hover:bg-myColor hover:text-white`} onClick={() => {
                                 navigate("/hotel");
                             }}>
@@ -137,7 +114,6 @@ const HotelHero = () => {
                         <span className="font-TTHovesRegular text-sm text-center">Bus</span>
                     </div>
 
-
                     {/* Car Rental */}
                     <div className="flex flex-col gap-2 justify-center items-center">
                         <button className={`w-[52px] h-[52px] py-2 px-4 rounded-md shadow-custom ${isActive("/car") ? "bg-myColor text-white" : "bg-white text-gray-800"
@@ -157,9 +133,6 @@ const HotelHero = () => {
                         </button>
                         <span className="font-TTHovesRegular text-sm text-center">Car Rental</span>
                     </div>
-
-
-
                 </div>
 
                 {/* Search Form */}
@@ -172,15 +145,15 @@ const HotelHero = () => {
                                 value={destination}
                                 onChange={handleDestinationChange}
                                 placeholder="Search for a destination"
-                                className="w-full border border-gray-300 rounded-md p-3 focus:outline-2 focus:border-none focus:outline-orange-500"
+                                className="w-full border border-gray-300 rounded-md p-3 focus:ring-2 focus:ring-orange-500 focus:border-none focus:outline-orange-500 capitalize"
                             />
                             {/* Destination Dropdown */}
                             {showDropdown && filteredSuggestions.length > 0 && (
-                                <ul className="absolute z-10 bg-white border border-gray-300 rounded-md mt-1 w-full">
+                                <ul className="absolute z-10 bg-white border border-gray-300 rounded-md mt-1 w-full max-h-60 overflow-y-scroll custom-scrollbar">
                                     {filteredSuggestions.map((dest, index) => (
                                         <li
                                             key={index}
-                                            className="p-2 hover:bg-gray-200 cursor-pointer"
+                                            className="p-2 hover:bg-gray-200 cursor-pointer capitalize"
                                             onClick={() => selectDestination(dest)}
                                         >
                                             {dest}

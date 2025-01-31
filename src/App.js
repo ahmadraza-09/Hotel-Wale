@@ -5,6 +5,7 @@ import HotelHomePage from './pages/hotel-pages/hotel-home-page';
 import BusHomePage from './pages/bus-pages/bus-home-page';
 import HotelListPage from './pages/hotel-pages/hotel-list-page';
 import EcoRetreatPage from './pages/eco-retreat-page/eco-retreat-page';
+import HotelDetailsPage from './pages/hotel-pages/hotel-details-page';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
           <Route path='/hotel' element={<HotelHomePage />} />
           <Route path='/bus' element={<BusHomePage />} />
           <Route path='/hotel/:city' element={<HotelListPage />} />
+          <Route path='/hotel/:city/:hotelName' element={<HotelDetailsPage />} />
           <Route path='/eco-retreat/:location' element={<EcoRetreatPage />} />
         </Routes>
       </BrowserRouter>

@@ -232,11 +232,11 @@ const EcoRetreat = () => {
                     ))}
                 </div>
             </div>
-<h2 className="text-center text-[25px] sm:text-[30px] font-TTHovesBold">Eco Retreat <span className=" capitalize">{location}</span> Gallery</h2>
+            <h2 className="text-center text-[25px] sm:text-[30px] font-TTHovesBold">Eco Retreat <span className=" capitalize">{location}</span> Gallery</h2>
 
             {/* Eco Retreat Gallery */}
             <div className="flex flex-wrap gap-5 my-5 justify-center px-5 py-5">
-                
+
                 {images.map((image, index) => (
                     <img
                         key={index}

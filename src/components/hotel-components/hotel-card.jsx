@@ -24,19 +24,27 @@ const HotelCard = ({ hotel }) => {
     slidesToShow: 1,
     slidesToScroll: 1,
     arrows: false,
-    appendDots: (dots) => (
-      <div
-        style={{
-          position: "absolute",
-          bottom: "0px",
-          width: "100%",
-          display: "flex",
-          justifyContent: "center",
-        }}
-      >
-        <ul style={{ margin: "0px" }}>{dots}</ul>
-      </div>
-    ),
+    appendDots: (dots) => {
+      const totalDots = dots.length;
+      const limitedDots = totalDots > 3 ? dots.slice(0, 3) : dots; // Limit to 3 dots
+
+      return (
+        <div
+          style={{
+            position: "absolute",
+            bottom: "0px",
+            width: "100%",
+            display: "flex",
+            justifyContent: "center",
+            gap: "5px",
+          }}
+        >
+          <ul style={{ margin: "0px", padding: "0", display: "flex", listStyle: "none" }}>
+            {limitedDots}
+          </ul>
+        </div>
+      );
+    },
     customPaging: () => (
       <div
         style={{
@@ -51,6 +59,7 @@ const HotelCard = ({ hotel }) => {
     ),
   };
 
+
   const scrollHorizontally = (direction) => {
     if (sliderRef.current) {
       direction === "prev"
@@ -63,21 +72,15 @@ const HotelCard = ({ hotel }) => {
     // Find the city data from hotelsData.cities array
     const cityName = hotelsData.cities
       .find((c) => c.hotels.some((h) => h.name === hotel.name)) || { city: "unknown" };  // Find the matching city based on hotel name
-    
+
     // Format the hotel name for the URL
     const hotelName = hotel.name.replace(/\s+/g, "-").toLowerCase();  // Format hotel name (replace spaces with hyphens, lowercase)
-    
+
     // Navigate to the desired route with city and hotel name as parameters
     navigate(`/hotel/${cityName.city}/${hotelName}`);
   };
-  
-  
-  
-  
-  
-  
-  
-  
+
+
 
   return (
     <div
@@ -137,7 +140,7 @@ const HotelCard = ({ hotel }) => {
       {/* Hotel Information */}
       <div className="p-2 font-TTHovesRegular">
         <div className="flex justify-between items-center">
-          <h3 className="text-lg font-bold">{hotel.name}</h3>
+          <h3 className="text-lg font-TTHovesMedium">{hotel.name}</h3>
           <div className="flex mt-2">
             <span className="flex gap-[5px] px-2 py-1 bg-green-100 text-green-700 rounded-md text-sm font-medium">
               <img src={Star} alt="" className="w-4" />
@@ -146,13 +149,13 @@ const HotelCard = ({ hotel }) => {
           </div>
         </div>
         <div className="flex justify-between items-center">
-          <p className="text-sm text-gray-600">{hotel.stars}-star hotel</p>
+          <p className="text-sm text-gray-600 font-TTHovesRegular">{hotel.stars}-star hotel</p>
           <p className="text-sm text-gray-600">{hotel.reviews}</p>
         </div>
         <p className="text-xl font-bold text-gray-800">
-          ₹{hotel.pricePerNight}{" "}
-          <span className="text-sm text-gray-500">
-            + ₹{hotel.taxesAndFees} taxes & fees / night
+         <span className="text-green-700 font-TTHovesBold"> ₹{hotel.pricePerNight}{" "}</span>
+          <span className="text-sm text-gray-500 font-TTHovesRegular">
+            +taxes & fees / night
           </span>
         </p>
 
@@ -163,7 +166,7 @@ const HotelCard = ({ hotel }) => {
               className="flex items-center gap-1 bg-gray-100 px-3 py-1 rounded-full shadow-sm"
             >
               <img src={amenity.iconImage} alt={amenity.iconName} className="w-4 h-4" />
-              <span className="text-sm text-gray-700">{amenity.iconName}</span>
+              <span className="text-sm text-gray-700 font-TTHovesRegular">{amenity.iconName}</span>
             </div>
           ))}
         </div>

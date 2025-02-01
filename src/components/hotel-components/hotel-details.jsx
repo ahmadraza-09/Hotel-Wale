@@ -1,11 +1,18 @@
 import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import { useNavigate } from 'react-router-dom';
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 import hotelsData from "../../data/hotels-data"; // Ensure correct path
+
+import Prev from "../../assets/icons/slider-prev.svg";
+import Next from "../../assets/icons/slider-next.svg";
 
 const HotelDetails = () => {
     const { city, hotelName } = useParams();
-
+    const sliderRef = React.useRef(null);
+    const [isHovered, setIsHovered] = useState(false);
     const navigate = useNavigate();
 
     // Find the hotel in your data
@@ -24,20 +31,120 @@ const HotelDetails = () => {
     }
 
 
-    return (
-        <div className="flex flex-col container mx-auto p-4 sm:p-6 bg-[#F2F2F2] gap-4 pb-6">
+    const sliderSettings = {
+        dots: true,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        arrows: false,
+        appendDots: (dots) => {
+            const totalDots = dots.length;
+            const limitedDots = totalDots > 3 ? dots.slice(0, 3) : dots; // Limit to 3 dots
 
-            <div className="container p-0 rounded-xl flex gap-2 items-center justify-start text-sm flex-wrap">
+            return (
+                <div
+                    style={{
+                        position: "absolute",
+                        bottom: "10px",
+                        width: "100%",
+                        display: "flex",
+                        justifyContent: "center",
+                        gap: "5px",
+                    }}
+                >
+                    <ul style={{ margin: "0px", padding: "0", display: "flex", listStyle: "none" }}>
+                        {limitedDots}
+                    </ul>
+                </div>
+            );
+        },
+        customPaging: () => (
+            <div
+                style={{
+                    width: "8px",
+                    height: "8px",
+                    borderRadius: "50%",
+                    backgroundColor: "white",
+                    opacity: 0.8,
+                    margin: "0 5px",
+                }}
+            />
+        ),
+    };
+
+    const scrollHorizontally = (direction) => {
+        if (sliderRef.current) {
+            direction === "prev"
+                ? sliderRef.current.slickPrev()
+                : sliderRef.current.slickNext();
+        }
+    };
+
+    return (
+        <div className="w-full flex flex-col p-4 sm:p-6 bg-[#F2F2F2] gap-4 pb-6">
+
+            <div className="w-full p-0 rounded-xl flex gap-2 items-center justify-start text-sm flex-wrap">
                 <span className="font-TTHovesMedium text-blue-500 cursor-pointer" onClick={() => navigate('/')}>Home</span><i class="fa-solid fa-chevron-right text-[10px] opacity-60"></i><span className="font-TTHovesMedium text-blue-500 cursor-pointer" onClick={() => navigate('/hotel')}>Hotel</span><i class="fa-solid fa-chevron-right text-[10px] opacity-60"></i><span className="font-TTHovesMedium text-blue-500 cursor-pointer" onClick={() => navigate(`/hotel/hotels-in-${city}`)}>Hotels in <span className="capitalize">{city}</span></span><i class="fa-solid fa-chevron-right text-[10px] opacity-60"></i><span className="font-TTHovesMedium text-blue-500 cursor-pointer">{hotel.name}</span>
             </div>
 
-            <div className="container p-2 sm:p-4 bg-white rounded-2xl">
-                <div className="h-40 sm:h-[400px] flex gap-2 sm:gap-5">
-                    <img
+            <div className="w-full p-2 sm:p-4 bg-white rounded-2xl">
+                <div className="h-48 sm:h-[400px] flex gap-2 sm:gap-5 ">
+                    {/* <img
                         src={hotel.images[0]}
                         alt={hotel.name}
                         className="w-full sm:w-[50%] h-full object-cover rounded-xl cursor-pointer"
-                    />
+                    /> */}
+                    {/* Image Slider */}
+                    <div className="relative w-full sm:h-full sm:w-[50%] h-48 object-cover rounded-xl cursor-pointer " onMouseEnter={() => setIsHovered(true)}
+                        onMouseLeave={() => setIsHovered(false)}>
+                        <Slider ref={sliderRef} {...sliderSettings}>
+                            {hotel.images.length > 0 ? (
+                                hotel.images.map((image, index) => (
+                                    <div key={index}>
+                                        <img
+                                            src={image}
+                                            alt={`Hotel Slide ${index + 1}`}
+                                            className=" w-full h-48 sm:h-[400px] object-cover rounded-xl"
+                                        />
+                                    </div>
+                                ))
+                            ) : (
+                                <div>
+                                    <img
+                                        src="default-image.jpg" // Replace with a default placeholder image
+                                        alt="Default Hotel Image"
+                                        className="w-full h-48 object-cover"
+                                    />
+                                </div>
+                            )}
+                        </Slider>
+
+
+                        {isHovered && (
+                            <>
+                                <button
+                                    className="absolute w-8 h-8 left-4 top-1/2 transform -translate-y-1/2 bg-white p-[2px] rounded-full shadow-lg cursor-pointer"
+                                    onClick={(e) => {
+                                        e.stopPropagation(); // Prevent event bubbling to the parent div
+                                        scrollHorizontally("prev");
+                                    }}
+                                >
+                                    <img src={Prev} alt="" className="w-16" />
+                                </button>
+                                <button
+                                    className="absolute right-4 w-8 h-8 top-1/2 transform -translate-y-1/2 bg-white p-[2px] rounded-full shadow-lg cursor-pointer"
+                                    onClick={(e) => {
+                                        e.stopPropagation(); // Prevent event bubbling to the parent div
+                                        scrollHorizontally("next");
+                                    }}
+                                >
+                                    <img src={Next} alt="" className="w-16" />
+                                </button>
+                            </>
+                        )}
+                    </div>
+
                     <div className="w-[50%] h-full sm:flex flex-col justify-between gap-2 hidden ">
                         <img
                             src={hotel.images[1]}
@@ -52,12 +159,12 @@ const HotelDetails = () => {
                     </div>
                     <div className="w-[50%] h-full md:flex flex-col justify-between gap-2 hidden">
                         <img
-                            src={hotel.images[1]}
+                            src={hotel.images[3]}
                             alt={hotel.name}
                             className="h-[48%] w-80 object-cover rounded-xl cursor-pointer"
                         />
                         <img
-                            src={hotel.images[2]}
+                            src={hotel.images[4]}
                             alt={hotel.name}
                             className="h-[48%] w-80 object-cover rounded-xl cursor-pointer"
                         />
@@ -90,7 +197,7 @@ const HotelDetails = () => {
             </div>
 
             {/* Room Types */}
-            <div className="container p-2 sm:p-4 bg-white rounded-2xl">
+            <div className="w-full p-2 sm:p-4 bg-white rounded-2xl">
                 <h2 className="sm:text-xl text-lg font-bold mb-4">{hotel.roomsCatagory.length} - Select Room Category</h2>
                 <select
                     className="w-fit p-2 border rounded-lg font-TTHovesMedium outline-none bg-myColor text-white text-md sm:text-lg"

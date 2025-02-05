@@ -123,7 +123,7 @@ const HotelList = () => {
         </div>
       ) : (
         <p className="text-gray-500 px-8">
-          No hotels available in {cityName.charAt(0).toUpperCase() + cityName.slice(1)} with the selected filters.
+          No hotels available in {cityName.charAt(0).toUpperCase() + cityName.slice(1)}. We will list soon.
         </p>
       )}
     </div>

@@ -1,5 +1,6 @@
 
 // AHMEDABAD
+// Binori A Boutique Hotel
 import BinoriABoutiqueHotel1 from '../assets/hotel-images/binori-a-boutique-hotel/binory-a-boutique-hotel1.avif';
 import BinoriABoutiqueHotel2 from '../assets/hotel-images/binori-a-boutique-hotel/binory-a-boutique-hotel2.avif';
 import BinoriABoutiqueHotel3 from '../assets/hotel-images/binori-a-boutique-hotel/binory-a-boutique-hotel3.avif';
@@ -35,6 +36,7 @@ import Image1 from "../assets/hotel-images/hotel1.webp";
 import Image2 from "../assets/hotel-images/hotel2.webp";
 import Image3 from "../assets/hotel-images/hotel3.webp";
 
+// NAINITAL
 // HOTEL AROMA NAINITAL IMAGES
 import HotelAromaNainital1 from "../assets/hotel-images/hotel-aroma/hotel-aroma-nainital1.avif";
 import HotelAromaNainital2 from "../assets/hotel-images/hotel-aroma/hotel-aroma-nainital2.avif";
@@ -60,7 +62,29 @@ import HotelAromaNainitalFamilySuite1 from "../assets/hotel-images/hotel-aroma/r
 import HotelAromaNainitalFamilySuite2 from "../assets/hotel-images/hotel-aroma/rooms/family-suite2.avif";
 import HotelAromaNainitalFamilySuite3 from "../assets/hotel-images/hotel-aroma/rooms/family-suite3.avif";
 
+// SHIMLA
+// MAHAVEER SHIMLA
+import MahaveerShimla1 from "../assets/hotel-images/mahaveer-shimla/mahaveer-shimla1.avif";
+import MahaveerShimla2 from "../assets/hotel-images/mahaveer-shimla/mahaveer-shimla2.avif";
+import MahaveerShimla3 from "../assets/hotel-images/mahaveer-shimla/mahaveer-shimla3.avif";
+import MahaveerShimla4 from "../assets/hotel-images/mahaveer-shimla/mahaveer-shimla4.avif";
+import MahaveerShimla5 from "../assets/hotel-images/mahaveer-shimla/mahaveer-shimla5.avif";
+import MahaveerShimla6 from "../assets/hotel-images/mahaveer-shimla/mahaveer-shimla6.avif";
+import MahaveerShimla7 from "../assets/hotel-images/mahaveer-shimla/mahaveer-shimla7.avif";
+import MahaveerShimla8 from "../assets/hotel-images/mahaveer-shimla/mahaveer-shimla8.avif";
+import MahaveerShimla9 from "../assets/hotel-images/mahaveer-shimla/mahaveer-shimla9.avif";
+import MahaveerShimla10 from "../assets/hotel-images/mahaveer-shimla/mahaveer-shimla10.avif";
 
+// ROOMS
+import MahaveerShimlaDeluxe1 from "../assets/hotel-images/mahaveer-shimla/rooms/deluxe1.avif";
+import MahaveerShimlaDeluxe2 from "../assets/hotel-images/mahaveer-shimla/rooms/deluxe2.avif";
+import MahaveerShimlaDeluxe3 from "../assets/hotel-images/mahaveer-shimla/rooms/deluxe3.avif";
+import MahaveerShimlaDeluxe4 from "../assets/hotel-images/mahaveer-shimla/rooms/deluxe4.jpg";
+
+import MahaveerShimlaSuperDeluxe1 from "../assets/hotel-images/mahaveer-shimla/rooms/super-deluxe1.avif";
+import MahaveerShimlaSuperDeluxe2 from "../assets/hotel-images/mahaveer-shimla/rooms/super-deluxe2.webp";
+import MahaveerShimlaSuperDeluxe3 from "../assets/hotel-images/mahaveer-shimla/rooms/super-deluxe3.webp";
+import MahaveerShimlaSuperDeluxe4 from "../assets/hotel-images/mahaveer-shimla/rooms/super-deluxe4.avif";
 
 // HOTEL AMENITIES ICONS
 import Wifi from "../assets/icons/wifi.svg";
@@ -562,6 +586,125 @@ const hotelsData = {
     {
       city: "pune",
       hotels: [],
+    },
+    {
+      city: "ranchi",
+      hotels: [],
+    },
+    {
+      city: "shimla",
+      hotels: [
+        {
+          name: "Mahaveer Shimla",
+          description: "Conveniently located near three railway stations, Mahaveer BnB is a cosy property that offers modern rooms and proximity to several popular tourist destinations.",
+          stars: 3,
+          rating: 4.1,
+          reviews: "33+ ratings",
+          pricePerNight: 1509,
+          taxesAndFees: 401,
+          amenities: [
+            {
+              iconName: "Free Wi-Fi",
+              iconImage: Wifi,
+            },
+            {
+              iconName: "Breakfast",
+              iconImage: Coffee,
+            },
+            {
+              iconName: "24/7 Front Desk",
+              iconImage: FrontDesk,
+            },
+            {
+              iconName: "Pool Access",
+              iconImage: Pool,
+            },
+          ],
+          image: "https://example.com/ahmedabad-grand-hotel.jpg",
+          images: [MahaveerShimla1, MahaveerShimla2, MahaveerShimla3, MahaveerShimla4, MahaveerShimla5, MahaveerShimla6, MahaveerShimla7, MahaveerShimla8, MahaveerShimla9, MahaveerShimla10],
+          address: "Ahmedabad Grand Hotel, Gujarat, India",
+          phone: "+91 9876543210",
+          roomsCatagory: [
+            {
+              name: "Deluxe Room",
+              price: 1509,
+              oldPrice: 2599,
+              images: [MahaveerShimlaDeluxe1, MahaveerShimlaDeluxe2, MahaveerShimlaDeluxe3, MahaveerShimlaDeluxe4],
+              roomSize: "(100 sq.ft (9 sq.mt) | King Bed)",
+              amenities: [
+                {
+                  iconName: "Book with ₹ 0 Payment​",
+                  iconImage: Wifi,
+                },
+                {
+                  iconName: "No meals included",
+                  iconImage: Coffee,
+                },
+                {
+                  iconName: "Early Check-In upto 2 hours (subject to availability)",
+                  iconImage: FrontDesk,
+                },
+                {
+                  iconName: "Late Check-Out upto 2 hours (subject to availability)",
+                  iconImage: Pool,
+                },
+                {
+                  iconName: "Free Cancellation till 24 hrs before check in",
+                  iconImage: Pool,
+                },
+              ],
+            },
+            {
+              name: "Super Deluxe Room",
+              price: 1742,
+              oldPrice: 2299,
+              images: [MahaveerShimlaSuperDeluxe1, MahaveerShimlaSuperDeluxe2, MahaveerShimlaSuperDeluxe3, MahaveerShimlaSuperDeluxe4],
+              roomSize: "(110 sq.ft (10 sq.mt) | Monument View | Double Bed)",
+              amenities: [
+                {
+                  iconName: "Book with ₹ 0 Payment​",
+                  iconImage: Wifi,
+                },
+                {
+                  iconName: "No meals included",
+                  iconImage: Coffee,
+                },
+                {
+                  iconName: "Early Check-In upto 2 hours (subject to availability)",
+                  iconImage: FrontDesk,
+                },
+                {
+                  iconName: "Late Check-Out upto 2 hours (subject to availability)",
+                  iconImage: Pool,
+                },
+                {
+                  iconName: "Free Cancellation till 24 hrs before check in",
+                  iconImage: Pool,
+                },
+              ],
+            },
+          ],
+          policies: {
+            checkIn: "1:00 PM",
+            checkOut: "11:00 AM",
+            cancellationPolicy: "Free cancellation up to 48 hours before check-in.",
+          },
+          nearbyAttractions: [
+            {
+              name: "Central Park",
+              description: "A large public park in the heart of the city with walking trails and beautiful scenery."
+            },
+            {
+              name: "City Museum",
+              description: "A museum showcasing the rich history and culture of the city."
+            },
+            {
+              name: "Riverfront Plaza",
+              description: "A scenic spot by the river with restaurants, shops, and entertainment options."
+            }
+          ],
+        },
+      ],
     },
     {
       city: "surat",

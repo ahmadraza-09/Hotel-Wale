@@ -12,7 +12,9 @@ import Next from "../../assets/icons/slider-next.svg";
 const HotelDetails = () => {
     const { city, hotelName } = useParams();
     const sliderRef = React.useRef(null);
+    const sliderRoomRef = React.useRef(null);
     const [isHovered, setIsHovered] = useState(false);
+    const [isRoomHovered, setIsRoomHovered] = useState(false);
     const navigate = useNavigate();
 
     // Find the hotel in your data
@@ -78,6 +80,14 @@ const HotelDetails = () => {
             direction === "prev"
                 ? sliderRef.current.slickPrev()
                 : sliderRef.current.slickNext();
+        }
+    };
+
+    const scrollRoomHorizontally = (direction) => {
+        if (sliderRoomRef.current) {
+            direction === "prev"
+                ? sliderRoomRef.current.slickPrev()
+                : sliderRoomRef.current.slickNext();
         }
     };
 
@@ -215,12 +225,55 @@ const HotelDetails = () => {
                 </select>
 
                 {selectedRoom && (
-                    <div className="flex sm:flex-row flex-col mt-6 gap-6 items-start">
-                        <img
-                            src={selectedRoom.images[0]}
-                            alt={selectedRoom.name}
-                            className="w-full sm:w-[50%] h-40 sm:h-[400px] object-cover rounded-2xl"
-                        />
+                    <div className="flex md:flex-row flex-col mt-6 gap-6 items-start rounded-xl" >
+                        <div className="relative w-full sm:h-full md:w-[50%] h-48 object-cover rounded-xl cursor-pointer " onMouseEnter={() => setIsRoomHovered(true)}
+                            onMouseLeave={() => setIsRoomHovered(false)}>
+                            <Slider ref={sliderRoomRef} {...sliderSettings}>
+                                {selectedRoom.images.length > 0 ? (
+                                    selectedRoom.images.map((image, index) => (
+                                        <div key={index}>
+                                            <img
+                                                src={image}
+                                                alt={`Hotel Slide ${index + 1}`}
+                                                className="w-full h-48 sm:h-[400px] object-cover rounded-xl"
+                                            />
+                                        </div>
+                                    ))
+                                ) : (
+                                    <div>
+                                        <img
+                                            src="default-image.jpg" // Replace with a default placeholder image
+                                            alt="Default Hotel Image"
+                                            className="w-full h-48 object-cover"
+                                        />
+                                    </div>
+                                )}
+                            </Slider>
+
+
+                            {isRoomHovered && (
+                                <>
+                                    <button
+                                        className="absolute w-8 h-8 left-4 top-1/2 transform -translate-y-1/2 bg-white p-[2px] rounded-full shadow-lg cursor-pointer"
+                                        onClick={(e) => {
+                                            e.stopPropagation(); // Prevent event bubbling to the parent div
+                                            scrollRoomHorizontally("prev");
+                                        }}
+                                    >
+                                        <img src={Prev} alt="" className="w-16" />
+                                    </button>
+                                    <button
+                                        className="absolute right-4 w-8 h-8 top-1/2 transform -translate-y-1/2 bg-white p-[2px] rounded-full shadow-lg cursor-pointer"
+                                        onClick={(e) => {
+                                            e.stopPropagation(); // Prevent event bubbling to the parent div
+                                            scrollRoomHorizontally("next");
+                                        }}
+                                    >
+                                        <img src={Next} alt="" className="w-16" />
+                                    </button>
+                                </>
+                            )}
+                        </div>
                         <div className="flex flex-col items-start justify-start">
                             <h3 className="text-lg font-semibold font-TTHovesMedium">{selectedRoom.name}</h3>
                             <p className="mt-2 font-bold text-xl">
@@ -245,13 +298,37 @@ const HotelDetails = () => {
                                 ))}
                             </ul>
                             <button className="mt-4 bg-myColor text-white py-2 font-TTHovesMedium font-medium px-4 rounded-lg hover:bg-myColor">
-                                Select Room
+                                Book Room
                             </button>
                         </div>
 
                     </div>
                 )}
             </div>
+
+            {/* Nearby Attractions */}
+            <div className="sm:p-6 p-2 bg-white rounded-xl relative">
+                <h2 className="sm:text-2xl text-xl font-semibold font-TTHovesMedium text-gray-800 mb-4">Nearby Attractions - {hotel.name}</h2>
+                <div className="space-y-4 relative">
+                    {hotel.nearbyAttractions.map((attraction, index) => (
+                        <div key={index} className="p-4 bg-white rounded-lg relative">
+                            {/* Big dot */}
+                            <div className="absolute left-0 top-1/2 transform -translate-y-1/2 sm:w-6 w-4 sm:h-6 h-4 bg-gray-800 rounded-full"></div>
+                            {/* Attraction Name and Description */}
+                            <div className="sm:ml-10 ml-2">
+                                <h3 className="text-lg font-TripSansMedium text-gray-700">{attraction.name}</h3>
+                                <p className="text-gray-600 font-TTHovesRegular">{attraction.description}</p>
+                            </div>
+                            {/* Line connecting dots */}
+                            {index !== hotel.nearbyAttractions.length - 1 && (
+                                <div className="absolute left-2 top-full w-1 h-10 bg-gray-200"></div>  /* Vertical line between dots */
+                            )}
+                        </div>
+                    ))}
+                </div>
+            </div>
+
+
         </div>
     );
 };

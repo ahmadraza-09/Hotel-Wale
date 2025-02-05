@@ -53,7 +53,7 @@ const HotelCard = ({ hotel }) => {
           borderRadius: "50%",
           backgroundColor: "white",
           opacity: 0.8,
-          margin: "0 5px",
+          margin: "0 0px",
         }}
       />
     ),
@@ -142,14 +142,14 @@ const HotelCard = ({ hotel }) => {
         <div className="flex justify-between items-center">
           <h3 className="text-lg font-TTHovesMedium">{hotel.name}</h3>
           <div className="flex mt-2">
-            <span className="flex gap-[5px] px-2 py-1 bg-green-100 text-green-700 rounded-md text-sm font-medium">
-              <img src={Star} alt="" className="w-4" />
+            <span className="flex items-center font-TTHovesMedium gap-[5px] px-2 py-1 bg-green-100 text-green-700 rounded-md text-sm font-medium">
+            <i class="fa-solid fa-star text-green-700"></i>
               {hotel.rating}
             </span>
           </div>
         </div>
         <div className="flex justify-between items-center">
-          <p className="text-sm text-gray-600 font-TTHovesRegular">{hotel.stars}-star hotel</p>
+        <span className="bg-myColor text-white text-xs font-TTHovesMedium px-2 py-1 rounded-md"><i class="fa-solid fa-star"></i> {hotel.stars} Star Hotel</span>
           <p className="text-sm text-gray-600">{hotel.reviews}</p>
         </div>
         <p className="text-xl font-bold text-gray-800">

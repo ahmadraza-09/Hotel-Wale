@@ -280,9 +280,18 @@ const hotelsData = {
             cancellationPolicy: "Free cancellation up to 48 hours before check-in.",
           },
           nearbyAttractions: [
-            "Sabarmati Ashram - 5 km",
-            "Kankaria Lake - 7 km",
-            "Sidi Saiyyed Mosque - 3 km",
+            {
+              name: "Central Park",
+              description: "A large public park in the heart of the city with walking trails and beautiful scenery."
+            },
+            {
+              name: "City Museum",
+              description: "A museum showcasing the rich history and culture of the city."
+            },
+            {
+              name: "Riverfront Plaza",
+              description: "A scenic spot by the river with restaurants, shops, and entertainment options."
+            }
           ],
         },
       ],
@@ -417,9 +426,18 @@ const hotelsData = {
             cancellationPolicy: "Free cancellation up to 24 hours before check-in.",
           },
           nearbyAttractions: [
-            "Lalbagh Botanical Garden - 4 km",
-            "Cubbon Park - 5 km",
-            "Bangalore Palace - 2 km",
+            {
+              name: "Central Park",
+              description: "A large public park in the heart of the city with walking trails and beautiful scenery."
+            },
+            {
+              name: "City Museum",
+              description: "A museum showcasing the rich history and culture of the city."
+            },
+            {
+              name: "Riverfront Plaza",
+              description: "A scenic spot by the river with restaurants, shops, and entertainment options."
+            }
           ],
         },
       ],
@@ -576,9 +594,18 @@ const hotelsData = {
             cancellationPolicy: "Free cancellation up to 48 hours before check-in.",
           },
           nearbyAttractions: [
-            "Sabarmati Ashram - 5 km",
-            "Kankaria Lake - 7 km",
-            "Sidi Saiyyed Mosque - 3 km",
+            {
+              name: "Central Park",
+              description: "A large public park in the heart of the city with walking trails and beautiful scenery."
+            },
+            {
+              name: "City Museum",
+              description: "A museum showcasing the rich history and culture of the city."
+            },
+            {
+              name: "Riverfront Plaza",
+              description: "A scenic spot by the river with restaurants, shops, and entertainment options."
+            }
           ],
         },
       ],

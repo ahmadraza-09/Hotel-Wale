@@ -64,9 +64,9 @@ const HotelList = () => {
             className="ml-2 border-none outline-none bg-white"
           >
             <option value="">Any</option>
-            <option value="0-5000">0 - 5000</option>
-            <option value="5001-10000">5000 - 10000</option>
-            <option value="10001-15000">10000 - 15000</option>
+            <option value="0-5000">₹0 - ₹5000</option>
+            <option value="5001-10000">₹5000 - ₹10000</option>
+            <option value="10001-15000">₹10000 - ₹15000</option>
           </select>
 
         </button>

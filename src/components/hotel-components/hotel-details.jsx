@@ -308,25 +308,30 @@ const HotelDetails = () => {
 
             {/* Nearby Attractions */}
             <div className="sm:p-6 p-2 bg-white rounded-xl relative">
-                <h2 className="sm:text-2xl text-xl font-semibold font-TTHovesMedium text-gray-800 mb-4">Nearby Attractions - {hotel.name}</h2>
-                <div className="space-y-4 relative">
-                    {hotel.nearbyAttractions.map((attraction, index) => (
-                        <div key={index} className="p-4 bg-white rounded-lg relative">
-                            {/* Big dot */}
-                            <div className="absolute left-0 top-1/2 transform -translate-y-1/2 sm:w-6 w-4 sm:h-6 h-4 bg-gray-800 rounded-full"></div>
-                            {/* Attraction Name and Description */}
-                            <div className="sm:ml-10 ml-2">
-                                <h3 className="text-lg font-TripSansMedium text-gray-700">{attraction.name}</h3>
-                                <p className="text-gray-600 font-TTHovesRegular">{attraction.description}</p>
-                            </div>
-                            {/* Line connecting dots */}
-                            {index !== hotel.nearbyAttractions.length - 1 && (
-                                <div className="absolute left-2 top-full w-1 h-10 bg-gray-200"></div>  /* Vertical line between dots */
-                            )}
-                        </div>
-                    ))}
+    <h2 className="sm:text-2xl text-xl font-semibold font-TTHovesMedium text-gray-800 mb-4">
+        Nearby Attractions - {hotel.name}
+    </h2>
+    <div className="space-y-4 relative">
+        {hotel.nearbyAttractions.map((attraction, index) => (
+            <div key={index} className="flex items-start relative">
+                {/* Circle (Big dot) */}
+                <div className="absolute left-0 top-2 sm:w-4 w-4 sm:h-4 h-4 bg-gray-800 rounded-full"></div>
+
+                {/* Line connecting dots */}
+                {index !== hotel.nearbyAttractions.length - 1 && (
+                    <div className="absolute left-1.5 top-6 w-1 h-full bg-gray-200"></div>  /* Vertical line */
+                )}
+
+                {/* Attraction Name and Description */}
+                <div className="sm:ml-8 ml-6"> {/* Adjusted left margin to align content properly */}
+                    <h3 className="text-lg font-TripSansMedium text-gray-700">{attraction.name}</h3>
+                    <p className="text-gray-600 font-TTHovesRegular">{attraction.description}</p>
                 </div>
             </div>
+        ))}
+    </div>
+</div>
+
 
 
         </div>

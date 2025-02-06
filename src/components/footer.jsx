@@ -1,8 +1,35 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { useNavigate, useLocation } from "react-router-dom";
+import hotelsData from "../data/hotels-data";
+
+
 
 const Footer = () => {
+
+  const destinationsList = hotelsData.cities.map(city => city.city);
+
+  const navigate = useNavigate();
+
   return (
     <footer class="bg-gray-100 py-8 font-TTHovesRegular">
+
+      <div className='max-w-[1000px] w-full container mx-auto px-4 gap-8 mb-10'>
+        <ul className='flex w-full gap-4 capitalize font-TTHovesMedium text-sm flex-wrap'>
+          {destinationsList
+            .slice()  // Creates a copy to avoid mutating the original array
+            .sort((a, b) => a.localeCompare(b))  // Sort alphabetically
+            .map((destination, index) => (
+              <li key={index} className='text-blue-500 cursor-pointer'
+                onClick={() => {
+                  navigate(`/hotel/hotels-in-${destination}`);
+                }}>
+                {destination}
+              </li>
+            ))}
+        </ul>
+      </div>
+
+
       <div class="max-w-[1000px] container mx-auto px-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
 
         <div>

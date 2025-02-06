@@ -35,12 +35,15 @@ const HotelList = () => {
   const filteredHotels = cityData
     ? cityData.hotels.filter((hotel) => {
       const matchesQuery = hotel.name.toLowerCase().includes(searchQuery.toLowerCase());
-      const matchesPrice = selectedPrice ? hotel.priceRange === selectedPrice : true;
-      const matchesStar = selectedStar ? hotel.starRating === parseInt(selectedStar) : true;
+      const matchesPrice = selectedPrice
+        ? hotel.pricePerNight >= parseInt(selectedPrice.split('-')[0]) && hotel.pricePerNight <= parseInt(selectedPrice.split('-')[1])
+        : true;
+      const matchesStar = selectedStar ? hotel.stars === parseInt(selectedStar) : true;
       const matchesLocation = selectedLocation ? hotel.location.toLowerCase().includes(selectedLocation.toLowerCase()) : true;
       return matchesQuery && matchesPrice && matchesStar && matchesLocation;
     })
     : [];
+
 
   return (
     <div className="w-full container pt-0 pb-8">
@@ -61,10 +64,11 @@ const HotelList = () => {
             className="ml-2 border-none outline-none bg-white"
           >
             <option value="">Any</option>
-            <option value="budget">Budget</option>
-            <option value="mid-range">Mid-Range</option>
-            <option value="luxury">Luxury</option>
+            <option value="0-5000">0 - 5000</option>
+            <option value="5001-10000">5000 - 10000</option>
+            <option value="10001-15000">10000 - 15000</option>
           </select>
+
         </button>
 
         {/* Star Rating Filter Dropdown */}

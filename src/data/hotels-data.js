@@ -184,6 +184,17 @@ import Coffee from "../assets/icons/coffee.svg";
 import FrontDesk from "../assets/icons/front-desk.svg";
 import Pool from "../assets/icons/swimming-pool.svg";
 
+// AFFILIATE ICONS
+import MakeMyTrip from "../assets/icons/affiliate-icons/MakeMyTrip.png";
+import BookingCom from "../assets/icons/affiliate-icons/Booking_Com.png";
+import Skyscanner from "../assets/icons/affiliate-icons/Skyscanner.png";
+import Agoda from "../assets/icons/affiliate-icons/Agoda.png";
+import TripCom from "../assets/icons/affiliate-icons/trip.png";
+import VioCom from "../assets/icons/affiliate-icons/Vio_com.png";
+import Expedia from "../assets/icons/affiliate-icons/expedia.png";
+import HotelsCom from "../assets/icons/affiliate-icons/hotels_com.png";
+import TripAdvisor from "../assets/icons/affiliate-icons/Tripadvisor.svg";
+
 const hotelsData = {
   cities: [
     {
@@ -195,6 +206,28 @@ const hotelsData = {
           rating: 4.0,
           reviews: "15+ ratings",
           pricePerNight: 3985,
+          affiliateLinks: [
+            {
+              icon: TripAdvisor,
+              name: "TripAdvisor",
+              url: "https://www.tripadvisor.in/Hotel_Review-g297705-d18992358-Hotel_Aroma_Nainital.html",
+            },
+            {
+              icon: BookingCom,
+              name: "Booking.com",
+              url: "https://www.booking.com/hotel/in/hotel-aroma-nainital.html",
+            },
+            {
+              icon: Expedia,
+              name: "Expedia",
+              url: "https://www.expedia.in/Hotel-Review/Hotel-Aroma-Nainital-Nainital-Gujarat-India/d18992358",
+            },
+            {
+              icon: HotelsCom,
+              name: "Hotels.com",
+              url: "https://www.hotels.com/hotel/hotel-aroma-nainital-nainital-gujarat-in-nainital/d/18992358",
+            },
+          ],
           taxesAndFees: 945,
           amenities: [
             {
@@ -420,6 +453,28 @@ const hotelsData = {
           rating: 4.3,
           reviews: "15+ ratings",
           pricePerNight: 1524,
+          affiliateLinks: [
+            {
+              icon: TripAdvisor,
+              name: "TripAdvisor",
+              url: "https://www.tripadvisor.in/Hotel_Review-g297705-d18992358-Hotel_Aroma_Nainital.html",
+            },
+            {
+              icon: BookingCom,
+              name: "Booking.com",
+              url: "https://www.booking.com/hotel/in/hotel-aroma-nainital.html",
+            },
+            {
+              icon: Expedia,
+              name: "Expedia",
+              url: "https://www.expedia.in/Hotel-Review/Hotel-Aroma-Nainital-Nainital-Gujarat-India/d18992358",
+            },
+            {
+              icon: HotelsCom,
+              name: "Hotels.com",
+              url: "https://www.hotels.com/hotel/hotel-aroma-nainital-nainital-gujarat-in-nainital/d/18992358",
+            },
+          ],
           taxesAndFees: 600,
           amenities: [
             {
@@ -559,6 +614,28 @@ const hotelsData = {
           rating: 4.3,
           reviews: "15+ ratings",
           pricePerNight: 4919,
+          affiliateLinks: [
+            {
+              icon: TripAdvisor,
+              name: "TripAdvisor",
+              url: "https://www.tripadvisor.in/Hotel_Review-g297705-d18992358-Hotel_Aroma_Nainital.html",
+            },
+            {
+              icon: BookingCom,
+              name: "Booking.com",
+              url: "https://www.booking.com/hotel/in/hotel-aroma-nainital.html",
+            },
+            {
+              icon: Expedia,
+              name: "Expedia",
+              url: "https://www.expedia.in/Hotel-Review/Hotel-Aroma-Nainital-Nainital-Gujarat-India/d18992358",
+            },
+            {
+              icon: HotelsCom,
+              name: "Hotels.com",
+              url: "https://www.hotels.com/hotel/hotel-aroma-nainital-nainital-gujarat-in-nainital/d/18992358",
+            },
+          ],
           taxesAndFees: 1241,
           amenities: [
             {
@@ -711,6 +788,28 @@ const hotelsData = {
           rating: 4.1,
           reviews: "33+ ratings",
           pricePerNight: 1509,
+          affiliateLinks: [
+            {
+              icon: TripAdvisor,
+              name: "TripAdvisor",
+              url: "https://www.tripadvisor.in/Hotel_Review-g297705-d18992358-Hotel_Aroma_Nainital.html",
+            },
+            {
+              icon: BookingCom,
+              name: "Booking.com",
+              url: "https://www.booking.com/hotel/in/hotel-aroma-nainital.html",
+            },
+            {
+              icon: Expedia,
+              name: "Expedia",
+              url: "https://www.expedia.in/Hotel-Review/Hotel-Aroma-Nainital-Nainital-Gujarat-India/d18992358",
+            },
+            {
+              icon: HotelsCom,
+              name: "Hotels.com",
+              url: "https://www.hotels.com/hotel/hotel-aroma-nainital-nainital-gujarat-in-nainital/d/18992358",
+            },
+          ],
           taxesAndFees: 401,
           amenities: [
             {
@@ -843,6 +942,28 @@ const hotelsData = {
         rating: 4.1,
         reviews: "33+ ratings",
         pricePerNight: 2631,
+        affiliateLinks: [
+          {
+            icon: TripAdvisor,
+            name: "TripAdvisor",
+            url: "https://www.tripadvisor.in/Hotel_Review-g297705-d18992358-Hotel_Aroma_Nainital.html",
+          },
+          {
+            icon: BookingCom,
+            name: "Booking.com",
+            url: "https://www.booking.com/hotel/in/hotel-aroma-nainital.html",
+          },
+          {
+            icon: Expedia,
+            name: "Expedia",
+            url: "https://www.expedia.in/Hotel-Review/Hotel-Aroma-Nainital-Nainital-Gujarat-India/d18992358",
+          },
+          {
+            icon: HotelsCom,
+            name: "Hotels.com",
+            url: "https://www.hotels.com/hotel/hotel-aroma-nainital-nainital-gujarat-in-nainital/d/18992358",
+          },
+        ],
         taxesAndFees: 647,
         amenities: [
           {
@@ -1045,6 +1166,28 @@ const hotelsData = {
         rating: 4.1,
         reviews: "33+ ratings",
         pricePerNight: 3956,
+        affiliateLinks: [
+          {
+            icon: TripAdvisor,
+            name: "TripAdvisor",
+            url: "https://www.tripadvisor.in/Hotel_Review-g297705-d18992358-Hotel_Aroma_Nainital.html",
+          },
+          {
+            icon: BookingCom,
+            name: "Booking.com",
+            url: "https://www.booking.com/hotel/in/hotel-aroma-nainital.html",
+          },
+          {
+            icon: Expedia,
+            name: "Expedia",
+            url: "https://www.expedia.in/Hotel-Review/Hotel-Aroma-Nainital-Nainital-Gujarat-India/d18992358",
+          },
+          {
+            icon: HotelsCom,
+            name: "Hotels.com",
+            url: "https://www.hotels.com/hotel/hotel-aroma-nainital-nainital-gujarat-in-nainital/d/18992358",
+          },
+        ],
         taxesAndFees: 1013,
         amenities: [
           {

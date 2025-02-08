@@ -179,7 +179,7 @@ const HotelCard = ({ hotel }) => {
               // Handle "Book Now" button click
             }}
           >
-            Book Now
+            Show Deals
           </button>
         </div>
       </div>

@@ -92,7 +92,7 @@ const HotelDetails = () => {
     };
 
     return (
-        <div className="w-full flex flex-col p-4 sm:p-6 bg-[#F2F2F2] gap-4 pb-6">
+        <div className="w-full flex flex-col p-2 sm:p-6 bg-[#F2F2F2] gap-4 pb-6">
 
             <div className="w-full p-0 rounded-xl flex gap-2 items-center justify-start text-sm flex-wrap">
                 <span className="font-TTHovesMedium text-blue-500 cursor-pointer" onClick={() => navigate('/')}>Home</span><i class="fa-solid fa-chevron-right text-[10px] opacity-60"></i><span className="font-TTHovesMedium text-blue-500 cursor-pointer" onClick={() => navigate('/hotel')}>Hotel</span><i class="fa-solid fa-chevron-right text-[10px] opacity-60"></i><span className="font-TTHovesMedium text-blue-500 cursor-pointer" onClick={() => navigate(`/hotel/hotels-in-${city}`)}>Hotels in <span className="capitalize">{city}</span></span><i class="fa-solid fa-chevron-right text-[10px] opacity-60"></i><span className="font-TTHovesMedium text-blue-500 cursor-pointer">{hotel.name}</span>
@@ -203,7 +203,24 @@ const HotelDetails = () => {
                     ))}
                 </div>
 
-                <button className="bg-myColor uppercase mt-4 text-white font-TTHovesBold py-1 px-2 rounded-md text-lg sm:text-xl">Book Now</button>
+                <div className="flex flex-col mt-6">
+                    {hotel.affiliateLinks.map((affiliate, index) => (
+                        <a href={affiliate.url} target="_blank" rel="noopener noreferrer" className=" flex items-center justify-between sm:justify-start gap-10 text-center border-t-2 py-2">
+
+                            <img src={affiliate.icon} alt={affiliate.name} className="sm:w-28 w-24"/>
+                            
+                            {/* <span className="font-TTHovesMedium">₹{hotel.roomsCatagory[0].price}/-</span> */}
+
+                            <button
+                                key={index}
+                                className="max-w-96 capitalize bg-yellow-500 text-black font-TripSansMedium py-1 px-2 rounded-md text-md sm:text-xl"
+                            >
+                                View Deal
+                            </button>
+                        </a>
+                    ))}
+                </div>
+
             </div>
 
             {/* Room Types */}
@@ -308,29 +325,29 @@ const HotelDetails = () => {
 
             {/* Nearby Attractions */}
             <div className="sm:p-6 p-2 bg-white rounded-xl relative">
-    <h2 className="sm:text-2xl text-xl font-semibold font-TTHovesMedium text-gray-800 mb-4">
-        Nearby Attractions - {hotel.name}
-    </h2>
-    <div className="space-y-4 relative">
-        {hotel.nearbyAttractions.map((attraction, index) => (
-            <div key={index} className="flex items-start relative">
-                {/* Circle (Big dot) */}
-                <div className="absolute left-0 top-2 sm:w-4 w-4 sm:h-4 h-4 bg-gray-800 rounded-full"></div>
+                <h2 className="sm:text-2xl text-xl font-semibold font-TTHovesMedium text-gray-800 mb-4">
+                    Nearby Attractions - {hotel.name}
+                </h2>
+                <div className="space-y-4 relative">
+                    {hotel.nearbyAttractions.map((attraction, index) => (
+                        <div key={index} className="flex items-start relative">
+                            {/* Circle (Big dot) */}
+                            <div className="absolute left-0 top-2 sm:w-4 w-4 sm:h-4 h-4 bg-gray-800 rounded-full"></div>
 
-                {/* Line connecting dots */}
-                {index !== hotel.nearbyAttractions.length - 1 && (
-                    <div className="absolute left-1.5 top-6 w-1 h-full bg-gray-200"></div>  /* Vertical line */
-                )}
+                            {/* Line connecting dots */}
+                            {index !== hotel.nearbyAttractions.length - 1 && (
+                                <div className="absolute left-1.5 top-6 w-1 h-full bg-gray-200"></div>  /* Vertical line */
+                            )}
 
-                {/* Attraction Name and Description */}
-                <div className="sm:ml-8 ml-6"> {/* Adjusted left margin to align content properly */}
-                    <h3 className="text-lg font-TripSansMedium text-gray-700">{attraction.name}</h3>
-                    <p className="text-gray-600 font-TTHovesRegular">{attraction.description}</p>
+                            {/* Attraction Name and Description */}
+                            <div className="sm:ml-8 ml-6"> {/* Adjusted left margin to align content properly */}
+                                <h3 className="text-lg font-TripSansMedium text-gray-700">{attraction.name}</h3>
+                                <p className="text-gray-600 font-TTHovesRegular">{attraction.description}</p>
+                            </div>
+                        </div>
+                    ))}
                 </div>
             </div>
-        ))}
-    </div>
-</div>
 
 
 

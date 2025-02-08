@@ -32,6 +32,36 @@ import BinoriABoutiqueHotelQueenSuite1 from '../assets/hotel-images/binori-a-bou
 import BinoriABoutiqueHotelQueenSuite2 from '../assets/hotel-images/binori-a-boutique-hotel/rooms/queen-suite2.avif';
 import BinoriABoutiqueHotelQueenSuite3 from '../assets/hotel-images/binori-a-boutique-hotel/rooms/queen-suite3.avif';
 
+// BANGALORE  
+// Octave Himalaya Monarch
+import OctaveHimalayaMonarch1 from '../assets/hotel-images/octave-himalaya-monarch/octave-himalaya-monarch1.avif';
+import OctaveHimalayaMonarch2 from '../assets/hotel-images/octave-himalaya-monarch/octave-himalaya-monarch2.avif';
+import OctaveHimalayaMonarch3 from '../assets/hotel-images/octave-himalaya-monarch/octave-himalaya-monarch3.avif';
+import OctaveHimalayaMonarch4 from '../assets/hotel-images/octave-himalaya-monarch/octave-himalaya-monarch4.avif';
+import OctaveHimalayaMonarch5 from '../assets/hotel-images/octave-himalaya-monarch/octave-himalaya-monarch5.avif';
+import OctaveHimalayaMonarch6 from '../assets/hotel-images/octave-himalaya-monarch/octave-himalaya-monarch6.avif';
+import OctaveHimalayaMonarch7 from '../assets/hotel-images/octave-himalaya-monarch/octave-himalaya-monarch7.avif';
+import OctaveHimalayaMonarch8 from '../assets/hotel-images/octave-himalaya-monarch/octave-himalaya-monarch8.jpg';
+import OctaveHimalayaMonarch9 from '../assets/hotel-images/octave-himalaya-monarch/octave-himalaya-monarch9.jpg';
+import OctaveHimalayaMonarch10 from '../assets/hotel-images/octave-himalaya-monarch/octave-himalaya-monarch10.avif';
+
+// Rooms
+import OctaveHimalayaMonarchNonACStandardRoom1 from '../assets/hotel-images/octave-himalaya-monarch/rooms/non-ac-standard-room1.avif';
+import OctaveHimalayaMonarchNonACStandardRoom2 from '../assets/hotel-images/octave-himalaya-monarch/rooms/non-ac-standard-room2.webp';
+import OctaveHimalayaMonarchNonACStandardRoom3 from '../assets/hotel-images/octave-himalaya-monarch/rooms/non-ac-standard-room3.avif';
+import OctaveHimalayaMonarchNonACStandardRoom4 from '../assets/hotel-images/octave-himalaya-monarch/rooms/non-ac-standard-room4.webp';
+
+import OctaveHimalayaMonarchSuperiorRoom1 from '../assets/hotel-images/octave-himalaya-monarch/rooms/superior-room1.avif';
+import OctaveHimalayaMonarchSuperiorRoom2 from '../assets/hotel-images/octave-himalaya-monarch/rooms/superior-room2.webp';
+import OctaveHimalayaMonarchSuperiorRoom3 from '../assets/hotel-images/octave-himalaya-monarch/rooms/superior-room3.webp';
+import OctaveHimalayaMonarchSuperiorRoom4 from '../assets/hotel-images/octave-himalaya-monarch/rooms/superior-room4.webp';
+
+import OctaveHimalayaMonarchFamilyRoom1 from '../assets/hotel-images/octave-himalaya-monarch/rooms/family-room1.webp';
+import OctaveHimalayaMonarchFamilyRoom2 from '../assets/hotel-images/octave-himalaya-monarch/rooms/family-room2.webp';
+import OctaveHimalayaMonarchFamilyRoom3 from '../assets/hotel-images/octave-himalaya-monarch/rooms/family-room3.webp';
+import OctaveHimalayaMonarchFamilyRoom4 from '../assets/hotel-images/octave-himalaya-monarch/rooms/family-room4.webp';
+
+
 // NAINITAL
 // HOTEL AROMA NAINITAL IMAGES
 import HotelAromaNainital1 from "../assets/hotel-images/hotel-aroma/hotel-aroma-nainital1.avif";
@@ -196,6 +226,8 @@ import HotelsCom from "../assets/icons/affiliate-icons/hotels_com.png";
 import TripAdvisor from "../assets/icons/affiliate-icons/Tripadvisor.svg";
 import Goibibo from "../assets/icons/affiliate-icons/Goibibo.png";
 import Kayak from "../assets/icons/affiliate-icons/Kayak.png";
+import Yatra from "../assets/icons/affiliate-icons/yatra.png";
+import ClearTrip from "../assets/icons/affiliate-icons/cleartrip.jpg";
 
 const hotelsData = {
   cities: [
@@ -210,34 +242,24 @@ const hotelsData = {
           pricePerNight: 3985,
           affiliateLinks: [
             {
-              icon: TripAdvisor,
-              name: "TripAdvisor",
-              url: "https://www.tripadvisor.in/Hotel_Review-g297705-d18992358-Hotel_Aroma_Nainital.html",
+              icon: MakeMyTrip,
+              name: "MakeMyTrip",
+              url: "https://www.makemytrip.com/hotels/binori_a_boutique_hotel-details-ahmedabad.html?source=ENKR20250208A1320846356",
             },
             {
-              icon: BookingCom,
-              name: "Booking.com",
-              url: "https://www.booking.com/hotel/in/hotel-aroma-nainital.html",
+              icon: ClearTrip,
+              name: "ClearTrip",
+              url: "https://www.cleartrip.com/hotels/details/binori-a-boutique-hotel-2644490?utm_source=admitad&utm_medium=affiliate&utm_campaign=domflights_affiliate_in&utm_term=296692_3916273f0cb9e7aa0f49455c9bd08da6&xtm_term=3916273f0cb9e7aa0f49455c9bd08da6&dxid=fa2f4de6-f698-1739016578",
             },
             {
-              icon: Expedia,
-              name: "Expedia",
-              url: "https://www.expedia.in/Hotel-Review/Hotel-Aroma-Nainital-Nainital-Gujarat-India/d18992358",
-            },
-            {
-              icon: HotelsCom,
-              name: "Hotels.com",
-              url: "https://www.hotels.com/hotel/hotel-aroma-nainital-nainital-gujarat-in-nainital/d/18992358",
-            },
-            {
-              icon: Kayak,
-              name: "Hotels.com",
-              url: "https://www.hotels.com/hotel/hotel-aroma-nainital-nainital-gujarat-in-nainital/d/18992358",
+              icon: Yatra,
+              name: "Yatra",
+              url: "https://www.yatra.com/hotels/hotels-in-ahmedabad/binori-a-boutique-hotel?utm_source=admitad&utm_medium=affiliate_296692_ENKR20250208A1320848046&utm_campaign=flights&tagtag_uid=c09db7c4f441c4c801e95fbfb37c581c",
             },
             {
               icon: Goibibo,
               name: "Hotels.com",
-              url: "https://www.hotels.com/hotel/hotel-aroma-nainital-nainital-gujarat-in-nainital/d/18992358",
+              url: "https://www.goibibo.com/hotels/binori-a-boutique-hotel-in-ahmedabad-3716081471846107343/?utm_source=cashkaro&utm_medium=DisplayAffiliate&utm_campaign=hotelsENKR20250208A1320847120",
             },
           ],
           taxesAndFees: 945,
@@ -436,7 +458,166 @@ const hotelsData = {
     {
       city: "bangalore",
       hotels: [
-        
+        {
+          name: "Octave Himalaya Monarch",
+          stars: 4,
+          rating: 4.0,
+          reviews: "15+ ratings",
+          pricePerNight: 1115,
+          affiliateLinks: [
+            {
+              icon: MakeMyTrip,
+              name: "MakeMyTrip",
+              url: "https://www.makemytrip.com/hotels/hotel-details/?hotelId=201409221814048475&_uCurrency=INR&checkin=02092025&checkout=02102025&city=CTBLR&country=IN&lat=12.97563&lng=77.57616&locusId=CTBLR&locusType=city&modifyDates=true&rank=1&roomStayQualifier=2e0e&searchText=Bangalore&seoDS=true&seoReq=1739010664161&viewType=BUDGET&mtkeys=-2525327286272320226&source=ENKR20250208A1320893594",
+            },
+            {
+              icon: BookingCom,
+              name: "BookingCom",
+              url: "https://www.booking.com/hotel/in/oyo-rooms-majestic-kg-road.en-gb.html?label=ENKR20250208A1320896784&sid=593f77ec0f64961874dc181e044d1646&aid=1517899&ucfs=1&arphpl=1&checkin=2025-02-15&checkout=2025-02-16&dest_id=1480834&dest_type=hotel&group_adults=2&req_adults=2&no_rooms=1&group_children=0&req_children=0&hpos=1&hapos=1&sr_order=popularity&srpvid=f0815b202a63048d&srepoch=1739019458&all_sr_blocks=148083412_362694078_2_0_0&highlighted_blocks=148083412_362694078_2_0_0&matching_block_id=148083412_362694078_2_0_0&sr_pri_blocks=148083412_362694078_2_0_0__180900&from=searchresults#hotelTmpl",
+            },
+            {
+              icon: Yatra,
+              name: "Yatra",
+              url: "https://www.yatra.com/hotels/hotels-in-bangalore/himalaya-by-monarch?utm_source=admitad&utm_medium=affiliate_296692_ENKR20250208A1320894859&utm_campaign=flights&tagtag_uid=8b6876de809658e8744c9f7175cc17c7",
+            },
+            {
+              icon: Goibibo,
+              name: "Hotels.com",
+              url: "https://www.goibibo.com/hotels/octave-himalaya-monarch-hotel-in-bangalore-7710773494971310271/?utm_source=cashkaro&utm_medium=DisplayAffiliate&utm_campaign=hotelsENKR20250208A1320895290",
+            },
+          ],
+          taxesAndFees: 269,
+          amenities: [
+            {
+              iconName: "Free Wi-Fi",
+              iconImage: Wifi,
+            },
+            {
+              iconName: "Breakfast",
+              iconImage: Coffee,
+            },
+            {
+              iconName: "24/7 Front Desk",
+              iconImage: FrontDesk,
+            },
+            {
+              iconName: "Pool Access",
+              iconImage: Pool,
+            },
+          ],
+          image: "https://example.com/ahmedabad-grand-hotel.jpg",
+          description: "Enjoy a comfortable stay at this budget hotel in Bangalore which offers airport transfers, Wi-Fi & tidy rooms.",
+          images: [OctaveHimalayaMonarch1, OctaveHimalayaMonarch2, OctaveHimalayaMonarch3, OctaveHimalayaMonarch3, OctaveHimalayaMonarch4, OctaveHimalayaMonarch5, OctaveHimalayaMonarch6, OctaveHimalayaMonarch7, OctaveHimalayaMonarch8, OctaveHimalayaMonarch9, OctaveHimalayaMonarch10],
+          address: "Ahmedabad Grand Hotel, Gujarat, India",
+          roomsCatagory: [
+            {
+              name: "Non AC Standard Room",
+              price: 1115,
+              oldPrice: 1425,
+              images: [OctaveHimalayaMonarchNonACStandardRoom1, OctaveHimalayaMonarchNonACStandardRoom2, OctaveHimalayaMonarchNonACStandardRoom3, OctaveHimalayaMonarchNonACStandardRoom4],
+              roomSize: "(120 sq.ft (11 sq.mt) | City View | Queen Bed)",
+              amenities: [
+                {
+                  iconName: "Book with ₹ 0 Payment​",
+                  iconImage: Wifi,
+                },
+                {
+                  iconName: "No meals included",
+                  iconImage: Coffee,
+                },
+                {
+                  iconName: "Early Check-In upto 2 hours (subject to availability)",
+                  iconImage: FrontDesk,
+                },
+                {
+                  iconName: "Late Check-Out upto 2 hours (subject to availability)",
+                  iconImage: Pool,
+                },
+                {
+                  iconName: "Free Cancellation till 24 hrs before check in",
+                  iconImage: Pool,
+                },
+              ],
+            },
+            {
+              name: "Superior Room",
+              price: 1272,
+              oldPrice: 1625,
+              images: [OctaveHimalayaMonarchSuperiorRoom1, OctaveHimalayaMonarchSuperiorRoom2, OctaveHimalayaMonarchSuperiorRoom3, OctaveHimalayaMonarchSuperiorRoom4],
+              roomSize: "(150 sq.ft (14 sq.mt) | City View | Queen Bed)",
+              amenities: [
+                {
+                  iconName: "Book with ₹ 0 Payment​",
+                  iconImage: Wifi,
+                },
+                {
+                  iconName: "No meals included",
+                  iconImage: Coffee,
+                },
+                {
+                  iconName: "Early Check-In upto 2 hours (subject to availability)",
+                  iconImage: FrontDesk,
+                },
+                {
+                  iconName: "Late Check-Out upto 2 hours (subject to availability)",
+                  iconImage: Pool,
+                },
+                {
+                  iconName: "Free Cancellation till 24 hrs before check in",
+                  iconImage: Pool,
+                },
+              ],
+            },
+            {
+              name: "Family Room",
+              price: 1585,
+              oldPrice: 2025,
+              images: [OctaveHimalayaMonarchFamilyRoom1, OctaveHimalayaMonarchFamilyRoom2, OctaveHimalayaMonarchFamilyRoom3, OctaveHimalayaMonarchFamilyRoom4],
+              roomSize: "(144 sq.ft (13 sq.mt) | City View | Queen Bed)",
+              amenities: [
+                {
+                  iconName: "Book with ₹ 0 Payment​",
+                  iconImage: Wifi,
+                },
+                {
+                  iconName: "No meals included",
+                  iconImage: Coffee,
+                },
+                {
+                  iconName: "Early Check-In upto 2 hours (subject to availability)",
+                  iconImage: FrontDesk,
+                },
+                {
+                  iconName: "Late Check-Out upto 2 hours (subject to availability)",
+                  iconImage: Pool,
+                },
+                {
+                  iconName: "Free Cancellation till 24 hrs before check in",
+                  iconImage: Pool,
+                },
+              ],
+            },
+          ],
+          policies: {
+            checkIn: "1:00 PM",
+            checkOut: "11:00 AM",
+            cancellationPolicy: "Free cancellation up to 48 hours before check-in.",
+          },
+          nearbyAttractions: [
+            {
+              name: "Central Park",
+              description: "A large public park in the heart of the city with walking trails and beautiful scenery."
+            },
+            {
+              name: "City Museum",
+              description: "A museum showcasing the rich history and culture of the city."
+            },
+            {
+              name: "Riverfront Plaza",
+              description: "A scenic spot by the river with restaurants, shops, and entertainment options."
+            }
+          ],
+        },
       ],
     },
     {
@@ -467,34 +648,29 @@ const hotelsData = {
           pricePerNight: 1524,
           affiliateLinks: [
             {
-              icon: TripAdvisor,
-              name: "TripAdvisor",
-              url: "https://www.tripadvisor.in/Hotel_Review-g297705-d18992358-Hotel_Aroma_Nainital.html",
+              icon: MakeMyTrip,
+              name: "MakeMyTrip",
+              url: "https://www.makemytrip.com/hotels/hotel_aroma_nainital_in_house_parking-details-nainital.html?source=ENKR20250208A1320797188",
             },
             {
               icon: BookingCom,
               name: "Booking.com",
-              url: "https://www.booking.com/hotel/in/hotel-aroma-nainital.html",
+              url: "https://www.booking.com/hotel/in/aroma-naintal-by-royal-collection-hotels.en-us.html?aid=1517899&label=ENKR20250208A1320799455&sid=e3ff0cba109742fc3280e0f896575432&dest_id=8161510&dest_type=hotel&dist=0&group_adults=2&group_children=0&hapos=1&hpos=1&no_rooms=1&req_adults=2&req_children=0&room1=A%2CA&sb_price_type=total&sr_order=popularity&srepoch=1739013687&srpvid=bb754fd9a3020278&type=total&ucfs=1&#hotelTmpl",
             },
             {
-              icon: Expedia,
-              name: "Expedia",
-              url: "https://www.expedia.in/Hotel-Review/Hotel-Aroma-Nainital-Nainital-Gujarat-India/d18992358",
+              icon: Yatra,
+              name: "Yatra",
+              url: "https://www.yatra.com/hotels/hotels-in-nainital/hotel-aroma?utm_source=admitad&utm_medium=affiliate_296692_ENKR20250208A1320806082&utm_campaign=flights&tagtag_uid=4c4db060893b366c4878fa6126ca81f3",
             },
             {
-              icon: HotelsCom,
-              name: "Hotels.com",
-              url: "https://www.hotels.com/hotel/hotel-aroma-nainital-nainital-gujarat-in-nainital/d/18992358",
-            },
-            {
-              icon: Kayak,
-              name: "Hotels.com",
-              url: "https://www.hotels.com/hotel/hotel-aroma-nainital-nainital-gujarat-in-nainital/d/18992358",
+              icon: ClearTrip,
+              name: "ClearTrip",
+              url: "https://www.cleartrip.com/hotels/details/hotel-aroma-nainital-by-royal-collection-hotels-3942697?city=Nainital&state=Uttaranchal&country=IN&r=2,0&inclusion=&utm_source=admitad&utm_medium=affiliate&utm_campaign=domflights_affiliate_in&utm_term=296692_f9eb3854746933db6317de80edcf96c1&xtm_term=f9eb3854746933db6317de80edcf96c1&dxid=09669c9d-8c9b-1739014256",
             },
             {
               icon: Goibibo,
               name: "Hotels.com",
-              url: "https://www.hotels.com/hotel/hotel-aroma-nainital-nainital-gujarat-in-nainital/d/18992358",
+              url: "https://www.goibibo.com/hotels/aroma-nainital-in-house-parking-hotel-in-nainital-6488532875116684985/?utm_source=cashkaro&utm_medium=DisplayAffiliate&utm_campaign=hotelsENKR20250208A1320801967",
             },
           ],
           taxesAndFees: 600,
@@ -638,34 +814,29 @@ const hotelsData = {
           pricePerNight: 4919,
           affiliateLinks: [
             {
-              icon: TripAdvisor,
-              name: "TripAdvisor",
-              url: "https://www.tripadvisor.in/Hotel_Review-g297705-d18992358-Hotel_Aroma_Nainital.html",
+              icon: MakeMyTrip,
+              name: "MakeMyTrip",
+              url: "https://www.makemytrip.com/hotels/the_palace_belvedere-details-nainital.html?source=ENKR20250208A1320814343",
             },
             {
               icon: BookingCom,
               name: "Booking.com",
-              url: "https://www.booking.com/hotel/in/hotel-aroma-nainital.html",
+              url: "https://www.booking.com/hotel/in/the-palace-belvedere-nainital-by-royal-collection-hotels.en-us.html?aid=1517899&label=ENKR20250208A1320816384&sid=cd3344b526f5c464947ae946b6d5e880&dest_id=10251267&dest_type=hotel&dist=0&group_adults=2&group_children=0&hapos=1&hpos=1&no_rooms=1&req_adults=2&req_children=0&room1=A%2CA&sb_price_type=total&sr_order=popularity&srepoch=1739014636&srpvid=e26e51b32beb05be&type=total&ucfs=1&#hotelTmpl",
             },
             {
-              icon: Expedia,
-              name: "Expedia",
-              url: "https://www.expedia.in/Hotel-Review/Hotel-Aroma-Nainital-Nainital-Gujarat-India/d18992358",
+              icon: Yatra,
+              name: "Yatra",
+              url: "https://www.yatra.com/hotels/hotels-in-nainital/the-palace-belvedere?utm_source=admitad&utm_medium=affiliate_296692_ENKR20250208A1320818989&utm_campaign=flights&tagtag_uid=943d5fae0e72bde43c57698b175a2e73",
             },
             {
-              icon: HotelsCom,
-              name: "Hotels.com",
-              url: "https://www.hotels.com/hotel/hotel-aroma-nainital-nainital-gujarat-in-nainital/d/18992358",
-            },
-            {
-              icon: Kayak,
-              name: "Hotels.com",
-              url: "https://www.hotels.com/hotel/hotel-aroma-nainital-nainital-gujarat-in-nainital/d/18992358",
+              icon: ClearTrip,
+              name: "ClearTrip",
+              url: "https://www.cleartrip.com/hotels/details/the-palace-belvedere-41137?r=2,0&shwb=true&compId=&fr=1&ur=1&urt=featured&stp=chmm&pahCCRequired=true&op=true&area=&sd=1553075158552&lowRate=true&dest_code=&tags=&utm_source=admitad&utm_medium=affiliate&utm_campaign=domflights_affiliate_in&utm_term=296692_fd185863d7475dd7dd47b43f82578657&xtm_term=fd185863d7475dd7dd47b43f82578657&dxid=fa2f4de6-f698-1739014888",
             },
             {
               icon: Goibibo,
               name: "Hotels.com",
-              url: "https://www.hotels.com/hotel/hotel-aroma-nainital-nainital-gujarat-in-nainital/d/18992358",
+              url: "https://www.goibibo.com/hotels/the-palace-belvedere-hotel-in-nainital-1094318950462994077/?utm_source=cashkaro&utm_medium=DisplayAffiliate&utm_campaign=hotelsENKR20250208A1320815266",
             },
           ],
           taxesAndFees: 1241,
@@ -822,34 +993,29 @@ const hotelsData = {
           pricePerNight: 1509,
           affiliateLinks: [
             {
-              icon: TripAdvisor,
-              name: "TripAdvisor",
-              url: "https://www.tripadvisor.in/Hotel_Review-g297705-d18992358-Hotel_Aroma_Nainital.html",
+              icon: MakeMyTrip,
+              name: "MakeMyTrip",
+              url: "https://www.makemytrip.com/hotels/mahaveer_shimla_by_royal_collection_hotels-details-shimla.html?source=ENKR20250208A1320823976",
             },
             {
               icon: BookingCom,
               name: "Booking.com",
-              url: "https://www.booking.com/hotel/in/hotel-aroma-nainital.html",
+              url: "https://www.booking.com/hotel/in/mahaveer-bnb-shimla.en-gb.html?aid=1517899&label=ENKR20250208A1320825108&sid=593f77ec0f64961874dc181e044d1646&all_sr_blocks=401858301_402982420_2_2_0&checkin=2025-02-15&checkout=2025-02-16&dest_id=4018583&dest_type=hotel&dist=0&group_adults=2&group_children=0&hapos=1&highlighted_blocks=401858301_402982420_2_2_0&hpos=1&matching_block_id=401858301_402982420_2_2_0&no_rooms=1&req_adults=2&req_children=0&room1=A%2CA&sb_price_type=total&sr_order=popularity&sr_pri_blocks=401858301_402982420_2_2_0__194925&srepoch=1739015150&srpvid=bcd152b6d5d6019d&type=total&ucfs=1&#hotelTmpl",
             },
             {
-              icon: Expedia,
-              name: "Expedia",
-              url: "https://www.expedia.in/Hotel-Review/Hotel-Aroma-Nainital-Nainital-Gujarat-India/d18992358",
+              icon: Yatra,
+              name: "Yatra",
+              url: "https://www.yatra.com/hotels/hotels-in-shimla/mahaveer-shimla-by-royal-collection-hotels?utm_source=admitad&utm_medium=affiliate_296692_ENKR20250208A1320827796&utm_campaign=flights&tagtag_uid=c0cc27e6964e23a799951e9bdb3a9373",
             },
             {
-              icon: HotelsCom,
-              name: "Hotels.com",
-              url: "https://www.hotels.com/hotel/hotel-aroma-nainital-nainital-gujarat-in-nainital/d/18992358",
-            },
-            {
-              icon: Kayak,
-              name: "Hotels.com",
-              url: "https://www.hotels.com/hotel/hotel-aroma-nainital-nainital-gujarat-in-nainital/d/18992358",
+              icon: ClearTrip,
+              name: "ClearTrip",
+              url: "https://www.cleartrip.com/hotels/details/4289944?city=Shimla&state=Himachal+Pradesh&country=IN&r=2,0&inclusion=&utm_source=admitad&utm_medium=affiliate&utm_campaign=domflights_affiliate_in&utm_term=296692_c30515b082484202766d926cfe6691a3&xtm_term=c30515b082484202766d926cfe6691a3&dxid=fa2f4de6-f698-1739015372",
             },
             {
               icon: Goibibo,
-              name: "Hotels.com",
-              url: "https://www.hotels.com/hotel/hotel-aroma-nainital-nainital-gujarat-in-nainital/d/18992358",
+              name: "Goibibo",
+              url: "https://www.goibibo.com/hotels/mahaveer-shimla-by-royal-collection-hotels-hotel-in-shimla-8005471583658990261/?utm_source=cashkaro&utm_medium=DisplayAffiliate&utm_campaign=hotelsENKR20250208A1320826233",
             },
           ],
           taxesAndFees: 401,
@@ -986,34 +1152,24 @@ const hotelsData = {
         pricePerNight: 2631,
         affiliateLinks: [
           {
-            icon: TripAdvisor,
-            name: "TripAdvisor",
-            url: "https://www.tripadvisor.in/Hotel_Review-g297705-d18992358-Hotel_Aroma_Nainital.html",
+            icon: MakeMyTrip,
+            name: "MakeMyTrip",
+            url: "https://www.makemytrip.com/hotels/hotel-details/?hotelId=201706141417259742&Campaign=&_uCurrency=INR&au=&checkin=02092025&checkout=02102025&city=CTKUU&cmp=googlehoteldfinder_Old_DH_META_Free_default_IN_localuniversal_201706141417259742&country=IN&lat=32.23445&lng=77.19601&locusId=CTKUU&locusType=city&mtkeys=b7107bef-8c08-47bb-b272-b489bb047cca&rank=1&roomCount=1&roomStayQualifier=2e0e&rsc=1e2e&topHtlId=201706141417259742&totalGuestCount=2&isPropSearch=T&source=ENKR20250208A1320832554",
           },
           {
-            icon: BookingCom,
-            name: "Booking.com",
-            url: "https://www.booking.com/hotel/in/hotel-aroma-nainital.html",
+            icon: Yatra,
+            name: "Yatra",
+            url: "https://www.yatra.com/hotels/hotels-in-manali/hotel-manali-grand?utm_source=admitad&utm_medium=affiliate_296692_ENKR20250208A1320834358&utm_campaign=flights&tagtag_uid=66506aa2ea54c426181bba82ce265d53",
           },
           {
-            icon: Expedia,
-            name: "Expedia",
-            url: "https://www.expedia.in/Hotel-Review/Hotel-Aroma-Nainital-Nainital-Gujarat-India/d18992358",
-          },
-          {
-            icon: HotelsCom,
-            name: "Hotels.com",
-            url: "https://www.hotels.com/hotel/hotel-aroma-nainital-nainital-gujarat-in-nainital/d/18992358",
-          },
-          {
-            icon: Kayak,
-            name: "Hotels.com",
-            url: "https://www.hotels.com/hotel/hotel-aroma-nainital-nainital-gujarat-in-nainital/d/18992358",
+            icon: ClearTrip,
+            name: "ClearTrip",
+            url: "https://www.cleartrip.com/hotels/details/manali-grand-2044702?city=null&state=null&country=null&r=2,0&utm_source=admitad&utm_medium=affiliate&utm_campaign=domflights_affiliate_in&utm_term=296692_515573b2a49b65093b686cbc4e9b4652&xtm_term=515573b2a49b65093b686cbc4e9b4652&dxid=fa2f4de6-f698-1739015646",
           },
           {
             icon: Goibibo,
-            name: "Hotels.com",
-            url: "https://www.hotels.com/hotel/hotel-aroma-nainital-nainital-gujarat-in-nainital/d/18992358",
+            name: "Goibibo",
+            url: "https://www.goibibo.com/hotels/hotel-details/?checkin=20250209&checkout=20250210&roomString=1-2-0&searchText=Manali%20Grand&locusId=CTKUU&locusType=city&cityCode=CTKUU&cc=IN&_uCurrency=INR&giHotelId=5445051845260503514&mmtId=201706141417259742&topHtlId=201706141417259742&sType=hotel&utm_source=cashkaro&utm_medium=DisplayAffiliate&utm_campaign=hotelsENKR20250208A1320831611",
           },
         ],
         taxesAndFees: 647,
@@ -1220,24 +1376,19 @@ const hotelsData = {
         pricePerNight: 3956,
         affiliateLinks: [
           {
-            icon: TripAdvisor,
-            name: "TripAdvisor",
-            url: "https://www.tripadvisor.in/Hotel_Review-g297705-d18992358-Hotel_Aroma_Nainital.html",
+            icon: MakeMyTrip,
+            name: "MakeMyTrip",
+            url: "https://www.makemytrip.com/hotels/shivalik_hills_mussoorie-details-mussoorie.html?source=ENKR20250208A1320838357",
           },
           {
-            icon: BookingCom,
-            name: "Booking.com",
-            url: "https://www.booking.com/hotel/in/hotel-aroma-nainital.html",
+            icon: ClearTrip,
+            name: "ClearTrip",
+            url: "https://www.cleartrip.com/hotels/details/3989825?city=Mussoorie&state=Uttarakhand&country=IN&r=2,0&utm_source=admitad&utm_medium=affiliate&utm_campaign=domflights_affiliate_in&utm_term=296692_5e3ca25ac4376631090368902d6f2d28&xtm_term=5e3ca25ac4376631090368902d6f2d28&dxid=fa2f4de6-f698-1739016317",
           },
           {
-            icon: Expedia,
-            name: "Expedia",
-            url: "https://www.expedia.in/Hotel-Review/Hotel-Aroma-Nainital-Nainital-Gujarat-India/d18992358",
-          },
-          {
-            icon: HotelsCom,
-            name: "Hotels.com",
-            url: "https://www.hotels.com/hotel/hotel-aroma-nainital-nainital-gujarat-in-nainital/d/18992358",
+            icon: Goibibo,
+            name: "Goibibo",
+            url: "https://www.goibibo.com/hotels/shivalik-hills-mussoorie-hotel-in-mussoorie-8031713393741590709/?utm_source=cashkaro&utm_medium=DisplayAffiliate&utm_campaign=hotelsENKR20250208A1320839639",
           },
         ],
         taxesAndFees: 1013,

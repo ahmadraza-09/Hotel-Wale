@@ -207,8 +207,8 @@ const HotelDetails = () => {
                     {hotel.affiliateLinks.map((affiliate, index) => (
                         <a href={affiliate.url} target="_blank" rel="noopener noreferrer" className=" flex items-center justify-between sm:justify-start gap-10 text-center border-t-2 py-2">
 
-                            <img src={affiliate.icon} alt={affiliate.name} className="sm:w-28 w-24"/>
-                            
+                            <img src={affiliate.icon} alt={affiliate.name} className="sm:w-28 w-24" />
+
                             {/* <span className="font-TTHovesMedium">₹{hotel.roomsCatagory[0].price}/-</span> */}
 
                             <button

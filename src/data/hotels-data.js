@@ -194,6 +194,8 @@ import VioCom from "../assets/icons/affiliate-icons/Vio_com.png";
 import Expedia from "../assets/icons/affiliate-icons/expedia.png";
 import HotelsCom from "../assets/icons/affiliate-icons/hotels_com.png";
 import TripAdvisor from "../assets/icons/affiliate-icons/Tripadvisor.svg";
+import Goibibo from "../assets/icons/affiliate-icons/Goibibo.png";
+import Kayak from "../assets/icons/affiliate-icons/Kayak.png";
 
 const hotelsData = {
   cities: [
@@ -224,6 +226,16 @@ const hotelsData = {
             },
             {
               icon: HotelsCom,
+              name: "Hotels.com",
+              url: "https://www.hotels.com/hotel/hotel-aroma-nainital-nainital-gujarat-in-nainital/d/18992358",
+            },
+            {
+              icon: Kayak,
+              name: "Hotels.com",
+              url: "https://www.hotels.com/hotel/hotel-aroma-nainital-nainital-gujarat-in-nainital/d/18992358",
+            },
+            {
+              icon: Goibibo,
               name: "Hotels.com",
               url: "https://www.hotels.com/hotel/hotel-aroma-nainital-nainital-gujarat-in-nainital/d/18992358",
             },
@@ -474,6 +486,16 @@ const hotelsData = {
               name: "Hotels.com",
               url: "https://www.hotels.com/hotel/hotel-aroma-nainital-nainital-gujarat-in-nainital/d/18992358",
             },
+            {
+              icon: Kayak,
+              name: "Hotels.com",
+              url: "https://www.hotels.com/hotel/hotel-aroma-nainital-nainital-gujarat-in-nainital/d/18992358",
+            },
+            {
+              icon: Goibibo,
+              name: "Hotels.com",
+              url: "https://www.hotels.com/hotel/hotel-aroma-nainital-nainital-gujarat-in-nainital/d/18992358",
+            },
           ],
           taxesAndFees: 600,
           amenities: [
@@ -632,6 +654,16 @@ const hotelsData = {
             },
             {
               icon: HotelsCom,
+              name: "Hotels.com",
+              url: "https://www.hotels.com/hotel/hotel-aroma-nainital-nainital-gujarat-in-nainital/d/18992358",
+            },
+            {
+              icon: Kayak,
+              name: "Hotels.com",
+              url: "https://www.hotels.com/hotel/hotel-aroma-nainital-nainital-gujarat-in-nainital/d/18992358",
+            },
+            {
+              icon: Goibibo,
               name: "Hotels.com",
               url: "https://www.hotels.com/hotel/hotel-aroma-nainital-nainital-gujarat-in-nainital/d/18992358",
             },
@@ -809,6 +841,16 @@ const hotelsData = {
               name: "Hotels.com",
               url: "https://www.hotels.com/hotel/hotel-aroma-nainital-nainital-gujarat-in-nainital/d/18992358",
             },
+            {
+              icon: Kayak,
+              name: "Hotels.com",
+              url: "https://www.hotels.com/hotel/hotel-aroma-nainital-nainital-gujarat-in-nainital/d/18992358",
+            },
+            {
+              icon: Goibibo,
+              name: "Hotels.com",
+              url: "https://www.hotels.com/hotel/hotel-aroma-nainital-nainital-gujarat-in-nainital/d/18992358",
+            },
           ],
           taxesAndFees: 401,
           amenities: [
@@ -963,6 +1005,16 @@ const hotelsData = {
             name: "Hotels.com",
             url: "https://www.hotels.com/hotel/hotel-aroma-nainital-nainital-gujarat-in-nainital/d/18992358",
           },
+          {
+            icon: Kayak,
+            name: "Hotels.com",
+            url: "https://www.hotels.com/hotel/hotel-aroma-nainital-nainital-gujarat-in-nainital/d/18992358",
+          },
+          {
+            icon: Goibibo,
+            name: "Hotels.com",
+            url: "https://www.hotels.com/hotel/hotel-aroma-nainital-nainital-gujarat-in-nainital/d/18992358",
+          },
         ],
         taxesAndFees: 647,
         amenities: [
@@ -1108,7 +1160,7 @@ const hotelsData = {
             name: "Family Suite Room",
             price: 5335,
             oldPrice: 7000,
-            images: [ShivalikHillsFamilySuite1, ShivalikHillsFamilySuite2, ShivalikHillsFamilySuite3, ShivalikHillsFamilySuite4],
+            images: [ManaliGrandFamilySuite1, ManaliGrandFamilySuite2, ManaliGrandFamilySuite3, ManaliGrandFamilySuite4],
             roomSize: "(200 sq.ft (19 sq.mt) | King Bed)",
             amenities: [
               {

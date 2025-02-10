@@ -95,7 +95,7 @@ const HotelDetails = () => {
         <div className="w-full flex flex-col p-2 sm:p-6 bg-[#F2F2F2] gap-4 pb-6">
 
             <div className="w-full p-0 rounded-xl flex gap-2 items-center justify-start text-sm flex-wrap">
-                <span className="font-TTHovesMedium text-blue-500 cursor-pointer" onClick={() => navigate('/')}>Home</span><i class="fa-solid fa-chevron-right text-[10px] opacity-60"></i><span className="font-TTHovesMedium text-blue-500 cursor-pointer" onClick={() => navigate('/hotel')}>Hotel</span><i class="fa-solid fa-chevron-right text-[10px] opacity-60"></i><span className="font-TTHovesMedium text-blue-500 cursor-pointer" onClick={() => navigate(`/hotel/hotels-in-${city}`)}>Hotels in <span className="capitalize">{city}</span></span><i class="fa-solid fa-chevron-right text-[10px] opacity-60"></i><span className="font-TTHovesMedium text-blue-500 cursor-pointer">{hotel.name}</span>
+                <span className="font-TTHovesMedium text-blue-500 cursor-pointer" onClick={() => navigate('/')}>Home</span><i class="fa-solid fa-chevron-right text-[10px] opacity-60"></i><span className="font-TTHovesMedium text-blue-500 cursor-pointer" onClick={() => navigate('/hotel')}>Hotel</span><i class="fa-solid fa-chevron-right text-[10px] opacity-60"></i><span className="font-TTHovesMedium text-blue-500 cursor-pointer" onClick={() => navigate(`/hotels/hotels-in-${city}`)}>Hotels in <span className="capitalize">{city}</span></span><i class="fa-solid fa-chevron-right text-[10px] opacity-60"></i><span className="font-TTHovesMedium text-blue-500 cursor-pointer">{hotel.name}</span>
             </div>
 
             <div className="w-full p-2 sm:p-4 bg-white rounded-2xl">

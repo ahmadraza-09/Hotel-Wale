@@ -58,7 +58,7 @@ const HotelHero = () => {
         e.preventDefault();
         if (destination) {
             // Navigate to the hotels-in-destination page with the selected destination
-            navigate(`/hotel/hotels-in-${destination.replace(/\s+/g, '-').toLowerCase()}`);
+            navigate(`/hotels/hotels-in-${destination.replace(/\s+/g, '-').toLowerCase()}`);
         }
     };
 
@@ -76,7 +76,7 @@ const HotelHero = () => {
                     <div className="flex flex-col gap-2 justify-center items-center">
                         <button className={`w-[52px] h-[52px] py-2 px-4 rounded-md shadow-custom ${isActive("/") || isActive("/hotel") ? "bg-myColor text-white" : "bg-white text-gray-800"
                             } hover:bg-myColor hover:text-white`} onClick={() => {
-                                navigate("/hotel");
+                                navigate("/hotels");
                             }}>
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"

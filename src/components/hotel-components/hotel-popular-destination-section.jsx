@@ -40,7 +40,7 @@ const HotelPopularDestinationSection = () => {
                         className="flex-shrink-0 w-[250px] h-[230px] rounded-2xl overflow-hidden relative cursor-pointer border-[1px]"
                         onClick={() => {
                             // Navigate to the hotels page for the specific city with the desired format
-                            navigate(`/hotel/hotels-in-${category.title.toLowerCase().replace(/\s+/g, '-')}`);
+                            navigate(`/hotels/hotels-in-${category.title.toLowerCase().replace(/\s+/g, '-')}`);
                         }}
                     >
                         <div className='w-full h-34 overflow-hidden'>

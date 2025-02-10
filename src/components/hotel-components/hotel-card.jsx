@@ -77,7 +77,7 @@ const HotelCard = ({ hotel }) => {
     const hotelName = hotel.name.replace(/\s+/g, "-").toLowerCase();  // Format hotel name (replace spaces with hyphens, lowercase)
 
     // Navigate to the desired route with city and hotel name as parameters
-    navigate(`/hotel/${cityName.city}/${hotelName}`);
+    navigate(`/hotels/${cityName.city}/${hotelName}`);
   };
 
 

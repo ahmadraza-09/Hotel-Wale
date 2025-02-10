@@ -174,10 +174,6 @@ const HotelCard = ({ hotel }) => {
         <div className="mt-4">
           <button
             className="w-full py-2 px-6 bg-myColor text-white font-medium rounded-md hover:bg-myColor-light font-TTHovesMedium"
-            onClick={(e) => {
-              e.stopPropagation(); // Prevent event bubbling to the parent div
-              // Handle "Book Now" button click
-            }}
           >
             Show Deals
           </button>

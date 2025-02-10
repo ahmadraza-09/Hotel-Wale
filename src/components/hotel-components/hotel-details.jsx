@@ -314,9 +314,9 @@ const HotelDetails = () => {
                                     <li key={index}>{amenity.iconName}</li>
                                 ))}
                             </ul>
-                            <button className="mt-4 bg-myColor text-white py-2 font-TTHovesMedium font-medium px-4 rounded-lg hover:bg-myColor">
+                            {/* <button className="mt-4 bg-myColor text-white py-2 font-TTHovesMedium font-medium px-4 rounded-lg hover:bg-myColor">
                                 Book Room
-                            </button>
+                            </button> */}
                         </div>
 
                     </div>

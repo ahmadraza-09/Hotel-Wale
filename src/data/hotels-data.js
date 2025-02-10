@@ -208,6 +208,88 @@ import ManaliGrandFamilySuite2 from "../assets/hotel-images/manali-grand/rooms/f
 import ManaliGrandFamilySuite3 from "../assets/hotel-images/manali-grand/rooms/family-suite3.jpg";
 import ManaliGrandFamilySuite4 from "../assets/hotel-images/manali-grand/rooms/family-suite4.jpg";
 
+// DELHI
+// HOTEL WATERFALL
+import HotelWaterfall1 from "../assets/hotel-images/hotel-waterfall/hotel-waterfall1.avif";
+import HotelWaterfall2 from "../assets/hotel-images/hotel-waterfall/hotel-waterfall2.avif";
+import HotelWaterfall3 from "../assets/hotel-images/hotel-waterfall/hotel-waterfall3.avif";
+import HotelWaterfall4 from "../assets/hotel-images/hotel-waterfall/hotel-waterfall4.avif";
+import HotelWaterfall5 from "../assets/hotel-images/hotel-waterfall/hotel-waterfall5.avif";
+import HotelWaterfall6 from "../assets/hotel-images/hotel-waterfall/hotel-waterfall6.avif";
+import HotelWaterfall7 from "../assets/hotel-images/hotel-waterfall/hotel-waterfall7.avif";
+import HotelWaterfall8 from "../assets/hotel-images/hotel-waterfall/hotel-waterfall8.avif";
+import HotelWaterfall9 from "../assets/hotel-images/hotel-waterfall/hotel-waterfall9.avif";
+import HotelWaterfall10 from "../assets/hotel-images/hotel-waterfall/hotel-waterfall10.avif";
+
+// ROOMS
+import HotelWaterfallDeluxeTwinBedRoom1 from "../assets/hotel-images/hotel-waterfall/rooms/deluxe-twin-bed-room1.avif";
+import HotelWaterfallDeluxeTwinBedRoom2 from "../assets/hotel-images/hotel-waterfall/rooms/deluxe-twin-bed-room2.avif";
+import HotelWaterfallDeluxeTwinBedRoom3 from "../assets/hotel-images/hotel-waterfall/rooms/deluxe-twin-bed-room3.avif";
+import HotelWaterfallDeluxeTwinBedRoom4 from "../assets/hotel-images/hotel-waterfall/rooms/deluxe-twin-bed-room4.avif";
+
+import HotelWaterfallLuxuryRoom1 from "../assets/hotel-images/hotel-waterfall/rooms/luxury-room1.webp";
+import HotelWaterfallLuxuryRoom2 from "../assets/hotel-images/hotel-waterfall/rooms/luxury-room2.avif";
+import HotelWaterfallLuxuryRoom3 from "../assets/hotel-images/hotel-waterfall/rooms/luxury-room3.avif";
+import HotelWaterfallLuxuryRoom4 from "../assets/hotel-images/hotel-waterfall/rooms/luxury-room4.avif";
+
+import HotelWaterfallPremiumRoom1 from "../assets/hotel-images/hotel-waterfall/rooms/premium-room1.jpg";
+import HotelWaterfallPremiumRoom2 from "../assets/hotel-images/hotel-waterfall/rooms/premium-room2.avif";
+import HotelWaterfallPremiumRoom3 from "../assets/hotel-images/hotel-waterfall/rooms/premium-room3.jfif";
+import HotelWaterfallPremiumRoom4 from "../assets/hotel-images/hotel-waterfall/rooms/premium-room4.jpg";
+
+// AGRA
+// HOTEL ORANGE
+import HotelOrange1 from "../assets/hotel-images/hotel-orange/hotel-orange1.avif";
+import HotelOrange2 from "../assets/hotel-images/hotel-orange/hotel-orange2.avif";
+import HotelOrange3 from "../assets/hotel-images/hotel-orange/hotel-orange3.avif";
+import HotelOrange4 from "../assets/hotel-images/hotel-orange/hotel-orange4.avif";
+import HotelOrange5 from "../assets/hotel-images/hotel-orange/hotel-orange5.avif";
+import HotelOrange6 from "../assets/hotel-images/hotel-orange/hotel-orange6.avif";
+import HotelOrange7 from "../assets/hotel-images/hotel-orange/hotel-orange7.avif";
+import HotelOrange8 from "../assets/hotel-images/hotel-orange/hotel-orange8.avif";
+import HotelOrange9 from "../assets/hotel-images/hotel-orange/hotel-orange9.avif";
+import HotelOrange10 from "../assets/hotel-images/hotel-orange/hotel-orange10.avif";
+
+// ROOMS
+import HotelOrangeExecutive1 from "../assets/hotel-images/hotel-orange/room/executive1.avif";
+import HotelOrangeExecutive2 from "../assets/hotel-images/hotel-orange/room/executive2.avif";
+import HotelOrangeExecutive3 from "../assets/hotel-images/hotel-orange/room/executive3.avif";
+import HotelOrangeExecutive4 from "../assets/hotel-images/hotel-orange/room/executive4.avif";
+
+// HYDERABAD
+// THE CENT
+import TheCent1 from "../assets/hotel-images/the-cent/the-cent1.avif";
+import TheCent2 from "../assets/hotel-images/the-cent/the-cent2.avif";
+import TheCent3 from "../assets/hotel-images/the-cent/the-cent3.avif";
+import TheCent4 from "../assets/hotel-images/the-cent/the-cent4.avif";
+import TheCent5 from "../assets/hotel-images/the-cent/the-cent5.avif";
+import TheCent6 from "../assets/hotel-images/the-cent/the-cent6.avif";
+import TheCent7 from "../assets/hotel-images/the-cent/the-cent7.avif";
+import TheCent8 from "../assets/hotel-images/the-cent/the-cent8.avif";
+import TheCent9 from "../assets/hotel-images/the-cent/the-cent9.avif";
+import TheCent10 from "../assets/hotel-images/the-cent/the-cent10.avif";
+
+// ROOMS
+import TheCentStandardRoom1 from "../assets/hotel-images/the-cent/rooms/standard-room1.webp";
+import TheCentStandardRoom2 from "../assets/hotel-images/the-cent/rooms/standard-room2.webp";
+import TheCentStandardRoom3 from "../assets/hotel-images/the-cent/rooms/standard-room3.webp";
+import TheCentStandardRoom4 from "../assets/hotel-images/the-cent/rooms/standard-room4.webp";
+
+import TheCentSuperior1 from "../assets/hotel-images/the-cent/rooms/superior1.avif";
+import TheCentSuperior2 from "../assets/hotel-images/the-cent/rooms/superior2.webp";
+import TheCentSuperior3 from "../assets/hotel-images/the-cent/rooms/superior3.avif";
+import TheCentSuperior4 from "../assets/hotel-images/the-cent/rooms/superior4.webp";
+
+import TheCentPremierRoom1 from "../assets/hotel-images/the-cent/rooms/premier-room1.webp";
+import TheCentPremierRoom2 from "../assets/hotel-images/the-cent/rooms/premier-room2.avif";
+import TheCentPremierRoom3 from "../assets/hotel-images/the-cent/rooms/premier-room3.avif";
+import TheCentPremierRoom4 from "../assets/hotel-images/the-cent/rooms/premier-room4.avif";
+
+import TheCentSuite1 from "../assets/hotel-images/the-cent/rooms/suite1.avif";
+import TheCentSuite2 from "../assets/hotel-images/the-cent/rooms/suite2.webp";
+import TheCentSuite3 from "../assets/hotel-images/the-cent/rooms/suite3.jfif";
+import TheCentSuite4 from "../assets/hotel-images/the-cent/rooms/suite4.avif";
+
 // HOTEL AMENITIES ICONS
 import Wifi from "../assets/icons/wifi.svg";
 import Coffee from "../assets/icons/coffee.svg";
@@ -472,7 +554,7 @@ const hotelsData = {
             },
             {
               icon: BookingCom,
-              name: "BookingCom",
+              name: "Booking.Com",
               url: "https://www.booking.com/hotel/in/oyo-rooms-majestic-kg-road.en-gb.html?label=ENKR20250208A1320896784&sid=593f77ec0f64961874dc181e044d1646&aid=1517899&ucfs=1&arphpl=1&checkin=2025-02-15&checkout=2025-02-16&dest_id=1480834&dest_type=hotel&group_adults=2&req_adults=2&no_rooms=1&group_children=0&req_children=0&hpos=1&hapos=1&sr_order=popularity&srpvid=f0815b202a63048d&srepoch=1739019458&all_sr_blocks=148083412_362694078_2_0_0&highlighted_blocks=148083412_362694078_2_0_0&matching_block_id=148083412_362694078_2_0_0&sr_pri_blocks=148083412_362694078_2_0_0__180900&from=searchresults#hotelTmpl",
             },
             {
@@ -482,7 +564,7 @@ const hotelsData = {
             },
             {
               icon: Goibibo,
-              name: "Hotels.com",
+              name: "Goibibo",
               url: "https://www.goibibo.com/hotels/octave-himalaya-monarch-hotel-in-bangalore-7710773494971310271/?utm_source=cashkaro&utm_medium=DisplayAffiliate&utm_campaign=hotelsENKR20250208A1320895290",
             },
           ],
@@ -626,7 +708,197 @@ const hotelsData = {
     },
     {
       city: "hyderabad",
-      hotels: [],
+      hotels: [
+        {
+          name: "The Cent",
+          stars: 4,
+          rating: 4.0,
+          reviews: "15+ ratings",
+          pricePerNight: 3056,
+          affiliateLinks: [
+            {
+              icon: MakeMyTrip,
+              name: "MakeMyTrip",
+              url: "https://www.makemytrip.com/hotels/hotel-details/?hotelId=201402261218164981&_uCurrency=INR&checkin=03162025&checkout=03172025&city=CTHYDERA&country=IN&lat=17.4063&lng=78.46311&locusId=CTHYDERA&locusType=city&modifyDates=true&rank=9&roomStayQualifier=2e0e&searchText=Hyderabad&seoDS=true&seoReq=1739083151804&viewType=BUDGET&mtkeys=defaultMtkey&source=ENKR20250210A1323666155",
+            },
+            {
+              icon: BookingCom,
+              name: "Booking.Com",
+              url: "https://www.booking.com/hotel/in/the-cent-hyderabad.en-gb.html?aid=1517899&label=ENKR20250210A1323669504&sid=593f77ec0f64961874dc181e044d1646&all_sr_blocks=771252304_385151201_2_41_0_764447&checkin=2025-02-15&checkout=2025-02-16&dest_id=-2097701&dest_type=city&dist=0&group_adults=2&group_children=0&hapos=1&highlighted_blocks=771252304_385151201_2_41_0_764447&hpos=1&matching_block_id=771252304_385151201_2_41_0_764447&no_rooms=1&req_adults=2&req_children=0&room1=A%2CA&sb_price_type=total&sr_order=popularity&sr_pri_blocks=771252304_385151201_2_41_0_764447_279900&srepoch=1739169593&srpvid=893e2eda9c52019f&type=total&ucfs=1&#hotelTmpl",
+            },
+            {
+              icon: Yatra,
+              name: "Yatra",
+              url: "https://www.yatra.com/hotels/hotels-in-hyderabad/hotel-sandhya?utm_source=admitad&utm_medium=affiliate_296692_ENKR20250210A1323672656&utm_campaign=flights&tagtag_uid=2ff3127076add65977acf1b8123d85e1",
+            },
+            {
+              icon: Goibibo,
+              name: "Goibibo",
+              url: "https://www.goibibo.com/hotels/the-cent-hotel-in-hyderabad-3166823576168076565/?utm_source=cashkaro&utm_medium=DisplayAffiliate&utm_campaign=hotelsENKR20250210A1323668111",
+            },
+          ],
+          taxesAndFees: 735,
+          amenities: [
+            {
+              iconName: "Free Wi-Fi",
+              iconImage: Wifi,
+            },
+            {
+              iconName: "Breakfast",
+              iconImage: Coffee,
+            },
+            {
+              iconName: "24/7 Front Desk",
+              iconImage: FrontDesk,
+            },
+            {
+              iconName: "Pool Access",
+              iconImage: Pool,
+            },
+          ],
+          image: "https://example.com/ahmedabad-grand-hotel.jpg",
+          description: "Enjoy a pleasant stay at this lavish hotel in Hyderabad, featuring a banquet hall, modern rooms, free Wi-Fi & a spa.",
+          images: [TheCent1, TheCent2, TheCent3, TheCent3, TheCent4, TheCent5, TheCent6, TheCent7, TheCent8, TheCent9, TheCent10],
+          address: "Ahmedabad Grand Hotel, Gujarat, India",
+          roomsCatagory: [
+            {
+              name: "Standard Room",
+              price: 3056,
+              oldPrice: 3499,
+              images: [TheCentStandardRoom1, TheCentStandardRoom2, TheCentStandardRoom3, TheCentStandardRoom4],
+              roomSize: "(252 sq.ft (23 sq.mt) | City View | 1 King bed or 2 Twin Bed(s))",
+              amenities: [
+                {
+                  iconName: "Book with ₹ 0 Payment​",
+                  iconImage: Wifi,
+                },
+                {
+                  iconName: "No meals included",
+                  iconImage: Coffee,
+                },
+                {
+                  iconName: "Early Check-In upto 2 hours (subject to availability)",
+                  iconImage: FrontDesk,
+                },
+                {
+                  iconName: "Late Check-Out upto 2 hours (subject to availability)",
+                  iconImage: Pool,
+                },
+                {
+                  iconName: "Free Cancellation till 24 hrs before check in",
+                  iconImage: Pool,
+                },
+              ],
+            },
+            {
+              name: "Superior Room",
+              price: 4104,
+              oldPrice: 4699,
+              images: [TheCentSuperior1, TheCentSuperior2, TheCentSuperior3, TheCentSuperior4],
+              roomSize: "(200 sq.ft (19 sq.mt) | City View | 1 King bed or 2 Twin Bed(s))",
+              amenities: [
+                {
+                  iconName: "Book with ₹ 0 Payment​",
+                  iconImage: Wifi,
+                },
+                {
+                  iconName: "No meals included",
+                  iconImage: Coffee,
+                },
+                {
+                  iconName: "Early Check-In upto 2 hours (subject to availability)",
+                  iconImage: FrontDesk,
+                },
+                {
+                  iconName: "Late Check-Out upto 2 hours (subject to availability)",
+                  iconImage: Pool,
+                },
+                {
+                  iconName: "Free Cancellation till 24 hrs before check in",
+                  iconImage: Pool,
+                },
+              ],
+            },
+            {
+              name: "Premier Room",
+              price: 5312,
+              oldPrice: 5999,
+              images: [TheCentPremierRoom1, TheCentPremierRoom2, TheCentPremierRoom3, TheCentPremierRoom4],
+              roomSize: "(350 sq.ft (33 sq.mt) | City View | 1 King bed or 2 Twin Bed(s))",
+              amenities: [
+                {
+                  iconName: "Book with ₹ 0 Payment​",
+                  iconImage: Wifi,
+                },
+                {
+                  iconName: "No meals included",
+                  iconImage: Coffee,
+                },
+                {
+                  iconName: "Early Check-In upto 2 hours (subject to availability)",
+                  iconImage: FrontDesk,
+                },
+                {
+                  iconName: "Late Check-Out upto 2 hours (subject to availability)",
+                  iconImage: Pool,
+                },
+                {
+                  iconName: "Free Cancellation till 24 hrs before check in",
+                  iconImage: Pool,
+                },
+              ],
+            },
+            {
+              name: "Suite Room",
+              price: 6640,
+              oldPrice: 7499,
+              images: [TheCentSuite1, TheCentSuite2, TheCentSuite3, TheCentSuite4],
+              roomSize: "(320 sq.ft (30 sq.mt) | City View | 1 King bed or 2 Twin Bed(s))",
+              amenities: [
+                {
+                  iconName: "Book with ₹ 0 Payment​",
+                  iconImage: Wifi,
+                },
+                {
+                  iconName: "No meals included",
+                  iconImage: Coffee,
+                },
+                {
+                  iconName: "Early Check-In upto 2 hours (subject to availability)",
+                  iconImage: FrontDesk,
+                },
+                {
+                  iconName: "Late Check-Out upto 2 hours (subject to availability)",
+                  iconImage: Pool,
+                },
+                {
+                  iconName: "Free Cancellation till 24 hrs before check in",
+                  iconImage: Pool,
+                },
+              ],
+            },
+          ],
+          policies: {
+            checkIn: "1:00 PM",
+            checkOut: "11:00 AM",
+            cancellationPolicy: "Free cancellation up to 48 hours before check-in.",
+          },
+          nearbyAttractions: [
+            {
+              name: "Central Park",
+              description: "A large public park in the heart of the city with walking trails and beautiful scenery."
+            },
+            {
+              name: "City Museum",
+              description: "A museum showcasing the rich history and culture of the city."
+            },
+            {
+              name: "Riverfront Plaza",
+              description: "A scenic spot by the river with restaurants, shops, and entertainment options."
+            }
+          ],
+        },
+      ],
     },
     {
       city: "jaipur",
@@ -1124,432 +1396,709 @@ const hotelsData = {
       ],
     },
     { city: "varanasi", hotels: [] },
-  { city: "delhi", hotels: [] },
-  { city: "corbett", hotels: [] },
-  { city: "puri", hotels: [] },
-  { city: "bhubaneshwar", hotels: [] },
-  { city: "cuttack", hotels: [] },
-  { city: "mumbai", hotels: [] },
-  { city: "lucknow", hotels: [] },
-  { city: "chandigarh", hotels: [] },
-  { city: "indore", hotels: [] },
-  { city: "bhopal", hotels: [] },
-  { city: "surat", hotels: [] },
-  { city: "vadodara", hotels: [] },
-  { city: "nagpur", hotels: [] },
-  { city: "patna", hotels: [] },
-  { city: "bhubaneswar", hotels: [] },
-  { city: "dehradun", hotels: [] },
-  { 
-    city: "manali", 
-    hotels: [
-      {
-        name: "Manali Grand",
-        description: "Close to Mall Road, this lavish property features stunning mountain views, comfortable rooms, a multi-cuisine restaurant and a host of world-class amenities.",
-        stars: 3,
-        rating: 4.1,
-        reviews: "33+ ratings",
-        pricePerNight: 2631,
-        affiliateLinks: [
-          {
-            icon: MakeMyTrip,
-            name: "MakeMyTrip",
-            url: "https://www.makemytrip.com/hotels/hotel-details/?hotelId=201706141417259742&Campaign=&_uCurrency=INR&au=&checkin=02092025&checkout=02102025&city=CTKUU&cmp=googlehoteldfinder_Old_DH_META_Free_default_IN_localuniversal_201706141417259742&country=IN&lat=32.23445&lng=77.19601&locusId=CTKUU&locusType=city&mtkeys=b7107bef-8c08-47bb-b272-b489bb047cca&rank=1&roomCount=1&roomStayQualifier=2e0e&rsc=1e2e&topHtlId=201706141417259742&totalGuestCount=2&isPropSearch=T&source=ENKR20250208A1320832554",
+    {
+      city: "delhi",
+      hotels: [
+        {
+          name: "Hotel Waterfall",
+          description: "Hotel Water Fall, centrally located, is 19 km from IGI Airport, 12 km from Delhi Cantonment Railway Station, and close to major attractions like Jantar Mantar, Rashtrapati Bhavan, and Lodi Gardens.",
+          stars: 3,
+          rating: 4.1,
+          reviews: "33+ ratings",
+          pricePerNight: 2679,
+          affiliateLinks: [
+            {
+              icon: MakeMyTrip,
+              name: "MakeMyTrip",
+              url: "https://www.makemytrip.com/hotels/hotel_waterfall-details-delhi.html?source=ENKR20250210A1323800180",
+            },
+            {
+              icon: BookingCom,
+              name: "Booking.Com",
+              url: "https://www.booking.com/hotel/in/waterfall-paschim-vihar-delhi.en-gb.html?aid=1517899&label=ENKR20250210A1323803381&sid=593f77ec0f64961874dc181e044d1646&all_sr_blocks=1260415502_398661345_0_2_0&checkin=2025-02-15&checkout=2025-02-16&dest_id=-2106102&dest_type=city&dist=0&group_adults=2&group_children=0&hapos=1&highlighted_blocks=1260415502_398661345_0_2_0&hpos=1&matching_block_id=1260415502_398661345_0_2_0&no_rooms=1&req_adults=2&req_children=0&room1=A%2CA&sb_price_type=total&sr_order=popularity&sr_pri_blocks=1260415502_398661345_0_2_0__315000&srepoch=1739173564&srpvid=00a5369c21fc0348&type=total&ucfs=1&#hotelTmpl",
+            },
+            {
+              icon: Yatra,
+              name: "Yatra",
+              url: "https://www.yatra.com/hotels/hotels-in-new-delhi/hotel-waterfall?utm_source=admitad&utm_medium=affiliate_296692_ENKR20250210A1323806108&utm_campaign=flights&tagtag_uid=e7b28f415b19be752ca0780c5f0e6764",
+            },
+            {
+              icon: ClearTrip,
+              name: "ClearTrip",
+              url: "https://www.cleartrip.com/hotels/details/3910166?city=Delhi&state=Delhi&country=IN&r=2,0&utm_source=admitad&utm_medium=affiliate&utm_campaign=domflights_affiliate_in&utm_term=296692_01bc4875edf521e75c60f5bf0ad22b61&xtm_term=01bc4875edf521e75c60f5bf0ad22b61&dxid=fa2f4de6-f698-1739173750",
+            },
+            {
+              icon: Goibibo,
+              name: "Goibibo",
+              url: "https://www.goibibo.com/hotels/waterfall-hotel-in-delhi-2383386314735228924/?utm_source=cashkaro&utm_medium=DisplayAffiliate&utm_campaign=hotelsENKR20250210A1323802028",
+            },
+          ],
+          taxesAndFees: 639,
+          amenities: [
+            {
+              iconName: "Free Wi-Fi",
+              iconImage: Wifi,
+            },
+            {
+              iconName: "Breakfast",
+              iconImage: Coffee,
+            },
+            {
+              iconName: "24/7 Front Desk",
+              iconImage: FrontDesk,
+            },
+            {
+              iconName: "Pool Access",
+              iconImage: Pool,
+            },
+          ],
+          image: "https://example.com/ahmedabad-grand-hotel.jpg",
+          images: [HotelWaterfall1, HotelWaterfall2, HotelWaterfall3, HotelWaterfall4, HotelWaterfall5, HotelWaterfall6, HotelWaterfall7, HotelWaterfall8, HotelWaterfall9, HotelWaterfall10],
+          address: "Ahmedabad Grand Hotel, Gujarat, India",
+          phone: "+91 9876543210",
+          roomsCatagory: [
+            {
+              name: "Deluxe Twin Bed Room",
+              price: 2679,
+              oldPrice: 3200,
+              images: [HotelWaterfallDeluxeTwinBedRoom1, HotelWaterfallDeluxeTwinBedRoom2, HotelWaterfallDeluxeTwinBedRoom3, HotelWaterfallDeluxeTwinBedRoom4],
+              roomSize: "(132 sq.ft (12 sq.mt) | City View | Twin Bed)",
+              amenities: [
+                {
+                  iconName: "Book with ₹ 0 Payment​",
+                  iconImage: Wifi,
+                },
+                {
+                  iconName: "No meals included",
+                  iconImage: Coffee,
+                },
+                {
+                  iconName: "Early Check-In upto 2 hours (subject to availability)",
+                  iconImage: FrontDesk,
+                },
+                {
+                  iconName: "Late Check-Out upto 2 hours (subject to availability)",
+                  iconImage: Pool,
+                },
+                {
+                  iconName: "Free Cancellation till 24 hrs before check in",
+                  iconImage: Pool,
+                },
+              ],
+            },
+            {
+              name: "Luxury Room",
+              price: 2931,
+              oldPrice: 3500,
+              images: [HotelWaterfallLuxuryRoom1, HotelWaterfallLuxuryRoom2, HotelWaterfallLuxuryRoom3, HotelWaterfallLuxuryRoom4],
+              roomSize: "(195 sq.ft (18 sq.mt) | City View | Double Bed)",
+              amenities: [
+                {
+                  iconName: "Book with ₹ 0 Payment​",
+                  iconImage: Wifi,
+                },
+                {
+                  iconName: "No meals included",
+                  iconImage: Coffee,
+                },
+                {
+                  iconName: "Early Check-In upto 2 hours (subject to availability)",
+                  iconImage: FrontDesk,
+                },
+                {
+                  iconName: "Late Check-Out upto 2 hours (subject to availability)",
+                  iconImage: Pool,
+                },
+                {
+                  iconName: "Free Cancellation till 24 hrs before check in",
+                  iconImage: Pool,
+                },
+              ],
+            },
+            {
+              name: "Premium Room",
+              price: 3014,
+              oldPrice: 3600,
+              images: [HotelWaterfallPremiumRoom1, HotelWaterfallPremiumRoom2, HotelWaterfallPremiumRoom3, HotelWaterfallPremiumRoom4],
+              roomSize: "(300 sq.ft (28 sq.mt) | City View | King Bed)",
+              amenities: [
+                {
+                  iconName: "Book with ₹ 0 Payment​",
+                  iconImage: Wifi,
+                },
+                {
+                  iconName: "No meals included",
+                  iconImage: Coffee,
+                },
+                {
+                  iconName: "Early Check-In upto 2 hours (subject to availability)",
+                  iconImage: FrontDesk,
+                },
+                {
+                  iconName: "Late Check-Out upto 2 hours (subject to availability)",
+                  iconImage: Pool,
+                },
+                {
+                  iconName: "Free Cancellation till 24 hrs before check in",
+                  iconImage: Pool,
+                },
+              ],
+            },
+          ],
+          policies: {
+            checkIn: "1:00 PM",
+            checkOut: "11:00 AM",
+            cancellationPolicy: "Free cancellation up to 48 hours before check-in.",
           },
-          {
-            icon: Yatra,
-            name: "Yatra",
-            url: "https://www.yatra.com/hotels/hotels-in-manali/hotel-manali-grand?utm_source=admitad&utm_medium=affiliate_296692_ENKR20250208A1320834358&utm_campaign=flights&tagtag_uid=66506aa2ea54c426181bba82ce265d53",
-          },
-          {
-            icon: ClearTrip,
-            name: "ClearTrip",
-            url: "https://www.cleartrip.com/hotels/details/manali-grand-2044702?city=null&state=null&country=null&r=2,0&utm_source=admitad&utm_medium=affiliate&utm_campaign=domflights_affiliate_in&utm_term=296692_515573b2a49b65093b686cbc4e9b4652&xtm_term=515573b2a49b65093b686cbc4e9b4652&dxid=fa2f4de6-f698-1739015646",
-          },
-          {
-            icon: Goibibo,
-            name: "Goibibo",
-            url: "https://www.goibibo.com/hotels/hotel-details/?checkin=20250209&checkout=20250210&roomString=1-2-0&searchText=Manali%20Grand&locusId=CTKUU&locusType=city&cityCode=CTKUU&cc=IN&_uCurrency=INR&giHotelId=5445051845260503514&mmtId=201706141417259742&topHtlId=201706141417259742&sType=hotel&utm_source=cashkaro&utm_medium=DisplayAffiliate&utm_campaign=hotelsENKR20250208A1320831611",
-          },
-        ],
-        taxesAndFees: 647,
-        amenities: [
-          {
-            iconName: "Free Wi-Fi",
-            iconImage: Wifi,
-          },
-          {
-            iconName: "Breakfast",
-            iconImage: Coffee,
-          },
-          {
-            iconName: "24/7 Front Desk",
-            iconImage: FrontDesk,
-          },
-          {
-            iconName: "Pool Access",
-            iconImage: Pool,
-          },
-        ],
-        image: "https://example.com/ahmedabad-grand-hotel.jpg",
-        images: [ManaliGrand1, ManaliGrand2, ManaliGrand3, ManaliGrand4, ManaliGrand5, ManaliGrand6, ManaliGrand7, ManaliGrand8, ManaliGrand9, ManaliGrand10],
-        address: "Ahmedabad Grand Hotel, Gujarat, India",
-        phone: "+91 9876543210",
-        roomsCatagory: [
-          {
-            name: "Super Deluxe Room",
-            price: 2631,
-            oldPrice: 3500,
-            images: [ManaliGrandSuperDeluxe1, ManaliGrandSuperDeluxe2, ManaliGrandSuperDeluxe3, ManaliGrandSuperDeluxe4],
-            roomSize: "(168 sq.ft (16 sq.mt) | Double Bed)",
-            amenities: [
-              {
-                iconName: "Book with ₹ 0 Payment​",
-                iconImage: Wifi,
-              },
-              {
-                iconName: "No meals included",
-                iconImage: Coffee,
-              },
-              {
-                iconName: "Early Check-In upto 2 hours (subject to availability)",
-                iconImage: FrontDesk,
-              },
-              {
-                iconName: "Late Check-Out upto 2 hours (subject to availability)",
-                iconImage: Pool,
-              },
-              {
-                iconName: "Free Cancellation till 24 hrs before check in",
-                iconImage: Pool,
-              },
-            ],
-          },
-          {
-            name: "Premium Room",
-            price: 3007,
-            oldPrice: 4000,
-            images: [ManaliGrandPremium1, ManaliGrandPremium2, ManaliGrandPremium3, ManaliGrandPremium4],
-            roomSize: "(252 sq.ft (23 sq.mt) | King Bed)",
-            amenities: [
-              {
-                iconName: "Book with ₹ 0 Payment​",
-                iconImage: Wifi,
-              },
-              {
-                iconName: "No meals included",
-                iconImage: Coffee,
-              },
-              {
-                iconName: "Early Check-In upto 2 hours (subject to availability)",
-                iconImage: FrontDesk,
-              },
-              {
-                iconName: "Late Check-Out upto 2 hours (subject to availability)",
-                iconImage: Pool,
-              },
-              {
-                iconName: "Free Cancellation till 24 hrs before check in",
-                iconImage: Pool,
-              },
-            ],
-          },
-          {
-            name: "Honeymoon Suite Room",
-            price: 3007,
-            oldPrice: 4000,
-            images: [ManaliGrandHoneymoonSuite1, ManaliGrandHoneymoonSuite2, ManaliGrandHoneymoonSuite3, ManaliGrandHoneymoonSuite4],
-            roomSize: "(120 sq.ft (11 sq.mt) | King Bed)",
-            amenities: [
-              {
-                iconName: "Book with ₹ 0 Payment​",
-                iconImage: Wifi,
-              },
-              {
-                iconName: "No meals included",
-                iconImage: Coffee,
-              },
-              {
-                iconName: "Early Check-In upto 2 hours (subject to availability)",
-                iconImage: FrontDesk,
-              },
-              {
-                iconName: "Late Check-Out upto 2 hours (subject to availability)",
-                iconImage: Pool,
-              },
-              {
-                iconName: "Free Cancellation till 24 hrs before check in",
-                iconImage: Pool,
-              },
-            ],
-          },
-          {
-            name: "Family Suite Bunker Room",
-            price: 4954,
-            oldPrice: 6500,
-            images: [ManaliGrandFamilySuiteBunker1, ManaliGrandFamilySuiteBunker2, ManaliGrandFamilySuiteBunker3, ManaliGrandFamilySuiteBunker4],
-            roomSize: "(144 sq.ft (13 sq.mt) | King Bed)",
-            amenities: [
-              {
-                iconName: "Book with ₹ 0 Payment​",
-                iconImage: Wifi,
-              },
-              {
-                iconName: "No meals included",
-                iconImage: Coffee,
-              },
-              {
-                iconName: "Early Check-In upto 2 hours (subject to availability)",
-                iconImage: FrontDesk,
-              },
-              {
-                iconName: "Late Check-Out upto 2 hours (subject to availability)",
-                iconImage: Pool,
-              },
-              {
-                iconName: "Free Cancellation till 24 hrs before check in",
-                iconImage: Pool,
-              },
-            ],
-          },
-          {
-            name: "Family Suite Room",
-            price: 5335,
-            oldPrice: 7000,
-            images: [ManaliGrandFamilySuite1, ManaliGrandFamilySuite2, ManaliGrandFamilySuite3, ManaliGrandFamilySuite4],
-            roomSize: "(200 sq.ft (19 sq.mt) | King Bed)",
-            amenities: [
-              {
-                iconName: "Book with ₹ 0 Payment​",
-                iconImage: Wifi,
-              },
-              {
-                iconName: "No meals included",
-                iconImage: Coffee,
-              },
-              {
-                iconName: "Early Check-In upto 2 hours (subject to availability)",
-                iconImage: FrontDesk,
-              },
-              {
-                iconName: "Late Check-Out upto 2 hours (subject to availability)",
-                iconImage: Pool,
-              },
-              {
-                iconName: "Free Cancellation till 24 hrs before check in",
-                iconImage: Pool,
-              },
-            ],
-          },
-        ],
-        policies: {
-          checkIn: "1:00 PM",
-          checkOut: "11:00 AM",
-          cancellationPolicy: "Free cancellation up to 48 hours before check-in.",
+          nearbyAttractions: [
+            {
+              name: "Central Park",
+              description: "A large public park in the heart of the city with walking trails and beautiful scenery."
+            },
+            {
+              name: "City Museum",
+              description: "A museum showcasing the rich history and culture of the city."
+            },
+            {
+              name: "Riverfront Plaza",
+              description: "A scenic spot by the river with restaurants, shops, and entertainment options."
+            }
+          ],
         },
-        nearbyAttractions: [
-          {
-            name: "Central Park",
-            description: "A large public park in the heart of the city with walking trails and beautiful scenery."
+      ]
+    },
+    { city: "corbett", hotels: [] },
+    { city: "puri", hotels: [] },
+    { city: "bhubaneshwar", hotels: [] },
+    { city: "cuttack", hotels: [] },
+    { city: "mumbai", hotels: [] },
+    { city: "lucknow", hotels: [] },
+    { city: "chandigarh", hotels: [] },
+    { city: "indore", hotels: [] },
+    { city: "bhopal", hotels: [] },
+    { city: "surat", hotels: [] },
+    { city: "vadodara", hotels: [] },
+    { city: "nagpur", hotels: [] },
+    { city: "patna", hotels: [] },
+    { city: "bhubaneswar", hotels: [] },
+    { city: "dehradun", hotels: [] },
+    {
+      city: "manali",
+      hotels: [
+        {
+          name: "Manali Grand",
+          description: "Close to Mall Road, this lavish property features stunning mountain views, comfortable rooms, a multi-cuisine restaurant and a host of world-class amenities.",
+          stars: 3,
+          rating: 4.1,
+          reviews: "33+ ratings",
+          pricePerNight: 2631,
+          affiliateLinks: [
+            {
+              icon: MakeMyTrip,
+              name: "MakeMyTrip",
+              url: "https://www.makemytrip.com/hotels/hotel-details/?hotelId=201706141417259742&Campaign=&_uCurrency=INR&au=&checkin=02092025&checkout=02102025&city=CTKUU&cmp=googlehoteldfinder_Old_DH_META_Free_default_IN_localuniversal_201706141417259742&country=IN&lat=32.23445&lng=77.19601&locusId=CTKUU&locusType=city&mtkeys=b7107bef-8c08-47bb-b272-b489bb047cca&rank=1&roomCount=1&roomStayQualifier=2e0e&rsc=1e2e&topHtlId=201706141417259742&totalGuestCount=2&isPropSearch=T&source=ENKR20250208A1320832554",
+            },
+            {
+              icon: Yatra,
+              name: "Yatra",
+              url: "https://www.yatra.com/hotels/hotels-in-manali/hotel-manali-grand?utm_source=admitad&utm_medium=affiliate_296692_ENKR20250208A1320834358&utm_campaign=flights&tagtag_uid=66506aa2ea54c426181bba82ce265d53",
+            },
+            {
+              icon: ClearTrip,
+              name: "ClearTrip",
+              url: "https://www.cleartrip.com/hotels/details/manali-grand-2044702?city=null&state=null&country=null&r=2,0&utm_source=admitad&utm_medium=affiliate&utm_campaign=domflights_affiliate_in&utm_term=296692_515573b2a49b65093b686cbc4e9b4652&xtm_term=515573b2a49b65093b686cbc4e9b4652&dxid=fa2f4de6-f698-1739015646",
+            },
+            {
+              icon: Goibibo,
+              name: "Goibibo",
+              url: "https://www.goibibo.com/hotels/hotel-details/?checkin=20250209&checkout=20250210&roomString=1-2-0&searchText=Manali%20Grand&locusId=CTKUU&locusType=city&cityCode=CTKUU&cc=IN&_uCurrency=INR&giHotelId=5445051845260503514&mmtId=201706141417259742&topHtlId=201706141417259742&sType=hotel&utm_source=cashkaro&utm_medium=DisplayAffiliate&utm_campaign=hotelsENKR20250208A1320831611",
+            },
+          ],
+          taxesAndFees: 647,
+          amenities: [
+            {
+              iconName: "Free Wi-Fi",
+              iconImage: Wifi,
+            },
+            {
+              iconName: "Breakfast",
+              iconImage: Coffee,
+            },
+            {
+              iconName: "24/7 Front Desk",
+              iconImage: FrontDesk,
+            },
+            {
+              iconName: "Pool Access",
+              iconImage: Pool,
+            },
+          ],
+          image: "https://example.com/ahmedabad-grand-hotel.jpg",
+          images: [ManaliGrand1, ManaliGrand2, ManaliGrand3, ManaliGrand4, ManaliGrand5, ManaliGrand6, ManaliGrand7, ManaliGrand8, ManaliGrand9, ManaliGrand10],
+          address: "Ahmedabad Grand Hotel, Gujarat, India",
+          phone: "+91 9876543210",
+          roomsCatagory: [
+            {
+              name: "Super Deluxe Room",
+              price: 2631,
+              oldPrice: 3500,
+              images: [ManaliGrandSuperDeluxe1, ManaliGrandSuperDeluxe2, ManaliGrandSuperDeluxe3, ManaliGrandSuperDeluxe4],
+              roomSize: "(168 sq.ft (16 sq.mt) | Double Bed)",
+              amenities: [
+                {
+                  iconName: "Book with ₹ 0 Payment​",
+                  iconImage: Wifi,
+                },
+                {
+                  iconName: "No meals included",
+                  iconImage: Coffee,
+                },
+                {
+                  iconName: "Early Check-In upto 2 hours (subject to availability)",
+                  iconImage: FrontDesk,
+                },
+                {
+                  iconName: "Late Check-Out upto 2 hours (subject to availability)",
+                  iconImage: Pool,
+                },
+                {
+                  iconName: "Free Cancellation till 24 hrs before check in",
+                  iconImage: Pool,
+                },
+              ],
+            },
+            {
+              name: "Premium Room",
+              price: 3007,
+              oldPrice: 4000,
+              images: [ManaliGrandPremium1, ManaliGrandPremium2, ManaliGrandPremium3, ManaliGrandPremium4],
+              roomSize: "(252 sq.ft (23 sq.mt) | King Bed)",
+              amenities: [
+                {
+                  iconName: "Book with ₹ 0 Payment​",
+                  iconImage: Wifi,
+                },
+                {
+                  iconName: "No meals included",
+                  iconImage: Coffee,
+                },
+                {
+                  iconName: "Early Check-In upto 2 hours (subject to availability)",
+                  iconImage: FrontDesk,
+                },
+                {
+                  iconName: "Late Check-Out upto 2 hours (subject to availability)",
+                  iconImage: Pool,
+                },
+                {
+                  iconName: "Free Cancellation till 24 hrs before check in",
+                  iconImage: Pool,
+                },
+              ],
+            },
+            {
+              name: "Honeymoon Suite Room",
+              price: 3007,
+              oldPrice: 4000,
+              images: [ManaliGrandHoneymoonSuite1, ManaliGrandHoneymoonSuite2, ManaliGrandHoneymoonSuite3, ManaliGrandHoneymoonSuite4],
+              roomSize: "(120 sq.ft (11 sq.mt) | King Bed)",
+              amenities: [
+                {
+                  iconName: "Book with ₹ 0 Payment​",
+                  iconImage: Wifi,
+                },
+                {
+                  iconName: "No meals included",
+                  iconImage: Coffee,
+                },
+                {
+                  iconName: "Early Check-In upto 2 hours (subject to availability)",
+                  iconImage: FrontDesk,
+                },
+                {
+                  iconName: "Late Check-Out upto 2 hours (subject to availability)",
+                  iconImage: Pool,
+                },
+                {
+                  iconName: "Free Cancellation till 24 hrs before check in",
+                  iconImage: Pool,
+                },
+              ],
+            },
+            {
+              name: "Family Suite Bunker Room",
+              price: 4954,
+              oldPrice: 6500,
+              images: [ManaliGrandFamilySuiteBunker1, ManaliGrandFamilySuiteBunker2, ManaliGrandFamilySuiteBunker3, ManaliGrandFamilySuiteBunker4],
+              roomSize: "(144 sq.ft (13 sq.mt) | King Bed)",
+              amenities: [
+                {
+                  iconName: "Book with ₹ 0 Payment​",
+                  iconImage: Wifi,
+                },
+                {
+                  iconName: "No meals included",
+                  iconImage: Coffee,
+                },
+                {
+                  iconName: "Early Check-In upto 2 hours (subject to availability)",
+                  iconImage: FrontDesk,
+                },
+                {
+                  iconName: "Late Check-Out upto 2 hours (subject to availability)",
+                  iconImage: Pool,
+                },
+                {
+                  iconName: "Free Cancellation till 24 hrs before check in",
+                  iconImage: Pool,
+                },
+              ],
+            },
+            {
+              name: "Family Suite Room",
+              price: 5335,
+              oldPrice: 7000,
+              images: [ManaliGrandFamilySuite1, ManaliGrandFamilySuite2, ManaliGrandFamilySuite3, ManaliGrandFamilySuite4],
+              roomSize: "(200 sq.ft (19 sq.mt) | King Bed)",
+              amenities: [
+                {
+                  iconName: "Book with ₹ 0 Payment​",
+                  iconImage: Wifi,
+                },
+                {
+                  iconName: "No meals included",
+                  iconImage: Coffee,
+                },
+                {
+                  iconName: "Early Check-In upto 2 hours (subject to availability)",
+                  iconImage: FrontDesk,
+                },
+                {
+                  iconName: "Late Check-Out upto 2 hours (subject to availability)",
+                  iconImage: Pool,
+                },
+                {
+                  iconName: "Free Cancellation till 24 hrs before check in",
+                  iconImage: Pool,
+                },
+              ],
+            },
+          ],
+          policies: {
+            checkIn: "1:00 PM",
+            checkOut: "11:00 AM",
+            cancellationPolicy: "Free cancellation up to 48 hours before check-in.",
           },
-          {
-            name: "City Museum",
-            description: "A museum showcasing the rich history and culture of the city."
-          },
-          {
-            name: "Riverfront Plaza",
-            description: "A scenic spot by the river with restaurants, shops, and entertainment options."
-          }
-        ],
-      },
-    ] 
-  },
-  { 
-    city: "mussoorie", 
-    hotels: [
-      {
-        name: "Shivalik Hills",
-        description: "Baffle your senses and impress yourself with the warm atmosphere and premium amenities at Hotel Kamakshi Grand in Mussoorie.",
-        stars: 3,
-        rating: 4.1,
-        reviews: "33+ ratings",
-        pricePerNight: 3956,
-        affiliateLinks: [
-          {
-            icon: MakeMyTrip,
-            name: "MakeMyTrip",
-            url: "https://www.makemytrip.com/hotels/shivalik_hills_mussoorie-details-mussoorie.html?source=ENKR20250208A1320838357",
-          },
-          {
-            icon: ClearTrip,
-            name: "ClearTrip",
-            url: "https://www.cleartrip.com/hotels/details/3989825?city=Mussoorie&state=Uttarakhand&country=IN&r=2,0&utm_source=admitad&utm_medium=affiliate&utm_campaign=domflights_affiliate_in&utm_term=296692_5e3ca25ac4376631090368902d6f2d28&xtm_term=5e3ca25ac4376631090368902d6f2d28&dxid=fa2f4de6-f698-1739016317",
-          },
-          {
-            icon: Goibibo,
-            name: "Goibibo",
-            url: "https://www.goibibo.com/hotels/shivalik-hills-mussoorie-hotel-in-mussoorie-8031713393741590709/?utm_source=cashkaro&utm_medium=DisplayAffiliate&utm_campaign=hotelsENKR20250208A1320839639",
-          },
-        ],
-        taxesAndFees: 1013,
-        amenities: [
-          {
-            iconName: "Free Wi-Fi",
-            iconImage: Wifi,
-          },
-          {
-            iconName: "Breakfast",
-            iconImage: Coffee,
-          },
-          {
-            iconName: "24/7 Front Desk",
-            iconImage: FrontDesk,
-          },
-          {
-            iconName: "Pool Access",
-            iconImage: Pool,
-          },
-        ],
-        image: "https://example.com/ahmedabad-grand-hotel.jpg",
-        images: [ShivalikHills1, ShivalikHills2, ShivalikHills3, ShivalikHills4, ShivalikHills5, ShivalikHills6, ShivalikHills7, ShivalikHills8, ShivalikHills9, ShivalikHills10],
-        address: "Ahmedabad Grand Hotel, Gujarat, India",
-        phone: "+91 9876543210",
-        roomsCatagory: [
-          {
-            name: "Executive Room",
-            price: 3956,
-            oldPrice: 6999,
-            images: [ShivalikHillsExecutive1, ShivalikHillsExecutive2, ShivalikHillsExecutive3, ShivalikHillsExecutive4],
-            roomSize: "(336 sq.ft (31 sq.mt) | Double Bed)",
-            amenities: [
-              {
-                iconName: "Book with ₹ 0 Payment​",
-                iconImage: Wifi,
-              },
-              {
-                iconName: "No meals included",
-                iconImage: Coffee,
-              },
-              {
-                iconName: "Early Check-In upto 2 hours (subject to availability)",
-                iconImage: FrontDesk,
-              },
-              {
-                iconName: "Late Check-Out upto 2 hours (subject to availability)",
-                iconImage: Pool,
-              },
-              {
-                iconName: "Free Cancellation till 24 hrs before check in",
-                iconImage: Pool,
-              },
-            ],
-          },
-          {
-            name: "Premium Valley View Room",
-            price: 4583,
-            oldPrice: 7999,
-            images: [ShivalikHillsPremiumValleyView1, ShivalikHillsPremiumValleyView2, ShivalikHillsPremiumValleyView3, ShivalikHillsPremiumValleyView4],
-            roomSize: "(336 sq.ft (31 sq.mt) | Valley View | King Bed)",
-            amenities: [
-              {
-                iconName: "Book with ₹ 0 Payment​",
-                iconImage: Wifi,
-              },
-              {
-                iconName: "No meals included",
-                iconImage: Coffee,
-              },
-              {
-                iconName: "Early Check-In upto 2 hours (subject to availability)",
-                iconImage: FrontDesk,
-              },
-              {
-                iconName: "Late Check-Out upto 2 hours (subject to availability)",
-                iconImage: Pool,
-              },
-              {
-                iconName: "Free Cancellation till 24 hrs before check in",
-                iconImage: Pool,
-              },
-            ],
-          },
-          {
-            name: "Family Suite Room",
-            price: 9227,
-            oldPrice: 15999,
-            images: [ShivalikHillsFamilySuite1, ShivalikHillsFamilySuite2, ShivalikHillsFamilySuite3, ShivalikHillsFamilySuite4],
-            roomSize: "(784 sq.ft (73 sq.mt) | Valley View | King Bed)",
-            amenities: [
-              {
-                iconName: "Book with ₹ 0 Payment​",
-                iconImage: Wifi,
-              },
-              {
-                iconName: "No meals included",
-                iconImage: Coffee,
-              },
-              {
-                iconName: "Early Check-In upto 2 hours (subject to availability)",
-                iconImage: FrontDesk,
-              },
-              {
-                iconName: "Late Check-Out upto 2 hours (subject to availability)",
-                iconImage: Pool,
-              },
-              {
-                iconName: "Free Cancellation till 24 hrs before check in",
-                iconImage: Pool,
-              },
-            ],
-          },
-        ],
-        policies: {
-          checkIn: "1:00 PM",
-          checkOut: "11:00 AM",
-          cancellationPolicy: "Free cancellation up to 48 hours before check-in.",
+          nearbyAttractions: [
+            {
+              name: "Central Park",
+              description: "A large public park in the heart of the city with walking trails and beautiful scenery."
+            },
+            {
+              name: "City Museum",
+              description: "A museum showcasing the rich history and culture of the city."
+            },
+            {
+              name: "Riverfront Plaza",
+              description: "A scenic spot by the river with restaurants, shops, and entertainment options."
+            }
+          ],
         },
-        nearbyAttractions: [
-          {
-            name: "Central Park",
-            description: "A large public park in the heart of the city with walking trails and beautiful scenery."
+      ]
+    },
+    {
+      city: "mussoorie",
+      hotels: [
+        {
+          name: "Shivalik Hills",
+          description: "Baffle your senses and impress yourself with the warm atmosphere and premium amenities at Hotel Kamakshi Grand in Mussoorie.",
+          stars: 3,
+          rating: 4.1,
+          reviews: "33+ ratings",
+          pricePerNight: 3956,
+          affiliateLinks: [
+            {
+              icon: MakeMyTrip,
+              name: "MakeMyTrip",
+              url: "https://www.makemytrip.com/hotels/shivalik_hills_mussoorie-details-mussoorie.html?source=ENKR20250208A1320838357",
+            },
+            {
+              icon: ClearTrip,
+              name: "ClearTrip",
+              url: "https://www.cleartrip.com/hotels/details/3989825?city=Mussoorie&state=Uttarakhand&country=IN&r=2,0&utm_source=admitad&utm_medium=affiliate&utm_campaign=domflights_affiliate_in&utm_term=296692_5e3ca25ac4376631090368902d6f2d28&xtm_term=5e3ca25ac4376631090368902d6f2d28&dxid=fa2f4de6-f698-1739016317",
+            },
+            {
+              icon: Goibibo,
+              name: "Goibibo",
+              url: "https://www.goibibo.com/hotels/shivalik-hills-mussoorie-hotel-in-mussoorie-8031713393741590709/?utm_source=cashkaro&utm_medium=DisplayAffiliate&utm_campaign=hotelsENKR20250208A1320839639",
+            },
+          ],
+          taxesAndFees: 1013,
+          amenities: [
+            {
+              iconName: "Free Wi-Fi",
+              iconImage: Wifi,
+            },
+            {
+              iconName: "Breakfast",
+              iconImage: Coffee,
+            },
+            {
+              iconName: "24/7 Front Desk",
+              iconImage: FrontDesk,
+            },
+            {
+              iconName: "Pool Access",
+              iconImage: Pool,
+            },
+          ],
+          image: "https://example.com/ahmedabad-grand-hotel.jpg",
+          images: [ShivalikHills1, ShivalikHills2, ShivalikHills3, ShivalikHills4, ShivalikHills5, ShivalikHills6, ShivalikHills7, ShivalikHills8, ShivalikHills9, ShivalikHills10],
+          address: "Ahmedabad Grand Hotel, Gujarat, India",
+          phone: "+91 9876543210",
+          roomsCatagory: [
+            {
+              name: "Executive Room",
+              price: 3956,
+              oldPrice: 6999,
+              images: [ShivalikHillsExecutive1, ShivalikHillsExecutive2, ShivalikHillsExecutive3, ShivalikHillsExecutive4],
+              roomSize: "(336 sq.ft (31 sq.mt) | Double Bed)",
+              amenities: [
+                {
+                  iconName: "Book with ₹ 0 Payment​",
+                  iconImage: Wifi,
+                },
+                {
+                  iconName: "No meals included",
+                  iconImage: Coffee,
+                },
+                {
+                  iconName: "Early Check-In upto 2 hours (subject to availability)",
+                  iconImage: FrontDesk,
+                },
+                {
+                  iconName: "Late Check-Out upto 2 hours (subject to availability)",
+                  iconImage: Pool,
+                },
+                {
+                  iconName: "Free Cancellation till 24 hrs before check in",
+                  iconImage: Pool,
+                },
+              ],
+            },
+            {
+              name: "Premium Valley View Room",
+              price: 4583,
+              oldPrice: 7999,
+              images: [ShivalikHillsPremiumValleyView1, ShivalikHillsPremiumValleyView2, ShivalikHillsPremiumValleyView3, ShivalikHillsPremiumValleyView4],
+              roomSize: "(336 sq.ft (31 sq.mt) | Valley View | King Bed)",
+              amenities: [
+                {
+                  iconName: "Book with ₹ 0 Payment​",
+                  iconImage: Wifi,
+                },
+                {
+                  iconName: "No meals included",
+                  iconImage: Coffee,
+                },
+                {
+                  iconName: "Early Check-In upto 2 hours (subject to availability)",
+                  iconImage: FrontDesk,
+                },
+                {
+                  iconName: "Late Check-Out upto 2 hours (subject to availability)",
+                  iconImage: Pool,
+                },
+                {
+                  iconName: "Free Cancellation till 24 hrs before check in",
+                  iconImage: Pool,
+                },
+              ],
+            },
+            {
+              name: "Family Suite Room",
+              price: 9227,
+              oldPrice: 15999,
+              images: [ShivalikHillsFamilySuite1, ShivalikHillsFamilySuite2, ShivalikHillsFamilySuite3, ShivalikHillsFamilySuite4],
+              roomSize: "(784 sq.ft (73 sq.mt) | Valley View | King Bed)",
+              amenities: [
+                {
+                  iconName: "Book with ₹ 0 Payment​",
+                  iconImage: Wifi,
+                },
+                {
+                  iconName: "No meals included",
+                  iconImage: Coffee,
+                },
+                {
+                  iconName: "Early Check-In upto 2 hours (subject to availability)",
+                  iconImage: FrontDesk,
+                },
+                {
+                  iconName: "Late Check-Out upto 2 hours (subject to availability)",
+                  iconImage: Pool,
+                },
+                {
+                  iconName: "Free Cancellation till 24 hrs before check in",
+                  iconImage: Pool,
+                },
+              ],
+            },
+          ],
+          policies: {
+            checkIn: "1:00 PM",
+            checkOut: "11:00 AM",
+            cancellationPolicy: "Free cancellation up to 48 hours before check-in.",
           },
-          {
-            name: "City Museum",
-            description: "A museum showcasing the rich history and culture of the city."
+          nearbyAttractions: [
+            {
+              name: "Central Park",
+              description: "A large public park in the heart of the city with walking trails and beautiful scenery."
+            },
+            {
+              name: "City Museum",
+              description: "A museum showcasing the rich history and culture of the city."
+            },
+            {
+              name: "Riverfront Plaza",
+              description: "A scenic spot by the river with restaurants, shops, and entertainment options."
+            }
+          ],
+        },
+      ]
+    },
+    { city: "haridwar", hotels: [] },
+    { city: "rishikesh", hotels: [] },
+    {
+      city: "agra",
+      hotels: [
+        {
+          name: "Hotel Orange",
+          description: "The dignified splendour of Agra and the portentous grandeur of Taj Mahal greet you at Hotel Orange, an ecstatic trip with your beloved.",
+          stars: 4,
+          rating: 4.1,
+          reviews: "33+ ratings",
+          pricePerNight: 3252,
+          affiliateLinks: [
+            {
+              icon: MakeMyTrip,
+              name: "MakeMyTrip",
+              url: "https://www.makemytrip.com/hotels/hotel-details/?hotelId=201707131909386175&_uCurrency=INR&checkin=03172025&checkout=03182025&city=CTAGR&country=IN&lat=27.16792&lng=78.00885&locusId=CTAGR&locusType=city&modifyDates=true&rank=16&roomStayQualifier=2e0e&searchText=Agra&seoDS=true&seoReq=1739169993438&viewType=BUDGET&mtkeys=defaultMtkey&source=ENKR20250210A1323728843",
+            },
+            {
+              icon: BookingCom,
+              name: "Booking.Com",
+              url: "https://www.booking.com/hotel/in/orange-agra.en-gb.html?aid=1517899&label=ENKR20250210A1323732467&sid=593f77ec0f64961874dc181e044d1646&all_sr_blocks=262927101_403631579_2_42_0&checkin=2025-02-15&checkout=2025-02-16&dest_id=-2088244&dest_type=city&dist=0&group_adults=2&group_children=0&hapos=1&highlighted_blocks=262927101_403631579_2_42_0&hpos=1&matching_block_id=262927101_403631579_2_42_0&no_rooms=1&req_adults=2&req_children=0&room1=A%2CA&sb_price_type=total&sr_order=popularity&sr_pri_blocks=262927101_403631579_2_42_0__776160&srepoch=1739171514&srpvid=b4ed329b943e0451&type=total&ucfs=1&#hotelTmpl",
+            },
+            {
+              icon: Yatra,
+              name: "Yatra",
+              url: "https://www.yatra.com/hotels/hotels-in-agra/hotel-orange?utm_source=admitad&utm_medium=affiliate_296692_ENKR20250210A1323737159&utm_campaign=flights&tagtag_uid=9c01e91f6b5045198d9425db8a291d49",
+            },
+            {
+              icon: Goibibo,
+              name: "Goibibo",
+              url: "https://www.goibibo.com/hotels/orange-hotel-in-agra-4251805786454691109/?utm_source=cashkaro&utm_medium=DisplayAffiliate&utm_campaign=hotelsENKR20250210A1323735235",
+            },
+          ],
+          taxesAndFees: 771,
+          amenities: [
+            {
+              iconName: "Free Wi-Fi",
+              iconImage: Wifi,
+            },
+            {
+              iconName: "Breakfast",
+              iconImage: Coffee,
+            },
+            {
+              iconName: "24/7 Front Desk",
+              iconImage: FrontDesk,
+            },
+            {
+              iconName: "Pool Access",
+              iconImage: Pool,
+            },
+          ],
+          image: "https://example.com/ahmedabad-grand-hotel.jpg",
+          images: [HotelOrange1, HotelOrange2, HotelOrange3, HotelOrange4, HotelOrange5, HotelOrange6, HotelOrange7, HotelOrange8, HotelOrange9, HotelOrange10],
+          address: "Ahmedabad Grand Hotel, Gujarat, India",
+          phone: "+91 9876543210",
+          roomsCatagory: [
+            {
+              name: "Executive Room",
+              price: 3252,
+              oldPrice: 6800,
+              images: [HotelOrangeExecutive1, HotelOrangeExecutive2, HotelOrangeExecutive3, HotelOrangeExecutive4],
+              roomSize: "(168 sq.ft (16 sq.mt) | City View | Double Bed)",
+              amenities: [
+                {
+                  iconName: "Book with ₹ 0 Payment​",
+                  iconImage: Wifi,
+                },
+                {
+                  iconName: "No meals included",
+                  iconImage: Coffee,
+                },
+                {
+                  iconName: "Early Check-In upto 2 hours (subject to availability)",
+                  iconImage: FrontDesk,
+                },
+                {
+                  iconName: "Late Check-Out upto 2 hours (subject to availability)",
+                  iconImage: Pool,
+                },
+                {
+                  iconName: "Free Cancellation till 24 hrs before check in",
+                  iconImage: Pool,
+                },
+              ],
+            },
+          ],
+          policies: {
+            checkIn: "1:00 PM",
+            checkOut: "11:00 AM",
+            cancellationPolicy: "Free cancellation up to 48 hours before check-in.",
           },
-          {
-            name: "Riverfront Plaza",
-            description: "A scenic spot by the river with restaurants, shops, and entertainment options."
-          }
-        ],
-      },
-    ] 
-  },
-  { city: "haridwar", hotels: [] },
-  { city: "rishikesh", hotels: [] },
-  { city: "agra", hotels: [] },
-  { city: "amritsar", hotels: [] },
-  { city: "ludhiana", hotels: [] },
-  { city: "jalandhar", hotels: [] },
-  { city: "udaipur", hotels: [] },
-  { city: "jodhpur", hotels: [] },
-  { city: "ajmer", hotels: [] },
-  { city: "coimbatore", hotels: [] },
-  { city: "madurai", hotels: [] },
-  { city: "tirupati", hotels: [] },
-  { city: "visakhapatnam", hotels: [] },
-  { city: "guwahati", hotels: [] },
-  { city: "shillong", hotels: [] },
-  { city: "gangtok", hotels: [] },
-  { city: "kochi", hotels: [] },
-  { city: "thiruvananthapuram", hotels: [] },
-  { city: "mysore", hotels: [] },
-  { city: "pondicherry", hotels: [] },
-  { city: "ooty", hotels: [] },
-  { city: "darjeeling", hotels: [] },
-  { city: "raipur", hotels: [] },
-  { city: "gwalior", hotels: [] },
-  { city: "meerut", hotels: [] },
+          nearbyAttractions: [
+            {
+              name: "Central Park",
+              description: "A large public park in the heart of the city with walking trails and beautiful scenery."
+            },
+            {
+              name: "City Museum",
+              description: "A museum showcasing the rich history and culture of the city."
+            },
+            {
+              name: "Riverfront Plaza",
+              description: "A scenic spot by the river with restaurants, shops, and entertainment options."
+            }
+          ],
+        },
+      ]
+    },
+    { city: "amritsar", hotels: [] },
+    { city: "ludhiana", hotels: [] },
+    { city: "jalandhar", hotels: [] },
+    { city: "udaipur", hotels: [] },
+    { city: "jodhpur", hotels: [] },
+    { city: "ajmer", hotels: [] },
+    { city: "coimbatore", hotels: [] },
+    { city: "madurai", hotels: [] },
+    { city: "tirupati", hotels: [] },
+    { city: "visakhapatnam", hotels: [] },
+    { city: "guwahati", hotels: [] },
+    { city: "shillong", hotels: [] },
+    { city: "gangtok", hotels: [] },
+    { city: "kochi", hotels: [] },
+    { city: "thiruvananthapuram", hotels: [] },
+    { city: "mysore", hotels: [] },
+    { city: "pondicherry", hotels: [] },
+    { city: "ooty", hotels: [] },
+    { city: "darjeeling", hotels: [] },
+    { city: "raipur", hotels: [] },
+    { city: "gwalior", hotels: [] },
+    { city: "meerut", hotels: [] },
   ],
 };
 

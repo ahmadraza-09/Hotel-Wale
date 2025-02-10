@@ -12,7 +12,7 @@ const HotelPopularDestinationSection = () => {
         { title: "Manali", state: "Himachal Pradesh, India", img: 'https://www.clubmahindra.com/blog/media/section_images/blog-topic-6530ecb63a76c89.jpg' },
         { title: "Shimla", state: "Himachal Pradesh, India", img: 'https://s7ap1.scene7.com/is/image/incredibleindia/cityscape-of-shimla-himachal-pradesh-city-1-hero?qlt=82&ts=1726730693575' },
         { title: "Delhi", state: "Delhi, India", img: null },
-        { title: "Bhubaneshwar", state: "Odisha, India", img: 'https://bhubaneswartourism.in/images/v2/places-to-visit-in-bhubaneswar/places-to-visit-in-bhubaneswar-odisha-india.jpg' },
+        { title: "Bhubaneswar", state: "Odisha, India", img: 'https://bhubaneswartourism.in/images/v2/places-to-visit-in-bhubaneswar/places-to-visit-in-bhubaneswar-odisha-india.jpg' },
         { title: "Puri", state: "Odisha, India", img: 'https://resize.indiatvnews.com/en/resize/newbucket/1200_-/2021/08/purijagannath-pti-1628089644.jpg' },
         { title: "Cuttack", state: "Odisha, India", img: 'https://s7ap1.scene7.com/is/image/incredibleindia/2-barabati-stadium-cuttack-odisha-city-hero?qlt=82&ts=1726663590322' },
     ];

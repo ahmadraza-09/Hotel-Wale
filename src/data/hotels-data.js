@@ -169,6 +169,35 @@ import ShivalikHillsFamilySuite2 from "../assets/hotel-images/shivalik-hills/roo
 import ShivalikHillsFamilySuite3 from "../assets/hotel-images/shivalik-hills/rooms/family-suite3.avif";
 import ShivalikHillsFamilySuite4 from "../assets/hotel-images/shivalik-hills/rooms/family-suite4.avif";
 
+// CORBETT
+// CORBETT AROMA PARK
+import CorbettAromaPark1 from "../assets/hotel-images/corbett-aroma-park/corbett-aroma-park1.avif";
+import CorbettAromaPark2 from "../assets/hotel-images/corbett-aroma-park/corbett-aroma-park2.avif";
+import CorbettAromaPark3 from "../assets/hotel-images/corbett-aroma-park/corbett-aroma-park3.avif";
+import CorbettAromaPark4 from "../assets/hotel-images/corbett-aroma-park/corbett-aroma-park4.avif";
+import CorbettAromaPark5 from "../assets/hotel-images/corbett-aroma-park/corbett-aroma-park5.avif";
+import CorbettAromaPark6 from "../assets/hotel-images/corbett-aroma-park/corbett-aroma-park6.avif";
+import CorbettAromaPark7 from "../assets/hotel-images/corbett-aroma-park/corbett-aroma-park7.avif";
+import CorbettAromaPark8 from "../assets/hotel-images/corbett-aroma-park/corbett-aroma-park8.avif";
+import CorbettAromaPark9 from "../assets/hotel-images/corbett-aroma-park/corbett-aroma-park9.avif";
+import CorbettAromaPark10 from "../assets/hotel-images/corbett-aroma-park/corbett-aroma-park10.avif";
+
+// ROOMS
+import CorbettAromaParkDeluxeRoom1 from "../assets/hotel-images/corbett-aroma-park/rooms/deluxe-room1.avif";
+import CorbettAromaParkDeluxeRoom2 from "../assets/hotel-images/corbett-aroma-park/rooms/deluxe-room2.avif";
+import CorbettAromaParkDeluxeRoom3 from "../assets/hotel-images/corbett-aroma-park/rooms/deluxe-room3.avif";
+import CorbettAromaParkDeluxeRoom4 from "../assets/hotel-images/corbett-aroma-park/rooms/deluxe-room4.webp";
+
+import CorbettAromaParkGardenViewRoom1 from "../assets/hotel-images/corbett-aroma-park/rooms/garden-view1.avif";
+import CorbettAromaParkGardenViewRoom2 from "../assets/hotel-images/corbett-aroma-park/rooms/garden-view2.avif";
+import CorbettAromaParkGardenViewRoom3 from "../assets/hotel-images/corbett-aroma-park/rooms/garden-view3.webp";
+import CorbettAromaParkGardenViewRoom4 from "../assets/hotel-images/corbett-aroma-park/rooms/garden-view4.avif";
+
+import CorbettAromaParkPremiumCottageRoom1 from "../assets/hotel-images/corbett-aroma-park/rooms/premium-cottage1.avif";
+import CorbettAromaParkPremiumCottageRoom2 from "../assets/hotel-images/corbett-aroma-park/rooms/premium-cottage2.avif";
+import CorbettAromaParkPremiumCottageRoom3 from "../assets/hotel-images/corbett-aroma-park/rooms/premium-cottage3.avif";
+import CorbettAromaParkPremiumCottageRoom4 from "../assets/hotel-images/corbett-aroma-park/rooms/premium-cottage4.avif";
+
 // MANALI
 // MANALI GRAND
 import ManaliGrand1 from "../assets/hotel-images/manali-grand/manali-grand1.avif";
@@ -1567,9 +1596,173 @@ const hotelsData = {
         },
       ]
     },
-    { city: "corbett", hotels: [] },
+    { 
+      city: "corbett", 
+      hotels: [
+        {
+          name: "Corbett Aroma Park",
+          description: "Spend a remarkable stay at Corbett Aroma Park, featuring lavish swimming pools and cosy bonfires for guests visiting Corbett.",
+          stars: 3,
+          rating: 4.1,
+          reviews: "33+ ratings",
+          pricePerNight: 2192,
+          affiliateLinks: [
+            {
+              icon: MakeMyTrip,
+              name: "MakeMyTrip",
+              url: "https://www.makemytrip.com/hotels/corbett_aroma_park_by_royal_collection_hotels-details-jim_corbett_ramnagar.html?source=ENKR20250210A1323881237",
+            },
+            {
+              icon: Yatra,
+              name: "Yatra",
+              url: "https://www.yatra.com/hotels/hotels-in-corbett/corbett-aroma-park-by-royal-collection-hotels?utm_source=admitad&utm_medium=affiliate_296692_ENKR20250210A1323892466&utm_campaign=flights&tagtag_uid=7be007ba174227e2e497994b5c651875",
+            },
+            {
+              icon: ClearTrip,
+              name: "ClearTrip",
+              url: "https://www.cleartrip.com/hotels/details/3989395?city=&state=&country=IN&r=2,0&utm_source=admitad&utm_medium=affiliate&utm_campaign=domflights_affiliate_in&utm_term=296692_00357789a2308171ee75d1dfe3496c62&xtm_term=00357789a2308171ee75d1dfe3496c62&dxid=fa2f4de6-f698-1739176740",
+            },
+            {
+              icon: Goibibo,
+              name: "Goibibo",
+              url: "https://www.goibibo.com/hotels/corbett-aroma-park-by-royal-collection-hotels-hotel-in-jim-corbett-ramnagar-6991830459902253603/?utm_source=cashkaro&utm_medium=DisplayAffiliate&utm_campaign=hotelsENKR20250210A1323891432",
+            },
+          ],
+          taxesAndFees: 578,
+          amenities: [
+            {
+              iconName: "Free Wi-Fi",
+              iconImage: Wifi,
+            },
+            {
+              iconName: "Breakfast",
+              iconImage: Coffee,
+            },
+            {
+              iconName: "24/7 Front Desk",
+              iconImage: FrontDesk,
+            },
+            {
+              iconName: "Pool Access",
+              iconImage: Pool,
+            },
+          ],
+          image: "https://example.com/ahmedabad-grand-hotel.jpg",
+          images: [CorbettAromaPark1, CorbettAromaPark2, CorbettAromaPark3, CorbettAromaPark4, CorbettAromaPark5, CorbettAromaPark6, CorbettAromaPark7, CorbettAromaPark8, CorbettAromaPark9, CorbettAromaPark10],
+          address: "Ahmedabad Grand Hotel, Gujarat, India",
+          phone: "+91 9876543210",
+          roomsCatagory: [
+            {
+              name: "Deluxe Room Mountain Facing",
+              price: 2192,
+              oldPrice: 4099,
+              images: [CorbettAromaParkDeluxeRoom1, CorbettAromaParkDeluxeRoom2, CorbettAromaParkDeluxeRoom3, CorbettAromaParkDeluxeRoom4],
+              roomSize: "(168 sq.ft (16 sq.mt) | Mountain View | King Bed)",
+              amenities: [
+                {
+                  iconName: "Book with ₹ 0 Payment​",
+                  iconImage: Wifi,
+                },
+                {
+                  iconName: "No meals included",
+                  iconImage: Coffee,
+                },
+                {
+                  iconName: "Early Check-In upto 2 hours (subject to availability)",
+                  iconImage: FrontDesk,
+                },
+                {
+                  iconName: "Late Check-Out upto 2 hours (subject to availability)",
+                  iconImage: Pool,
+                },
+                {
+                  iconName: "Free Cancellation till 24 hrs before check in",
+                  iconImage: Pool,
+                },
+              ],
+            },
+            {
+              name: "Garden View Room",
+              price: 2459,
+              oldPrice: 4599,
+              images: [CorbettAromaParkGardenViewRoom1, CorbettAromaParkGardenViewRoom2, CorbettAromaParkGardenViewRoom3, CorbettAromaParkGardenViewRoom4],
+              roomSize: "(255 sq.ft (24 sq.mt) | Garden View | King Bed)",
+              amenities: [
+                {
+                  iconName: "Book with ₹ 0 Payment​",
+                  iconImage: Wifi,
+                },
+                {
+                  iconName: "No meals included",
+                  iconImage: Coffee,
+                },
+                {
+                  iconName: "Early Check-In upto 2 hours (subject to availability)",
+                  iconImage: FrontDesk,
+                },
+                {
+                  iconName: "Late Check-Out upto 2 hours (subject to availability)",
+                  iconImage: Pool,
+                },
+                {
+                  iconName: "Free Cancellation till 24 hrs before check in",
+                  iconImage: Pool,
+                },
+              ],
+            },
+            {
+              name: "Premium Cottage Room",
+              price: 2673,
+              oldPrice: 4999,
+              images: [CorbettAromaParkPremiumCottageRoom1, CorbettAromaParkPremiumCottageRoom2, CorbettAromaParkPremiumCottageRoom3, CorbettAromaParkPremiumCottageRoom4],
+              roomSize: "(156 sq.ft (14 sq.mt) | Garden View | King Bed)",
+              amenities: [
+                {
+                  iconName: "Book with ₹ 0 Payment​",
+                  iconImage: Wifi,
+                },
+                {
+                  iconName: "No meals included",
+                  iconImage: Coffee,
+                },
+                {
+                  iconName: "Early Check-In upto 2 hours (subject to availability)",
+                  iconImage: FrontDesk,
+                },
+                {
+                  iconName: "Late Check-Out upto 2 hours (subject to availability)",
+                  iconImage: Pool,
+                },
+                {
+                  iconName: "Free Cancellation till 24 hrs before check in",
+                  iconImage: Pool,
+                },
+              ],
+            },
+          ],
+          policies: {
+            checkIn: "1:00 PM",
+            checkOut: "11:00 AM",
+            cancellationPolicy: "Free cancellation up to 48 hours before check-in.",
+          },
+          nearbyAttractions: [
+            {
+              name: "Central Park",
+              description: "A large public park in the heart of the city with walking trails and beautiful scenery."
+            },
+            {
+              name: "City Museum",
+              description: "A museum showcasing the rich history and culture of the city."
+            },
+            {
+              name: "Riverfront Plaza",
+              description: "A scenic spot by the river with restaurants, shops, and entertainment options."
+            }
+          ],
+        },
+      ] 
+    },
     { city: "puri", hotels: [] },
-    { city: "bhubaneshwar", hotels: [] },
     { city: "cuttack", hotels: [] },
     { city: "mumbai", hotels: [] },
     { city: "lucknow", hotels: [] },

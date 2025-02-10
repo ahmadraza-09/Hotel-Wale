@@ -198,6 +198,36 @@ import CorbettAromaParkPremiumCottageRoom2 from "../assets/hotel-images/corbett-
 import CorbettAromaParkPremiumCottageRoom3 from "../assets/hotel-images/corbett-aroma-park/rooms/premium-cottage3.avif";
 import CorbettAromaParkPremiumCottageRoom4 from "../assets/hotel-images/corbett-aroma-park/rooms/premium-cottage4.avif";
 
+// BHUBANESHWAR
+// GINGER BHUBANESHWAR
+import GingerBhubaneshwar1 from "../assets/hotel-images/ginger-bhubaneshwar/ginger-bhubaneshwar1.avif";
+import GingerBhubaneshwar2 from "../assets/hotel-images/ginger-bhubaneshwar/ginger-bhubaneshwar2.avif";
+import GingerBhubaneshwar3 from "../assets/hotel-images/ginger-bhubaneshwar/ginger-bhubaneshwar3.avif";
+import GingerBhubaneshwar4 from "../assets/hotel-images/ginger-bhubaneshwar/ginger-bhubaneshwar4.avif";
+import GingerBhubaneshwar5 from "../assets/hotel-images/ginger-bhubaneshwar/ginger-bhubaneshwar5.avif";
+import GingerBhubaneshwar6 from "../assets/hotel-images/ginger-bhubaneshwar/ginger-bhubaneshwar6.avif";
+import GingerBhubaneshwar7 from "../assets/hotel-images/ginger-bhubaneshwar/ginger-bhubaneshwar7.avif";
+import GingerBhubaneshwar8 from "../assets/hotel-images/ginger-bhubaneshwar/ginger-bhubaneshwar8.avif";
+import GingerBhubaneshwar9 from "../assets/hotel-images/ginger-bhubaneshwar/ginger-bhubaneshwar9.avif";
+import GingerBhubaneshwar10 from "../assets/hotel-images/ginger-bhubaneshwar/ginger-bhubaneshwar10.avif";
+
+// ROOMS
+import GingerBhubaneshwarDoubleRoom1 from "../assets/hotel-images/ginger-bhubaneshwar/rooms/double-room1.avif";
+import GingerBhubaneshwarDoubleRoom2 from "../assets/hotel-images/ginger-bhubaneshwar/rooms/double-room2.avif";
+import GingerBhubaneshwarDoubleRoom3 from "../assets/hotel-images/ginger-bhubaneshwar/rooms/double-room3.webp";
+import GingerBhubaneshwarDoubleRoom4 from "../assets/hotel-images/ginger-bhubaneshwar/rooms/double-room4.avif";
+
+import GingerBhubaneshwarTwinRoom1 from "../assets/hotel-images/ginger-bhubaneshwar/rooms/twin-room1.avif";
+import GingerBhubaneshwarTwinRoom2 from "../assets/hotel-images/ginger-bhubaneshwar/rooms/twin-room2.avif";
+import GingerBhubaneshwarTwinRoom3 from "../assets/hotel-images/ginger-bhubaneshwar/rooms/twin-room3.webp";
+import GingerBhubaneshwarTwinRoom4 from "../assets/hotel-images/ginger-bhubaneshwar/rooms/twin-room4.webp";
+
+import GingerBhubaneshwarLuxeDoubleRoom1 from "../assets/hotel-images/ginger-bhubaneshwar/rooms/luxe-double-room1.webp";
+import GingerBhubaneshwarLuxeDoubleRoom2 from "../assets/hotel-images/ginger-bhubaneshwar/rooms/luxe-double-room2.avif";
+import GingerBhubaneshwarLuxeDoubleRoom3 from "../assets/hotel-images/ginger-bhubaneshwar/rooms/luxe-double-room3.avif";
+import GingerBhubaneshwarLuxeDoubleRoom4 from "../assets/hotel-images/ginger-bhubaneshwar/rooms/luxe-double-room4.avif";
+
+
 // MANALI
 // MANALI GRAND
 import ManaliGrand1 from "../assets/hotel-images/manali-grand/manali-grand1.avif";
@@ -1773,7 +1803,177 @@ const hotelsData = {
     { city: "vadodara", hotels: [] },
     { city: "nagpur", hotels: [] },
     { city: "patna", hotels: [] },
-    { city: "bhubaneswar", hotels: [] },
+    { 
+      city: "bhubaneshwar", 
+      hotels: [
+        {
+          name: "Ginger Bhubaneshwar",
+          description: "Revel in the comfort of premium amenities in the heart of the ‘Temple City of India’ at the modern yet highly affordable Ginger Bhubaneswar.",
+          stars: 4,
+          rating: 4.1,
+          reviews: "33+ ratings",
+          pricePerNight: 2499,
+          affiliateLinks: [
+            {
+              icon: MakeMyTrip,
+              name: "MakeMyTrip",
+              url: "https://www.makemytrip.com/hotels/ginger_bhubaneshwar-details-bhubaneshwar.html?source=ENKR20250210A1324116701",
+            },
+            {
+              icon: BookingCom,
+              name: "Booking.Com",
+              url: "https://www.booking.com/hotel/in/ginger-bhubaneshwar.en-gb.html?aid=1517899&label=ENKR20250210A1324118503&sid=593f77ec0f64961874dc181e044d1646&all_sr_blocks=28983202_392271398_0_42_0_382575&checkin=2025-02-15&checkout=2025-02-16&dest_id=-2091695&dest_type=city&dist=0&group_adults=2&group_children=0&hapos=1&highlighted_blocks=28983202_392271398_0_42_0_382575&hpos=1&matching_block_id=28983202_392271398_0_42_0_382575&no_rooms=1&req_adults=2&req_children=0&room1=A%2CA&sb_price_type=total&sr_order=popularity&sr_pri_blocks=28983202_392271398_0_42_0_382575_305910&srepoch=1739187963&srpvid=6c4552bad98e0425&type=total&ucfs=1&#hotelTmpl",
+            },
+            {
+              icon: Yatra,
+              name: "Yatra",
+              url: "https://www.yatra.com/hotels/hotels-in-bhubaneshwar/ginger-bhubaneshwar?utm_source=admitad&utm_medium=affiliate_296692_ENKR20250210A1324122605&utm_campaign=flights&tagtag_uid=fceef025ab96ff78216b367a486b2e6a",
+            },
+            {
+              icon: ClearTrip,
+              name: "ClearTrip",
+              url: "https://www.cleartrip.com/hotels/details/4265577?utm_source=admitad&utm_medium=affiliate&utm_campaign=domflights_affiliate_in&utm_term=296692_7b5fb5519a0bf2ee18401b02795dd92a&xtm_term=7b5fb5519a0bf2ee18401b02795dd92a&dxid=fa2f4de6-f698-1739188106",
+            },
+            {
+              icon: Goibibo,
+              name: "Goibibo",
+              url: "https://www.goibibo.com/hotels/ginger-bhubaneshwar-hotel-in-bhubaneshwar-3808261552467184989/?utm_source=cashkaro&utm_medium=DisplayAffiliate&utm_campaign=hotelsENKR20250210A1324120947",
+            },
+          ],
+          taxesAndFees: 300,
+          amenities: [
+            {
+              iconName: "Free Wi-Fi",
+              iconImage: Wifi,
+            },
+            {
+              iconName: "Breakfast",
+              iconImage: Coffee,
+            },
+            {
+              iconName: "24/7 Front Desk",
+              iconImage: FrontDesk,
+            },
+            {
+              iconName: "Pool Access",
+              iconImage: Pool,
+            },
+          ],
+          image: "https://example.com/ahmedabad-grand-hotel.jpg",
+          images: [GingerBhubaneshwar1, GingerBhubaneshwar2, GingerBhubaneshwar3, GingerBhubaneshwar4, GingerBhubaneshwar5, GingerBhubaneshwar6, GingerBhubaneshwar7, GingerBhubaneshwar8, GingerBhubaneshwar9, GingerBhubaneshwar10],
+          address: "Ahmedabad Grand Hotel, Gujarat, India",
+          phone: "+91 9876543210",
+          roomsCatagory: [
+            {
+              name: "Double Room",
+              price: 4399,
+              oldPrice: 5699,
+              images: [GingerBhubaneshwarDoubleRoom1, GingerBhubaneshwarDoubleRoom2, GingerBhubaneshwarDoubleRoom3, GingerBhubaneshwarDoubleRoom4],
+              roomSize: "(196 sq.ft (18 sq.mt) | City View | Double Bed)",
+              amenities: [
+                {
+                  iconName: "Book with ₹ 0 Payment​",
+                  iconImage: Wifi,
+                },
+                {
+                  iconName: "No meals included",
+                  iconImage: Coffee,
+                },
+                {
+                  iconName: "Early Check-In upto 2 hours (subject to availability)",
+                  iconImage: FrontDesk,
+                },
+                {
+                  iconName: "Late Check-Out upto 2 hours (subject to availability)",
+                  iconImage: Pool,
+                },
+                {
+                  iconName: "Free Cancellation till 24 hrs before check in",
+                  iconImage: Pool,
+                },
+              ],
+            },
+            {
+              name: "Twin Room",
+              price: 4399,
+              oldPrice: 4599,
+              images: [GingerBhubaneshwarTwinRoom1, GingerBhubaneshwarTwinRoom2, GingerBhubaneshwarTwinRoom3, GingerBhubaneshwarTwinRoom4],
+              roomSize: "(196 sq.ft (18 sq.mt) | City View | Twin Bed)",
+              amenities: [
+                {
+                  iconName: "Book with ₹ 0 Payment​",
+                  iconImage: Wifi,
+                },
+                {
+                  iconName: "No meals included",
+                  iconImage: Coffee,
+                },
+                {
+                  iconName: "Early Check-In upto 2 hours (subject to availability)",
+                  iconImage: FrontDesk,
+                },
+                {
+                  iconName: "Late Check-Out upto 2 hours (subject to availability)",
+                  iconImage: Pool,
+                },
+                {
+                  iconName: "Free Cancellation till 24 hrs before check in",
+                  iconImage: Pool,
+                },
+              ],
+            },
+            {
+              name: "Luxe Double Room",
+              price: 4699,
+              oldPrice: 4999,
+              images: [GingerBhubaneshwarLuxeDoubleRoom1, GingerBhubaneshwarLuxeDoubleRoom2, GingerBhubaneshwarLuxeDoubleRoom3, GingerBhubaneshwarLuxeDoubleRoom4],
+              roomSize: "(202 sq.ft (19 sq.mt) | City View | Queen Bed)",
+              amenities: [
+                {
+                  iconName: "Book with ₹ 0 Payment​",
+                  iconImage: Wifi,
+                },
+                {
+                  iconName: "No meals included",
+                  iconImage: Coffee,
+                },
+                {
+                  iconName: "Early Check-In upto 2 hours (subject to availability)",
+                  iconImage: FrontDesk,
+                },
+                {
+                  iconName: "Late Check-Out upto 2 hours (subject to availability)",
+                  iconImage: Pool,
+                },
+                {
+                  iconName: "Free Cancellation till 24 hrs before check in",
+                  iconImage: Pool,
+                },
+              ],
+            },
+          ],
+          policies: {
+            checkIn: "1:00 PM",
+            checkOut: "11:00 AM",
+            cancellationPolicy: "Free cancellation up to 48 hours before check-in.",
+          },
+          nearbyAttractions: [
+            {
+              name: "Central Park",
+              description: "A large public park in the heart of the city with walking trails and beautiful scenery."
+            },
+            {
+              name: "City Museum",
+              description: "A museum showcasing the rich history and culture of the city."
+            },
+            {
+              name: "Riverfront Plaza",
+              description: "A scenic spot by the river with restaurants, shops, and entertainment options."
+            }
+          ],
+        },
+      ] 
+    },
     { city: "dehradun", hotels: [] },
     {
       city: "manali",

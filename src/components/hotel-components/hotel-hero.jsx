@@ -118,7 +118,7 @@ const HotelHero = () => {
                     <div className="flex flex-col gap-2 justify-center items-center">
                         <button className={`w-[52px] h-[52px] py-2 px-4 rounded-md shadow-custom ${isActive("/car") ? "bg-myColor text-white" : "bg-white text-gray-800"
                             } hover:bg-myColor hover:text-white`} onClick={() => {
-                                navigate("/car");
+                                navigate("#");
                             }}>
                             <svg
                                 viewBox="0 0 200 200"

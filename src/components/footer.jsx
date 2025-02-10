@@ -21,7 +21,7 @@ const Footer = () => {
             .map((destination, index) => (
               <li key={index} className='text-blue-500 cursor-pointer'
                 onClick={() => {
-                  navigate(`/hotel/hotels-in-${destination}`);
+                  navigate(`/hotels/hotels-in-${destination}`);
                 }}>
                 {destination}
               </li>

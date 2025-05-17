@@ -161,8 +161,10 @@ const Footer = () => {
 
       <div class="container mx-auto px-4 mt-8 border-t border-gray-300 pt-4 text-center text-sm text-gray-600">
         <p>
-          © 2025 hotelwale.com, All rights reserved. HotelWale and the HotelWale
-          Logo are trademarks or registered trademarks of HotelWale.
+          © 2025 hotelwale.com, All rights reserved. Built with ❤️ by{" "}
+          <a href="https://github.com/ahmadraza-09" className="font-bold">
+            Ahmad Raza
+          </a>
         </p>
       </div>
     </footer>

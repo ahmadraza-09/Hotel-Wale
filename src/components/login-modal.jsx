@@ -2,7 +2,7 @@ import React, { useState } from "react";
 // import axios from "axios";
 
 const LoginModal = ({ isOpen, onClose }) => {
-  const [isLogin, setIsLogin] = useState(false);
+  const [isLogin, setIsLogin] = useState(true);
 
   const [name, setName] = useState("");
   const [dob, setDob] = useState("");

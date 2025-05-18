@@ -10,7 +10,7 @@ const Navbar = () => {
   const navigate = useNavigate();
 
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-  const [loginModal, setLoginModal] = useState(true);
+  const [loginModal, setLoginModal] = useState(false);
 
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);

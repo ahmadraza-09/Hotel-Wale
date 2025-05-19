@@ -1,22 +1,21 @@
 import React, { useState } from "react";
-// import axios from "axios";
 
 const LoginModal = ({ isOpen, onClose }) => {
   const [isLogin, setIsLogin] = useState(true);
 
   const [name, setName] = useState("");
-  const [dob, setDob] = useState("");
-  const [gender, setGender] = useState("");
-  const [mobile, setMobile] = useState("");
+  const [age, setAge] = useState("");
+  const [mobileNumber, setMobileNumber] = useState("");
+  const [identifier, setIdentifier] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
   const resetForm = () => {
     setName("");
-    setDob("");
-    setGender("");
-    setMobile("");
+    setAge("");
+    setMobileNumber("");
+    setIdentifier("");
     setEmail("");
     setPassword("");
     setError("");
@@ -24,10 +23,12 @@ const LoginModal = ({ isOpen, onClose }) => {
 
   const validateForm = () => {
     if (!isLogin) {
-      if (!name || !dob || !gender || !mobile)
+      if (!name || !age || !mobileNumber)
         return "All fields are required for registration";
+    } else {
+      if (!identifier && !password)
+        return "Email or Mobile number and Password is required";
     }
-    if (!email || !password) return "Email and Password are required";
     return null;
   };
 
@@ -39,25 +40,39 @@ const LoginModal = ({ isOpen, onClose }) => {
       return;
     }
 
-    // try {
-    //   if (isLogin) {
-    //     // const res = await axios.post("/api/login", { email, password, role });
-    //     alert("Logged in!");
-    //   } else {
-    //     // const res = await axios.post("/api/register", {
-    //     name,
-    //       gender,
-    //       mobile,
-    //       email,
-    //       password,
-    //       // });
-    //       alert("Registered!");
-    //   }
-    //   resetForm();
-    //   onClose();
-    // } catch (err) {
-    //   setError("Something went wrong");
-    // }
+    const payload = isLogin
+      ? { identifier, password }
+      : {
+          name,
+          age: Number(age),
+          mobile_number: mobileNumber,
+          email,
+          password,
+        };
+
+    try {
+      const url = isLogin
+        ? "http://localhost:5000/auth/login"
+        : "http://localhost:5000/auth/registration";
+
+      const res = await fetch(url, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        setError(data.message || "Something went wrong");
+      } else {
+        alert(isLogin ? "Logged in successfully!" : "Registered successfully!");
+        resetForm();
+        onClose();
+      }
+    } catch (err) {
+      setError("Something went wrong");
+    }
   };
 
   const handleOutsideClick = (e) => {
@@ -92,33 +107,58 @@ const LoginModal = ({ isOpen, onClose }) => {
               />
 
               <input
+                type="number"
+                placeholder="Age"
+                value={age}
+                onChange={(e) => setAge(e.target.value)}
+                className="w-full px-4 py-2 border rounded"
+              />
+
+              <input
                 type="text"
                 placeholder="Mobile Number"
-                value={mobile}
-                onChange={(e) => setMobile(e.target.value)}
+                value={mobileNumber}
+                onChange={(e) => setMobileNumber(e.target.value)}
                 className="w-full px-4 py-2 border rounded"
               />
             </>
           )}
 
-          <input
-            type="email"
-            placeholder="Email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            className="w-full px-4 py-2 border rounded"
-          />
+          {isLogin && (
+            <>
+              <input
+                type="text"
+                placeholder="Email or Mobile Number"
+                value={identifier}
+                onChange={(e) => setIdentifier(e.target.value)}
+                className="w-full px-4 py-2 border rounded mb-2"
+              />
+              <input
+                type="password"
+                placeholder="Password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                className="w-full px-4 py-2 border rounded"
+              />
+            </>
+          )}
 
-          <input
-            type="password"
-            placeholder="Password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            className="w-full px-4 py-2 border rounded"
-          />
+          {!isLogin && (
+            <input
+              type="email"
+              placeholder="Email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              className="w-full px-4 py-2 border rounded"
+            />
+          )}
 
           <div className="flex gap-4">
-            <button className="w-[50%] bg-slate-200 rounded" onClick={onClose}>
+            <button
+              className="w-[50%] bg-slate-200 rounded"
+              onClick={onClose}
+              type="button"
+            >
               Cancel
             </button>
             <button
@@ -137,8 +177,10 @@ const LoginModal = ({ isOpen, onClose }) => {
               onClick={() => {
                 setIsLogin(!isLogin);
                 setError("");
+                resetForm();
               }}
               className="text-blue-600 ml-2 hover:underline"
+              type="button"
             >
               {isLogin ? "Register" : "Login"}
             </button>

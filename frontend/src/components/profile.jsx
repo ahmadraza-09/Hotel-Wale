@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom"; // Assuming you use react-router
 
 const Profile = () => {
   const [user, setUser] = useState(null);
   const id = localStorage.getItem("id");
+  const token = localStorage.getItem("token");
+  const navigate = useNavigate();
 
   const getProfileData = () => {
     axios
@@ -22,6 +25,15 @@ const Profile = () => {
       getProfileData(id);
     }
   }, [id]);
+
+  if (!token) {
+    navigate("/hotels");
+  }
+
+  const handleLogout = () => {
+    localStorage.clear(); // Clears all stored items, or use removeItem if you want selective clearing
+    navigate("/hotels");
+  };
 
   if (!user) {
     return (
@@ -69,9 +81,15 @@ const Profile = () => {
         </div>
       </div>
 
-      <div className="mt-6 text-center">
+      <div className="mt-6 flex justify-center space-x-4">
         <button className="px-6 py-2 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-all">
           Update Profile
+        </button>
+        <button
+          onClick={handleLogout}
+          className="px-6 py-2 bg-red-600 text-white font-semibold rounded-lg hover:bg-red-700 transition-all"
+        >
+          Logout
         </button>
       </div>
     </div>

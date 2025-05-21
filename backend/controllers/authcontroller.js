@@ -47,7 +47,15 @@ exports.registration = async (request, response) => {
                         if (error) {
                             response.send(JSON.stringify({ "status": 500, "error": error }));
                         } else {
-                            response.send(JSON.stringify({ "status": 200, "error": null, "message": userData }));
+                            const newUser = {
+                                id: userData.insertId,
+                                name,
+                                email,
+                                age,
+                                mobile_number
+                            };
+                            const token = jwt.sign({ userId: newUser.id }, process.env.JWT_SECRET, { expiresIn: '1h' });
+                            response.send(JSON.stringify({ "status": 200, "error": null, "message": "Registered Successfully", "user": newUser, "token": token }));
                         }
                     });
                 }

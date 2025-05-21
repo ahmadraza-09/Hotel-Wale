@@ -1,15 +1,41 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useNavigate, useLocation, useParams } from "react-router-dom";
+import axios from "axios";
 
 const LoginModal = ({ isOpen, onClose }) => {
+  const navigate = useNavigate();
+  const location = useLocation();
+  const params = useParams();
+  const id = params.id;
+
   const [isLogin, setIsLogin] = useState(true);
 
   const [name, setName] = useState("");
   const [age, setAge] = useState("");
-  const [mobileNumber, setMobileNumber] = useState("");
+  const [mobile_number, setMobileNumber] = useState("");
   const [identifier, setIdentifier] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
+  const [formError, getFormerror] = useState("");
+  const nameRegex = /^[a-z A-Z]{2,15}$/;
+  const mobileNumberRegex = /^[0-9]{10}$/;
+  const emailRegex = /^[a-z A-Z 0-9]+@[a-z]+\.[a-z]{2,6}$/;
+  const passwordRegex = /^(?=.*[a-zA-Z0-9]).{8,}$/;
+
+  useEffect(() => {
+    if (isLogin) {
+      setName("Ahmad");
+      setAge(22);
+      setMobileNumber("2222222232");
+      setIdentifier("");
+      setEmail("ahmadraza123@gmail.com");
+      // resetForm(); // Clear all values first
+    }
+    if (!isLogin) {
+      setIdentifier("8877878788");
+      resetForm(); // Clear everything for new registration
+    }
+  }, [isLogin]);
 
   const resetForm = () => {
     setName("");
@@ -18,60 +44,123 @@ const LoginModal = ({ isOpen, onClose }) => {
     setIdentifier("");
     setEmail("");
     setPassword("");
-    setError("");
+    getFormerror("");
   };
 
-  const validateForm = () => {
-    if (!isLogin) {
-      if (!name || !age || !mobileNumber)
-        return "All fields are required for registration";
-    } else {
-      if (!identifier && !password)
-        return "Email or Mobile number and Password is required";
-    }
-    return null;
-  };
-
-  const handleSubmit = async (e) => {
+  const submitHandler = (e) => {
     e.preventDefault();
-    const validationError = validateForm();
-    if (validationError) {
-      setError(validationError);
-      return;
-    }
-
-    const payload = isLogin
-      ? { identifier, password }
-      : {
-          name,
-          age: Number(age),
-          mobile_number: mobileNumber,
-          email,
-          password,
-        };
-
-    try {
-      const url = isLogin
-        ? "http://localhost:5000/auth/login"
-        : "http://localhost:5000/auth/registration";
-
-      const res = await fetch(url, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
-      });
-
-      const data = await res.json();
-
-      if (!res.ok) {
-        setError(data.message || "Something went wrong");
+    {
+      if (name === "") {
+        getFormerror("Enter your Name");
+        return false;
+      } else if (!name.match(nameRegex)) {
+        getFormerror("Enter Name in Letters");
+        return false;
+      } else if (age === "") {
+        getFormerror("Enter your age");
+        return false;
+      } else if (email === "") {
+        getFormerror("Enter your Email");
+        return false;
+      } else if (!email.match(emailRegex)) {
+        getFormerror("Enter Valid Email");
+        return false;
+      } else if (mobile_number === "") {
+        getFormerror("Enter your Mobile Number");
+        return false;
+      } else if (!mobile_number.match(mobileNumberRegex)) {
+        getFormerror("Invalid Number! Please write only numbers");
+        return false;
+      } else if (isLogin && identifier === "") {
+        getFormerror("Enter your Mobile Number/Email");
+        return false;
+      } else if (password === "") {
+        getFormerror("Enter your Password");
+        return false;
+      } else if (!password.match(passwordRegex)) {
+        getFormerror("Password must be at least 8 characters");
+        return false;
       } else {
-        alert(isLogin ? "Logged in successfully!" : "Registered successfully!");
-        resetForm();
-        onClose();
+        if (isLogin) {
+          let userData = { identifier, password };
+          axios
+            .post("http://localhost:5000/auth/login", userData)
+            .then((response) => {
+              console.log(response.data);
+              const message = response.data.message;
+              if (
+                message === "Mobile number/email and password are required" ||
+                message === "Invalid mobile number/email or password"
+              ) {
+                getFormerror(message);
+                return false;
+              } else {
+                getFormerror("");
+
+                const { token, user } = response.data;
+
+                localStorage.setItem("token", token);
+                localStorage.setItem("id", user.id);
+                localStorage.setItem("name", user.name);
+                localStorage.setItem("age", user.age);
+                localStorage.setItem("mobile_number", user.mobile_number);
+                localStorage.setItem("email", user.email);
+
+                navigate("/hotels");
+                console.log(
+                  "User logged in successfully with ID:",
+                  response.data.user.id
+                );
+              }
+            })
+            .catch((error) => {
+              console.error("Error logging in:", error);
+            });
+        } else {
+          const userData = {
+            name,
+            age,
+            mobile_number,
+            email,
+            password,
+          };
+          axios
+            .post("http://localhost:5000/auth/registration", userData)
+            .then((response) => {
+              const responseData = response.data;
+              console.log(response.data);
+              console.log("Response data:", responseData);
+              const message = responseData.message;
+              console.log("Message:", message);
+              if (message === "Email already exists") {
+                getFormerror("Email already exists");
+              } else if (message === "Mobile Number already exists") {
+                getFormerror("Mobile Number already exists");
+              } else {
+                console.log("Registration successful");
+                getFormerror("");
+                const { token, user } = response.data;
+
+                localStorage.setItem("token", token);
+                localStorage.setItem("id", user.id);
+                localStorage.setItem("name", user.name);
+                localStorage.setItem("age", user.age);
+                localStorage.setItem("mobile_number", user.mobile_number);
+                localStorage.setItem("email", user.email);
+
+                navigate("/hotels");
+                console.log(
+                  "User Registration successfully with ID:",
+                  response.data.user.id
+                );
+              }
+            })
+            .catch((error) => {
+              console.error("Error registering user:", error);
+              getFormerror("Registration failed");
+            });
+        }
       }
-    } catch (err) {
-      setError("Something went wrong");
     }
   };
 
@@ -91,11 +180,11 @@ const LoginModal = ({ isOpen, onClose }) => {
         <h2 className="text-2xl font-semibold mb-4 text-center">
           {isLogin ? "Welcome Back 👋" : "Register Now"}
         </h2>
-        {error && (
-          <p className="text-red-600 text-sm mb-2 text-center">{error}</p>
+        {formError && (
+          <p className="text-red-600 text-sm mb-2 text-center">{formError}</p>
         )}
 
-        <form onSubmit={handleSubmit} className="space-y-4">
+        <form onSubmit={submitHandler} className="space-y-4">
           {!isLogin && (
             <>
               <input
@@ -117,7 +206,7 @@ const LoginModal = ({ isOpen, onClose }) => {
               <input
                 type="text"
                 placeholder="Mobile Number"
-                value={mobileNumber}
+                value={mobile_number}
                 onChange={(e) => setMobileNumber(e.target.value)}
                 className="w-full px-4 py-2 border rounded"
               />
@@ -144,13 +233,22 @@ const LoginModal = ({ isOpen, onClose }) => {
           )}
 
           {!isLogin && (
-            <input
-              type="email"
-              placeholder="Email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              className="w-full px-4 py-2 border rounded"
-            />
+            <>
+              <input
+                type="email"
+                placeholder="Email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                className="w-full px-4 py-2 border rounded"
+              />
+              <input
+                type="password"
+                placeholder="Password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                className="w-full px-4 py-2 border rounded"
+              />
+            </>
           )}
 
           <div className="flex gap-4">
@@ -176,8 +274,9 @@ const LoginModal = ({ isOpen, onClose }) => {
             <button
               onClick={() => {
                 setIsLogin(!isLogin);
-                setError("");
-                resetForm();
+                getFormerror("");
+                // resetForm();
+                navigate("/");
               }}
               className="text-blue-600 ml-2 hover:underline"
               type="button"

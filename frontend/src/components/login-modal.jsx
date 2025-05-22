@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate, useLocation, useParams } from "react-router-dom";
 import axios from "axios";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const LoginModal = ({ isOpen, onClose }) => {
   const navigate = useNavigate();
@@ -8,7 +10,10 @@ const LoginModal = ({ isOpen, onClose }) => {
   const params = useParams();
   const id = params.id;
 
+  const notify = () => toast.success("Logged in successfully!");
+
   const [isLogin, setIsLogin] = useState(true);
+  // const [notification, setNotification] = useState(false);
 
   const [name, setName] = useState("");
   const [age, setAge] = useState("");
@@ -106,7 +111,11 @@ const LoginModal = ({ isOpen, onClose }) => {
                 localStorage.setItem("mobile_number", user.mobile_number);
                 localStorage.setItem("email", user.email);
 
+                onClose();
                 navigate("/hotels");
+                // setNotification(true);
+                notify();
+
                 console.log(
                   "User logged in successfully with ID:",
                   response.data.user.id
@@ -149,6 +158,7 @@ const LoginModal = ({ isOpen, onClose }) => {
                 localStorage.setItem("email", user.email);
 
                 navigate("/hotels");
+
                 console.log(
                   "User Registration successfully with ID:",
                   response.data.user.id

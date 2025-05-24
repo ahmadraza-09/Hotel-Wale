@@ -6,9 +6,11 @@ require('dotenv').config();
 const app = express();
 app.use(cors());
 app.use(express.json());
+const path = require('path');
 
 const authRoutes = require('./routes/authroute');
 app.use('/auth', authRoutes);
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 // MySQL DB Connection
 const db = mysql.createConnection({

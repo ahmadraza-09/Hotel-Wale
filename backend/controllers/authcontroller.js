@@ -10,28 +10,28 @@ const db = mysql.createConnection({
 })
 
 exports.userlist = (request, response) => {
-    db.query('SELECT id, name, email, age, mobile_number FROM users', [], (error, result) => {
+    db.query('SELECT id, full_name, email, phone, FROM users', [], (error, userData) => {
         if (error) {
             response.send(JSON.stringify({ "status": '404', "error": error }));
         } else {
-            response.send(JSON.stringify({ "status": '200', "error": '', "message": result }));
+            response.send(JSON.stringify({ "status": '200', "error": '', "message": userData }));
         }
     })
 }
 
 exports.singleuserlist = (request, response) => {
-    const userId = { id: request.params.id };
-    db.query('SELECT * FROM users WHERE ?', [userId], (error, result) => {
+    const userId = { user_id: request.params.user_id };
+    db.query('SELECT * FROM users WHERE ?', [userId], (error, userData) => {
         if (error) {
             response.send(JSON.stringify({ "status": '404', "error": error }));
         } else {
-            response.send(JSON.stringify({ "status": '200', "error": '', "message": result }));
+            response.send(JSON.stringify({ "status": '200', "error": '', "message": userData }));
         }
     })
 }
 
 exports.registration = async (request, response) => {
-    const { name, email, age, mobile_number, password } = request.body;
+    const { full_name, email, phone, password } = request.body;
     let hashpassword = await md5(password)
     // console.log(hashpassword);
     db.query('select * from users where email= ?', [email], (error, userData) => {
@@ -39,22 +39,21 @@ exports.registration = async (request, response) => {
         if (userData != '') {
             response.send(JSON.stringify({ "status": 200, "error": null, "message": "Email already exists" }));
         } else {
-            db.query('SELECT * FROM users WHERE mobile_number = ?', [mobile_number], (error, userData) => {
+            db.query('SELECT * FROM users WHERE phone = ?', [phone], (error, userData) => {
                 if (userData != '') {
                     response.send(JSON.stringify({ "status": 200, "error": null, "message": "Mobile Number already exists" }));
                 } else {
-                    db.query('INSERT INTO users SET ?', { name: name, email: email, age: age, mobile_number: mobile_number, password: hashpassword }, (error, userData) => {
+                    db.query('INSERT INTO users SET ?', { full_name: full_name, email: email, phone: phone, password: hashpassword }, (error, userData) => {
                         if (error) {
                             response.send(JSON.stringify({ "status": 500, "error": error }));
                         } else {
                             const newUser = {
-                                id: userData.insertId,
-                                name,
+                                user_id: userData.insertId,
+                                full_name,
                                 email,
-                                age,
-                                mobile_number
+                                phone
                             };
-                            const token = jwt.sign({ userId: newUser.id }, process.env.JWT_SECRET, { expiresIn: '1h' });
+                            const token = jwt.sign({ userId: newUser.user_id }, process.env.JWT_SECRET, { expiresIn: '1h' });
                             response.send(JSON.stringify({ "status": 200, "error": null, "message": "Registered Successfully", "user": newUser, "token": token }));
                         }
                     });
@@ -75,14 +74,14 @@ exports.login = (request, response) => {
 
     const hashedPassword = md5(password);
 
-    db.query('SELECT * FROM users WHERE (mobile_number = ? OR email = ?) AND password = ?', [identifier, identifier, hashedPassword], (error, userData) => {
+    db.query('SELECT * FROM users WHERE (phone = ? OR email = ?) AND password = ?', [identifier, identifier, hashedPassword], (error, userData) => {
         if (error) {
             return response.send(JSON.stringify({ "status": 500, "error": error, "message": 'Internal server error' }));
         }
         if (userData.length === 0) {
             return response.send(JSON.stringify({ "status": 401, "error": "Invalid Credentials", "message": 'Invalid mobile number/email or password' }));
         }
-        const token = jwt.sign({ userId: userData[0].id }, process.env.JWT_SECRET, { expiresIn: '1h' });
+        const token = jwt.sign({ userId: userData[0].user_id }, process.env.JWT_SECRET, { expiresIn: '1h' });
         response.send(JSON.stringify({ "status": 200, "error": null, "message": 'Login successfully', "user": userData[0], "token": token }));
     });
 };

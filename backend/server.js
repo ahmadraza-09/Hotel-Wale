@@ -9,7 +9,9 @@ app.use(express.json());
 const path = require('path');
 
 const authRoutes = require('./routes/authroute');
+const adminRoutes = require('./admin-routes/admin-route');
 app.use('/auth', authRoutes);
+app.use('/admin', adminRoutes);
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 // MySQL DB Connection
@@ -31,17 +33,6 @@ db.connect((error) => {
 // Test route
 app.get('/', (req, res) => {
     res.send('Welcome to HotelWale API');
-});
-
-app.get('/userlist', (req, res) => {
-    const sql = 'SELECT * FROM users'; // Make sure your table name is `users`
-    db.query(sql, (err, results) => {
-        if (err) {
-            console.error('Database query error:', err);
-            return res.status(500).json({ error: 'Database query error' });
-        }
-        res.json(results);
-    });
 });
 
 // Start server

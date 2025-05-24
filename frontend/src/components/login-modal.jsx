@@ -150,6 +150,7 @@ const LoginModal = ({ isOpen, onClose }) => {
                 localStorage.setItem("email", user.email);
                 localStorage.setItem("profile_image", user.profile_image);
 
+                onClose();
                 navigate("/hotels");
                 registerNotify();
 

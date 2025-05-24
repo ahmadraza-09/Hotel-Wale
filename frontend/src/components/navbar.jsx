@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 import Sidebar from "./sidebar"; // Import Sidebar
 import User from "../assets/icons/user-icon.svg";
 import MenuBar from "../assets/icons/menu-bar-icon.svg";
@@ -12,6 +13,7 @@ const Navbar = () => {
   const isLoggedIn = localStorage.getItem("token") !== null;
   const user_id = localStorage.getItem("user_id");
   const full_name = localStorage.getItem("full_name");
+  const profile_image = localStorage.getItem("profile_image");
 
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [loginModal, setLoginModal] = useState(false);
@@ -64,7 +66,15 @@ const Navbar = () => {
               className="flex gap-2 justify-center items-center text-center border-[0.5px] px-2 py-[5px] border-black rounded-lg"
               onClick={() => navigate("/profile")}
             >
-              <img src={User} alt="User" />
+              {!profile_image || profile_image === "null" ? (
+                <img src={User} alt="User" />
+              ) : (
+                <img
+                  src={profile_image}
+                  alt="Profile"
+                  className="w-6 h-6 rounded-full"
+                />
+              )}
               <h3 className="font-TTHovesMedium font-[500] text-sm">
                 {full_name}
               </h3>

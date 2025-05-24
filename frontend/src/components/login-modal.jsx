@@ -103,6 +103,7 @@ const LoginModal = ({ isOpen, onClose }) => {
                 localStorage.setItem("full_name", user.full_name);
                 localStorage.setItem("phone", user.phone);
                 localStorage.setItem("email", user.email);
+                localStorage.setItem("profile_image", user.profile_image);
 
                 onClose();
                 navigate("/hotels");
@@ -111,7 +112,7 @@ const LoginModal = ({ isOpen, onClose }) => {
 
                 console.log(
                   "User logged in successfully with ID:",
-                  response.data.user.id
+                  response.data.user.user_id
                 );
               }
             })
@@ -147,13 +148,14 @@ const LoginModal = ({ isOpen, onClose }) => {
                 localStorage.setItem("full_name", user.full_name);
                 localStorage.setItem("phone", user.phone);
                 localStorage.setItem("email", user.email);
+                localStorage.setItem("profile_image", user.profile_image);
 
                 navigate("/hotels");
                 registerNotify();
 
                 console.log(
                   "User Registration successfully with ID:",
-                  response.data.user.id
+                  response.data.user.user_id
                 );
               }
             })

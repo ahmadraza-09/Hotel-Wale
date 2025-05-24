@@ -1,23 +1,22 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate, useLocation, useParams } from "react-router-dom";
 import axios from "axios";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const LoginModal = ({ isOpen, onClose }) => {
   const navigate = useNavigate();
   const location = useLocation();
   const params = useParams();
-  const id = params.id;
+  const user_id = params.user_id;
 
-  const notify = () => toast.success("Logged in successfully!");
+  const loginNotify = () => toast.success("Logged in successfully!");
+  const registerNotify = () => toast.success("Registered successfully!");
 
   const [isLogin, setIsLogin] = useState(true);
-  // const [notification, setNotification] = useState(false);
 
-  const [name, setName] = useState("");
-  const [age, setAge] = useState("");
-  const [mobile_number, setMobileNumber] = useState("");
+  const [full_name, setFull_Name] = useState("");
+  const [phone, setPhone] = useState("");
   const [identifier, setIdentifier] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -29,9 +28,8 @@ const LoginModal = ({ isOpen, onClose }) => {
 
   useEffect(() => {
     if (isLogin) {
-      setName("Ahmad");
-      setAge(22);
-      setMobileNumber("2222222232");
+      setFull_Name("Ahmad");
+      setPhone("2222222232");
       setIdentifier("");
       setEmail("ahmadraza123@gmail.com");
       // resetForm(); // Clear all values first
@@ -43,9 +41,8 @@ const LoginModal = ({ isOpen, onClose }) => {
   }, [isLogin]);
 
   const resetForm = () => {
-    setName("");
-    setAge("");
-    setMobileNumber("");
+    setFull_Name("");
+    setPhone("");
     setIdentifier("");
     setEmail("");
     setPassword("");
@@ -55,14 +52,11 @@ const LoginModal = ({ isOpen, onClose }) => {
   const submitHandler = (e) => {
     e.preventDefault();
     {
-      if (name === "") {
+      if (full_name === "") {
         getFormerror("Enter your Name");
         return false;
-      } else if (!name.match(nameRegex)) {
+      } else if (!full_name.match(nameRegex)) {
         getFormerror("Enter Name in Letters");
-        return false;
-      } else if (age === "") {
-        getFormerror("Enter your age");
         return false;
       } else if (email === "") {
         getFormerror("Enter your Email");
@@ -70,10 +64,10 @@ const LoginModal = ({ isOpen, onClose }) => {
       } else if (!email.match(emailRegex)) {
         getFormerror("Enter Valid Email");
         return false;
-      } else if (mobile_number === "") {
+      } else if (phone === "") {
         getFormerror("Enter your Mobile Number");
         return false;
-      } else if (!mobile_number.match(mobileNumberRegex)) {
+      } else if (!phone.match(mobileNumberRegex)) {
         getFormerror("Invalid Number! Please write only numbers");
         return false;
       } else if (isLogin && identifier === "") {
@@ -105,16 +99,15 @@ const LoginModal = ({ isOpen, onClose }) => {
                 const { token, user } = response.data;
 
                 localStorage.setItem("token", token);
-                localStorage.setItem("id", user.id);
-                localStorage.setItem("name", user.name);
-                localStorage.setItem("age", user.age);
-                localStorage.setItem("mobile_number", user.mobile_number);
+                localStorage.setItem("user_id", user.user_id);
+                localStorage.setItem("full_name", user.full_name);
+                localStorage.setItem("phone", user.phone);
                 localStorage.setItem("email", user.email);
 
                 onClose();
                 navigate("/hotels");
                 // setNotification(true);
-                notify();
+                loginNotify();
 
                 console.log(
                   "User logged in successfully with ID:",
@@ -127,9 +120,8 @@ const LoginModal = ({ isOpen, onClose }) => {
             });
         } else {
           const userData = {
-            name,
-            age,
-            mobile_number,
+            full_name,
+            phone,
             email,
             password,
           };
@@ -151,13 +143,13 @@ const LoginModal = ({ isOpen, onClose }) => {
                 const { token, user } = response.data;
 
                 localStorage.setItem("token", token);
-                localStorage.setItem("id", user.id);
-                localStorage.setItem("name", user.name);
-                localStorage.setItem("age", user.age);
-                localStorage.setItem("mobile_number", user.mobile_number);
+                localStorage.setItem("user_id", user.user_id);
+                localStorage.setItem("full_name", user.full_name);
+                localStorage.setItem("phone", user.phone);
                 localStorage.setItem("email", user.email);
 
                 navigate("/hotels");
+                registerNotify();
 
                 console.log(
                   "User Registration successfully with ID:",
@@ -200,24 +192,15 @@ const LoginModal = ({ isOpen, onClose }) => {
               <input
                 type="text"
                 placeholder="Full Name"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
+                value={full_name}
+                onChange={(e) => setFull_Name(e.target.value)}
                 className="w-full px-4 py-2 border rounded"
               />
-
-              <input
-                type="number"
-                placeholder="Age"
-                value={age}
-                onChange={(e) => setAge(e.target.value)}
-                className="w-full px-4 py-2 border rounded"
-              />
-
               <input
                 type="text"
                 placeholder="Mobile Number"
-                value={mobile_number}
-                onChange={(e) => setMobileNumber(e.target.value)}
+                value={phone}
+                onChange={(e) => setPhone(e.target.value)}
                 className="w-full px-4 py-2 border rounded"
               />
             </>
@@ -286,7 +269,7 @@ const LoginModal = ({ isOpen, onClose }) => {
                 setIsLogin(!isLogin);
                 getFormerror("");
                 // resetForm();
-                navigate("/");
+                // navigate("/");
               }}
               className="text-blue-600 ml-2 hover:underline"
               type="button"

@@ -10,8 +10,8 @@ const Navbar = () => {
   const navigate = useNavigate();
 
   const isLoggedIn = localStorage.getItem("token") !== null;
-  const id = localStorage.getItem("id");
-  const name = localStorage.getItem("name");
+  const user_id = localStorage.getItem("user_id");
+  const full_name = localStorage.getItem("full_name");
 
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [loginModal, setLoginModal] = useState(false);
@@ -65,7 +65,9 @@ const Navbar = () => {
               onClick={() => navigate("/profile")}
             >
               <img src={User} alt="User" />
-              <h3 className="font-TTHovesMedium font-[500] text-sm">{name}</h3>
+              <h3 className="font-TTHovesMedium font-[500] text-sm">
+                {full_name}
+              </h3>
             </button>
           </div>
         ) : (

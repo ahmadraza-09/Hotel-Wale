@@ -4,13 +4,13 @@ import { useNavigate } from "react-router-dom"; // Assuming you use react-router
 
 const Profile = () => {
   const [user, setUser] = useState(null);
-  const id = localStorage.getItem("id");
+  const user_id = localStorage.getItem("user_id");
   const token = localStorage.getItem("token");
   const navigate = useNavigate();
 
   const getProfileData = () => {
     axios
-      .get(`http://localhost:5000/auth/singleuserlist/${id}`)
+      .get(`http://localhost:5000/auth/singleuserlist/${user_id}`)
       .then((response) => {
         const userData = response.data.message[0];
         setUser(userData);
@@ -21,10 +21,10 @@ const Profile = () => {
   };
 
   useEffect(() => {
-    if (id) {
-      getProfileData(id);
+    if (user_id) {
+      getProfileData();
     }
-  }, [id]);
+  }, [user_id]);
 
   if (!token) {
     navigate("/hotels");
@@ -53,7 +53,7 @@ const Profile = () => {
         /> */}
         <div>
           <h2 className="text-4xl font-semibold text-blue-700">
-            👤 {user.name}
+            👤 {user.full_name}
           </h2>
           <p className="text-xl text-gray-600">
             {user.location || "Traveler's Paradise"}
@@ -66,10 +66,7 @@ const Profile = () => {
           <strong>Email:</strong> <span>{user.email}</span>
         </div>
         <div className="flex justify-between">
-          <strong>Age:</strong> <span>{user.age}</span>
-        </div>
-        <div className="flex justify-between">
-          <strong>Mobile Number:</strong> <span>{user.mobile_number}</span>
+          <strong>Mobile Number:</strong> <span>{user.phone}</span>
         </div>
         <div className="flex justify-between">
           <strong>Favorite Destination:</strong>{" "}

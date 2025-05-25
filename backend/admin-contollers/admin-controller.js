@@ -52,7 +52,7 @@ exports.adminlogin = (request, response) => {
         return response.send(JSON.stringify({ "status": 400, "error": "Missing Fields", "message": 'Mobile number/email and password are required' }));
     }
 
-    db.query('SELECT * FROM users WHERE phone = ? OR email = ?', [identifier, identifier], async (error, userData) => {
+    db.query('SELECT * FROM admins WHERE phone = ? OR email = ?', [identifier, identifier], async (error, userData) => {
         if (error) {
             return response.send(JSON.stringify({ "status": 500, "error": error, "message": 'Internal server error' }));
         }

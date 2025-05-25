@@ -1,5 +1,5 @@
-// src/App.js or wherever your routes are defined
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import './App.css';
 import PrivateRoute from "./components/private-route";
 import AdminLogin from "./components/admin-login";
 import DashboardPage from "./pages/dashboard-page";

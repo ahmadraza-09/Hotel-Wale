@@ -25,6 +25,8 @@ export default {
         TTHovesMedium: ['TTHovesMedium', 'sans-serif'], // Define your font family
         TTHovesThin: ['TTHovesThin', 'sans-serif'], // Define your font family
 
+        RockFordSans: ['RockFordSans', 'sans-serif'],
+
       },
       colors: {
         myColor: '#D64014', // Add your custom color here

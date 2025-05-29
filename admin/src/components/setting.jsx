@@ -5,8 +5,6 @@ import { toast } from "react-toastify";
 const Settings = () => {
   const user_id = localStorage.getItem("user_id");
 
-  const updateNotify = () => toast.success("Updated Successfully!");
-
   const [formValues, setFormValues] = useState({
     full_name: "",
     phone: "",

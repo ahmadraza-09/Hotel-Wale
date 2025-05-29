@@ -9,9 +9,13 @@ app.use(express.json());
 const path = require('path');
 
 const authRoutes = require('./routes/authroute');
-const adminRoutes = require('./admin-routes/admin-route');
+const adminRoutes = require('./routes/admin-route');
+const hotelRoutes = require('./routes/hotel-route');
+const cityRoutes = require('./routes/cities-route');
 app.use('/auth', authRoutes);
 app.use('/admin', adminRoutes);
+app.use('/hotel', hotelRoutes);
+app.use('/city', cityRoutes);
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 // MySQL DB Connection

@@ -5,6 +5,7 @@ import Sidebar from "./sidebar"; // Import Sidebar
 import User from "../assets/icons/user-icon.svg";
 import MenuBar from "../assets/icons/menu-bar-icon.svg";
 import Logo from "../assets/logo.jpg";
+import { toast } from "react-toastify";
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -18,6 +19,12 @@ const Navbar = () => {
 
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
+  };
+
+  const handleLogout = () => {
+    localStorage.clear(); // or remove specific keys
+    toast.success("Logout successfully");
+    navigate("/login"); // redirect to login page
   };
 
   return (
@@ -47,7 +54,20 @@ const Navbar = () => {
             }}
           />
         </div>
-        {isLoggedIn ? (
+        <div className="hidden sm:flex">
+          {isLoggedIn && (
+            <div className="flex gap-4">
+              <button
+                className="bg-myColor text-white px-4 rounded-md"
+                onClick={handleLogout}
+              >
+                Logout
+              </button>
+              <span>Hi, {full_name}</span>
+            </div>
+          )}
+        </div>
+        {/* {isLoggedIn ? (
           <div className="flex gap-5 justify-center items-center text-center">
             <svg
               viewBox="0 0 200 200"
@@ -85,7 +105,7 @@ const Navbar = () => {
               <h3 className="font-TTHovesMedium font-[500] text-sm">Sign in</h3>
             </button>
           </div>
-        )}
+        )} */}
       </nav>
       <Sidebar isOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
     </>

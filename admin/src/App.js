@@ -5,12 +5,14 @@ import AdminLogin from "./components/admin-login";
 import DashboardPage from "./pages/dashboard-page";
 import SuperAdminPage from "./pages/super-admin";
 import { ToastContainer } from 'react-toastify';
+import SettingPage from "./pages/setting-page";
 
 function App() {
   return (
     <Router>
       <Routes>
         <Route path="/login" element={<AdminLogin />} />
+        <Route path="/setting" element={<SettingPage />} />
         <Route path="/"
           element={
             <PrivateRoute>
@@ -27,7 +29,7 @@ function App() {
         />
       </Routes>
       <ToastContainer
-        position="bottom-right"
+        position="top-right"
         autoClose={3000}
         hideProgressBar={false}
         newestOnTop={false}
@@ -36,7 +38,7 @@ function App() {
         pauseOnFocusLoss
         draggable
         pauseOnHover
-        theme="colored"
+        theme="light"
       />
     </Router>
   );

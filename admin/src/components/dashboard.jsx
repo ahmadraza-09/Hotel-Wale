@@ -2,172 +2,132 @@ import React from "react";
 
 const Dashboard = () => {
   return (
-    <div className="p-6 bg-gray-50 min-h-screen space-y-6">
-      {/* Top Stats */}
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-        <div className="bg-[#E85C53] text-white p-4 shadow rounded-lg">
-          <div className="text-2xl font-bold">2.8B</div>
-          <div>Total Earnings</div>
+    <div className="p-4 sm:p-6 bg-neutral-50 min-h-screen">
+      <h1 className="text-3xl font-bold mb-1">Dashboard</h1>
+      <p className="text-gray-600 mb-6">
+        Overview of your listings and bookings
+      </p>
+
+      {/* Summary Boxes */}
+      <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-8">
+        <div className="bg-[#333446] shadow rounded-lg p-4 sm:p-6 text-start">
+          <p className="text-white">Listings</p>
+          <p className="text-2xl font-bold text-white">120</p>
         </div>
-        <div className="bg-[#53A0E8] text-white p-4 shadow rounded-lg">
-          <div className="text-2xl font-semibold">1.5M</div>
-          <div>Happy Users</div>
+        <div className="bg-[#393E46] shadow rounded-lg p-4 sm:p-6 text-start">
+          <p className="text-white">Bookings</p>
+          <p className="text-2xl font-bold text-white">350</p>
         </div>
-        <div className="bg-[#6853E8] text-white p-4 shadow rounded-lg">
-          <div className="text-2xl font-semibold">10K</div>
-          <div>Employees</div>
+        <div className="bg-[#332D56] shadow rounded-lg p-4 sm:p-6 text-start">
+          <p className="text-white">Packages</p>
+          <p className="text-2xl font-bold text-white">50</p>
         </div>
-        <div className="bg-[#3BC98D] text-white p-4 shadow rounded-lg">
-          <div className="text-2xl font-semibold">12K</div>
-          <div>New Bookings</div>
+        <div className="bg-[#183B4E] shadow rounded-lg p-4 sm:p-6 text-start">
+          <p className="text-white">Packages</p>
+          <p className="text-2xl font-bold text-white">50</p>
         </div>
       </div>
 
-      {/* Main Panels */}
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-        {/* Latest Bookings */}
-        <div className="bg-white p-4 rounded-2xl shadow">
-          <div className="text-lg font-semibold mb-2">
-            Latest Hotel Bookings
-          </div>
-          <div className="text-sm text-gray-400">May, 2021</div>
-          <div className="flex items-center space-x-2 my-2">
-            <input
-              type="date"
-              className="border p-1 rounded w-1/2"
-              defaultValue="2021-05-28"
-            />
-            <input
-              type="date"
-              className="border p-1 rounded w-1/2"
-              defaultValue="2021-06-05"
-            />
-          </div>
-          <ul className="space-y-3">
-            {[
-              {
-                name: "Queens Hotel",
-                date: "28 - 29 May",
-                user: "Mark Wayne",
-                ago: "3 days ago",
-              },
-              {
-                name: "Hotel Lavilia",
-                date: "28 May - 01 June",
-                user: "Ena Willis",
-                ago: "10 days ago",
-              },
-              {
-                name: "Poshly Inn",
-                date: "28 May",
-                user: "K. Parker",
-                ago: "12 days ago",
-              },
-              {
-                name: "Stay Happy",
-                date: "02 - 05 June",
-                user: "Melisa Wade",
-                ago: "5 days ago",
-              },
-            ].map((item, i) => (
-              <li key={i} className="border-b pb-2">
-                <div className="font-medium text-gray-700">{item.name}</div>
-                <div className="text-sm text-gray-500">{item.date}</div>
-                <div className="text-xs text-blue-500">
-                  {item.user}{" "}
-                  <span className="text-gray-400">| {item.ago}</span>
-                </div>
-              </li>
-            ))}
-          </ul>
+      {/* Listings Table */}
+      <div className="mb-6">
+        <h2 className="text-xl font-semibold mb-4">Listings</h2>
+        <div className="overflow-x-auto border-[1.5px] border-[#000] border-opacity-25 rounded-xl">
+          <table className="min-w-full bg-white rounded-lg">
+            <thead className="bg-gray-100">
+              <tr>
+                <th className="py-2 px-4 text-left">Name</th>
+                <th className="py-2 px-4 text-left">Location</th>
+                <th className="py-2 px-4 text-left">Status</th>
+                <th className="py-2 px-4 text-left">Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              {[
+                {
+                  name: "The Grand Resort",
+                  location: "Coastal City",
+                  status: "Active",
+                },
+                {
+                  name: "Mountain Lodge",
+                  location: "Alpine Village",
+                  status: "Active",
+                },
+                {
+                  name: "City Center Hotel",
+                  location: "Metro City",
+                  status: "Inactive",
+                },
+              ].map((listing, i) => (
+                <tr key={i} className="border-t">
+                  <td className="py-2 px-4">{listing.name}</td>
+                  <td className="py-2 px-4 text-orange-500">
+                    {listing.location}
+                  </td>
+                  <td className="py-6 px-4">
+                    <span
+                      className={`px-3 py-1 rounded-xl text-sm ${
+                        listing.status === "Active"
+                          ? "bg-green-100 text-green-800"
+                          : "bg-gray-100 text-gray-500"
+                      }`}
+                    >
+                      {listing.status}
+                    </span>
+                  </td>
+                  <td className="py-2 px-4 space-x-2">
+                    <button className="text-sm text-blue-500">Edit</button>
+                    <button className="text-sm text-red-500">Remove</button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </div>
-
-        {/* Earning Stats */}
-        <div className="bg-white p-4 rounded-2xl shadow">
-          <div className="flex justify-between mb-2">
-            <div className="text-lg font-semibold">
-              Earning stats on all bookings
-            </div>
-            <div className="text-sm text-gray-500">Monthly</div>
-          </div>
-          <div className="text-center text-2xl font-bold text-red-500 mt-6">
-            February 1.5M
-          </div>
-          <div className="mt-10 h-24 bg-red-100 rounded-xl flex items-center justify-center text-sm text-gray-500">
-            [Graph Placeholder]
-          </div>
-        </div>
-
-        {/* Monthly Increased Amount */}
-        <div className="bg-white p-4 rounded-2xl shadow flex flex-col items-center justify-center">
-          <div className="text-lg font-semibold mb-2">
-            Monthly increased amount
-          </div>
-          <div className="relative w-24 h-24">
-            <div className="w-full h-full rounded-full border-8 border-red-500 border-t-gray-200"></div>
-            <div className="absolute inset-0 flex items-center justify-center text-2xl font-bold">
-              60%
-            </div>
-          </div>
-          <div className="text-xs text-gray-500 mt-2">
-            Calculated with respect to per 100 bookings
-          </div>
-        </div>
+        <button className="mt-4 px-4 py-2 rounded text-white bg-myColor">
+          List New Hotel
+        </button>
       </div>
 
-      {/* Bottom Segment Report */}
-      <div className="bg-white p-4 rounded-2xl shadow">
-        <div className="flex justify-between items-center mb-4">
-          <div className="text-lg font-semibold">
-            Calculate monthly report based on each segment
-          </div>
-          <div className="text-sm text-red-500">May, 2021</div>
+      {/* Packages Table */}
+      <div>
+        <h2 className="text-xl font-semibold mb-4">Packages</h2>
+        <div className="overflow-x-auto border-[1.5px] border-[#000] border-opacity-25 rounded-xl">
+          <table className="min-w-full bg-white rounded-lg">
+            <thead className="bg-gray-100">
+              <tr>
+                <th className="py-2 px-4 text-left">Name</th>
+                <th className="py-2 px-4 text-left">Duration</th>
+                <th className="py-2 px-4 text-left">Price</th>
+                <th className="py-2 px-4 text-left">Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              {[
+                { name: "City Explorer", duration: "3 Days", price: "$499" },
+                {
+                  name: "Mountain Adventure",
+                  duration: "5 Days",
+                  price: "$799",
+                },
+                { name: "Beach Getaway", duration: "7 Days", price: "$999" },
+              ].map((pkg, i) => (
+                <tr key={i} className="border-t">
+                  <td className="py-6 px-4">{pkg.name}</td>
+                  <td className="py-6 px-4 text-orange-500">{pkg.duration}</td>
+                  <td className="py-6 px-4 text-green-600">{pkg.price}</td>
+                  <td className="py-6 px-4 space-x-2">
+                    <button className="text-sm text-blue-500">Edit</button>
+                    <button className="text-sm text-red-500">Remove</button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </div>
-        <div className="flex flex-wrap gap-4 mb-4">
-          {[
-            "Hotels",
-            "Flights",
-            "Packaged Holidays",
-            "Trains",
-            "Buses",
-            "Cabs",
-            "Others",
-          ].map((item) => (
-            <div
-              key={item}
-              className={`px-3 py-1 rounded-full text-sm ${
-                item === "Hotels"
-                  ? "bg-red-500 text-white"
-                  : "bg-gray-100 text-gray-600"
-              }`}
-            >
-              {item}
-            </div>
-          ))}
-        </div>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center text-sm">
-          <div>
-            <div className="text-xl font-bold text-red-500">2.8B</div>
-            <div>Total Properties</div>
-          </div>
-          <div>
-            <div className="text-xl font-bold text-blue-500">5k</div>
-            <div>New Bookings</div>
-          </div>
-          <div>
-            <div className="text-xl font-bold text-purple-500">2k</div>
-            <div>New Customers</div>
-          </div>
-          <div>
-            <div className="text-xl font-bold text-green-500">1.2M</div>
-            <div>Transactions</div>
-          </div>
-        </div>
-        <div className="flex justify-end mt-4">
-          <button className="bg-purple-600 text-white px-4 py-2 rounded-xl shadow">
-            Generate Report
-          </button>
-        </div>
+        <button className="mt-4 px-4 py-2 rounded text-white bg-myColor">
+          List New Package
+        </button>
       </div>
     </div>
   );

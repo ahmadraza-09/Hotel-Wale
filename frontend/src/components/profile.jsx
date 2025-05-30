@@ -54,31 +54,42 @@ const Profile = () => {
     }
   };
 
-  // Upload image to backend
-  const handleUpload = () => {
+  const handleUpload = async () => {
     if (!selectedFile) {
       alert("Please select an image first!");
       return;
     }
 
     const formData = new FormData();
-    formData.append("profile_image", selectedFile);
+    formData.append("file", selectedFile);
+    formData.append("upload_preset", "profile_images");
+    formData.append("cloud_name", "doba6b7bx");
 
-    axios
-      .post(`http://localhost:5000/auth/uploadprofile/${user_id}`, formData, {
-        headers: {
-          "Content-Type": "multipart/form-data",
-          Authorization: `Bearer ${token}`, // If you need auth token
-        },
-      })
-      .then((response) => {
-        alert("Profile picture updated!");
-        getProfileData(); // refresh profile data
-        setSelectedFile(null);
-      })
-      .catch((error) => {
-        console.error("Error uploading image:", error);
-      });
+    try {
+      // Step 1: Upload to Cloudinary
+      const cloudinaryRes = await axios.post(
+        "https://api.cloudinary.com/v1_1/doba6b7bx/image/upload",
+        formData
+      );
+
+      const imageUrl = cloudinaryRes.data.url;
+      console.log("Cloudinary Image URL:", imageUrl);
+
+      // Step 2: Send image URL to backend
+      const backendRes = await axios.put(
+        `http://localhost:5000/auth/uploadprofile/${user_id}`,
+        { profile_image: imageUrl },
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+
+      console.log("Backend response:", backendRes.data);
+    } catch (error) {
+      console.error("Upload failed:", error);
+    }
   };
 
   if (loading) {

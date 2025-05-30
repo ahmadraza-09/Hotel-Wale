@@ -2,11 +2,14 @@ const express = require('express');
 const mysql = require('mysql');
 const cors = require('cors');
 require('dotenv').config();
+const connectCloudinary = require('./configs/cloudinary');
 
 const app = express();
 app.use(cors());
 app.use(express.json());
+app.use(express.urlencoded({ extended: true })); // okay
 const path = require('path');
+connectCloudinary();
 
 const authRoutes = require('./routes/authroute');
 const adminRoutes = require('./routes/admin-route');
@@ -16,7 +19,6 @@ app.use('/auth', authRoutes);
 app.use('/admin', adminRoutes);
 app.use('/hotel', hotelRoutes);
 app.use('/city', cityRoutes);
-app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 // MySQL DB Connection
 const db = mysql.createConnection({

@@ -1,6 +1,14 @@
 const mysql = require('mysql');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
+const cloudinary = require("cloudinary").v2;
+const streamifier = require("streamifier");
+
+cloudinary.config({
+    cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+    api_key: process.env.CLOUDINARY_API_KEY,
+    api_secret: process.env.CLOUDINARY_API_SECRET
+});
 
 
 const db = mysql.createConnection({
@@ -142,22 +150,31 @@ exports.deleteuser = (request, response) => {
 };
 
 
-exports.uploadProfile = (req, res) => {
-    if (!req.file) {
-        return res.status(400).json({ error: "No image uploaded" });
-    }
+exports.uploadProfile = async (req, res) => {
+    try {
+        const userId = req.params.user_id;
+        const imageUrl = req.body.profile_image;
 
-    const imageUrl = `http://localhost:5000/uploads/${req.file.filename}`;
-    const user_id = req.params.user_id;
-
-    db.query(
-        "UPDATE users SET profile_image = ? WHERE user_id = ?",
-        [imageUrl, user_id],
-        (err, result) => {
-            if (err) {
-                return res.status(500).json({ error: "Database error" });
-            }
-            res.status(200).json({ message: "Image uploaded", imageUrl });
+        if (!imageUrl) {
+            return res.status(400).json({ message: "No image URL provided" });
         }
-    );
+
+        const sql = `UPDATE users SET profile_image = ? WHERE user_id = ?`;
+
+        db.query(sql, [imageUrl, userId], (err, result) => {
+            if (err) {
+                console.error("MySQL Update Error:", err);
+                return res.status(500).json({ message: "Database error" });
+            }
+
+            res.status(200).json({
+                message: "Image URL saved successfully",
+                image: imageUrl,
+            });
+        });
+    } catch (error) {
+        console.error("Upload Error:", error);
+        res.status(500).json({ message: "Server error" });
+    }
 };
+

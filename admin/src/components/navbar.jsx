@@ -57,13 +57,13 @@ const Navbar = () => {
         <div className="hidden sm:flex">
           {isLoggedIn && (
             <div className="flex gap-4">
+              <span>Hi, {full_name}</span>
               <button
                 className="bg-myColor text-white px-4 rounded-md"
                 onClick={handleLogout}
               >
                 Logout
               </button>
-              <span>Hi, {full_name}</span>
             </div>
           )}
         </div>

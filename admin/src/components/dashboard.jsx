@@ -1,6 +1,28 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import { toast } from "react-toastify";
 
 const Dashboard = () => {
+  const user_id = localStorage.getItem("user_id");
+
+  const [count, setCount] = useState("");
+
+  const fetchHotelCount = async () => {
+    try {
+      const response = await axios.get(
+        `http://localhost:5000/hotel/hotelslistcountbyid/${user_id}`
+      );
+      setCount(response.data || []);
+      // console.log(response.data);
+    } catch (error) {
+      toast.error("Failed to fetch hotel count.");
+    }
+  };
+
+  useEffect(() => {
+    fetchHotelCount();
+  }, []);
+
   return (
     <div className="p-4 sm:p-6 bg-neutral-50 min-h-screen">
       <h1 className="text-3xl font-bold mb-1">Dashboard</h1>
@@ -12,7 +34,7 @@ const Dashboard = () => {
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-8">
         <div className="bg-[#333446] shadow rounded-lg p-4 sm:p-6 text-start">
           <p className="text-white">Listings</p>
-          <p className="text-2xl font-bold text-white">120</p>
+          <p className="text-2xl font-bold text-white">{count.count}</p>
         </div>
         <div className="bg-[#393E46] shadow rounded-lg p-4 sm:p-6 text-start">
           <p className="text-white">Bookings</p>

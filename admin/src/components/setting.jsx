@@ -182,7 +182,7 @@ const Settings = () => {
           <>
             <button
               onClick={handleSave}
-              className="bg-[#D4B1A4] text-white px-4 py-2 rounded-md"
+              className="bg-myColor text-white px-4 py-2 rounded-md"
             >
               Save
             </button>
@@ -196,7 +196,7 @@ const Settings = () => {
         ) : (
           <button
             onClick={() => setIsEditing(true)}
-            className="bg-[#D4B1A4] text-white px-4 py-2 rounded-md"
+            className="bg-myColor text-white px-4 py-2 rounded-md"
           >
             Edit
           </button>

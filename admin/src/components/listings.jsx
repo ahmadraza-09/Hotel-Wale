@@ -8,27 +8,47 @@ const Listings = () => {
   const [hotels, setHotels] = useState([]);
   const [cities, setCities] = useState([]);
   const [showForm, setShowForm] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
+  const [editingHotel, setEditingHotel] = useState(null);
   const [formData, setFormData] = useState({
     name: "",
-    stars: Number,
-    price_per_night: Number,
-    taxes_and_fees: Number,
+    stars: "",
+    price_per_night: "",
+    taxes_and_fees: "",
     description: "",
     address: "",
-    city_id: Number,
-    check_in_time: TimeRanges,
-    check_out_time: TimeRanges,
+    city_id: "",
+    check_in_time: "",
+    check_out_time: "",
     cancellation_policy: "",
     listed_by: user_id,
-    status: "Active",
   });
 
+  const handleReset = () => {
+    setFormData({
+      name: "",
+      stars: "",
+      price_per_night: "",
+      taxes_and_fees: "",
+      description: "",
+      address: "",
+      city_id: "",
+      check_in_time: "",
+      check_out_time: "",
+      cancellation_policy: "",
+      listed_by: user_id,
+    });
+  };
+
   const fetchHotels = async () => {
+    setLoading(true);
     try {
       const response = await axios.get(
-        "http://localhost:5000/hotel/hotelslist"
+        `http://localhost:5000/hotel/hotelslistbyid/${user_id}`
       );
       setHotels(response.data.message || []);
+      setLoading(false);
     } catch (error) {
       toast.error("Failed to fetch hotel listings.");
     }
@@ -48,21 +68,80 @@ const Listings = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleAddHotel = async (e) => {
+  const handleDelete = async (id) => {
+    try {
+      if (window.confirm("Are you sure you want to delete this hotel?")) {
+        const res = await axios.delete(
+          `http://localhost:5000/hotel/deletehotel/${id}`
+        );
+        if (res.data.status === 200) {
+          toast.success("Hotel deleted successfully.");
+          fetchHotels();
+        } else {
+          toast.error("Failed to delete.");
+        }
+      }
+    } catch (err) {
+      toast.error("Error deleting hotel.");
+    }
+  };
+
+  const handleEdit = (hotel) => {
+    setFormData({
+      name: hotel.name,
+      stars: hotel.stars,
+      price_per_night: hotel.price_per_night,
+      taxes_and_fees: hotel.taxes_and_fees,
+      description: hotel.description,
+      address: hotel.address,
+      city_id: hotel.city_id,
+      check_in_time: hotel.check_in_time,
+      check_out_time: hotel.check_out_time,
+      cancellation_policy: hotel.cancellation_policy,
+      listed_by: hotel.listed_by,
+    });
+    setEditingHotel(hotel.id); // Assuming `_id` is your hotel ID
+    setShowForm(true);
+  };
+
+  const filteredHotels = hotels.filter(
+    (hotel) =>
+      hotel.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      hotel.address.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
+  const handleAddOrEditHotel = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post(
-        "http://localhost:5000/hotel/addhotel",
-        formData
-      );
-      if (response.data.status === 200) {
-        toast.success(response.data.message || "Hotel added successfully");
-        // console.log(response.data);
-        setShowForm(false);
-        fetchHotels();
+      if (editingHotel) {
+        // Edit mode
+        const response = await axios.put(
+          `http://localhost:5000/hotel/updatehotel/${editingHotel}`,
+          formData
+        );
+        if (response.data.status === 200) {
+          toast.success("Hotel updated successfully.");
+          setShowForm(false);
+          fetchHotels();
+        } else {
+          toast.error("Failed to update hotel.");
+        }
       } else {
-        toast.error("Failed to add hotel. Try again.");
+        const response = await axios.post(
+          "http://localhost:5000/hotel/addhotel",
+          formData
+        );
+        if (response.data.status === 200) {
+          toast.success(response.data.message || "Hotel added successfully");
+          // console.log(response.data);
+        } else {
+          toast.error("Failed to add hotel. Try again.");
+        }
       }
+
+      setShowForm(false);
+      setEditingHotel(null);
+      fetchHotels();
     } catch (error) {
       toast.error("Failed to add hotel");
     }
@@ -79,7 +158,10 @@ const Listings = () => {
         <h1 className="text-2xl font-bold">Hotel Listings</h1>
         <button
           className="bg-myColor text-white px-4 py-2 rounded-lg"
-          onClick={() => setShowForm(!showForm)}
+          onClick={() => {
+            setShowForm(!showForm);
+            handleReset();
+          }}
         >
           {showForm ? "Cancel" : "Add New Hotel"}
         </button>
@@ -87,8 +169,8 @@ const Listings = () => {
 
       {showForm && (
         <form
-          onSubmit={handleAddHotel}
-          className="bg-gray-50 p-4 mb-6 rounded-lg border shadow"
+          onSubmit={handleAddOrEditHotel}
+          className="bg-gray-50 p-4 mb-6 flex flex-col rounded-lg border shadow"
         >
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-4">
             <div>
@@ -114,6 +196,8 @@ const Listings = () => {
                 id="stars"
                 type="number"
                 name="stars"
+                min="1"
+                max="5"
                 value={formData.stars}
                 onChange={handleChange}
                 required
@@ -164,21 +248,21 @@ const Listings = () => {
               >
                 City
               </label>
-              <input
-                list="cities"
+              <select
                 id="city_id"
                 name="city_id"
                 value={formData.city_id}
                 onChange={handleChange}
                 required
                 className="border px-4 py-2 rounded w-full"
-                placeholder="Type city name"
-              />
-              <datalist id="cities">
+              >
+                <option value="">Select a city</option>
                 {cities.map((city) => (
-                  <option key={city.city_id} value={city.name} />
+                  <option key={city.city_id} value={city.city_id}>
+                    {city.name}
+                  </option>
                 ))}
-              </datalist>
+              </select>
             </div>
 
             <div>
@@ -295,7 +379,7 @@ const Listings = () => {
 
           <button
             type="submit"
-            className="bg-myColor text-white px-6 py-2 rounded hover:bg-opacity-90"
+            className="bg-myColor self-end text-white px-6 py-2 rounded hover:bg-opacity-90"
           >
             Submit
           </button>
@@ -307,15 +391,22 @@ const Listings = () => {
         <input
           type="text"
           placeholder="🔍 Search by hotel name or location"
-          className="flex-1 border rounded-md px-4 py-2 w-full sm:w-auto"
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
+          className="sm:flex-1 flex-2 border rounded-md px-4 py-2 w-full sm:w-auto"
         />
-        <select className="border rounded-md px-4 py-2">
+        <select className="border flex-0 rounded-md px-4 py-2">
           <option>Status</option>
           <option>Active</option>
           <option>Inactive</option>
         </select>
-        <select className="border rounded-md px-4 py-2">
-          <option>Location</option>
+        <select className="border flex-0 rounded-md px-4 py-2 ">
+          <option value="Address">Address</option>
+          {hotels.map((hotel) => (
+            <option key={hotel.address} value={hotel.address}>
+              {hotel.address}
+            </option>
+          ))}
         </select>
         <select className="border rounded-md px-4 py-2">
           <option>Amenities</option>
@@ -323,39 +414,54 @@ const Listings = () => {
       </div>
 
       <div className="overflow-x-auto">
-        <table className="w-full table-auto border-collapse">
-          <thead className="bg-gray-100 text-left">
-            <tr>
-              <th className="px-4 py-2">Hotel Name</th>
-              <th className="px-4 py-2">Location</th>
-              <th className="px-4 py-2">City</th>
-              <th className="px-4 py-2">Actions</th>
-            </tr>
-          </thead>
-          <tbody>
-            {hotels.length > 0 ? (
-              hotels.map((hotel, index) => (
-                <tr key={index} className="border-b">
-                  <td className="px-4 py-2">{hotel.name || "N/A"}</td>
-                  <td className="px-4 py-2 text-blue-600">
-                    {hotel.address || "N/A"}
-                  </td>
-                  <td className="px-4 py-2">{hotel.city_name || "N/A"}</td>
-                  <td className="px-4 py-2 text-sm">
-                    <button className="text-blue-600 mr-3">Edit</button>
-                    <button className="text-red-500">Remove</button>
+        {loading ? (
+          <p className="text-center text-gray-500">Loading hotels...</p>
+        ) : (
+          <table className="w-full table-auto border-collapse">
+            <thead className="bg-gray-100 text-left">
+              <tr>
+                <th className="px-4 py-2">Hotel Name</th>
+                <th className="px-4 py-2">Address</th>
+                <th className="px-4 py-2">City</th>
+                <th className="px-4 py-2">Actions</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              {filteredHotels.length > 0 ? (
+                filteredHotels.map((hotel, index) => (
+                  <tr key={index} className="border-b">
+                    <td className="px-4 py-2">{hotel.name || "N/A"}</td>
+                    <td className="px-4 py-2 text-blue-600">
+                      {hotel.address || "N/A"}
+                    </td>
+                    <td className="px-4 py-2">{hotel.city_name || "N/A"}</td>
+                    <td className="px-4 py-2 text-sm">
+                      <button
+                        className="text-blue-600 mr-3 uppercase"
+                        onClick={() => handleEdit(hotel)}
+                      >
+                        Edit
+                      </button>
+                      <button
+                        className="text-red-500 uppercase"
+                        onClick={() => handleDelete(hotel.id)}
+                      >
+                        Remove
+                      </button>
+                    </td>
+                  </tr>
+                ))
+              ) : (
+                <tr>
+                  <td className="px-4 py-2 text-center" colSpan="4">
+                    No hotels found.
                   </td>
                 </tr>
-              ))
-            ) : (
-              <tr>
-                <td className="px-4 py-2 text-center" colSpan="4">
-                  No hotels found.
-                </td>
-              </tr>
-            )}
-          </tbody>
-        </table>
+              )}
+            </tbody>
+          </table>
+        )}
       </div>
 
       {/* Pagination */}

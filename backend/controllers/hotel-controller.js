@@ -11,14 +11,25 @@ const db = mysql.createConnection({
 })
 
 exports.hotelslist = (request, response) => {
-    db.query('SELECT id, name, stars, price_per_night, description, address, image, city_id, check_in_time, check_out_time, cancellation_policy, listed_by FROM hotels', [], (error, userData) => {
-        if (error) {
-            response.send(JSON.stringify({ "status": '404', "error": error }));
-        } else {
-            response.send(JSON.stringify({ "status": '200', "error": '', "message": userData }));
+    db.query(
+        `SELECT 
+            h.id, h.name, h.stars, h.price_per_night, h.description, h.address, 
+            h.city_id, h.check_in_time, h.check_out_time, h.cancellation_policy, 
+            h.listed_by, a.full_name AS listed_by_name, c.name AS city_name
+        FROM hotels h
+        LEFT JOIN admins a ON h.listed_by = a.id
+        LEFT JOIN cities c ON h.city_id = c.city_id`,
+        [],
+        (error, userData) => {
+            if (error) {
+                response.send(JSON.stringify({ "status": '404', "error": error }));
+            } else {
+                response.send(JSON.stringify({ "status": '200', "error": '', "message": userData }));
+            }
         }
-    })
-}
+    );
+};
+
 
 exports.singlehotellist = (request, response) => {
     const id = { id: request.params.id };
@@ -32,14 +43,12 @@ exports.singlehotellist = (request, response) => {
 }
 
 exports.addhotel = async (request, response) => {
-    const { name, stars, price_per_night, description, address, image, city_id, check_in_time, check_out_time, cancellation_policy, listed_by } = request.body;
+    const { name, stars, price_per_night, taxes_and_fees, description, address, city_id, check_in_time, check_out_time, cancellation_policy, listed_by } = request.body;
 
-
-
-    if (!name || !stars || !price_per_night || !description || !address || !city_id || !check_in_time || !check_out_time || !cancellation_policy) {
+    if (!name || !stars || !price_per_night || !taxes_and_fees || !description || !address || !city_id || !check_in_time || !check_out_time || !cancellation_policy) {
         return response.send(JSON.stringify({ "status": 400, "error": "Missing Fields", "message": 'All fields are required' }));
     } else {
-        db.query('INSERT INTO hotels SET ?', { name, stars, price_per_night, description, address, image, city_id, check_in_time, check_out_time, cancellation_policy, listed_by }, (error, hotelData) => {
+        db.query('INSERT INTO hotels SET ?', { name, stars, price_per_night, taxes_and_fees, description, address, city_id, check_in_time, check_out_time, cancellation_policy, listed_by }, (error, hotelData) => {
             if (error) {
                 response.send(JSON.stringify({ "status": 500, "error": error }));
             } else {

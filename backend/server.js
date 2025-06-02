@@ -15,10 +15,12 @@ const authRoutes = require('./routes/authroute');
 const adminRoutes = require('./routes/admin-route');
 const hotelRoutes = require('./routes/hotel-route');
 const cityRoutes = require('./routes/cities-route');
+const hotelImageRoutes = require('./routes/hotel-images-route');
 app.use('/auth', authRoutes);
 app.use('/admin', adminRoutes);
 app.use('/hotel', hotelRoutes);
 app.use('/city', cityRoutes);
+app.use('/image', hotelImageRoutes);
 
 // MySQL DB Connection
 const db = mysql.createConnection({

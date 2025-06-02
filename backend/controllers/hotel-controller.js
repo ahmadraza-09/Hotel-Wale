@@ -13,7 +13,7 @@ const db = mysql.createConnection({
 exports.hotelslist = (request, response) => {
     db.query(
         `SELECT 
-            h.id, h.name, h.stars, h.price_per_night, h.description, h.address, 
+            h.id, h.name, h.stars, h.price_per_night, h.taxes_and_fees, h.description, h.address,
             h.city_id, h.check_in_time, h.check_out_time, h.cancellation_policy, 
             h.listed_by, a.full_name AS listed_by_name, c.name AS city_name
         FROM hotels h
@@ -25,6 +25,46 @@ exports.hotelslist = (request, response) => {
                 response.send(JSON.stringify({ "status": '404', "error": error }));
             } else {
                 response.send(JSON.stringify({ "status": '200', "error": '', "message": userData }));
+            }
+        }
+    );
+};
+
+exports.hotelslistbyid = (request, response) => {
+    const user_id = request.params.user_id;
+
+    db.query(
+        `SELECT 
+            h.id, h.name, h.stars, h.price_per_night, h.taxes_and_fees, h.description, h.address,
+            h.city_id, h.check_in_time, h.check_out_time, h.cancellation_policy, 
+            h.listed_by, a.full_name AS listed_by_name, c.name AS city_name
+        FROM hotels h
+        LEFT JOIN admins a ON h.listed_by = a.id
+        LEFT JOIN cities c ON h.city_id = c.city_id
+        WHERE h.listed_by = ?`,
+        [user_id],
+        (error, hotelData) => {
+            if (error) {
+                response.send(JSON.stringify({ "status": '404', "error": error }));
+            } else {
+                response.send(JSON.stringify({ "status": '200', "error": '', "message": hotelData }));
+            }
+        }
+    );
+};
+
+exports.hotelslistcountbyid = (request, response) => {
+    const user_id = request.params.user_id;
+
+    db.query(
+        `SELECT COUNT(*) AS hotel_count FROM hotels WHERE listed_by = ?`,
+        [user_id],
+        (error, result) => {
+            if (error) {
+                response.send(JSON.stringify({ status: '404', error: error }));
+            } else {
+                const count = result[0].hotel_count;
+                response.send(JSON.stringify({ status: '200', error: '', count: count }));
             }
         }
     );

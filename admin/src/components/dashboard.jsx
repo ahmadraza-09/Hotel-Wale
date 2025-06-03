@@ -1,11 +1,15 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-toastify";
 
 const Dashboard = () => {
+  const navigate = useNavigate();
   const user_id = localStorage.getItem("user_id");
 
   const [count, setCount] = useState("");
+  const [recentHotel, setRecentHotel] = useState("");
+  const [loading, setLoading] = useState("");
 
   const fetchHotelCount = async () => {
     try {
@@ -19,8 +23,23 @@ const Dashboard = () => {
     }
   };
 
+  const fetchRecentHotels = async () => {
+    setLoading(true);
+    try {
+      const response = await axios.get(
+        `http://localhost:5000/hotel/recentlyaddedhotelsbyid/${user_id}`
+      );
+      setRecentHotel(response.data.message || []);
+      console.log(response.data.message);
+      setLoading(false);
+    } catch (error) {
+      toast.error("Failed to fetch hotel listings.");
+    }
+  };
+
   useEffect(() => {
     fetchHotelCount();
+    fetchRecentHotels();
   }, []);
 
   return (
@@ -52,63 +71,47 @@ const Dashboard = () => {
 
       {/* Listings Table */}
       <div className="mb-6">
-        <h2 className="text-xl font-semibold mb-4">Listings</h2>
+        <h2 className="text-xl font-semibold mb-4">Recent Listings</h2>
         <div className="overflow-x-auto border-[1.5px] border-[#000] border-opacity-25 rounded-xl">
           <table className="min-w-full bg-white rounded-lg">
             <thead className="bg-gray-100">
               <tr>
                 <th className="py-2 px-4 text-left">Name</th>
                 <th className="py-2 px-4 text-left">Location</th>
-                <th className="py-2 px-4 text-left">Status</th>
-                <th className="py-2 px-4 text-left">Actions</th>
+                <th className="py-2 px-4 text-left">City</th>
               </tr>
             </thead>
             <tbody>
-              {[
-                {
-                  name: "The Grand Resort",
-                  location: "Coastal City",
-                  status: "Active",
-                },
-                {
-                  name: "Mountain Lodge",
-                  location: "Alpine Village",
-                  status: "Active",
-                },
-                {
-                  name: "City Center Hotel",
-                  location: "Metro City",
-                  status: "Inactive",
-                },
-              ].map((listing, i) => (
-                <tr key={i} className="border-t">
-                  <td className="py-2 px-4">{listing.name}</td>
-                  <td className="py-2 px-4 text-orange-500">
-                    {listing.location}
-                  </td>
-                  <td className="py-6 px-4">
-                    <span
-                      className={`px-3 py-1 rounded-xl text-sm ${
-                        listing.status === "Active"
-                          ? "bg-green-100 text-green-800"
-                          : "bg-gray-100 text-gray-500"
-                      }`}
-                    >
-                      {listing.status}
-                    </span>
-                  </td>
-                  <td className="py-2 px-4 space-x-2">
-                    <button className="text-sm text-blue-500">Edit</button>
-                    <button className="text-sm text-red-500">Remove</button>
+              {recentHotel.length > 0 ? (
+                recentHotel.map((hotel, i) => (
+                  <tr key={i} className="border-t">
+                    <td className="py-2 px-4">{hotel.name}</td>
+                    <td className="py-2 px-4 text-blue-600">{hotel.address}</td>
+                    <td className="py-2 px-4">{hotel.city_name}</td>
+                  </tr>
+                ))
+              ) : (
+                <tr>
+                  <td className="py-4 px-4" colSpan="3">
+                    {loading ? "Loading..." : "No recent listings found."}
                   </td>
                 </tr>
-              ))}
+              )}
             </tbody>
           </table>
         </div>
-        <button className="mt-4 px-4 py-2 rounded text-white bg-myColor">
-          List New Hotel
-        </button>
+
+        {/* View All Button */}
+        <div className="flex justify-end mt-4">
+          <button
+            className="text-myColor font-medium underline text-sm hover:text-myColor/80"
+            onClick={() => {
+              navigate("/listings");
+            }}
+          >
+            View All
+          </button>
+        </div>
       </div>
 
       {/* Packages Table */}

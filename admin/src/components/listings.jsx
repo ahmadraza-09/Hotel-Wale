@@ -11,6 +11,7 @@ const Listings = () => {
   const [loading, setLoading] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const [editingHotel, setEditingHotel] = useState(null);
+  const [fileLength, setFileLength] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     stars: "",
@@ -131,9 +132,15 @@ const Listings = () => {
           "http://localhost:5000/hotel/addhotel",
           formData
         );
-        if (response.data.status === 200) {
+
+        if (fileLength) {
+          toast.warning("You can only upload up to 5 images.");
+          return false;
+        } else if (response.data.status === 200) {
           toast.success(response.data.message || "Hotel added successfully");
-          // console.log(response.data);
+          // console.log(response.data.hotel.hotel_id);
+          let hotel_id = response.data.hotel.hotel_id;
+          handleUpload(hotel_id);
         } else {
           toast.error("Failed to add hotel. Try again.");
         }
@@ -147,10 +154,90 @@ const Listings = () => {
     }
   };
 
+  const [selectedFiles, setSelectedFiles] = useState([]);
+  const [previews, setPreviews] = useState([]);
+
+  const handleFileChange = (e) => {
+    const files = Array.from(e.target.files);
+
+    if (files.length > 5) {
+      toast.warning("You can only upload up to 5 images.");
+      setFileLength(true);
+      return;
+    }
+
+    setFileLength(false);
+    setSelectedFiles(files);
+    const previewUrls = files.map((file) => URL.createObjectURL(file));
+    setPreviews(previewUrls);
+  };
+
+  const handleUpload = async (hotel_id) => {
+    if (selectedFiles.length === 0) {
+      alert("Please select images first!");
+      return;
+    }
+
+    const imageUrls = [];
+
+    try {
+      // Upload each file to Cloudinary
+      for (const file of selectedFiles) {
+        const formData = new FormData();
+        formData.append("file", file);
+        formData.append("upload_preset", "hotel_images");
+        formData.append("cloud_name", "doba6b7bx");
+
+        const cloudinaryRes = await axios.post(
+          "https://api.cloudinary.com/v1_1/doba6b7bx/image/upload",
+          formData
+        );
+
+        imageUrls.push(cloudinaryRes.data.url);
+        // console.log(imageUrls);
+      }
+
+      // Send all image URLs to the backend
+      const backendRes = await axios.post(
+        `http://localhost:5000/image/uploadimages/${hotel_id}`,
+        { imageUrls },
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      console.log("Images saved:", backendRes.data);
+    } catch (error) {
+      console.error("Upload failed:", error);
+    }
+  };
+
   useEffect(() => {
     fetchHotels();
     fetchCities();
   }, []);
+
+  // Pagination
+  const [currentPage, setCurrentPage] = useState(1);
+  const listingsPerPage = 10;
+  const totalPages = Math.ceil(filteredHotels.length / listingsPerPage);
+  const pageNumbers = [];
+  const indexOfLastListing = currentPage * listingsPerPage; // e.g. page 1: 10, page 2: 20
+  const indexOfFirstListing = indexOfLastListing - listingsPerPage; // e.g. page 1: 0, page 2: 10
+  const currentListings = filteredHotels.slice(
+    indexOfFirstListing,
+    indexOfLastListing
+  );
+  for (let i = 1; i <= totalPages; i++) {
+    pageNumbers.push(i);
+  }
+
+  useEffect(() => {
+    if (currentListings.length === 0 && currentPage > 1) {
+      setCurrentPage(currentPage - 1);
+    }
+  }, [currentListings, currentPage]);
 
   return (
     <div className="p-6 max-w-6xl mx-auto">
@@ -324,18 +411,9 @@ const Listings = () => {
                 htmlFor="status"
                 className="block mb-1 text-sm font-medium"
               >
-                Status
+                Upload Images
               </label>
-              <select
-                id="status"
-                name="status"
-                value={formData.status}
-                onChange={handleChange}
-                className="border px-4 py-2 rounded w-full"
-              >
-                <option value="Active">Active</option>
-                <option value="Inactive">Inactive</option>
-              </select>
+              <input type="file" multiple onChange={handleFileChange} />
             </div>
 
             <div className="md:col-span-2 lg:col-span-3">
@@ -403,7 +481,7 @@ const Listings = () => {
         <select className="border flex-0 rounded-md px-4 py-2 ">
           <option value="Address">Address</option>
           {hotels.map((hotel) => (
-            <option key={hotel.address} value={hotel.address}>
+            <option key={hotel.id} value={hotel.address}>
               {hotel.address}
             </option>
           ))}
@@ -428,9 +506,9 @@ const Listings = () => {
             </thead>
 
             <tbody>
-              {filteredHotels.length > 0 ? (
-                filteredHotels.map((hotel, index) => (
-                  <tr key={index} className="border-b">
+              {currentListings.length > 0 ? (
+                currentListings.map((hotel) => (
+                  <tr key={hotel.id} className="border-b">
                     <td className="px-4 py-2">{hotel.name || "N/A"}</td>
                     <td className="px-4 py-2 text-blue-600">
                       {hotel.address || "N/A"}
@@ -465,20 +543,65 @@ const Listings = () => {
       </div>
 
       {/* Pagination */}
-      <div className="flex justify-center items-center mt-4 gap-2 text-sm">
-        <button className="text-gray-500">&lt;</button>
-        {[1, 2, 3, 4, 5].map((page) => (
+      {filteredHotels.length > 10 && (
+        <div className="flex justify-center items-center mt-4 gap-2 text-sm">
           <button
-            key={page}
-            className={`px-3 py-1 rounded ${
-              page === 1 ? "bg-myColor text-white" : "bg-white text-black"
-            }`}
+            className="text-gray-500"
+            onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
+            disabled={currentPage === 1}
           >
-            {page}
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="lucide lucide-chevron-left-icon lucide-chevron-left"
+            >
+              <path d="m15 18-6-6 6-6" />
+            </svg>
           </button>
-        ))}
-        <button className="text-gray-500">&gt;</button>
-      </div>
+          {pageNumbers.map((page) => (
+            <button
+              key={page}
+              onClick={() => setCurrentPage(page)}
+              className={`px-3 py-1 rounded ${
+                page === currentPage
+                  ? "bg-myColor text-white"
+                  : "bg-white text-black"
+              }`}
+            >
+              {page}
+            </button>
+          ))}
+          <button
+            className="text-gray-500"
+            onClick={() =>
+              setCurrentPage((prev) => Math.min(prev + 1, pageNumbers.length))
+            }
+            disabled={currentPage === pageNumbers.length}
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="lucide lucide-chevron-right-icon lucide-chevron-right"
+            >
+              <path d="m9 18 6-6-6-6" />
+            </svg>
+          </button>
+        </div>
+      )}
     </div>
   );
 };

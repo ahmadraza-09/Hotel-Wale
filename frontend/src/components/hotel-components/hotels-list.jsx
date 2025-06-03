@@ -3,8 +3,8 @@ import { useParams } from "react-router-dom";
 import hotelsData from "../../data/hotels-data"; // Ensure correct path
 import HotelCard from "../../components/hotel-components/hotel-card"; // Ensure correct path
 
-import Dropdown from '../../assets/icons/dropdown-icon.svg';
-import Filter from '../../assets/icons/filter-icon.svg';
+import Dropdown from "../../assets/icons/dropdown-icon.svg";
+import Filter from "../../assets/icons/filter-icon.svg";
 
 const HotelList = () => {
   const { city } = useParams(); // Extract city from URL
@@ -34,30 +34,38 @@ const HotelList = () => {
   // Filter hotels based on the search query, price, star rating, and location
   const filteredHotels = cityData
     ? cityData.hotels.filter((hotel) => {
-      const matchesQuery = hotel.name.toLowerCase().includes(searchQuery.toLowerCase());
-      const matchesPrice = selectedPrice
-        ? hotel.pricePerNight >= parseInt(selectedPrice.split('-')[0]) && hotel.pricePerNight <= parseInt(selectedPrice.split('-')[1])
-        : true;
-      const matchesStar = selectedStar ? hotel.stars === parseInt(selectedStar) : true;
-      const matchesLocation = selectedLocation ? hotel.location.toLowerCase().includes(selectedLocation.toLowerCase()) : true;
-      return matchesQuery && matchesPrice && matchesStar && matchesLocation;
-    })
+        const matchesQuery = hotel.name
+          .toLowerCase()
+          .includes(searchQuery.toLowerCase());
+        const matchesPrice = selectedPrice
+          ? hotel.pricePerNight >= parseInt(selectedPrice.split("-")[0]) &&
+            hotel.pricePerNight <= parseInt(selectedPrice.split("-")[1])
+          : true;
+        const matchesStar = selectedStar
+          ? hotel.stars === parseInt(selectedStar)
+          : true;
+        const matchesLocation = selectedLocation
+          ? hotel.location
+              .toLowerCase()
+              .includes(selectedLocation.toLowerCase())
+          : true;
+        return matchesQuery && matchesPrice && matchesStar && matchesLocation;
+      })
     : [];
-
 
   return (
     <div className="w-full container pt-0 pb-8">
-
       {/* Hotels Filter Sidebar */}
       <div className="w-full flex sticky top-[62.8px] z-10 items-center shadow-sm gap-3 px-8 p-4 bg-white font-TTHovesRegular sm:overflow-hidden overflow-scroll hide-scrollbar">
-
         {/* Filter Icon */}
         <img src={Filter} alt="Filter" className="w-6 h-6 cursor-pointer" />
 
         {/* Price Filter Dropdown */}
         <button className="flex items-center gap-2 px-4 py-2 border rounded-full text-gray-700">
           <span>Price</span>
-          <span className="w-5 h-5"><img src={Dropdown} alt="Dropdown" /></span>
+          <span className="w-5 h-5">
+            <img src={Dropdown} alt="Dropdown" />
+          </span>
           <select
             value={selectedPrice}
             onChange={(e) => setSelectedPrice(e.target.value)}
@@ -68,13 +76,14 @@ const HotelList = () => {
             <option value="5001-10000">₹5000 - ₹10000</option>
             <option value="10001-15000">₹10000 - ₹15000</option>
           </select>
-
         </button>
 
         {/* Star Rating Filter Dropdown */}
         <button className="flex items-center gap-2 px-4 py-2 border rounded-full text-gray-700 ">
           <span>Star</span>
-          <span className="w-5 h-5"><img src={Dropdown} alt="Dropdown" /></span>
+          <span className="w-5 h-5">
+            <img src={Dropdown} alt="Dropdown" />
+          </span>
           <select
             value={selectedStar}
             onChange={(e) => setSelectedStar(e.target.value)}
@@ -82,7 +91,9 @@ const HotelList = () => {
           >
             <option value="">Any</option>
             {[1, 2, 3, 4, 5].map((star) => (
-              <option key={star} value={star}>{star} Star</option>
+              <option key={star} value={star}>
+                {star} Star
+              </option>
             ))}
           </select>
         </button>
@@ -90,7 +101,9 @@ const HotelList = () => {
         {/* Location Filter Dropdown */}
         <button className="flex items-center gap-2 px-4 py-2 border rounded-full text-gray-700">
           <span>Location</span>
-          <span className="w-5 h-5"><img src={Dropdown} alt="Dropdown" /></span>
+          <span className="w-5 h-5">
+            <img src={Dropdown} alt="Dropdown" />
+          </span>
           <select
             value={selectedLocation}
             onChange={(e) => setSelectedLocation(e.target.value)}
@@ -127,7 +140,9 @@ const HotelList = () => {
         </div>
       ) : (
         <p className="text-gray-500 px-8">
-          No hotels available in {cityName.charAt(0).toUpperCase() + cityName.slice(1)}. We will list soon.
+          No hotels available in{" "}
+          {cityName.charAt(0).toUpperCase() + cityName.slice(1)}. We will list
+          soon.
         </p>
       )}
     </div>

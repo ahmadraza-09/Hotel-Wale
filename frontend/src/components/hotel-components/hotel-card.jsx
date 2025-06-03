@@ -39,7 +39,14 @@ const HotelCard = ({ hotel }) => {
             gap: "5px",
           }}
         >
-          <ul style={{ margin: "0px", padding: "0", display: "flex", listStyle: "none" }}>
+          <ul
+            style={{
+              margin: "0px",
+              padding: "0",
+              display: "flex",
+              listStyle: "none",
+            }}
+          >
             {limitedDots}
           </ul>
         </div>
@@ -59,7 +66,6 @@ const HotelCard = ({ hotel }) => {
     ),
   };
 
-
   const scrollHorizontally = (direction) => {
     if (sliderRef.current) {
       direction === "prev"
@@ -70,17 +76,16 @@ const HotelCard = ({ hotel }) => {
 
   const handleHotelClick = () => {
     // Find the city data from hotelsData.cities array
-    const cityName = hotelsData.cities
-      .find((c) => c.hotels.some((h) => h.name === hotel.name)) || { city: "unknown" };  // Find the matching city based on hotel name
+    const cityName = hotelsData.cities.find((c) =>
+      c.hotels.some((h) => h.name === hotel.name)
+    ) || { city: "unknown" }; // Find the matching city based on hotel name
 
     // Format the hotel name for the URL
-    const hotelName = hotel.name.replace(/\s+/g, "-").toLowerCase();  // Format hotel name (replace spaces with hyphens, lowercase)
+    const hotelName = hotel.name.replace(/\s+/g, "-").toLowerCase(); // Format hotel name (replace spaces with hyphens, lowercase)
 
     // Navigate to the desired route with city and hotel name as parameters
     navigate(`/hotels/${cityName.city}/${hotelName}`);
   };
-
-
 
   return (
     <div
@@ -143,17 +148,22 @@ const HotelCard = ({ hotel }) => {
           <h3 className="text-lg font-TTHovesMedium">{hotel.name}</h3>
           <div className="flex mt-2">
             <span className="flex items-center font-TTHovesMedium gap-[5px] px-2 py-1 bg-green-100 text-green-700 rounded-md text-sm font-medium">
-            <i class="fa-solid fa-star text-green-700"></i>
+              <i class="fa-solid fa-star text-green-700"></i>
               {hotel.rating}
             </span>
           </div>
         </div>
         <div className="flex justify-between items-center">
-        <span className="bg-myColor text-white text-xs font-TTHovesMedium px-2 py-1 rounded-md"><i class="fa-solid fa-star"></i> {hotel.stars} Star Hotel</span>
+          <span className="bg-myColor text-white text-xs font-TTHovesMedium px-2 py-1 rounded-md">
+            <i class="fa-solid fa-star"></i> {hotel.stars} Star Hotel
+          </span>
           <p className="text-sm text-gray-600">{hotel.reviews}</p>
         </div>
         <p className="text-xl font-bold text-gray-800">
-         <span className="text-green-700 font-TTHovesBold"> ₹{hotel.pricePerNight}{" "}</span>
+          <span className="text-green-700 font-TTHovesBold">
+            {" "}
+            ₹{hotel.pricePerNight}{" "}
+          </span>
           <span className="text-sm text-gray-500 font-TTHovesRegular">
             +taxes & fees / night
           </span>
@@ -165,16 +175,20 @@ const HotelCard = ({ hotel }) => {
               key={index}
               className="flex items-center gap-1 bg-gray-100 px-3 py-1 rounded-full shadow-sm"
             >
-              <img src={amenity.iconImage} alt={amenity.iconName} className="w-4 h-4" />
-              <span className="text-sm text-gray-700 font-TTHovesRegular">{amenity.iconName}</span>
+              <img
+                src={amenity.iconImage}
+                alt={amenity.iconName}
+                className="w-4 h-4"
+              />
+              <span className="text-sm text-gray-700 font-TTHovesRegular">
+                {amenity.iconName}
+              </span>
             </div>
           ))}
         </div>
 
         <div className="mt-4">
-          <button
-            className="w-full py-2 px-6 bg-myColor text-white font-medium rounded-md hover:bg-myColor-light font-TTHovesMedium"
-          >
+          <button className="w-full py-2 px-6 bg-myColor text-white font-medium rounded-md hover:bg-myColor-light font-TTHovesMedium">
             Show Deals
           </button>
         </div>

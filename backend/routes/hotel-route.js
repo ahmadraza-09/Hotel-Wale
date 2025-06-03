@@ -8,6 +8,7 @@ router.put('/updatehotel/:id', hotelcontroller.updatehotel);
 router.get('/hotelslist', hotelcontroller.hotelslist);
 router.get('/hotelslistbyid/:user_id', hotelcontroller.hotelslistbyid);
 router.get('/hotelslistcountbyid/:user_id', hotelcontroller.hotelslistcountbyid);
+router.get('/recentlyaddedhotelsbyid/:user_id', hotelcontroller.recentlyaddedhotelsbyid);
 router.get('/singlehotellist/:id', hotelcontroller.singlehotellist);
 
 module.exports = router;

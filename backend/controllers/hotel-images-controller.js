@@ -20,18 +20,25 @@ exports.getimages = async (req, res) => {
     }
 };
 
-exports.addimage = async (req, res) => {
-    const { hotel_id, image_url } = req.body;
-    try {
-        await db.query(
-            "INSERT INTO hotel_images (hotel_id, image_url) VALUES (?, ?)",
-            [hotel_id, image_url]
-        );
-        res.json({ message: "Image added successfully" });
-    } catch (error) {
-        res.status(500).json({ error: "Error adding image" });
+exports.uploadImages = (req, res) => {
+    const hotel_id = req.params.hotel_id;
+    const imageUrls = req.body.imageUrls; // Array from frontend
+
+    if (!Array.isArray(imageUrls) || imageUrls.length === 0) {
+        return res.status(400).json({ error: "No image URLs provided" });
     }
+
+    const values = imageUrls.map((url) => [hotel_id, url]);
+    const sql = "INSERT INTO hotel_images (hotel_id, image_url) VALUES ?";
+
+    db.query(sql, [values], (err, result) => {
+        if (err) {
+            return res.status(500).json({ error: "Error saving to DB" });
+        }
+        res.status(200).json({ message: "Images uploaded", urls: imageUrls });
+    });
 };
+
 
 exports.deleteimage = async (req, res) => {
     const imageId = req.params.id;

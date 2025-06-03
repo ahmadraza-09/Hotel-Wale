@@ -53,6 +53,32 @@ exports.hotelslistbyid = (request, response) => {
     );
 };
 
+exports.recentlyaddedhotelsbyid = (request, response) => {
+    const user_id = request.params.user_id;
+
+    db.query(
+        `SELECT 
+            h.id, h.name, h.stars, h.price_per_night, h.taxes_and_fees, h.description, h.address,
+            h.city_id, h.check_in_time, h.check_out_time, h.cancellation_policy, 
+            h.listed_by, a.full_name AS listed_by_name, c.name AS city_name
+        FROM hotels h
+        LEFT JOIN admins a ON h.listed_by = a.id
+        LEFT JOIN cities c ON h.city_id = c.city_id
+        WHERE h.listed_by = ?
+        ORDER BY h.id DESC
+        LIMIT 5`,
+        [user_id],
+        (error, hotelData) => {
+            if (error) {
+                response.send(JSON.stringify({ status: '404', error: error }));
+            } else {
+                response.send(JSON.stringify({ status: '200', error: '', message: hotelData }));
+            }
+        }
+    );
+};
+
+
 exports.hotelslistcountbyid = (request, response) => {
     const user_id = request.params.user_id;
 
@@ -92,7 +118,12 @@ exports.addhotel = async (request, response) => {
             if (error) {
                 response.send(JSON.stringify({ "status": 500, "error": error }));
             } else {
-                response.send(JSON.stringify({ "status": 200, "error": null, "message": "Hotel Added Successfully", "hotel": hotelData, }));
+                const newHotel = {
+                    hotel_id: hotelData.insertId,
+                    name,
+                    address,
+                };
+                response.send(JSON.stringify({ "status": 200, "error": null, "message": "Hotel Added Successfully", "hotel": newHotel }));
             }
         });
     }

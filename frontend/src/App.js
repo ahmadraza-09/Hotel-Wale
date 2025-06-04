@@ -18,7 +18,7 @@ function App() {
         <Route path='/bus' element={<BusHomePage />} />
         <Route path='/profile' element={<ProfilePage />} />
         <Route path='/hotels/:city' element={<HotelListPage />} />
-        <Route path='/hotels/:city/:hotelName' element={<HotelDetailsPage />} />
+        <Route path='/hotels/:city/:name' element={<HotelDetailsPage />} />
         <Route path='/eco-retreat/:location' element={<EcoRetreatPage />} />
 
       </Routes>

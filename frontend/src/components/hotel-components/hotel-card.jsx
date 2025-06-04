@@ -146,12 +146,14 @@ const HotelCard = ({ hotel }) => {
       <div className="p-2 font-TTHovesRegular">
         <div className="flex justify-between items-center">
           <h3 className="text-lg font-TTHovesMedium">{hotel.name}</h3>
-          <div className="flex mt-2">
-            <span className="flex items-center font-TTHovesMedium gap-[5px] px-2 py-1 bg-green-100 text-green-700 rounded-md text-sm font-medium">
-              <i class="fa-solid fa-star text-green-700"></i>
-              {hotel.rating}
-            </span>
-          </div>
+          {hotel.rating && (
+            <div className="flex mt-2">
+              <span className="flex items-center font-TTHovesMedium gap-[5px] px-2 py-1 bg-green-100 text-green-700 rounded-md text-sm font-medium">
+                <i class="fa-solid fa-star text-green-700"></i>
+                {hotel.rating}
+              </span>
+            </div>
+          )}
         </div>
         <div className="flex justify-between items-center">
           <span className="bg-myColor text-white text-xs font-TTHovesMedium px-2 py-1 rounded-md">
@@ -162,14 +164,14 @@ const HotelCard = ({ hotel }) => {
         <p className="text-xl font-bold text-gray-800">
           <span className="text-green-700 font-TTHovesBold">
             {" "}
-            ₹{hotel.pricePerNight}{" "}
+            ₹{hotel.price_per_night}{" "}
           </span>
           <span className="text-sm text-gray-500 font-TTHovesRegular">
             +taxes & fees / night
           </span>
         </p>
 
-        <div className="flex flex-wrap gap-2 mt-4">
+        {/* <div className="flex flex-wrap gap-2 mt-4">
           {hotel.amenities.map((amenity, index) => (
             <div
               key={index}
@@ -185,7 +187,7 @@ const HotelCard = ({ hotel }) => {
               </span>
             </div>
           ))}
-        </div>
+        </div> */}
 
         <div className="mt-4">
           <button className="w-full py-2 px-6 bg-myColor text-white font-medium rounded-md hover:bg-myColor-light font-TTHovesMedium">

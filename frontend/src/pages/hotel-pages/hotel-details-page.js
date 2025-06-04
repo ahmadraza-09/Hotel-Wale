@@ -6,25 +6,25 @@ import Footer from "../../components/footer";
 import HotelDetails from "../../components/hotel-components/hotel-details";
 
 const HotelDetailsPage = () => {
-    const { hotelName, city } = useParams(); // Get hotel name & city from URL
+    // const { hotelName, city } = useParams(); // Get hotel name & city from URL
 
-    const formattedHotelName = hotelName
-        .replace(/-/g, " ") // Replace hyphens with spaces
-        .split(" ") // Split into words
-        .map(word => word.charAt(0).toUpperCase() + word.slice(1)) // Capitalize each word
-        .join(" "); // Join words back
-    // Convert URL format to normal text
-    const capitalizedCity = city.charAt(0).toUpperCase() + city.slice(1);      
+    // const formattedHotelName = hotelName
+    //     .replace(/-/g, " ") // Replace hyphens with spaces
+    //     .split(" ") // Split into words
+    //     .map(word => word.charAt(0).toUpperCase() + word.slice(1)) // Capitalize each word
+    //     .join(" "); // Join words back
+    // // Convert URL format to normal text
+    // const capitalizedCity = city.charAt(0).toUpperCase() + city.slice(1);
     return (
         <>
             <Helmet>
-                <title>{formattedHotelName} | Hotel Details Page | HotelWale.com</title>
+                {/* <title>{formattedHotelName} | Hotel Details Page | HotelWale.com</title>
                 <meta name="description" content={`Stay at ${formattedHotelName}, one of the best hotels in ${city}. Compare prices & book now!`} />
                 <meta name="keywords" content={`${formattedHotelName}, hotels in ${city}, best hotels in ${city}, luxury hotels in ${city}`} />
-                <link rel="canonical" href={`https://hotelwale.com/hotels/${city}/${hotelName}`} />
-                
+                <link rel="canonical" href={`https://hotelwale.com/hotels/${city}/${hotelName}`} /> */}
+
                 {/* JSON-LD Structured Data */}
-                <script type="application/ld+json">
+                {/* <script type="application/ld+json">
                     {JSON.stringify({
                         "@context": "https://schema.org",
                         "@type": "Hotel",
@@ -41,7 +41,7 @@ const HotelDetailsPage = () => {
                             { "@type": "LocationFeatureSpecification", "name": "Parking", "value": "Available" }
                         ]
                     })}
-                </script>
+                </script> */}
             </Helmet>
 
             <Navbar />

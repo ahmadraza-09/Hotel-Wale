@@ -1,19 +1,54 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import hotelsData from "../../data/hotels-data"; // Ensure correct path
-import HotelCard from "../../components/hotel-components/hotel-card"; // Ensure correct path
+import { Link } from "react-router-dom";
+import axios from "axios";
+import { toast } from "react-toastify";
+import HotelCard from "../../components/hotel-components/hotel-card";
 
 import Dropdown from "../../assets/icons/dropdown-icon.svg";
 import Filter from "../../assets/icons/filter-icon.svg";
 
 const HotelList = () => {
-  const { city } = useParams(); // Extract city from URL
+  const { city } = useParams();
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedPrice, setSelectedPrice] = useState("");
   const [selectedStar, setSelectedStar] = useState("");
   const [selectedLocation, setSelectedLocation] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [hotelsData, setHotelsData] = useState([]);
+  const [cities, setCities] = useState([]);
 
-  // Check if `city` exists and handle edge cases
+  // Fetch cities list
+  const fetchCities = async () => {
+    try {
+      const response = await axios.get("http://localhost:5000/city/citieslist");
+      setCities(response.data.message || []);
+    } catch (error) {
+      toast.error("Failed to fetch cities.");
+    }
+  };
+
+  // Fetch all hotels
+  const fetchHotels = async () => {
+    setLoading(true);
+    try {
+      const response = await axios.get(
+        "http://localhost:5000/hotel/hotelslist"
+      );
+      setHotelsData(response.data.message || []);
+      // console.log(response.data.message);
+    } catch (error) {
+      toast.error("Failed to fetch hotel listings.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    fetchCities();
+    fetchHotels();
+  }, []);
+
   if (!city) {
     return (
       <div className="container mx-auto p-4">
@@ -23,44 +58,46 @@ const HotelList = () => {
     );
   }
 
-  // Remove the 'hotels-in-' prefix from the city name if it exists
-  const cityName = city.replace("hotels-in-", "");
+  // Normalize city param (remove prefix if present)
+  const cityName = city.replace("hotels-in-", "").toLowerCase();
 
-  // Find city data case-insensitively
-  const cityData = hotelsData.cities.find(
-    (c) => c.city.toLowerCase() === cityName.toLowerCase()
+  // Filter hotelsData by city
+  const hotelsInCity = hotelsData.filter(
+    (hotel) => hotel.city_name?.toLowerCase() === cityName
   );
 
-  // Filter hotels based on the search query, price, star rating, and location
-  const filteredHotels = cityData
-    ? cityData.hotels.filter((hotel) => {
-        const matchesQuery = hotel.name
-          .toLowerCase()
-          .includes(searchQuery.toLowerCase());
-        const matchesPrice = selectedPrice
-          ? hotel.pricePerNight >= parseInt(selectedPrice.split("-")[0]) &&
-            hotel.pricePerNight <= parseInt(selectedPrice.split("-")[1])
-          : true;
-        const matchesStar = selectedStar
-          ? hotel.stars === parseInt(selectedStar)
-          : true;
-        const matchesLocation = selectedLocation
-          ? hotel.location
-              .toLowerCase()
-              .includes(selectedLocation.toLowerCase())
-          : true;
-        return matchesQuery && matchesPrice && matchesStar && matchesLocation;
-      })
-    : [];
+  // Parse price range once
+  let priceRange = null;
+  if (selectedPrice) {
+    const parts = selectedPrice.split("-");
+    if (parts.length === 2) {
+      priceRange = [parseInt(parts[0], 10), parseInt(parts[1], 10)];
+    }
+  }
+
+  // Filter hotels by all filters
+  const filteredHotels = hotelsInCity.filter((hotel) => {
+    const matchesQuery = hotel.name
+      .toLowerCase()
+      .includes(searchQuery.toLowerCase());
+    const matchesPrice = priceRange
+      ? hotel.pricePerNight >= priceRange[0] &&
+        hotel.pricePerNight <= priceRange[1]
+      : true;
+    const matchesStar = selectedStar
+      ? hotel.stars === parseInt(selectedStar, 10)
+      : true;
+    const matchesLocation = selectedLocation
+      ? hotel.location.toLowerCase().includes(selectedLocation.toLowerCase())
+      : true;
+    return matchesQuery && matchesPrice && matchesStar && matchesLocation;
+  });
 
   return (
     <div className="w-full container pt-0 pb-8">
-      {/* Hotels Filter Sidebar */}
       <div className="w-full flex sticky top-[62.8px] z-10 items-center shadow-sm gap-3 px-8 p-4 bg-white font-TTHovesRegular sm:overflow-hidden overflow-scroll hide-scrollbar">
-        {/* Filter Icon */}
         <img src={Filter} alt="Filter" className="w-6 h-6 cursor-pointer" />
 
-        {/* Price Filter Dropdown */}
         <button className="flex items-center gap-2 px-4 py-2 border rounded-full text-gray-700">
           <span>Price</span>
           <span className="w-5 h-5">
@@ -73,12 +110,11 @@ const HotelList = () => {
           >
             <option value="">Any</option>
             <option value="0-5000">₹0 - ₹5000</option>
-            <option value="5001-10000">₹5000 - ₹10000</option>
-            <option value="10001-15000">₹10000 - ₹15000</option>
+            <option value="5001-10000">₹5001 - ₹10000</option>
+            <option value="10001-15000">₹10001 - ₹15000</option>
           </select>
         </button>
 
-        {/* Star Rating Filter Dropdown */}
         <button className="flex items-center gap-2 px-4 py-2 border rounded-full text-gray-700 ">
           <span>Star</span>
           <span className="w-5 h-5">
@@ -98,7 +134,6 @@ const HotelList = () => {
           </select>
         </button>
 
-        {/* Location Filter Dropdown */}
         <button className="flex items-center gap-2 px-4 py-2 border rounded-full text-gray-700">
           <span>Location</span>
           <span className="w-5 h-5">
@@ -116,7 +151,6 @@ const HotelList = () => {
           </select>
         </button>
 
-        {/* Search Bar */}
         <div className="flex items-center gap-2 px-4 py-2 border rounded-full text-gray-700">
           <input
             type="text"
@@ -132,10 +166,24 @@ const HotelList = () => {
         Showing Hotels in {cityName.charAt(0).toUpperCase() + cityName.slice(1)}
       </h1>
 
-      {filteredHotels.length > 0 ? (
+      {loading ? (
+        <p className="px-8">Loading hotels...</p>
+      ) : filteredHotels.length > 0 ? (
         <div className="flex flex-wrap justify-center px-8 sm:justify-start grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {filteredHotels.map((hotel, index) => (
-            <HotelCard key={index} hotel={hotel} />
+            <Link
+              key={hotel.id}
+              to={`/hotels/${hotel.city_name.toLowerCase()}/${hotel.name
+                .replace(/\s+/g, "-")
+                .toLowerCase()}`}
+              state={{ id: hotel.id }}
+            >
+              <HotelCard
+                key={index}
+                hotel={hotel}
+                onClick={() => console.log("Hotel ID:", hotel.id)}
+              />
+            </Link>
           ))}
         </div>
       ) : (

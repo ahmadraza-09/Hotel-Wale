@@ -15,20 +15,29 @@ exports.hotelslist = (request, response) => {
         `SELECT 
             h.id, h.name, h.stars, h.price_per_night, h.taxes_and_fees, h.description, h.address,
             h.city_id, h.check_in_time, h.check_out_time, h.cancellation_policy, 
-            h.listed_by, a.full_name AS listed_by_name, c.name AS city_name
+            h.listed_by, a.full_name AS listed_by_name, c.name AS city_name,
+            GROUP_CONCAT(i.image_url) AS images
         FROM hotels h
         LEFT JOIN admins a ON h.listed_by = a.id
-        LEFT JOIN cities c ON h.city_id = c.city_id`,
+        LEFT JOIN cities c ON h.city_id = c.city_id
+        LEFT JOIN hotel_images i ON h.id = i.hotel_id
+        GROUP BY h.id`,
         [],
         (error, userData) => {
             if (error) {
-                response.send(JSON.stringify({ "status": '404', "error": error }));
+                response.send(JSON.stringify({ status: '404', error }));
             } else {
-                response.send(JSON.stringify({ "status": '200', "error": '', "message": userData }));
+                // Convert comma-separated images string to array for each hotel
+                const hotelsWithImages = userData.map(hotel => ({
+                    ...hotel,
+                    images: hotel.images ? hotel.images.split(',') : []
+                }));
+                response.send(JSON.stringify({ status: '200', error: '', message: hotelsWithImages }));
             }
         }
     );
 };
+
 
 exports.hotelslistbyid = (request, response) => {
     const user_id = request.params.user_id;
@@ -98,15 +107,42 @@ exports.hotelslistcountbyid = (request, response) => {
 
 
 exports.singlehotellist = (request, response) => {
-    const id = { id: request.params.id };
-    db.query('SELECT * FROM hotels WHERE ?', [id], (error, hotelData) => {
+    const id = request.params.id;
+
+    const sql = `
+        SELECT 
+            h.id, h.name, h.stars, h.price_per_night, h.taxes_and_fees, h.description, h.address,
+            h.city_id, h.check_in_time, h.check_out_time, h.cancellation_policy, 
+            h.listed_by, a.full_name AS listed_by_name, c.name AS city_name,
+            GROUP_CONCAT(i.image_url) AS images
+        FROM hotels h
+        LEFT JOIN admins a ON h.listed_by = a.id
+        LEFT JOIN cities c ON h.city_id = c.city_id
+        LEFT JOIN hotel_images i ON h.id = i.hotel_id
+        WHERE h.id = ?
+        GROUP BY h.id
+    `;
+
+    db.query(sql, [id], (error, hotelData) => {
         if (error) {
-            response.send(JSON.stringify({ "status": '404', "error": error }));
-        } else {
-            response.send(JSON.stringify({ "status": '200', "error": '', "message": hotelData }));
+            return response.status(500).json({ status: '500', error: 'Database error', details: error });
         }
-    })
-}
+
+        if (hotelData.length === 0) {
+            return response.status(404).json({ status: '404', error: 'Hotel not found' });
+        }
+
+        const hotel = hotelData[0];
+
+        const formattedHotel = {
+            ...hotel,
+            images: hotel.images ? hotel.images.split(',') : []
+        };
+
+        response.status(200).json({ status: '200', error: '', message: formattedHotel });
+    });
+};
+
 
 exports.addhotel = async (request, response) => {
     const { name, stars, price_per_night, taxes_and_fees, description, address, city_id, check_in_time, check_out_time, cancellation_policy, listed_by } = request.body;

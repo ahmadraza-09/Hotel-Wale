@@ -36,14 +36,15 @@ exports.getimages = (req, res) => {
 
 exports.uploadImages = (req, res) => {
     const hotel_id = req.params.hotel_id;
-    const imageUrls = req.body.imageUrls; // Array from frontend
+    const imageUrls = req.body.imageUrls;
 
     if (!Array.isArray(imageUrls) || imageUrls.length === 0) {
         return res.status(400).json({ error: "No image URLs provided" });
     }
 
-    const values = imageUrls.map((url) => [hotel_id, url]);
-    const sql = "INSERT INTO hotel_images (hotel_id, image_url) VALUES ?";
+    const values = imageUrls.map((url, index) => [hotel_id, url, index === 0 ? 1 : 0]);
+
+    const sql = "INSERT INTO hotel_images (hotel_id, image_url, isPrimary) VALUES ?";
 
     db.query(sql, [values], (err, result) => {
         if (err) {
@@ -52,6 +53,7 @@ exports.uploadImages = (req, res) => {
         res.status(200).json({ message: "Images uploaded", urls: imageUrls });
     });
 };
+
 
 
 exports.deleteimage = async (req, res) => {

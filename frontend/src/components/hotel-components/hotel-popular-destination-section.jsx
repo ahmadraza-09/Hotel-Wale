@@ -1,10 +1,23 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from "react-router-dom";
 
 const HotelPopularDestinationSection = () => {
     const navigate = useNavigate();
-
     const [isHovered, setIsHovered] = useState(false);
+    const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
+
+    // Sync theme for icon switching, but do NOT manipulate document.documentElement here
+    useEffect(() => {
+        const syncTheme = () => {
+            setTheme(localStorage.getItem("theme") || "light");
+        };
+        window.addEventListener("storage", syncTheme);
+        window.addEventListener("themechange", syncTheme);
+        return () => {
+            window.removeEventListener("storage", syncTheme);
+            window.removeEventListener("themechange", syncTheme);
+        };
+    }, []);
 
     const categories = [
         { title: "Corbett", state: "Uttrakhand, India", img: 'https://cf.bstatic.com/xdata/images/hotel/max1024x768/464017962.jpg?k=5e22249570708eb8628a2ff6cd60348373da2f4f8f24f25b45a432387a9e6490&o=&hp=1' },
@@ -28,16 +41,18 @@ const HotelPopularDestinationSection = () => {
 
     return (
         <div
-            className="relative w-full bg-white py-8 px-4"
+            className="relative w-full py-8 px-4 transition-colors bg-white dark:bg-gray-900"
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
         >
-            <h2 className="text-center sm:text-start text-xl sm:text-2xl mb-6 font-TTHovesMedium sm:ml-10">Explore stays in popular destinations</h2>
+            <h2 className="text-center sm:text-start text-xl sm:text-2xl mb-6 font-TTHovesMedium sm:ml-10 text-black dark:text-white">
+                Explore stays in popular destinations
+            </h2>
             <div className="overflow-x-auto destination-container flex gap-4 py-4 hide-scrollbar max-w-6xl m-auto scroll-smooth">
                 {categories.map((category, index) => (
                     <div
                         key={index}
-                        className="flex-shrink-0 w-[250px] h-[230px] rounded-2xl overflow-hidden relative cursor-pointer border-[1px]"
+                        className="flex-shrink-0 w-[250px] h-[230px] rounded-2xl overflow-hidden relative cursor-pointer border-[1px] bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700"
                         onClick={() => {
                             // Navigate to the hotels page for the specific city with the desired format
                             navigate(`/hotels/hotels-in-${category.title.toLowerCase().replace(/\s+/g, '-')}`);
@@ -50,7 +65,7 @@ const HotelPopularDestinationSection = () => {
                                 className="w-full h-40 object-cover"
                             />
                         </div>
-                        <div className="px-4 py-2 text-start absolute bottom-0 z-10 bg-white w-full">
+                        <div className="px-4 py-2 text-start absolute bottom-0 z-10 w-full bg-white dark:bg-gray-900 text-black dark:text-white">
                             <span className='font-TTHovesMedium'>{category.title}</span> <br />
                             <span className='font-TTHovesLight text-sm'>{category.state}</span>
                         </div>
@@ -61,13 +76,13 @@ const HotelPopularDestinationSection = () => {
             {isHovered && (
                 <>
                     <button
-                        className="absolute left-8 top-56 transform -translate-y-1/2 bg-white p-2 rounded-full shadow-lg cursor-pointer hidden sm:inline-flex"
+                        className="absolute left-8 top-56 transform -translate-y-1/2 p-2 rounded-full shadow-lg cursor-pointer hidden sm:inline-flex bg-white dark:bg-gray-800"
                         onClick={() => scrollHorizontally("prev")}
                         aria-label="Show previous card"
                     >
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
-                            className="w-6 h-6 text-gray-800"
+                            className="w-6 h-6 text-gray-800 dark:text-white"
                             viewBox="0 0 20 20"
                             fill="currentColor"
                         >
@@ -80,15 +95,16 @@ const HotelPopularDestinationSection = () => {
                     </button>
 
                     <button
-                        className="absolute right-8 top-56 transform -translate-y-1/2 bg-white p-2 rounded-full shadow-lg cursor-pointer hidden sm:inline-flex"
+                        className="absolute right-8 top-56 transform -translate-y-1/2 p-2 rounded-full shadow-lg cursor-pointer hidden sm:inline-flex bg-white dark:bg-gray-800"
                         onClick={() => scrollHorizontally("next")}
                         aria-label="Show next card"
                     >
                         <svg
-                            className="w-6 h-6 text-gray-800"
+                            className="w-6 h-6 text-gray-800 dark:text-white"
                             viewBox="0 0 24 24"
                             xmlns="http://www.w3.org/2000/svg"
                             aria-hidden="true"
+                            fill="currentColor"
                         >
                             <path
                                 fillRule="evenodd"

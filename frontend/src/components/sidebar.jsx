@@ -1,21 +1,53 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Hotel from "../assets/icons/hotel-icon.png";
 import Bus from "../assets/icons/bus-icon.svg";
 import Car from "../assets/icons/car-icon.svg";
 import Flight from "../assets/icons/flight-icon.svg";
-import Explore from "../assets/icons/website-icon.svg";
+import Explore from "../assets/icons/explore-icon.svg";
+import ExploreDark from "../assets/icons/explore-icon-dark.svg"; 
 import Time from "../assets/icons/timer-icon.svg";
+import TimeDark from "../assets/icons/timer-icon-dark.svg"; 
 import SuiteCase from "../assets/icons/suitecase-icon.svg";
+import SuiteCaseLogoDark from "../assets/icons/suitcase-icon-dark.svg"; 
 import Heart from "../assets/icons/heart-icon.svg";
+import HeartDark from "../assets/icons/heart-icon-dark.svg"; 
 import Feedback from "../assets/icons/feedback-icon.svg";
+import FeedbackDark from "../assets/icons/feedback-icon-dark.svg"; 
 import Flag from "../assets/icons/india.svg";
 import Support from "../assets/icons/support-icon.svg";
+import SupportDark from "../assets/icons/support-icon-dark.svg";
+import darkModeIcon from "../assets/icons/dark-icon.svg";
 
 const Sidebar = ({ isOpen, toggleSidebar }) => {
   const [showScrollbar, setShowScrollbar] = useState(false);
+  const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
 
   const navigate = useNavigate();
+
+  // Sync theme state with localStorage and html class
+  useEffect(() => {
+    if (theme === "dark") {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+    localStorage.setItem("theme", theme);
+  }, [theme]);
+
+  const handleThemeToggle = () => {
+    const newTheme = theme === "dark" ? "light" : "dark";
+    setTheme(newTheme);
+    localStorage.setItem("theme", newTheme);
+    if (newTheme === "dark") {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+    // Optionally, dispatch a custom event for same-tab updates
+    window.dispatchEvent(new Event("themechange"));
+  };
+
   return (
     <div>
       {/* Overlay for focus */}
@@ -28,7 +60,7 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
 
       {/* Sidebar */}
       <div
-        className={`fixed top-15 left-0 h-full w-64 bg-white text-black transform font-TTHovesRegular rounded-sm ${
+        className={`fixed top-15 left-0 h-full w-64 bg-white dark:bg-gray-900 text-black dark:text-white transform font-TTHovesRegular rounded-sm ${
           showScrollbar ? "overflow-y-scroll" : "overflow-hidden"
         } pb-52 ${
           isOpen ? "translate-x-0" : "-translate-x-full"
@@ -59,7 +91,7 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
             </a>
           </li> */}
           <li
-            className="hover:bg-gray-100 rounded px-2 py-2 cursor-pointer"
+            className="hover:bg-gray-100 dark:hover:bg-gray-800 rounded px-2 py-2 cursor-pointer"
             onClick={() => {
               navigate("/hotels");
             }}
@@ -80,7 +112,7 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
             </a>
           </li>
           <li
-            className="hover:bg-gray-100 rounded px-2 py-2 cursor-pointer"
+            className="hover:bg-gray-100 dark:hover:bg-gray-800 rounded px-2 py-2 cursor-pointer"
             onClick={() => {
               navigate("/bus");
             }}
@@ -101,7 +133,7 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
             </a>
           </li>
           <li
-            className="hover:bg-gray-100 rounded px-2 py-2 pb-5 border-b-[1.5px]"
+            className="hover:bg-gray-100 dark:hover:bg-gray-800 rounded px-2 py-2 pb-5 border-b-[1.5px] cursor-pointer"
             onClick={() => {
               navigate("/");
             }}
@@ -120,100 +152,91 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
               Car Rental
             </a>
           </li>
-          <li className="hover:bg-gray-100 rounded px-2 py-2">
+          <li className="hover:bg-gray-100 dark:hover:bg-gray-800 rounded px-2 py-2">
             <a href="/explore" className="flex items-center gap-5">
-              <svg
-                viewBox="0 0 200 200"
-                width="1.25em"
-                height="1.25em"
-                xmlns="http://www.w3.org/2000/svg"
-                class="ncEv dJtn-menu-item-icon"
-                role="presentation"
-                aria-hidden="true"
-              >
-                <path d="M169.88 138.9h0a79.85 79.85 0 00-3.83-84c-.1-.15-.22-.29-.33-.44a79.91 79.91 0 00-131.3-.2c-.15.22-.33.43-.48.65c-1.37 2-2.63 4.07-3.82 6.2h0a79.85 79.85 0 003.83 84c.1.15.22.29.33.44a79.91 79.91 0 00131.3.2c.15-.22.33-.43.48-.65c1.37-2 2.63-4.1 3.82-6.2zM100 114.55a110.59 110.59 0 00-20.32 2a93.19 93.19 0 01-.05-33a111 111 0 0020.37 2a110.17 110.17 0 0020.37-2a96.15 96.15 0 011.45 16.45a98.18 98.18 0 01-1.5 16.52a111.13 111.13 0 00-20.32-1.97zm16.78 16.12a97.25 97.25 0 01-16.78 31a97.09 97.09 0 01-16.78-31a95.82 95.82 0 0116.78-1.58a98.8 98.8 0 0116.78 1.58zM83.17 69.32a101.72 101.72 0 0116.83-31a101.79 101.79 0 0116.83 31A95.33 95.33 0 01100 70.91a98.56 98.56 0 01-16.83-1.59zm51.35 10.6a115.45 115.45 0 0023.28-10.56a65.2 65.2 0 010 61.27a113 113 0 00-23.38-10.54a113.12 113.12 0 001.94-20.09a111.07 111.07 0 00-1.84-20.08zm15-22.59A100.53 100.53 0 01131 65.78a115.69 115.69 0 00-14.12-28.95a65.42 65.42 0 0132.64 20.5zm-66.39-20.5a115.75 115.75 0 00-14.08 28.85a98.56 98.56 0 01-18.56-8.37a65.51 65.51 0 0132.64-20.48zM65.49 79.88a107.94 107.94 0 00.07 40.17a115.19 115.19 0 00-23.36 10.59a65.2 65.2 0 010-61.27a113 113 0 0023.29 10.51zm-15 62.79a100.14 100.14 0 0118.61-8.47a112.19 112.19 0 0014 29a65.4 65.4 0 01-32.62-20.53zm66.46 20.48a112.49 112.49 0 0013.94-28.85a98.23 98.23 0 0118.63 8.39a65.45 65.45 0 01-32.58 20.46z"></path>
-              </svg>{" "}
+              <img
+                src={theme === "dark" ? ExploreDark : Explore}
+                alt="Explore"
+                className="w-5"
+              />
               Explore
             </a>
           </li>
-          <li className="hover:bg-gray-100 rounded px-2 py-2">
+          <li className="hover:bg-gray-100 dark:hover:bg-gray-800 rounded px-2 py-2">
             <a href="/best-time-to-travel" className="flex items-center gap-5 ">
-              <svg
-                viewBox="0 0 200 200"
-                width="1.25em"
-                height="1.25em"
-                xmlns="http://www.w3.org/2000/svg"
-                class="ncEv dJtn-menu-item-icon"
-                role="presentation"
-                aria-hidden="true"
-              >
-                <path d="M99.92 20C55.76 20 20 55.84 20 100s35.76 80 79.92 80c44.24 0 80.08-35.84 80.08-80s-35.84-80-80.08-80zm21.221 106.432C94.917 110.697 92.5 110.659 92.5 105V60h15v40.754l21.359 12.814l-7.718 12.864z"></path>
-              </svg>{" "}
+              <img
+                src={theme === "dark" ? TimeDark : Time}
+                alt="Best Time to Travel"
+                className="w-5"
+              />
               Best Time to Travel
             </a>
           </li>
-          <li className="hover:bg-gray-100 rounded px-2 py-2">
+          <li className="hover:bg-gray-100 dark:hover:bg-gray-800 rounded px-2 py-2">
             <a href="/business" className="flex items-center gap-5">
-              <svg
-                viewBox="0 0 200 200"
-                width="1.25em"
-                height="1.25em"
-                xmlns="http://www.w3.org/2000/svg"
-                class="ncEv dJtn-menu-item-icon"
-                role="presentation"
-                aria-hidden="true"
-              >
-                <path d="M78.182 42h43.636v14.5h14.546V41.855c0-7.924-6.451-14.355-14.407-14.355H78.044c-7.956 0-14.407 6.431-14.407 14.355V56.5h14.546V42zM20 63.75V158c0 8.004 6.516 14.5 14.545 14.5h130.909c8.029 0 14.545-6.496 14.545-14.5V63.75H20z"></path>
-              </svg>{" "}
+              <img
+                src={theme === "dark" ? SuiteCaseLogoDark : SuiteCase}
+                alt="Business Logo"
+                className="w-5"
+              />
               LOGO for Business
             </a>
           </li>
-          <li className="hover:bg-gray-100 rounded px-2 py-5 border-t-[1.5px] border-b-[1.5px]">
+          <li className="hover:bg-gray-100 dark:hover:bg-gray-800 rounded px-2 py-5 border-t-[1.5px] border-b-[1.5px]">
             <a href="/trips" className="flex items-center gap-5">
-              <svg
-                viewBox="0 0 200 200"
-                width="1.25em"
-                height="1.25em"
-                xmlns="http://www.w3.org/2000/svg"
-                class="ncEv dJtn-menu-item-icon"
-                role="presentation"
-                aria-hidden="true"
-              >
-                <path d="M176.54 34.58c-8.61-8.83-20.13-13.99-32.29-14.53c-21.53-.97-36.06 12.06-43.92 22.17c-7.86-10.12-22.39-23.14-43.92-22.17c-12.27.54-23.68 5.7-32.29 14.53c-8.72 8.93-13.45 20.56-13.45 32.83c0 19.27 10.98 41.01 32.51 64.58c17.11 18.73 32.29 33.15 46.28 44.24c3.23 2.48 7.1 3.77 10.87 3.77s7.64-1.29 10.87-3.77c14.1-11.09 29.17-25.51 46.28-44.24c21.53-23.57 32.51-45.32 32.51-64.58c0-12.27-4.74-23.9-13.46-32.83z"></path>
-              </svg>{" "}
+              <img
+                src={theme === "dark" ? HeartDark : Heart}
+                alt="Trips"
+                className="w-5"
+              />
               Trips
             </a>
           </li>
-          <li className="hover:bg-gray-100 rounded px-2 py-2">
+          <li className="hover:bg-gray-100 dark:hover:bg-gray-800 rounded px-2 py-2">
             <a href="/language" className="flex items-center gap-5">
               <img src={Flag} alt="" className="w-5" /> English
             </a>
           </li>
-          <li className="hover:bg-gray-100 rounded px-2 py-2">
+          <li className="hover:bg-gray-100 dark:hover:bg-gray-800 rounded px-2 py-2">
             <a href="/currency" className="flex items-center gap-5">
               <span className="mr-0 text-xl">₹</span>{" "}
               <span className="ml-2">Indian Rupee</span>
             </a>
           </li>
-          <li className="hover:bg-gray-100 rounded px-2 py-2">
+          <li className="hover:bg-gray-100 dark:hover:bg-gray-800 rounded px-2 py-2">
             <a href="/feedback" className="flex items-center gap-5">
-              <svg
-                viewBox="0 0 200 200"
-                width="1.25em"
-                height="1.25em"
-                xmlns="http://www.w3.org/2000/svg"
-                class="dJtn-menu-item-icon"
-                role="presentation"
-                aria-hidden="true"
-              >
-                <path d="M163.83 30.34H36.37a16.15 16.15 0 00-16 16v95.19a16 16 0 0016.2 15.97l23.6-.2l18.62 32.36L97.61 157h66.12a16 16 0 0015.93-15.93v-94.9a15.81 15.81 0 00-15.83-15.83zM58.28 131.81l5.48-22.91l50.68-49.58l16 15.63c-59.91 58.65-43.58 47.3-72.16 56.86zm80.15-64.63c-3.58 3.49.3 5.48-18.71-13l2.68-2.59c10.66-10.39 26.6 5.24 16.03 15.59z"></path>
-              </svg>{" "}
+              <img
+                src={theme === "dark" ? FeedbackDark : Feedback}
+                alt="Feedback"
+                className="w-5"
+              />
               Feedback
             </a>
           </li>
-          <li className="hover:bg-gray-100 rounded px-2 py-2">
+          <li className="hover:bg-gray-100 dark:hover:bg-gray-800 rounded px-2 py-2">
             <a href="/feedback" className="flex items-center gap-5">
-              <img src={Support} alt="" className="w-5" /> Support
+              <img
+                src={theme === "dark" ? SupportDark : Support}
+                alt="Support"
+                className="w-5"
+              />
+              Support
+            </a>
+          </li>
+          <li
+            className="hover:bg-gray-100 dark:hover:bg-gray-800 rounded px-2 py-2 cursor-pointer transition-colors"
+            onClick={handleThemeToggle}
+          >
+            <a href="#" className="flex items-center gap-5">
+              <img
+                src={darkModeIcon}
+                alt="dark mode icon"
+                className="w-5"
+                style={{
+                  filter: theme === "dark" ? "invert(1)" : "none"
+                }}
+              />
+              {theme === "dark" ? "Light mode" : "Dark mode"}
             </a>
           </li>
         </ul>

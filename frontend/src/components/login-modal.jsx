@@ -26,17 +26,33 @@ const LoginModal = ({ isOpen, onClose }) => {
   const emailRegex = /^[a-z A-Z 0-9]+@[a-z]+\.[a-z]{2,6}$/;
   const passwordRegex = /^(?=.*[a-zA-Z0-9]).{8,}$/;
 
+  // Sync dark mode with sidebar/global theme
+  const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
+  useEffect(() => {
+    const syncTheme = () => {
+      const storedTheme = localStorage.getItem("theme") || "light";
+      setTheme(storedTheme);
+      if (storedTheme === "dark") {
+        document.documentElement.classList.add("dark");
+      } else {
+        document.documentElement.classList.remove("dark");
+      }
+    };
+    syncTheme();
+    window.addEventListener("storage", syncTheme);
+    return () => window.removeEventListener("storage", syncTheme);
+  }, []);
+
   useEffect(() => {
     if (isLogin) {
       setFull_Name("Ahmad");
       setPhone("2222222232");
       setIdentifier("");
       setEmail("ahmadraza123@gmail.com");
-      // resetForm(); // Clear all values first
     }
     if (!isLogin) {
       setIdentifier("8877878788");
-      resetForm(); // Clear everything for new registration
+      resetForm();
     }
   }, [isLogin]);
 
@@ -107,7 +123,6 @@ const LoginModal = ({ isOpen, onClose }) => {
 
                 onClose();
                 navigate("/hotels");
-                // setNotification(true);
                 loginNotify();
 
                 console.log(
@@ -179,9 +194,9 @@ const LoginModal = ({ isOpen, onClose }) => {
     <div
       id="modal"
       onClick={handleOutsideClick}
-      className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50 p-4"
+      className={`fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50 p-4`}
     >
-      <div className="bg-white sm:p-6 p-4 rounded-xl w-full max-w-md shadow-lg">
+      <div className={`bg-white dark:bg-gray-900 sm:p-6 p-4 rounded-xl w-full max-w-md shadow-lg text-black dark:text-white transition-colors`}>
         <h2 className="text-2xl font-semibold mb-4 text-center">
           {isLogin ? "Welcome Back 👋" : "Register Now"}
         </h2>
@@ -197,14 +212,14 @@ const LoginModal = ({ isOpen, onClose }) => {
                 placeholder="Full Name"
                 value={full_name}
                 onChange={(e) => setFull_Name(e.target.value)}
-                className="w-full px-4 py-2 border rounded"
+                className="w-full px-4 py-2 border rounded bg-white dark:bg-gray-800 text-black dark:text-white"
               />
               <input
                 type="text"
                 placeholder="Mobile Number"
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}
-                className="w-full px-4 py-2 border rounded"
+                className="w-full px-4 py-2 border rounded bg-white dark:bg-gray-800 text-black dark:text-white"
               />
             </>
           )}
@@ -216,14 +231,14 @@ const LoginModal = ({ isOpen, onClose }) => {
                 placeholder="Email or Mobile Number"
                 value={identifier}
                 onChange={(e) => setIdentifier(e.target.value)}
-                className="w-full px-4 py-2 border rounded mb-2"
+                className="w-full px-4 py-2 border rounded mb-2 bg-white dark:bg-gray-800 text-black dark:text-white"
               />
               <input
                 type="password"
                 placeholder="Password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className="w-full px-4 py-2 border rounded"
+                className="w-full px-4 py-2 border rounded bg-white dark:bg-gray-800 text-black dark:text-white"
               />
             </>
           )}
@@ -235,21 +250,21 @@ const LoginModal = ({ isOpen, onClose }) => {
                 placeholder="Email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="w-full px-4 py-2 border rounded"
+                className="w-full px-4 py-2 border rounded bg-white dark:bg-gray-800 text-black dark:text-white"
               />
               <input
                 type="password"
                 placeholder="Password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className="w-full px-4 py-2 border rounded"
+                className="w-full px-4 py-2 border rounded bg-white dark:bg-gray-800 text-black dark:text-white"
               />
             </>
           )}
 
           <div className="flex gap-4">
             <button
-              className="w-[50%] bg-slate-200 rounded"
+              className="w-[50%] bg-slate-200 dark:bg-gray-700 text-black dark:text-white rounded"
               onClick={onClose}
               type="button"
             >
@@ -271,8 +286,6 @@ const LoginModal = ({ isOpen, onClose }) => {
               onClick={() => {
                 setIsLogin(!isLogin);
                 getFormerror("");
-                // resetForm();
-                // navigate("/");
               }}
               className="text-blue-600 ml-2 hover:underline"
               type="button"

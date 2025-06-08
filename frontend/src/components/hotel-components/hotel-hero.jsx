@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import hotelsData from "../../data/hotels-data";
 
@@ -20,6 +20,27 @@ const HotelHero = () => {
     const [checkOutDate, setCheckOutDate] = useState("");
     const [guestDropdownOpen, setGuestDropdownOpen] = useState(false);
     const [guests, setGuests] = useState({ rooms: 1, adults: 1, children: 0 });
+
+    // Dark mode sync with sidebar/global theme
+    const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
+    useEffect(() => {
+        const syncTheme = () => {
+            const storedTheme = localStorage.getItem("theme") || "light";
+            setTheme(storedTheme);
+            if (storedTheme === "dark") {
+                document.documentElement.classList.add("dark");
+            } else {
+                document.documentElement.classList.remove("dark");
+            }
+        };
+        syncTheme();
+        window.addEventListener("storage", syncTheme);
+        window.addEventListener("themechange", syncTheme);
+        return () => {
+            window.removeEventListener("storage", syncTheme);
+            window.removeEventListener("themechange", syncTheme);
+        };
+    }, []);
 
     const handleDestinationChange = (e) => {
         const value = e.target.value;
@@ -64,9 +85,9 @@ const HotelHero = () => {
 
     return (
         <div className="sm:p-6 font-TTHovesMedium p-0">
-            <div className="max-w-9xl w-full mx-auto bg-gray-100 rounded-2xl px-5 py-5">
+            <div className="max-w-9xl w-full mx-auto bg-white dark:bg-gray-800 rounded-2xl px-5 py-5 transition-colors">
                 {/* Header */}
-                <h1 className="text-4xl font-bold text-gray-800 text-start mb-6 hidden sm:inline-flex font-TTHovesBold">
+                <h1 className="text-4xl font-bold text-gray-800 dark:text-white text-start mb-6 hidden sm:inline-flex font-TTHovesBold">
                     Your Hotel, Your Choice – Explore Now !
                 </h1>
 
@@ -74,7 +95,7 @@ const HotelHero = () => {
                 <div className="flex justify-around sm:justify-start sm:gap-10 mb-6 py-5">
                     {/* Hotels */}
                     <div className="flex flex-col gap-2 justify-center items-center">
-                        <button className={`w-[52px] h-[52px] py-2 px-4 rounded-md shadow-custom ${isActive("/") || isActive("/hotel") ? "bg-myColor text-white" : "bg-white text-gray-800"
+                        <button className={`w-[52px] h-[52px] py-2 px-4 rounded-md shadow-custom ${isActive("/") || isActive("/hotel") ? "bg-myColor text-white" : "bg-white dark:bg-gray-900 text-gray-800 dark:text-white"
                             } hover:bg-myColor hover:text-white`} onClick={() => {
                                 navigate("/hotels");
                             }}>
@@ -95,7 +116,7 @@ const HotelHero = () => {
 
                     {/* Bus */}
                     <div className="flex flex-col gap-2 justify-center items-center">
-                        <button className={`w-[52px] h-[52px] py-2 px-4 rounded-md shadow-custom ${isActive("/bus") ? "bg-myColor text-white" : "bg-white text-gray-800"
+                        <button className={`w-[52px] h-[52px] py-2 px-4 rounded-md shadow-custom ${isActive("/bus") ? "bg-myColor text-white" : "bg-white dark:bg-gray-900 text-gray-800 dark:text-white"
                             } hover:bg-myColor hover:text-white`} onClick={() => {
                                 navigate("/bus");
                             }}>
@@ -116,7 +137,7 @@ const HotelHero = () => {
 
                     {/* Car Rental */}
                     <div className="flex flex-col gap-2 justify-center items-center">
-                        <button className={`w-[52px] h-[52px] py-2 px-4 rounded-md shadow-custom ${isActive("/car") ? "bg-myColor text-white" : "bg-white text-gray-800"
+                        <button className={`w-[52px] h-[52px] py-2 px-4 rounded-md shadow-custom ${isActive("/car") ? "bg-myColor text-white" : "bg-white dark:bg-gray-900 text-gray-800 dark:text-white"
                             } hover:bg-myColor hover:text-white`} onClick={() => {
                                 navigate("#");
                             }}>
@@ -136,7 +157,7 @@ const HotelHero = () => {
                 </div>
 
                 {/* Search Form */}
-                <div className="bg-white p-4 sm:p-6 rounded-lg shadow-md">
+                <div className="bg-white dark:bg-gray-900 p-4 sm:p-6 rounded-lg shadow-md transition-colors">
                     <form className="flex flex-col md:flex-row items-center gap-4" onSubmit={handleSubmit}>
                         {/* Destination Input */}
                         <div className="flex-grow relative w-full">
@@ -145,15 +166,15 @@ const HotelHero = () => {
                                 value={destination}
                                 onChange={handleDestinationChange}
                                 placeholder="Search for a destination"
-                                className="w-full border border-gray-300 rounded-md p-3 focus:ring-2 focus:ring-orange-500 focus:border-none focus:outline-orange-500 capitalize"
+                                className="w-full border border-gray-300 dark:border-gray-700 rounded-md p-3 focus:ring-2 focus:ring-orange-500 focus:border-none focus:outline-orange-500 capitalize bg-white dark:bg-gray-800 text-black dark:text-white"
                             />
                             {/* Destination Dropdown */}
                             {showDropdown && filteredSuggestions.length > 0 && (
-                                <ul className="absolute z-10 bg-white border border-gray-300 rounded-md mt-1 w-full max-h-60 overflow-y-scroll custom-scrollbar">
+                                <ul className="absolute z-10 bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-700 rounded-md mt-1 w-full max-h-60 overflow-y-scroll custom-scrollbar">
                                     {filteredSuggestions.map((dest, index) => (
                                         <li
                                             key={index}
-                                            className="p-2 hover:bg-gray-200 cursor-pointer capitalize"
+                                            className="p-2 hover:bg-gray-200 dark:hover:bg-gray-800 cursor-pointer capitalize"
                                             onClick={() => selectDestination(dest)}
                                         >
                                             {dest}
@@ -169,14 +190,14 @@ const HotelHero = () => {
                                 type="date"
                                 value={checkInDate}
                                 onChange={(e) => setCheckInDate(e.target.value)}
-                                className="w-[50%] border border-gray-300 rounded-md p-3 focus:ring-2 focus:border-none focus:outline-orange-500"
+                                className="w-[50%] border border-gray-300 dark:border-gray-700 rounded-md p-3 focus:ring-2 focus:border-none focus:outline-orange-500 bg-white dark:bg-gray-800 text-black dark:text-white"
                             />
-                            <span>-</span>
+                            <span className="mx-2 text-gray-600 dark:text-gray-300">-</span>
                             <input
                                 type="date"
                                 value={checkOutDate}
                                 onChange={(e) => setCheckOutDate(e.target.value)}
-                                className="w-[50%] border border-gray-300 rounded-md p-3 focus:ring-2 focus:ring-orange-500 focus:border-none focus:outline-orange-500"
+                                className="w-[50%] border border-gray-300 dark:border-gray-700 rounded-md p-3 focus:ring-2 focus:ring-orange-500 focus:border-none focus:outline-orange-500 bg-white dark:bg-gray-800 text-black dark:text-white"
                             />
                         </div>
 
@@ -185,29 +206,29 @@ const HotelHero = () => {
                             <button
                                 type="button"
                                 onClick={toggleGuestDropdown}
-                                className="lg:w-36 w-full border border-gray-300 rounded-md p-3 bg-white focus:ring-2 focus:ring-orange-500 flex justify-between items-center"
+                                className="lg:w-36 w-full border border-gray-300 dark:border-gray-700 rounded-md p-3 bg-white dark:bg-gray-800 text-black dark:text-white focus:ring-2 focus:ring-orange-500 flex justify-between items-center"
                             >
                                 {`${guests.rooms} room${guests.rooms > 1 ? "s" : ""}, ${guests.adults
                                     } guest${guests.adults + guests.children > 1 ? "s" : ""}`}
                             </button>
                             {guestDropdownOpen && (
-                                <div className="absolute -top-40 lg:top-12 bg-white border border-gray-300 rounded-md shadow-lg z-10 p-4 w-56">
+                                <div className="absolute -top-40 lg:top-12 bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-700 rounded-md shadow-lg z-10 p-4 w-56">
                                     {/* Rooms */}
                                     <div className="flex justify-between items-center mb-2">
-                                        <span>Rooms</span>
+                                        <span className="text-gray-800 dark:text-white">Rooms</span>
                                         <div className="flex items-center gap-2">
                                             <button
                                                 type="button"
                                                 onClick={() => updateGuestCount("rooms", "decrement")}
-                                                className="px-2 py-1 bg-gray-200 rounded"
+                                                className="px-2 py-1 bg-gray-200 dark:bg-gray-700 rounded text-black dark:text-white"
                                             >
                                                 -
                                             </button>
-                                            <span>{guests.rooms}</span>
+                                            <span className="text-gray-800 dark:text-white">{guests.rooms}</span>
                                             <button
                                                 type="button"
                                                 onClick={() => updateGuestCount("rooms", "increment")}
-                                                className="px-2 py-1 bg-gray-200 rounded"
+                                                className="px-2 py-1 bg-gray-200 dark:bg-gray-700 rounded text-black dark:text-white"
                                             >
                                                 +
                                             </button>
@@ -216,20 +237,20 @@ const HotelHero = () => {
 
                                     {/* Adults */}
                                     <div className="flex justify-between items-center mb-2">
-                                        <span>Adults</span>
+                                        <span className="text-gray-800 dark:text-white">Adults</span>
                                         <div className="flex items-center gap-2">
                                             <button
                                                 type="button"
                                                 onClick={() => updateGuestCount("adults", "decrement")}
-                                                className="px-2 py-1 bg-gray-200 rounded"
+                                                className="px-2 py-1 bg-gray-200 dark:bg-gray-700 rounded text-black dark:text-white"
                                             >
                                                 -
                                             </button>
-                                            <span>{guests.adults}</span>
+                                            <span className="text-gray-800 dark:text-white">{guests.adults}</span>
                                             <button
                                                 type="button"
                                                 onClick={() => updateGuestCount("adults", "increment")}
-                                                className="px-2 py-1 bg-gray-200 rounded"
+                                                className="px-2 py-1 bg-gray-200 dark:bg-gray-700 rounded text-black dark:text-white"
                                             >
                                                 +
                                             </button>
@@ -238,20 +259,20 @@ const HotelHero = () => {
 
                                     {/* Children */}
                                     <div className="flex justify-between items-center mb-2">
-                                        <span>Children</span>
+                                        <span className="text-gray-800 dark:text-white">Children</span>
                                         <div className="flex items-center gap-2">
                                             <button
                                                 type="button"
                                                 onClick={() => updateGuestCount("children", "decrement")}
-                                                className="px-2 py-1 bg-gray-200 rounded"
+                                                className="px-2 py-1 bg-gray-200 dark:bg-gray-700 rounded text-black dark:text-white"
                                             >
                                                 -
                                             </button>
-                                            <span>{guests.children}</span>
+                                            <span className="text-gray-800 dark:text-white">{guests.children}</span>
                                             <button
                                                 type="button"
                                                 onClick={() => updateGuestCount("children", "increment")}
-                                                className="px-2 py-1 bg-gray-200 rounded"
+                                                className="px-2 py-1 bg-gray-200 dark:bg-gray-700 rounded text-black dark:text-white"
                                             >
                                                 +
                                             </button>

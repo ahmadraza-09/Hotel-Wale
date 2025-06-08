@@ -1,11 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useNavigate } from 'react-router-dom';
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import hotelsData from "../../data/hotels-data"; // Ensure correct path
-
+import hotelsData from "../../data/hotels-data"; 
 import Prev from "../../assets/icons/slider-prev.svg";
 import Next from "../../assets/icons/slider-next.svg";
 
@@ -16,6 +15,27 @@ const HotelDetails = () => {
     const [isHovered, setIsHovered] = useState(false);
     const [isRoomHovered, setIsRoomHovered] = useState(false);
     const navigate = useNavigate();
+
+    // Dark mode sync with sidebar/global theme
+    const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
+    useEffect(() => {
+        const syncTheme = () => {
+            const storedTheme = localStorage.getItem("theme") || "light";
+            setTheme(storedTheme);
+            if (storedTheme === "dark") {
+                document.documentElement.classList.add("dark");
+            } else {
+                document.documentElement.classList.remove("dark");
+            }
+        };
+        syncTheme();
+        window.addEventListener("storage", syncTheme);
+        window.addEventListener("themechange", syncTheme);
+        return () => {
+            window.removeEventListener("storage", syncTheme);
+            window.removeEventListener("themechange", syncTheme);
+        };
+    }, []);
 
     // Find the hotel in your data
     const hotel = hotelsData.cities
@@ -31,7 +51,6 @@ const HotelDetails = () => {
             </div>
         );
     }
-
 
     const sliderSettings = {
         dots: true,
@@ -92,13 +111,20 @@ const HotelDetails = () => {
     };
 
     return (
-        <div className="w-full flex flex-col p-2 sm:p-6 bg-[#F2F2F2] gap-4 pb-6">
-
+        <div className={`w-full flex flex-col p-2 sm:p-6 gap-4 pb-6 transition-colors ${theme === "dark" ? "bg-gray-900" : "bg-[#F2F2F2]"}`}>
             <div className="w-full p-0 rounded-xl flex gap-2 items-center justify-start text-sm flex-wrap">
-                <span className="font-TTHovesMedium text-blue-500 cursor-pointer" onClick={() => navigate('/')}>Home</span><i class="fa-solid fa-chevron-right text-[10px] opacity-60"></i><span className="font-TTHovesMedium text-blue-500 cursor-pointer" onClick={() => navigate('/hotel')}>Hotel</span><i class="fa-solid fa-chevron-right text-[10px] opacity-60"></i><span className="font-TTHovesMedium text-blue-500 cursor-pointer" onClick={() => navigate(`/hotels/hotels-in-${city}`)}>Hotels in <span className="capitalize">{city}</span></span><i class="fa-solid fa-chevron-right text-[10px] opacity-60"></i><span className="font-TTHovesMedium text-blue-500 cursor-pointer">{hotel.name}</span>
+                <span className="font-TTHovesMedium text-blue-500 cursor-pointer" onClick={() => navigate('/')}>Home</span>
+                <i className="fa-solid fa-chevron-right text-[10px] opacity-60"></i>
+                <span className="font-TTHovesMedium text-blue-500 cursor-pointer" onClick={() => navigate('/hotel')}>Hotel</span>
+                <i className="fa-solid fa-chevron-right text-[10px] opacity-60"></i>
+                <span className="font-TTHovesMedium text-blue-500 cursor-pointer" onClick={() => navigate(`/hotels/hotels-in-${city}`)}>
+                    Hotels in <span className="capitalize">{city}</span>
+                </span>
+                <i className="fa-solid fa-chevron-right text-[10px] opacity-60"></i>
+                <span className="font-TTHovesMedium text-blue-500 cursor-pointer">{hotel.name}</span>
             </div>
 
-            <div className="w-full p-2 sm:p-4 bg-white rounded-2xl">
+            <div className={`w-full p-2 sm:p-4 rounded-2xl ${theme === "dark" ? "bg-gray-800" : "bg-white"}`}>
                 <div className="h-48 sm:h-[400px] flex gap-2 sm:gap-5 ">
                     {/* <img
                         src={hotel.images[0]}
@@ -182,7 +208,7 @@ const HotelDetails = () => {
                 </div>
 
                 <h1 className="text-xl sm:text-3xl font-bold mt-4 mb-4 font-TTHovesBold">{hotel.name}</h1>
-                <span className="bg-myColor text-white text-sm font-TTHovesMedium px-2 py-1 rounded-md"><i class="fa-solid fa-star"></i> {hotel.stars} Star Hotel</span>
+                <span className="bg-myColor text-white text-sm font-TTHovesMedium px-2 py-1 rounded-md"><i className="fa-solid fa-star"></i> {hotel.stars} Star Hotel</span>
 
                 <p className="font-TTHovesRegular my-4">{hotel.description}</p>
 
@@ -224,7 +250,7 @@ const HotelDetails = () => {
             </div>
 
             {/* Room Types */}
-            <div className="w-full p-2 sm:p-4 bg-white rounded-2xl">
+            <div className={`w-full p-2 sm:p-4 rounded-2xl ${theme === "dark" ? "bg-gray-800" : "bg-white"}`}>
                 <h2 className="sm:text-xl text-lg font-bold mb-4">{hotel.roomsCatagory.length} - Select Room Category</h2>
                 <select
                     className="w-fit p-2 border rounded-lg font-TTHovesMedium outline-none bg-myColor text-white text-md sm:text-lg"
@@ -324,33 +350,28 @@ const HotelDetails = () => {
             </div>
 
             {/* Nearby Attractions */}
-            <div className="sm:p-6 p-2 bg-white rounded-xl relative">
-                <h2 className="sm:text-2xl text-xl font-semibold font-TTHovesMedium text-gray-800 mb-4">
+            <div className={`sm:p-6 p-2 rounded-xl relative ${theme === "dark" ? "bg-gray-800" : "bg-white"}`}>
+                <h2 className={`sm:text-2xl text-xl font-semibold font-TTHovesMedium mb-4 ${theme === "dark" ? "text-white" : "text-gray-800"}`}>
                     Nearby Attractions - {hotel.name}
                 </h2>
                 <div className="space-y-4 relative">
                     {hotel.nearbyAttractions.map((attraction, index) => (
                         <div key={index} className="flex items-start relative">
                             {/* Circle (Big dot) */}
-                            <div className="absolute left-0 top-2 sm:w-4 w-4 sm:h-4 h-4 bg-gray-800 rounded-full"></div>
-
+                            <div className={`absolute left-0 top-2 sm:w-4 w-4 sm:h-4 h-4 rounded-full ${theme === "dark" ? "bg-white" : "bg-gray-800"}`}></div>
                             {/* Line connecting dots */}
                             {index !== hotel.nearbyAttractions.length - 1 && (
-                                <div className="absolute left-1.5 top-6 w-1 h-full bg-gray-200"></div>  /* Vertical line */
+                                <div className={`absolute left-1.5 top-6 w-1 h-full ${theme === "dark" ? "bg-gray-700" : "bg-gray-200"}`}></div>
                             )}
-
                             {/* Attraction Name and Description */}
-                            <div className="sm:ml-8 ml-6"> {/* Adjusted left margin to align content properly */}
-                                <h3 className="text-lg font-TripSansMedium text-gray-700">{attraction.name}</h3>
-                                <p className="text-gray-600 font-TTHovesRegular">{attraction.description}</p>
+                            <div className="sm:ml-8 ml-6">
+                                <h3 className={`text-lg font-TripSansMedium ${theme === "dark" ? "text-white" : "text-gray-700"}`}>{attraction.name}</h3>
+                                <p className={`font-TTHovesRegular ${theme === "dark" ? "text-gray-300" : "text-gray-600"}`}>{attraction.description}</p>
                             </div>
                         </div>
                     ))}
                 </div>
             </div>
-
-
-
         </div>
     );
 };

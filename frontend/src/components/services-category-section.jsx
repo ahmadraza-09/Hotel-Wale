@@ -1,10 +1,31 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 const ServicesCategorySection = () => {
     const [isHovered, setIsHovered] = useState(false);
+    const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
+
+    // Sync dark mode with sidebar/global theme
+    useEffect(() => {
+        const syncTheme = () => {
+            const storedTheme = localStorage.getItem("theme") || "light";
+            setTheme(storedTheme);
+            if (storedTheme === "dark") {
+                document.documentElement.classList.add("dark");
+            } else {
+                document.documentElement.classList.remove("dark");
+            }
+        };
+        syncTheme();
+        window.addEventListener("storage", syncTheme);
+        const interval = setInterval(syncTheme, 500); // Poll every 500ms
+        return () => {
+            window.removeEventListener("storage", syncTheme);
+            clearInterval(interval);
+        };
+    }, []);
 
     const categories = [
-        { title: "Hotel", img: 'https://seaprincess.com/cdn/uploads/Deluxe-Room-12.jpg' }, // No image provided
+        { title: "Hotel", img: 'https://seaprincess.com/cdn/uploads/Deluxe-Room-12.jpg' },
         { title: "Resort", img: 'https://media.cntraveler.com/photos/53da60a46dec627b149e66f4/master/pass/hilton-moorea-lagoon-resort-spa-moorea-french-poly--110160-1.jpg' },
         { title: "Family Freindly", img: 'https://media.istockphoto.com/id/1442607457/photo/happy-family-on-a-video-call-with-grandmother.jpg?s=612x612&w=0&k=20&c=ACJ6BGFwzE_7Hy_MrbeIe5k_L9JO3c37uunZphswT-Q=' },
         { title: "Villa", img: 'https://www.zeysey.com/storage/image/blog/01J2V8NZ8KFK88H0WER7D0KTWS.jpg' },
@@ -25,11 +46,13 @@ const ServicesCategorySection = () => {
 
     return (
         <div
-            className="relative w-full bg-white py-8 px-4"
+            className={`relative w-full py-8 px-4 transition-colors ${theme === "dark" ? "bg-gray-900" : "bg-white"}`}
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
         >
-            <h2 className="text-center sm:text-start text-xl sm:text-2xl mb-6 font-TTHovesMedium sm:ml-10">Discover your new favourite stay</h2>
+            <h2 className={`text-center sm:text-start text-xl sm:text-2xl mb-6 font-TTHovesMedium sm:ml-10 ${theme === "dark" ? "text-white" : "text-black"}`}>
+                Discover your new favourite stay
+            </h2>
             <div className="overflow-x-auto category-container flex gap-4 py-4 hide-scrollbar max-w-6xl m-auto">
                 {categories.map((category, index) => (
                     <div
@@ -43,8 +66,8 @@ const ServicesCategorySection = () => {
                         />
                         {/* Gradient Overlay */}
                         <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-75 group-hover:opacity-100 duration-300"></div>
-                        <div className="p-4 text-center font-TTHovesBold text-white absolute bottom-0">{category.title}
-
+                        <div className="p-4 text-center font-TTHovesBold text-white absolute bottom-0">
+                            {category.title}
                         </div>
                     </div>
                 ))}
@@ -53,20 +76,21 @@ const ServicesCategorySection = () => {
             {isHovered && (
                 <>
                     <button
-                        className="absolute left-8 top-64 transform -translate-y-1/2 bg-white p-2 rounded-full shadow-lg cursor-pointer hidden sm:inline-flex"
+                        className={`absolute left-8 top-64 transform -translate-y-1/2 p-2 rounded-full shadow-lg cursor-pointer hidden sm:inline-flex ${theme === "dark" ? "bg-gray-800" : "bg-white"}`}
                         onClick={() => scrollHorizontally("prev")}
                     >
-                        <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 text-gray-800" viewBox="0 0 20 20" fill="currentColor">
+                        <svg xmlns="http://www.w3.org/2000/svg" className={`w-6 h-6 ${theme === "dark" ? "text-white" : "text-gray-800"}`} viewBox="0 0 20 20" fill="currentColor">
                             <path fillRule="evenodd" d="M12.707 4.293a1 1 0 00-1.414 0L7.293 8.293a1 1 0 000 1.414l4 4a1 1 0 001.414-1.414L9.414 9l3.293-3.293a1 1 0 000-1.414z" clipRule="evenodd" />
                         </svg>
                     </button>
                     <button
-                        className="absolute right-8 top-64 transform -translate-y-1/2 bg-white p-2 rounded-full shadow-lg cursor-pointer hidden sm:inline-flex"
+                        className={`absolute right-8 top-64 transform -translate-y-1/2 p-2 rounded-full shadow-lg cursor-pointer hidden sm:inline-flex ${theme === "dark" ? "bg-gray-800" : "bg-white"}`}
                         onClick={() => scrollHorizontally("next")}
                     >
                         <svg
-                            className="w-6 h-6 text-gray-800"
+                            className={`w-6 h-6 ${theme === "dark" ? "text-white" : "text-gray-800"}`}
                             viewBox="0 0 24 24"
+                            fill="currentColor"
                             xmlns="http://www.w3.org/2000/svg"
                             aria-hidden="true"
                         >
@@ -81,8 +105,6 @@ const ServicesCategorySection = () => {
             )}
         </div>
     );
-
-
 };
 
 export default ServicesCategorySection;

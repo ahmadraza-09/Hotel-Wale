@@ -7,6 +7,7 @@ import SuperAdminPage from "./pages/super-admin";
 import { ToastContainer } from 'react-toastify';
 import SettingPage from "./pages/setting-page";
 import ListingsPage from "./pages/listings-page";
+import HotelBookingsPage from "./pages/hotel-bookings-page";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path="/login" element={<AdminLogin />} />
         <Route path="/setting" element={<SettingPage />} />
         <Route path="/listings" element={<ListingsPage />} />
+        <Route path="/hotel-bookings" element={<HotelBookingsPage />} />
         <Route path="/"
           element={
             <PrivateRoute>

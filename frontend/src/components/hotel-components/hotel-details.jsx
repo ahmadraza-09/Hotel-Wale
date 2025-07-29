@@ -59,16 +59,6 @@ const HotelDetails = () => {
   }, []);
   const [selectedRoom, setSelectedRoom] = useState("");
 
-  // Find the hotel in your data
-  // const hotel = cities
-  //   .find((c) => c.city === city)
-  //   ?.hotels.find(
-  //     (h) => h.name.replace(/\s+/g, "-").toLowerCase() === hotelName
-  //   );
-  // const [selectedRoom, setSelectedRoom] = useState(
-  //   hotel?.roomsCatagory[0] || null
-  // );
-
   if (!hotel) {
     return (
       <div className="container mx-auto p-4">
@@ -272,6 +262,12 @@ const HotelDetails = () => {
             ₹{hotel.price_per_night}/-
           </span>
         </span>
+
+        {/* Booking Button */}
+        <br />
+        <button className="bg-myColor text-white px-4 rounded-full text-xl font-bold uppercase font-TTHovesBold mt-4">
+          Book Now
+        </button>
 
         {/* Amenties */}
         <h2 className="font-TTHovesMedium text-lg sm:text-xl mt-4">

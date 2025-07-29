@@ -8,6 +8,7 @@ import EcoRetreatPage from './pages/eco-retreat-page/eco-retreat-page';
 import HotelDetailsPage from './pages/hotel-pages/hotel-details-page';
 import ProfilePage from './pages/home-page/profile-page';
 import { ToastContainer } from 'react-toastify';
+import MyBookingsPage from './pages/home-page/my-bookings-page';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path='/hotels' element={<HotelHomePage />} />
         <Route path='/bus' element={<BusHomePage />} />
         <Route path='/profile' element={<ProfilePage />} />
+        <Route path='/my-bookings' element={<MyBookingsPage />} />
         <Route path='/hotels/:city' element={<HotelListPage />} />
         <Route path='/hotels/:city/:name' element={<HotelDetailsPage />} />
         <Route path='/eco-retreat/:location' element={<EcoRetreatPage />} />

@@ -11,6 +11,7 @@ import "slick-carousel/slick/slick-theme.css";
 
 import Prev from "../../assets/icons/slider-prev.svg";
 import Next from "../../assets/icons/slider-next.svg";
+import BookingModal from "./booking-modal";
 
 const HotelDetails = () => {
   const { city } = useParams();
@@ -23,9 +24,17 @@ const HotelDetails = () => {
   const [loading, setLoading] = useState(false);
   const [hotel, setHotel] = useState([]);
   const [cities, setCities] = useState([]);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedHotelId, setSelectedHotelId] = useState(null);
   const navigate = useNavigate();
 
   const images = hotel.images || [];
+
+  const handleBookNow = (id) => {
+    setSelectedHotelId(id);
+    setIsModalOpen(true);
+    console.log("Booking hotel with ID:", id);
+  };
 
   // Fetch cities list
   const fetchCities = async () => {
@@ -265,7 +274,15 @@ const HotelDetails = () => {
 
         {/* Booking Button */}
         <br />
-        <button className="bg-myColor text-white px-4 rounded-full text-xl font-bold uppercase font-TTHovesBold mt-4">
+        <BookingModal
+          isOpen={isModalOpen}
+          onClose={() => setIsModalOpen(false)}
+          hotelId={selectedHotelId}
+        />
+        <button
+          className="bg-myColor text-white px-4 rounded-full text-xl font-bold uppercase font-TTHovesBold mt-4"
+          onClick={() => handleBookNow(hotel.id)}
+        >
           Book Now
         </button>
 

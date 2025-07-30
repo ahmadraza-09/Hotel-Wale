@@ -126,7 +126,7 @@ const Dashboard = () => {
             </thead>
             <tbody>
               {recentHotelBookings.length > 0 ? (
-                recentHotelBookings.map((booking) => (
+                recentHotelBookings.slice(0, 5).map((booking) => (
                   <tr key={booking.booking_id} className="border-t">
                     <td className="py-2 px-4">{booking.full_name || "NA"}</td>
                     <td className="py-2 px-4">{booking.hotel_name || "NA"}</td>

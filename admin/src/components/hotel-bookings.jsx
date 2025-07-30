@@ -77,20 +77,19 @@ const HotelBookings = () => {
     const secondsAgo = Math.floor((now - created) / 1000);
 
     if (secondsAgo < 60) return "just now";
-    if (secondsAgo < 3600)
-      return `${Math.floor(secondsAgo / 60)} minute(s) ago`;
+    if (secondsAgo < 3600) return `${Math.floor(secondsAgo / 60)} minute's ago`;
     if (secondsAgo < 86400)
-      return `${Math.floor(secondsAgo / 3600)} hour(s) ago`;
+      return `${Math.floor(secondsAgo / 3600)} hour's ago`;
     if (secondsAgo < 172800) return "1 day ago";
     if (secondsAgo < 604800)
-      return `${Math.floor(secondsAgo / 86400)} day(s) ago`;
+      return `${Math.floor(secondsAgo / 86400)} day's ago`;
     if (secondsAgo < 1209600) return "1 week ago";
     if (secondsAgo < 2419200)
-      return `${Math.floor(secondsAgo / 604800)} week(s) ago`;
+      return `${Math.floor(secondsAgo / 604800)} week's ago`;
     if (secondsAgo < 4838400) return "1 month ago";
 
     const monthsAgo = Math.floor(secondsAgo / 2592000); // 30 days
-    return `${monthsAgo} month(s) ago`;
+    return `${monthsAgo} month's ago`;
   };
 
   useEffect(() => {
@@ -136,8 +135,9 @@ const HotelBookings = () => {
         />
         <select className="border flex-0 rounded-md px-4 py-2">
           <option>Status</option>
-          <option>Active</option>
-          <option>Inactive</option>
+          <option value="Pending">Pending</option>
+          <option value="Confirmed">Confirmed</option>
+          <option value="Cancelled">Cancelled</option>
         </select>
         <select className="border flex-0 rounded-md px-4 py-2 ">
           <option value="Address">Address</option>

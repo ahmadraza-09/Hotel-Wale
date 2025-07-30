@@ -13,6 +13,14 @@ exports.hotelBooking = (req, res) => {
     // Assume user_id is retrieved from the logged-in user (middleware or JWT)
     // const user_id = req.user?.user_id; // Or from token/session
 
+    if (!hotel_id) {
+        return res.send(JSON.stringify({
+            status: 400,
+            error: "Missing Fields",
+            message: 'hotel_id Not provided',
+        }));
+    }
+
     if (!user_id || !check_in || !check_out || !room_type || !number_of_guests || !hotel_id) {
         return res.send(JSON.stringify({
             status: 400,
@@ -28,7 +36,7 @@ exports.hotelBooking = (req, res) => {
         check_out,
         room_type,
         number_of_guests,
-        booking_status: 'pending'
+        booking_status: 'Pending'
     };
 
     db.query('INSERT INTO hotel_bookings SET ?', bookingData, (error, result) => {
@@ -86,24 +94,28 @@ exports.getAllUserBookings = (req, res) => {
     const userId = req.params.user_id;
 
     const query = `
-        SELECT 
-            hotel_bookings.booking_id,
-            hotel_bookings.check_in,
-            hotel_bookings.check_out,
-            hotel_bookings.room_type,
-            hotel_bookings.number_of_guests,
-            hotel_bookings.booking_status,
-            users.user_id,
-            users.full_name,
-            hotels.id AS hotel_id,
-            hotels.name AS hotel_name,
-            hotel_bookings.created_at
-        FROM hotel_bookings
-        JOIN users ON hotel_bookings.user_id = users.user_id
-        JOIN hotels ON hotel_bookings.hotel_id = hotels.id
-        WHERE hotel_bookings.user_id = ?
-        ORDER BY hotel_bookings.booking_id DESC
-    `;
+    SELECT 
+        hotel_bookings.booking_id,
+        hotel_bookings.check_in,
+        hotel_bookings.check_out,
+        hotel_bookings.room_type,
+        hotel_bookings.number_of_guests,
+        hotel_bookings.booking_status,
+        users.user_id,
+        users.full_name,
+        hotels.id AS hotel_id,
+        hotels.name AS hotel_name,
+        hotel_bookings.created_at,
+        GROUP_CONCAT(hotel_images.image_url) AS hotel_images
+    FROM hotel_bookings
+    JOIN users ON hotel_bookings.user_id = users.user_id
+    JOIN hotels ON hotel_bookings.hotel_id = hotels.id
+    LEFT JOIN hotel_images ON hotels.id = hotel_images.hotel_id
+    WHERE hotel_bookings.user_id = ?
+    GROUP BY hotel_bookings.booking_id
+    ORDER BY hotel_bookings.booking_id DESC
+`;
+
 
     db.query(query, [userId], (error, results) => {
         if (error) {

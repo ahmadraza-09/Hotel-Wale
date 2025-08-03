@@ -10,17 +10,6 @@ const db = mysql.createConnection({
 exports.hotelBooking = (req, res) => {
     const { check_in, check_out, room_type, number_of_guests, hotel_id, user_id } = req.body;
 
-    // Assume user_id is retrieved from the logged-in user (middleware or JWT)
-    // const user_id = req.user?.user_id; // Or from token/session
-
-    if (!hotel_id) {
-        return res.send(JSON.stringify({
-            status: 400,
-            error: "Missing Fields",
-            message: 'hotel_id Not provided',
-        }));
-    }
-
     if (!user_id || !check_in || !check_out || !room_type || !number_of_guests || !hotel_id) {
         return res.send(JSON.stringify({
             status: 400,
@@ -29,27 +18,61 @@ exports.hotelBooking = (req, res) => {
         }));
     }
 
-    const bookingData = {
-        user_id,
-        hotel_id,
-        check_in,
-        check_out,
-        room_type,
-        number_of_guests,
-        booking_status: 'Pending'
-    };
+    // First check availability
+    const checkQuery = `
+        SELECT COUNT(*) AS conflict_count 
+        FROM hotel_bookings 
+        WHERE hotel_id = ? 
+          AND room_type = ? 
+          AND booking_status = 'Confirmed' 
+          AND check_in < ? 
+          AND check_out > ?
+    `;
 
-    db.query('INSERT INTO hotel_bookings SET ?', bookingData, (error, result) => {
-        if (error) {
+    db.query(checkQuery, [hotel_id, room_type, check_out, check_in], (err, result) => {
+        if (err) {
             return res.send(JSON.stringify({
                 status: 500,
-                error,
-                message: "Booking failed"
+                error: err,
+                message: "Database error while checking availability"
             }));
-        } else {
-            res.send(JSON.stringify({ status: 200, message: "Booking successful", result }));
         }
 
+        const isAvailable = result[0].conflict_count === 0;
+
+        if (!isAvailable) {
+            return res.send(JSON.stringify({
+                status: 409,
+                message: "Room is not available in the selected date range"
+            }));
+        }
+
+        // Proceed to booking
+        const bookingData = {
+            user_id,
+            hotel_id,
+            check_in,
+            check_out,
+            room_type,
+            number_of_guests,
+            booking_status: 'Pending'
+        };
+
+        db.query('INSERT INTO hotel_bookings SET ?', bookingData, (error, result) => {
+            if (error) {
+                return res.send(JSON.stringify({
+                    status: 500,
+                    error,
+                    message: "Booking failed"
+                }));
+            } else {
+                res.send(JSON.stringify({
+                    status: 200,
+                    message: "Booking successful",
+                    booking_id: result.insertId
+                }));
+            }
+        });
     });
 };
 
